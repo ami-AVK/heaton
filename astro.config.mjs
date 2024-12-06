@@ -13,5 +13,5 @@ export default defineConfig({
         svg: true,
       },
     site: 'https://ami-avk.github.io/',
-    base: 'heaton',
+    base: '/heaton',
 });
