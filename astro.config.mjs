@@ -11,5 +11,7 @@ export default defineConfig({
         responsiveImages: true,
         // @ts-ignore
         svg: true,
-      }
+      },
+    site: 'https://ami-avk.github.io/',
+    base: 'heaton',
 });
