@@ -79,13 +79,13 @@ const pathname = `/${paths[0].props.category}/${paths[0].props.model}/${paths[0]
   </div>
   
 <script >
-    async function startFuse(input: HTMLInputElement,dataMap: Array<any>){
-      const FuseModule = await import('fuse.js');
-      const Fuse = FuseModule.default;
-      const fuse = new Fuse(dataMap, {keys: ['id', 'model', 'power']});
-      return fuse;
-      // input.addEventListener('onInput', fuse
-    }
+    // async function startFuse(input: HTMLInputElement,dataMap: Array<any>){
+    //   const FuseModule = await import('fuse.js');
+    //   const Fuse = FuseModule.default;
+    //   const fuse = new Fuse(dataMap, {keys: ['id', 'model', 'power']});
+    //   return fuse;
+    //   // input.addEventListener('onInput', fuse
+    // }
     document.addEventListener('astro:page-load', () => {
       
       const search_btn= document.getElementById("search-btn") as HTMLBaseElement;
@@ -94,7 +94,7 @@ const pathname = `/${paths[0].props.category}/${paths[0].props.model}/${paths[0]
       // document.getElementById("main-search-close").addEventListener('click', (e) => closeSearch(e));
       document.addEventListener('keydown', (event) => event.key === "Escape"?closeSearch():"");
       search_input.addEventListener('blur', (e) => closeSearch());
-      startFuse(search_input,[{id:'112-3223',model:"C10 2000x300",power:1321},{id:'212-3223',model:"VC10 2000x300",power:321}]);
+      // startFuse(search_input,[{id:'112-3223',model:"C10 2000x300",power:1321},{id:'212-3223',model:"VC10 2000x300",power:321}]);
     });
     function openSearch() {
         const search = document.getElementById("search-btn") as HTMLInputElement;
