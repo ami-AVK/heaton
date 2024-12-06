@@ -1,0 +1,223 @@
+---
+import { getCollection } from "astro:content";
+// import CsvTable from '../../../components/Table.astro';
+import fs from "fs";
+import path from "path";
+import { glob, globSync, globStream, globStreamSync, Glob } from "glob";
+import NavBar from "../../../components/NavBar.astro";
+import Table from "../../../components/Table.astro";
+import CircleLink from "../../../components/CircleLink.astro";
+import ProductData from "../../../components/ProductData.astro";
+import Button from "../../../components/Button.astro";
+import { ClientRouter } from "astro:transitions";
+import "../../../styles/main.css";
+import { Image } from "astro:assets"
+import Footer from "../../../components/Footer.astro";
+
+const csvCollection = await glob(["./src/data/**/**/*.csv"]);
+
+export async function getStaticPaths() {
+
+  const collection = await glob(["./src/data/**/**/*.csv"]);
+  const paths = collection.map((file) => ({
+    params: {
+      category: file.split("/")[2],
+      model: file.split("/")[3],
+      type: file.split("/")[4].replace(".csv", ""),
+    },
+    props: {
+      filePath: file.toString(),
+      category: file.split("/")[2],
+      model: file.split("/")[3],
+      type: file.split("/")[4].replace(".csv", ""),
+    },
+  }));
+  return paths;
+}
+
+const imageFiles = await glob(["./src/data/**/**/*.webp"]);
+const imageCollection = imageFiles.map((file) => ({
+    id: `${path.dirname(file)}/${path.basename(file, '.webp')}`,
+    ext: path.extname(file),
+    path: path.dirname(file),
+    filename: path.basename(file, '.webp'),
+  }));
+
+// console.log(Astro.params.filePath);
+const csvFile = Astro.props.filePath;
+const model = Astro.props.model;
+const type = Astro.props.type;
+if (!csvFile) {
+  throw new Error("CSV file not found");
+}
+
+// const csvFilePath = path.join(process.cwd(), 'src/content/csv', ...Astro.params.path, csvFile.content);
+// const csvData = fs.readFileSync(csvFilePath, 'utf-8');
+const csvFilePath = path.join(process.cwd(), csvFile);
+const jsonPath = path.join(process.cwd(), `${csvFile.substring(0,csvFile.lastIndexOf('.csv'))}_data.json`);
+const imagePath = path.join(process.cwd(), `${csvFile.substring(0,csvFile.lastIndexOf('.csv'))}_image.webp`);
+const csvData = fs.readFileSync(csvFilePath, "utf-8");
+const pathname = new URL(Astro.request.url);
+
+const image = imageCollection.find((file) => file.id === Astro.props.filePath.substring(0,csvFile.lastIndexOf('.csv')));
+
+const imageFilePath = `/${image.id}.webp`
+console.log(imageFilePath);
+
+const links = [
+  { href: '/Стальные панельные радиаторы', text: 'Продукция' },
+  { href: '#', text: 'Документация' },
+];
+
+---
+
+<html lang="ru" class="bg-stone-700">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- <meta name="generator" content={Astro.generator} /> -->
+    <title>Heaton</title>
+  </head>
+
+  <body class="bg-stone-100">
+    <ClientRouter/>
+    <!-- hero -->
+
+    <div class="w-full bg-gradient-to-br from-stone-700 to-stone-600">
+      <div class="max-w-6xl mx-auto py-8 relative px-4 md:px-8 lg:px-16">
+        <NavBar />
+      </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 lg:px-4 mb-16">
+      <!--  -->
+      <div class="flex-col justify-start items-start inline-flex py-12 ">
+        <h2 class="grow shrink basis-0 self-stretch text-stone-800 text-base font-bold leading-normal tracking-wider pb-2">Стальные панельные радиаторы:</h2>
+        <div class="justify-start items-center gap-6 inline-flex">
+          {
+            [{name:"Compact (C)", url:"/Стальные панельные радиаторы/Compact (C)/11"},{name:"Ventil Compact (VC)", url:"/Стальные панельные радиаторы/Ventil Compact (VC)/11"},{name:"Hygiene Compact (HC)", url:"/Стальные панельные радиаторы/Hygiene Compact (HC)/10"},{name:"Hygiene Ventil Compact (HVC)", url:"/Стальные панельные радиаторы/Hygiene Ventil Compact (HVC)/10"}].map((file) => (
+            <div class="justify-center items-start gap-1 flex">
+              <a href={file.url} class="px-2 py-1 rounded-3xl justify-start items-center gap-1 flex hover:bg-gray-50">
+                <img class="w-16 h-16 rounded-xl" src="https://via.placeholder.com/64x64" />
+                <div class="text-stone-700 text-sm font-normal leading-normal tracking-wide">{file.name}</div>
+              </a>
+            </div>
+          ))
+          }
+        </div>
+      </div>
+      <!--  -->
+      <div class="flex-col justify-start items-start">
+        <div class="self-stretch justify-start items-start gap-2.5 flex flex-col sm:flex-row">
+          <div
+            class="self-stretch grow shrink basis-0 flex-col gap-2.5"
+          >
+            <div class="self-stretch sm:min-w-64 mix-blend-multiply">
+              <img src={imageFilePath} alt="" width="auto" class="rounded-3xl">
+            </div>
+            <div class="flex gap-4 mt-auto">
+              <Button text="Паспорт" icon="Document"/>
+              <Button text="Сертификаты" icon="Sertificate"/>
+            </div>
+            <!-- <div
+              class="self-stretch py-4 justify-center items-center gap-2.5 inline-flex"
+            >
+              <div
+                class="grow shrink basis-0 text-stone-800 text-base font-bold leading-normal tracking-wider"
+              >
+                Паспорт
+              </div>
+            </div>
+            <div
+              class="self-stretch py-4 justify-center items-center gap-2.5 inline-flex"
+            >
+              <div
+                class="grow shrink basis-0 text-stone-800 text-base font-bold leading-normal tracking-wider"
+              >
+                Сертификаты
+              </div>
+            </div> -->
+          </div>
+          <div
+            class="sm:w-1/2 p-8 rounded-3xl flex-col justify-start items-start gap-2.5 inline-flex"
+          >
+            <div
+              class="self-stretch flex-col justify-start items-start gap-6 flex text-stone-800"
+            > <h1 class="text-3xl">Heaton {model}</h1>
+              <ProductData excelFilePath="./src/data/Стальные панельные радиаторы/Compact (C)/11.xlsx"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div class="flex justify-between items-start pb-2 flex-col sm:items-center sm:flex-row px-8 sm:px-0">
+        <h2 class="text-2xl">Характеристики</h2>
+        <div class="flex gap-4 items-center">
+          <h3 class="font-bold ">Типы радиаторов:</h3>
+          <ul class="flex gap-3 py-4">
+            {
+              csvCollection
+                .filter((file) => file.includes(`/${model}/`))
+                .map((file) => (
+                  <CircleLink fileName = `${file.split('/')[4].replace(".csv","")}` current={file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))==type} />
+                ))
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="" ><Table csvData={csvData} /></div>
+    </div>
+    
+    <Footer links={links}/>
+  </body>
+</html>
+<script>
+      function setCurrentRow(){
+        try{
+          const cid = window.location.href.substring(window.location.href.lastIndexOf("#")+1);
+          const currentNN = document.getElementById(cid) as HTMLBaseElement;        
+          currentNN.parentElement.setAttribute("data-current","");
+        }
+        catch(e){
+          
+        }
+      }
+      document.addEventListener("astro:page-load", setCurrentRow);
+      // document.addEventListener("click", function(){
+      //   const cid = window.location.href.substring(window.location.href.lastIndexOf("#")+1);
+      //   const currentNN = document.getElementById(cid) as HTMLBaseElement;
+      //   try{
+      //     currentNN.parentElement.setAttribute("data-current","");
+      //   }
+      //   catch(e){
+          
+      //   }
+      //   console.log(window.location.href.substring(window.location.href.lastIndexOf("#")+1));
+      //   console.log(currentNN.parentElement);
+       
+      // });
+      document.addEventListener("astro:before-swap", () => {
+          localStorage.____y = window.scrollY;
+        //  sessionStorage.setItem("scrollPosition", window.scrollY.toString());
+         console.log(localStorage.____y);
+      });
+
+      document.addEventListener("astro:after-swap", () => {
+        // const scrollPosition = sessionStorage.getItem("scrollPosition");
+        if (localStorage.____y) {
+          console.log(window.scrollY);
+          window.scrollTo({
+            // parseInt(scrollPosition, 10)
+            top: localStorage.____y,
+            behavior: "instant",
+          });
+          console.log(localStorage.____y);
+          localStorage.clear();
+          // sessionStorage.removeItem("scrollPosition");
+        }
+      });
+</script>

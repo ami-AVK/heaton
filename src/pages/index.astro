@@ -1,0 +1,148 @@
+---
+// Component Imports
+import Button from '../components/Button.astro';
+import NavBar from '../components/NavBar.astro';
+import ModelCard from '../components/ModelCard.astro';
+import { Image } from "astro:assets"
+import heater from "../img/heater_.png"
+import icon_complectation from "../img/комплектация.webp"
+import icon_steel from "../img/толщина стали.webp"
+import icon_sertificate from "../img/сертификат.webp"
+import icon_factory from "../img/завод.webp"
+import icon_delivery from "../img/доставка.webp"
+import icon_models from "../img/модельный ряд.webp"
+import factoids_grid from "../img/каплевидная решетка.webp"
+import '../styles/main.css';
+import SmallLogo from '../svg/logo_small_.svg';
+import { glob, globSync, globStream, globStreamSync, Glob } from 'glob'
+import { ClientRouter } from 'astro:transitions';
+import Footer from '../components/Footer.astro';
+import Calculator from '../components/Calculator.astro';
+
+const links = [
+  { href: '/Стальные панельные радиаторы', text: 'Продукция' },
+  { href: '#', text: 'Документация' },
+];
+// Full Astro Component Syntax:
+// https://docs.astro.build/basics/astro-components/
+const collection = await glob([ "./src/data/**/**/*.csv"]);
+const paths = collection.map((file) => ({
+    props:{filePath:file.toString(),category: file.split('/')[2],model: file.split('/')[3],type: file.split('/')[4].replace(".csv","")},
+  }));
+const pathname = `/${paths[0].props.category}/${paths[0].props.model}/${paths[0].props.type}`
+console.log(pathname);
+---
+
+<html lang="ru" class="scroll-smooth">
+	<head>
+		<meta charset="utf-8" />
+		<!-- <meta name="viewport" content="width=device-width" /> -->
+		<meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- <meta name="generator" content={Astro.generator} /> -->
+		<title>Heaton</title>
+		<ClientRouter />
+	</head>
+
+	<body class="bg-stone-100">
+		<!-- hero -->
+		<div class="w-full bg-gradient-to-br from-stone-700 to-stone-600">
+			<div class="max-w-6xl mx-auto min-h-96 py-8 relative px-4 md:px-8 lg:px-16 pb-16">
+				<NavBar/>
+				<div class="absolute -left-96 top-32">
+					<Image alt="" src={heater} width={900} height={500} layout="responsive" />
+				</div>
+				<h1 class="text-stone-100 text-6xl font-normal leading-none tracking-widest max-w-64 relative left-1/2 mt-32 mb-16">СТАЛЬНЫЕ ПАНЕЛЬНЫЕ РАДИАТОРЫ</h1>
+				<div class="absolute -bottom-[175px] -right-28 origin-top-left rotate-[-19deg]">
+						<SmallLogo fill="#44403C" width="300" transition:animate="slide"/>
+				</div>
+			</div>
+		</div>
+		
+		<!-- content -->
+		<div class="py-32 mx-auto flex flex-col items-center max-w-6xl">
+			<!-- intro -->
+			<div class="flex-col justify-start items-center gap-8 inline-flex mx-auto ">
+				<div class="max-w-2xl text-center text-stone-700 text-3xl font-light leading-9 tracking-widest pb-8">Бренд Heaton — это стальные панельные радиаторы высочайшего качества по доступной цене</div>
+				<div class="grid grid-cols-3 gap-y-8 gap-x-32">
+				  <div class="flex flex-col items-center max-w-72">
+					<Image alt="" src={icon_factory} width={128} height={128} layout="responsive"/>
+					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider">Произведены в Турции на заводе с богатейшим опытом</div>
+				  </div>
+				  <div class="flex flex-col items-center max-w-72">
+					<Image alt="" src={icon_sertificate} width={128} height={128} layout="responsive"/>
+					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider"> Высочайшее качество, подтвержденное сертификатом</div>
+				  </div>
+				  <div class="flex flex-col items-center max-w-72">
+					<Image alt="" src={icon_models} width={128} height={128} layout="responsive"/>
+					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider">Широкий типоразмерный ряд в стандартном исполнении</div>
+				  </div>
+				  <div class="flex flex-col items-center max-w-72">
+					<Image alt="" src={icon_complectation} width={128} height={128} layout="responsive"/>
+					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider">В комплектацию входит все необходимое для монтажа радиатора на стену</div>
+				  </div>
+				  <div class="flex flex-col items-center max-w-72">
+					<Image alt="" src={icon_steel} width={128} height={128} layout="responsive"/>
+					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider"> Высококачественное сырье: холоднокатанная сталь 1,3 мм</div>
+				  </div>
+				  <div class="flex flex-col items-center max-w-72">
+					<Image alt="" src={icon_delivery} width={128} height={128} layout="responsive"/>
+					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider"> Максимально быстрые сроки поставки</div>
+				  </div>
+				</div>
+			  </div>
+			  <!-- extra -->
+			  <div class="h-24 px-8 py-3 bg-[#fbd47e] rounded-full shadow justify-center items-center gap-3.5 inline-flex mt-12 mb-2 shadow-2xl">
+				<div class="justify-center items-center gap-2.5 flex">
+					<Image alt="" src={icon_sertificate} width={128} height={128} layout="responsive"/>
+				  <div class="text-stone-700 text-xl font-light leading-tight tracking-wider">Продукция имеет <br/>гигиенический сертификат</div>
+				</div>
+			  </div>
+			  <!-- big factoids -->
+			  <div class="flex flex-col gap-8">
+				<div class="flex items-center gap-16">
+					<div class="grow shrink basis-0 flex">
+						<Image alt="" src={factoids_grid} width={450} layout="responsive" class="rounded-3xl"/>
+					</div>
+					<div class="grow shrink basis-0 flex flex-col gap-8 max-w-lg">
+						<h3 class="self-stretch text-neutral-700 text-3xl font-light leading-9 tracking-wides whitespace-pre-wrap">«Технология &#10;усечённого канала»</h3>
+						<p class="self-stretch text-neutral-700 text-lg font-light leading-tight tracking-wider">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
+					</div>
+				</div>
+				<div class="flex items-center gap-16">
+					<div class="grow shrink basis-0 flex flex-col gap-8 max-w-lg">
+						<h3 class="self-stretch text-neutral-700 text-3xl font-light leading-9 tracking-wides whitespace-pre-wrap">Верхняя решетка &#10;крыловидной формы</h3>
+						<p class="self-stretch text-neutral-700 text-lg font-light leading-tight tracking-wider">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
+					</div>
+					<div class="grow shrink basis-0 flex">
+						<Image alt="" src={factoids_grid} width={450} layout="responsive" class="rounded-3xl"/>
+					</div>
+				</div>
+			  </div>
+
+			  <!--  -->
+			  <div class="flex-col justify-start items-center gap-8 inline-flex py-32">
+				<h2 class="text-center text-stone-700 text-3xl font-light leading-9 tracking-widest">Назначение</h2>
+				<div class=" max-w-3xl text-center text-stone-700 text-lg font-light leading-tight tracking-wider">Стальные панельные радиаторы Heaton предназначены для применения в закрытых, независимых системах водяного отопления жилых, административных, промышленных, общественных зданий, медицинских учреждений, а также индивидуальных домов и коттеджей. </div>
+			  </div>
+			  <!--  -->
+				<!--  -->
+				<div class="flex-col justify-start items-center gap-8 inline-flex py-32">
+					<h2 class="text-center text-stone-700 text-3xl font-light leading-9 tracking-widest">Маркировка</h2>
+					<div class=" max-w-3xl text-center text-stone-700 text-lg font-light leading-tight tracking-wider"> Например</div>
+				</div>
+				<!--  -->
+			  <div class="flex-col justify-start items-center gap-8 inline-flex py-32" id="models">
+				<h2 class="text-center text-stone-700 text-3xl font-light leading-9 tracking-widest">Модели</h2>
+				<ul class="">
+						<ModelCard/>
+						<ModelCard/>
+						<ModelCard/>
+						<ModelCard/>
+				</ul>
+			  </div>
+		</div>
+		<Calculator/>
+		<Footer links={links}/>
+	</body>
+</html>

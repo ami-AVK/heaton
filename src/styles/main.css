@@ -1,0 +1,20 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Exo 2";
+    src: url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+    font-weight: 400 900;
+    font-display: fallback;
+  }
+  html {
+    font-family: "Exo 2", system-ui, sans-serif;
+  }
+  body{
+    @apply bg-stone-400;
+  }
+
+}

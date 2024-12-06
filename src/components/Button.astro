@@ -1,0 +1,20 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface ButtonProps {
+	text: string;
+	icon?: string;
+	type?: 'button' | 'submit' | 'reset';
+  }
+  
+  const { text, icon, type = 'button' } = Astro.props as ButtonProps;
+//   data-[current=true]:bg-[#FCD47F]"
+---
+  
+  <button
+	type={type}
+	class="px-5 py-2.5 text-sm font-medium text-stone-700 inline-flex items-center bg-[#FCD47F] hover:bg-[#ffe09c] focus:ring-1 border-none outline-none focus:outline-[#ffeec9] rounded-full text-center "
+  >
+  	{icon?<Icon name={icon} width="24"/>:""}
+	{text}
+  </button>

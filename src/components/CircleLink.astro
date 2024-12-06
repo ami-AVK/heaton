@@ -1,0 +1,23 @@
+---
+interface ListItemProps {
+  file: string;
+  type: string;
+  current: string;
+}
+
+const { fileName, current } = Astro.props;
+// const extraAttr = current ? "data-current" : "";
+const attributes = {"data-current":current};
+---
+
+<li
+  class="text-stone-800 p-2 w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center hover:bg-stone-100 cursor-pointer hover:shadow-lg data-[current=true]:bg-[#FCD47F]"
+  {...attributes}
+>
+  <a
+    href={`./${fileName}`}
+    class={`${current ? "pointer-events-none" : ""}`}
+  >
+    {fileName}
+  </a>
+</li>

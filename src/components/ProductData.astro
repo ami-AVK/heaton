@@ -1,0 +1,29 @@
+---
+import { readFileSync } from 'fs';
+import * as xlsx from 'ts-xlsx';
+interface ProductData {
+  excelFilePath: string;
+}
+
+const { excelFilePath } = Astro.props as ProductData;
+
+const workbook = xlsx.read(readFileSync(excelFilePath), { type: 'buffer' });
+const sheet = workbook.Sheets[workbook.SheetNames[0]];
+const jsonData = xlsx.utils.sheet_to_json(sheet, { header: 1 });
+
+const listItems = jsonData.slice(1).map((row) => ({
+  key: row[0],
+  value: row[1],
+}));
+
+const description = jsonData.find((row) => row[0] === 'Описание')[1];
+---
+
+<p class="leading-snug tracking-wider text-base" >{description}</p>
+<ul class="leading-snug tracking-wider text-sm">
+  {listItems.map((item) => (
+    <li class="pb-1.5 font-normal">
+      <strong class="font-semibold">{item.key}:</strong> {item.value}
+    </li>
+  ))}
+</ul>
