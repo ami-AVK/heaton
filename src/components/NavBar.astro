@@ -11,7 +11,7 @@ const collection = await glob([ "./src/data/**/**/*.csv"]);
 const paths = collection.map((file) => ({
     props:{filePath:file.toString(),category: file.split('/')[2],model: file.split('/')[3],type: file.split('/')[4].replace(".csv","")},
   }));
-const pathname = `/${paths[0].props.category}/${paths[0].props.model}/${paths[0].props.type}`
+const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths[0].props.model}/${paths[0].props.type}`
 ---
 
 <div class="flex flex-row items-center justify-between relative">
@@ -47,7 +47,7 @@ const pathname = `/${paths[0].props.category}/${paths[0].props.model}/${paths[0]
               class=" text-left font-['Exo2-Medium',_sans-serif] text-sm leading-5 font-medium relative"
               style="letter-spacing: 0.02em"
             >
-              <a href="/#models">Модели</a>
+              <a href=`${import.meta.env.BASE_URL}/#models`>Модели</a>
             </li>
             <li
               class=" text-left font-['Exo2-Medium',_sans-serif] text-sm leading-5 font-medium relative"
@@ -59,7 +59,7 @@ const pathname = `/${paths[0].props.category}/${paths[0].props.model}/${paths[0]
               class=" text-left font-['Exo2-Medium',_sans-serif] text-sm leading-5 font-medium relative"
               style="letter-spacing: 0.02em"
             >
-              <a href="/">Документация</a>
+              <a href=`${import.meta.env.BASE_URL}/`>Документация</a>
             </li>
           </ul>
         </div>
