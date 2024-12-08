@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 
+import { Icon } from 'astro-icon/components';
+
 // import CsvTable from '../../../components/Table.astro';
 import fs from "fs";
 import path from "path";
@@ -70,8 +72,10 @@ const links = [
   { href: '#', text: 'Документация' },
 ];
 
-const sitemap = [{name:"Compact (C)", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Compact (C)/11`},{name:"Ventil Compact (VC)", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Ventil Compact (VC)/11`},{name:"Hygiene Compact (HC)", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Compact (HC)/10`},{name:"Hygiene Ventil Compact (HVC)", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Ventil Compact (HVC)/10`}];
+const sitemap = [{name:"Compact (C)",icon:"C", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Compact (C)/11`},{name:"Ventil Compact (VC)",icon:"VC", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Ventil Compact (VC)/11`},{name:"Hygiene Compact (HC)",icon:"HC", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Compact (HC)/10`},{name:"Hygiene Ventil Compact (HVC)",icon:"HVC", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Ventil Compact (HVC)/10`}];
 const modeltypes = csvCollection.filter((file) => file.includes(`/${model}/`));
+console.log(csvCollection);
+console.log("_____");
 ---
 
 <html lang="ru" class="bg-stone-700">
@@ -102,11 +106,12 @@ const modeltypes = csvCollection.filter((file) => file.includes(`/${model}/`));
         <h2 class="grow shrink basis-0 self-stretch text-stone-800 text-base font-bold leading-normal tracking-wider pb-2">Стальные панельные радиаторы:</h2>
         <div class="justify-start items-center gap-6 inline-flex">
           {
-            sitemap.map((model) => (
+            sitemap.map((model_) => (
             <div class="justify-center items-start gap-1 flex">
-              <a href={model.url} class="px-2 py-1 rounded-3xl justify-start items-center gap-1 flex hover:bg-gray-50">
-                <img class="w-16 h-16 rounded-xl" src="https://via.placeholder.com/64x64" />
-                <div class="text-stone-700 text-sm font-normal leading-normal tracking-wide">{model.name}</div>
+              <a href={model_.url} class="px-2 py-2 rounded-3xl justify-start items-center gap-1 flex hover:bg-gray-50 data-[current=true]:bg-[#FCD47F] data-[current=true]:hover:bg-[#FCD47F]" data-current={model_.name==model} >
+                <Icon name={model_.icon} class="w-8 h-8 text-stone-600 p-1"/>
+                {/* <img class="w-16 h-16 rounded-xl" src="" /> */}
+                <div class="text-stone-700 text-sm font-normal leading-normal tracking-wide">{model_.name}</div>
               </a>
             </div>
           ))
@@ -115,20 +120,20 @@ const modeltypes = csvCollection.filter((file) => file.includes(`/${model}/`));
       </div>
       <!--  -->
       <div class="flex-col justify-start items-start">
-        <div class="self-stretch justify-start items-start gap-2.5 flex flex-col sm:flex-row">
+        <div class="self-stretch justify-start items-start gap-2.5 flex flex-col md:flex-row">
           <div
             class="flex self-stretch grow shrink basis-0 flex-col gap-2.5 pb-8"
           >
-            <div class="self-stretch sm:min-w-64">
+            <div class="self-stretch md:min-w-64">
               <Image src={imageFilePath} alt="" class="rounded-3xl"/>
             </div>
             <div class="flex gap-4 mt-auto">
               <Button text="Паспорт" icon="Document" type="download" link={`${import.meta.env.BASE_URL}/pasports/pasport.pdf`}/>
-              <Button text="Сертификаты" icon="Sertificate"/>
+              <Button text="Сертификаты" icon="Sertificate" type="download" link={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`}/>
             </div>
           </div>
           <div
-            class="sm:w-1/2 p-8 rounded-3xl flex-col justify-start items-start gap-2.5 inline-flex"
+            class="md:w-1/2 p-8 rounded-3xl flex-col justify-start items-start gap-2.5 inline-flex"
           >
             <div
               class="self-stretch flex-col justify-start items-start gap-6 flex text-stone-800"
@@ -165,8 +170,10 @@ const modeltypes = csvCollection.filter((file) => file.includes(`/${model}/`));
       function setCurrentRow(){
         try{
           const cid = window.location.href.substring(window.location.href.lastIndexOf("#")+1);
-          const currentNN = document.getElementById(cid) as HTMLBaseElement;        
-          currentNN.parentElement.setAttribute("data-current","");
+          const currentNN = document.getElementById(cid) as HTMLBaseElement;
+          if(currentNN.parentElement){   
+            currentNN.parentElement.setAttribute("data-current","");
+          }
         }
         catch(e){
           
