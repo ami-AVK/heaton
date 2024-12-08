@@ -14,7 +14,6 @@ import { ClientRouter } from "astro:transitions";
 import "../../../styles/main.css";
 import { Image } from "astro:assets"
 import Footer from "../../../components/Footer.astro";
-import SplitView from "../../../components/SplitView.astro";
 
 const csvCollection = await glob(["./src/data/**/**/*.csv"]);
 
@@ -38,13 +37,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const imageFiles = await glob(["./src/data/**/**/*.webp"]);
-const imageCollection = imageFiles.map((file) => ({
-    id: `${path.dirname(file)}/${path.basename(file, '.webp')}`,
-    ext: path.extname(file),
-    path: path.dirname(file),
-    filename: path.basename(file, '.webp'),
-  }));
+
 
 // console.log(Astro.params.filePath);
 const csvFile = Astro.props.filePath;
@@ -63,14 +56,13 @@ const pasport = path.join(process.cwd(), `${csvFile.substring(0,csvFile.lastInde
 const csvData = fs.readFileSync(csvFilePath, "utf-8");
 const pathname = new URL(Astro.request.url);
 
-const image = imageCollection.find((file) => file.id === Astro.props.filePath.substring(0,csvFile.lastIndexOf('.csv')));
-
 
 // const imageFilePath = `${import.meta.env.BASE_URL}/${image.id}.webp`
 // const image____file____path = `./src/data/${category}/${model}/${type}.webp`;
 const images = import.meta.glob("../../../data/**.webp");
 const imageFilePath = images[Astro.props.image.replace("src/","")]();
-// console.log(images);
+
+//  console.log();
 // console.log(images[Astro.props.image.replace("src/","")]());
 
 const links = [
@@ -131,7 +123,7 @@ const modeltypes = csvCollection.filter((file) => file.includes(`/${model}/`));
               <Image src={imageFilePath} alt="" class="rounded-3xl"/>
             </div>
             <div class="flex gap-4 mt-auto">
-              <Button text="Паспорт" icon="Document" type="download" link={}/>
+              <Button text="Паспорт" icon="Document" type="download" link={`${import.meta.env.BASE_URL}/pasports/pasport.pdf`}/>
               <Button text="Сертификаты" icon="Sertificate"/>
             </div>
           </div>
