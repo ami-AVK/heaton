@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+
 // import CsvTable from '../../../components/Table.astro';
 import fs from "fs";
 import path from "path";
@@ -31,6 +32,7 @@ export async function getStaticPaths() {
       category: file.split("/")[2],
       model: file.split("/")[3],
       type: file.split("/")[4].replace(".csv", ""),
+      image: `../../../${file.toString().replace(".csv", ".webp")}`,
     },
   }));
   return paths;
@@ -46,24 +48,30 @@ const imageCollection = imageFiles.map((file) => ({
 
 // console.log(Astro.params.filePath);
 const csvFile = Astro.props.filePath;
+const category = Astro.props.category;
 const model = Astro.props.model;
 const type = Astro.props.type;
 if (!csvFile) {
   throw new Error("CSV file not found");
 }
 
-// const csvFilePath = path.join(process.cwd(), 'src/content/csv', ...Astro.params.path, csvFile.content);
-// const csvData = fs.readFileSync(csvFilePath, 'utf-8');
+
 const csvFilePath = path.join(process.cwd(), csvFile);
 const jsonPath = path.join(process.cwd(), `${csvFile.substring(0,csvFile.lastIndexOf('.csv'))}_data.json`);
-const imagePath = path.join(process.cwd(), `${csvFile.substring(0,csvFile.lastIndexOf('.csv'))}_image.webp`);
+const pasport = path.join(process.cwd(), `${csvFile.substring(0,csvFile.lastIndexOf('.csv'))}.pdf`);
+
 const csvData = fs.readFileSync(csvFilePath, "utf-8");
 const pathname = new URL(Astro.request.url);
 
 const image = imageCollection.find((file) => file.id === Astro.props.filePath.substring(0,csvFile.lastIndexOf('.csv')));
 
-const imageFilePath = `${import.meta.env.BASE_URL}/${image.id}.webp`
-console.log(imageFilePath);
+
+// const imageFilePath = `${import.meta.env.BASE_URL}/${image.id}.webp`
+// const image____file____path = `./src/data/${category}/${model}/${type}.webp`;
+const images = import.meta.glob("../../../data/**.webp");
+const imageFilePath = images[Astro.props.image.replace("src/","")]();
+// console.log(images);
+// console.log(images[Astro.props.image.replace("src/","")]());
 
 const links = [
   { href: '/Стальные панельные радиаторы', text: 'Продукция' },
@@ -81,7 +89,7 @@ const modeltypes = csvCollection.filter((file) => file.includes(`/${model}/`));
       name="viewport"
       content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0"
     />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href=`${import.meta.env.BASE_URL}/favicon.svg` />
     <!-- <meta name="generator" content={Astro.generator} /> -->
     <title>Heaton</title>
   </head>
@@ -120,10 +128,10 @@ const modeltypes = csvCollection.filter((file) => file.includes(`/${model}/`));
             class="flex self-stretch grow shrink basis-0 flex-col gap-2.5 pb-8"
           >
             <div class="self-stretch sm:min-w-64">
-              <img src={imageFilePath} alt="" width="auto" class="rounded-3xl">
+              <Image src={imageFilePath} alt="" class="rounded-3xl"/>
             </div>
             <div class="flex gap-4 mt-auto">
-              <Button text="Паспорт" icon="Document"/>
+              <Button text="Паспорт" icon="Document" type="download" link={}/>
               <Button text="Сертификаты" icon="Sertificate"/>
             </div>
           </div>
@@ -146,7 +154,10 @@ const modeltypes = csvCollection.filter((file) => file.includes(`/${model}/`));
           <ul class="flex gap-3 py-4">
             {
               modeltypes.map((file) => (
-                  <CircleLink fileName = `${file.split('/')[4].replace(".csv","")}` current={file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))==type} />
+                  <CircleLink fileName = `${file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))}` 
+                  current={file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))==type} 
+                  href={`${import.meta.env.BASE_URL}/${category}/${model}/${file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))}`}
+                  />
                 ))
             }
           </ul>

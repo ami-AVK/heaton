@@ -3,11 +3,13 @@ interface ListItemProps {
   file: string;
   type: string;
   current: string;
+  href: string;
 }
 
-const { fileName, current } = Astro.props;
+const { fileName, current, href } = Astro.props;
 // const extraAttr = current ? "data-current" : "";
 const attributes = {"data-current":current};
+
 ---
 
 <li
@@ -15,7 +17,7 @@ const attributes = {"data-current":current};
   {...attributes}
 >
   <a
-    href={`${import.meta.env.BASE_URL}/${fileName}`}
+    href={href}
     class={`${current ? "pointer-events-none" : ""}`}
   >
     {fileName}
