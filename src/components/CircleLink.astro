@@ -15,7 +15,7 @@ const attributes = {"data-current":current};
   {...attributes}
 >
   <a
-    href={`./${fileName}`}
+    href={`${import.meta.env.BASE_URL}/${fileName}`}
     class={`${current ? "pointer-events-none" : ""}`}
   >
     {fileName}

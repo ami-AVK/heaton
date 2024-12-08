@@ -13,6 +13,7 @@ import { ClientRouter } from "astro:transitions";
 import "../../../styles/main.css";
 import { Image } from "astro:assets"
 import Footer from "../../../components/Footer.astro";
+import SplitView from "../../../components/SplitView.astro";
 
 const csvCollection = await glob(["./src/data/**/**/*.csv"]);
 
@@ -61,7 +62,7 @@ const pathname = new URL(Astro.request.url);
 
 const image = imageCollection.find((file) => file.id === Astro.props.filePath.substring(0,csvFile.lastIndexOf('.csv')));
 
-const imageFilePath = `/${image.id}.webp`
+const imageFilePath = `${import.meta.env.BASE_URL}/${image.id}.webp`
 console.log(imageFilePath);
 
 const links = [
@@ -69,6 +70,8 @@ const links = [
   { href: '#', text: 'Документация' },
 ];
 
+const sitemap = [{name:"Compact (C)", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Compact (C)/11`},{name:"Ventil Compact (VC)", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Ventil Compact (VC)/11`},{name:"Hygiene Compact (HC)", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Compact (HC)/10`},{name:"Hygiene Ventil Compact (HVC)", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Ventil Compact (HVC)/10`}];
+const modeltypes = csvCollection.filter((file) => file.includes(`/${model}/`));
 ---
 
 <html lang="ru" class="bg-stone-700">
@@ -99,11 +102,11 @@ const links = [
         <h2 class="grow shrink basis-0 self-stretch text-stone-800 text-base font-bold leading-normal tracking-wider pb-2">Стальные панельные радиаторы:</h2>
         <div class="justify-start items-center gap-6 inline-flex">
           {
-            [{name:"Compact (C)", url:"/Стальные панельные радиаторы/Compact (C)/11"},{name:"Ventil Compact (VC)", url:"/Стальные панельные радиаторы/Ventil Compact (VC)/11"},{name:"Hygiene Compact (HC)", url:"/Стальные панельные радиаторы/Hygiene Compact (HC)/10"},{name:"Hygiene Ventil Compact (HVC)", url:"/Стальные панельные радиаторы/Hygiene Ventil Compact (HVC)/10"}].map((file) => (
+            sitemap.map((model) => (
             <div class="justify-center items-start gap-1 flex">
-              <a href={file.url} class="px-2 py-1 rounded-3xl justify-start items-center gap-1 flex hover:bg-gray-50">
+              <a href={model.url} class="px-2 py-1 rounded-3xl justify-start items-center gap-1 flex hover:bg-gray-50">
                 <img class="w-16 h-16 rounded-xl" src="https://via.placeholder.com/64x64" />
-                <div class="text-stone-700 text-sm font-normal leading-normal tracking-wide">{file.name}</div>
+                <div class="text-stone-700 text-sm font-normal leading-normal tracking-wide">{model.name}</div>
               </a>
             </div>
           ))
@@ -114,33 +117,15 @@ const links = [
       <div class="flex-col justify-start items-start">
         <div class="self-stretch justify-start items-start gap-2.5 flex flex-col sm:flex-row">
           <div
-            class="self-stretch grow shrink basis-0 flex-col gap-2.5"
+            class="flex self-stretch grow shrink basis-0 flex-col gap-2.5 pb-8"
           >
-            <div class="self-stretch sm:min-w-64 mix-blend-multiply">
+            <div class="self-stretch sm:min-w-64">
               <img src={imageFilePath} alt="" width="auto" class="rounded-3xl">
             </div>
             <div class="flex gap-4 mt-auto">
               <Button text="Паспорт" icon="Document"/>
               <Button text="Сертификаты" icon="Sertificate"/>
             </div>
-            <!-- <div
-              class="self-stretch py-4 justify-center items-center gap-2.5 inline-flex"
-            >
-              <div
-                class="grow shrink basis-0 text-stone-800 text-base font-bold leading-normal tracking-wider"
-              >
-                Паспорт
-              </div>
-            </div>
-            <div
-              class="self-stretch py-4 justify-center items-center gap-2.5 inline-flex"
-            >
-              <div
-                class="grow shrink basis-0 text-stone-800 text-base font-bold leading-normal tracking-wider"
-              >
-                Сертификаты
-              </div>
-            </div> -->
           </div>
           <div
             class="sm:w-1/2 p-8 rounded-3xl flex-col justify-start items-start gap-2.5 inline-flex"
@@ -160,9 +145,7 @@ const links = [
           <h3 class="font-bold ">Типы радиаторов:</h3>
           <ul class="flex gap-3 py-4">
             {
-              csvCollection
-                .filter((file) => file.includes(`/${model}/`))
-                .map((file) => (
+              modeltypes.map((file) => (
                   <CircleLink fileName = `${file.split('/')[4].replace(".csv","")}` current={file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))==type} />
                 ))
             }
@@ -203,19 +186,19 @@ const links = [
       document.addEventListener("astro:before-swap", () => {
           localStorage.____y = window.scrollY;
         //  sessionStorage.setItem("scrollPosition", window.scrollY.toString());
-         console.log(localStorage.____y);
+        //  console.log(localStorage.____y);
       });
 
       document.addEventListener("astro:after-swap", () => {
         // const scrollPosition = sessionStorage.getItem("scrollPosition");
         if (localStorage.____y) {
-          console.log(window.scrollY);
+          // console.log(window.scrollY);
           window.scrollTo({
             // parseInt(scrollPosition, 10)
             top: localStorage.____y,
             behavior: "instant",
           });
-          console.log(localStorage.____y);
+          // console.log(localStorage.____y);
           localStorage.clear();
           // sessionStorage.removeItem("scrollPosition");
         }

@@ -16,7 +16,7 @@ const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths
 
 <div class="flex flex-row items-center justify-between relative">
     <div class="flex items-center gap-4">
-        <a href="/" class=`cursor-pointer text-[#FCD47F] ${mainpage?"pointer-events-none":""}`>
+        <a href=`${import.meta.env.BASE_URL}/` class=`cursor-pointer text-[#FCD47F] ${mainpage?"pointer-events-none":""}`>
           <Logo class="w-20 md:w-32 lg:w-40 hidden md:block"/>
           <LogoSmall class="w-16 md:hidden"/>
         </a>
