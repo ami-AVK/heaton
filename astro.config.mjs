@@ -14,6 +14,7 @@ export default defineConfig({
         // @ts-ignore
         svg: true,
       },
-    site: 'https://ami-avk.github.io/',
+    // site: 'https://ami-avk.github.io/',
+    site: 'https://q-li.ru/',
     base: '/heaton',
 });
