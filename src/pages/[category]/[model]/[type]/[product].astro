@@ -17,7 +17,7 @@ import ButtonFile from "../../../../components/ButtonFile.astro";
 interface CsvTableProps {
   csvData: string;
 }
-function getNearests(parsedData, index, column) {
+function getNearests(parsedData:any, index:any, column:any) {
     const totalLength = parsedData.length;
     const result = [];
 
@@ -171,9 +171,6 @@ const {product,model,category,type,productData,productIndex} = Astro.props;
         </div>
         <div class="z-50 flex items-start justify-start pb-16 container-center ">
             <div class="flex w-1/2">
-                <div class="text-neutral-700">
-                    <Drawing height={productData['Высота, мм']} width={productData['Длина, мм']}/>
-                </div>
                 <div class="text-neutral-700">
                     <Drawing height={productData['Высота, мм']} width={productData['Длина, мм']}/>
                 </div>

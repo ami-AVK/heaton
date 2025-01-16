@@ -1,6 +1,6 @@
 ---
 ---
-<div class="max-w-sm relative">
+<div class="relative max-w-sm">
     <div class="relative">
       <button
         id="decreaseButton"
@@ -44,9 +44,16 @@
   <script>
     // Select the elements
     const amountInput = document.getElementById('amountInput') as HTMLInputElement;
-    const increaseButton = document.getElementById('increaseButton');
-    const decreaseButton = document.getElementById('decreaseButton');
-   
+    const increaseButton = document.getElementById('increaseButton') as HTMLInputElement;
+    const decreaseButton = document.getElementById('decreaseButton') as HTMLInputElement;
+    
+    amountInput.addEventListener('change',(e)=>{
+      const event = new CustomEvent('calculatorFormEvent', {
+          detail: {
+            element: amountInput // Элемент, который вы хотите передать
+          }
+      });
+    });
     // Increase the value
     increaseButton.addEventListener('click', () => {
       amountInput.value = (parseInt(amountInput.value) + 1).toString();

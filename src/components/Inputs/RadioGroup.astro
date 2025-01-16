@@ -8,10 +8,10 @@ interface RadioItemProps {
 const {header, name, values} = Astro.props;
 ---
 <div class="">
-    <label class="block text-gray-700 text-sm font-bold mb-2">{header}</label>
+    <label class="block mb-2 text-sm font-bold text-gray-700">{header}</label>
     <div class="flex space-x-4">
     {
-        values.map((value: any, index: number) =>
+        values.map((value: any) =>
         (
             <label class="flex items-center">
                 {value.checked?
@@ -19,9 +19,28 @@ const {header, name, values} = Astro.props;
                     :
                     <input type="radio" name={name} value={value.value} class="absolute opacity-0 peer">
                 }
-                <span class="bg-neutral-50 px-3 py-1 bg-gray-200 rounded-lg cursor-pointer peer-hover:bg-secondary/75 peer-hover:shadow-active peer-checked:bg-secondary peer-checked:animate-flyIn text-lg">{value.buttonText}</span>
+                <span class="px-3 py-1 text-lg bg-gray-200 rounded-lg cursor-pointer bg-neutral-50 peer-hover:bg-secondary/75 peer-hover:shadow-active peer-checked:bg-secondary peer-checked:animate-flyIn">{value.buttonText}</span>
             </label>
-        ))
+            )
+        )
     }
     </div>
 </div>
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const radioGroup = document.querySelectorAll("input[type=radio]");
+        radioGroup.forEach(input => {
+			input.addEventListener('change', (e:any)=>{
+                const radio_name = e.target.name as string;
+                const radio_value = e.target.value as string;
+                const event = new CustomEvent('calculatorFormEvent', {
+                    detail: {
+                     values:{name:radio_name,value:radio_value} // Элемент, который вы хотите передать
+                    },
+                    bubbles:true
+                });
+                document.dispatchEvent(event);
+            })
+			})
+    });
+</script>

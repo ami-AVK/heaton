@@ -13,10 +13,7 @@ import Footer from '../components/Footer.astro';
 import Calculator from '../components/Calculator.astro';
 import Button from '../components/ButtonFile.astro';
 
-const links = [
-  { href: '/Стальные панельные радиаторы', text: 'Продукция' },
-  { href: '#', text: 'Документация' },
-];
+
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 const collection = await glob([ "./src/data/**/**/*.csv"]);
@@ -173,9 +170,9 @@ console.log(pathname);
 
 
 		<!-- models -->
-		<section class="bg-neutral-50 snap-center snap-always " id="models">
+		<section class="bg-secondary/70 min-h-svh snap-center snap-always " id="models">
 			<div class="flex flex-col items-center gap-16 py-32 container-center text-neutral-600">
-				<h2 class="text-6xl font-semibold header-circle-xl">Модели радиаторов</h2>
+				<h2 class="text-6xl font-semibold header-circle-xl before:bg-neutral-50">Модели радиаторов</h2>
 				<div class="grid grid-cols-2 gap-8 xl:gap-16 lg:grid-cols-4">
 					{
 						[
@@ -183,6 +180,7 @@ console.log(pathname);
 								shortName: "C",
 								longName: "Compact",
 								sub:null,
+								url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Compact (C)/11`,
 								characteristics: [
 									{ name: "Панели", icon: true },
 									{ name: "Рассеиватели", icon: true },
@@ -194,6 +192,7 @@ console.log(pathname);
 								shortName: "VC",
 								longName: "Ventil Compact",
 								sub:null,
+								url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Ventil Compact (VC)/11`,
 								characteristics: [
 									{ name: "Панели", icon: true },
 									{ name: "Рассеиватели", icon: true },
@@ -205,6 +204,7 @@ console.log(pathname);
 								shortName: "HC",
 								longName: "Compact",
 								sub:"Hygiene",
+								url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Compact (HC)/10`,
 								characteristics: [
 									{ name: "Панели", icon: true },
 									{ name: "Рассеиватели", icon: false },
@@ -216,6 +216,7 @@ console.log(pathname);
 								shortName: "HVC",
 								longName: "Ventil Compact",
 								sub:"Hygiene",
+								url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Ventil Compact (HVC)/10`,
 								characteristics: [
 									{ name: "Панели", icon: true },
 									{ name: "Рассеиватели", icon: false },
@@ -224,43 +225,22 @@ console.log(pathname);
 								]
 							}
 						].map((element)=>(
-							<ModelCard name={element.longName} shortname={element.shortName} characteristics={element.characteristics} subname={element.sub}/>
+							<ModelCard name={element.longName} shortname={element.shortName} characteristics={element.characteristics} subname={element.sub} url={element.url}/>
 						))
 					}
 				</div>
 			</div>
 		</section>
 		<!-- calculator -->
-		 	<Calculator class="snap-center snap-always "/>
+		 	<Calculator class="snap-center snap-always"/>
 		
-		<Footer links={links} class="snap-end"/>
+		<Footer class="snap-end"/>
 	</body>
 </html>
 
 <script >
 	import { animate,scroll,stagger, inView } from "motion";
 	document.addEventListener('astro:page-load', () => {
-
-
-		const rangeInputs = document.querySelectorAll('input[type="range"]')
-		const numberInput = document.querySelector('input[type="number"]')
-
-		function handleInputChange(e:any) {
-			let target = e.target
-			if (e.target.type !== 'range') {
-				target = document.getElementById('range')
-			} 
-			const min = target.min
-			const max = target.max
-			const val = target.value
-			
-			target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
-			}
-
-			rangeInputs.forEach(input => {
-			input.addEventListener('input', handleInputChange)
-			})
-		numberInput?numberInput.addEventListener('input', handleInputChange):"";
 
 		// animate("#motion-test",{ scale: [0.4, 1]});
 		inView(".inview-block", ({ target }) => {

@@ -16,7 +16,7 @@ const copyrightLink = { href: 'https://heaton.ru/', text: 'Heaton' };
 const currentURL = new URL(Astro.request.url).pathname;
 const mainpage = currentURL==="/";
 const mainLinks = [
-                    {text:"Продукция",href:""},
+                    {text:"Продукция",href:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Compact (C)/11`},
                     {text:"Документация",href:`${import.meta.env.BASE_URL}/Документация`},
                     {text:"Контакты",href:`${import.meta.env.BASE_URL}/Контакты`},
                   ]
