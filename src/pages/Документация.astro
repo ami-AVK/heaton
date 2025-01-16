@@ -3,6 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
 import '../styles/main.css';
+import LogoSmall from '../svg/logo_small.svg';
 ---
 
 <html lang="ru" class="bg-neutral-100">
@@ -29,8 +30,9 @@ import '../styles/main.css';
       <div class="relative px-4 py-8 mx-auto container-center md:px-8 lg:px-16">
         <NavBar />
       </div>
-      <div class="container-center">
-        <h1 class="text-3xl lg:text-4xl xl:text-5xl header-circle-xl my-[10svh]">Документация</h1>
+      <div class="relative container-center">
+        <h1 class="text-3xl lg:text-4xl xl:text-5xl header-circle-xl my-[10svh] font-black uppercase z-20">Документация</h1>
+        <LogoSmall class="absolute z-10 right-10 w-96 text-neutral-100 -bottom-52"/>
       </div>
       
     </div>

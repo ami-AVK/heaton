@@ -44,23 +44,23 @@ console.log(pathname);
 			<div class="z-0 py-8 pb-16 container-center">
 				<NavBar/>
 				<div class="flex flex-col justify-center mt-[15%] ml-4 md:flex-row md:justify-start md:mt-32 md:ml-auto ">
-					<div class="flex flex-col z-10 px-[10%] mt-24 md:mt-auto md:px-0 relative md:max-w-[40%] gap-12 md:my-auto mr-[10%] order-2 md:order-1 lg:ml-16">
-						<h1 class="text-2xl font-bold leading-none tracking-widest uppercase text-neutral-700 sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl header-circle-xl">
+					<div class="flex flex-col z-10 px-[10%] mt-12 sm:mt-24 md:mt-auto md:px-0 relative md:max-w-[40%] gap-4 sm:gap-12 md:my-auto sm:mr-[10%] order-2 md:order-1 lg:ml-16">
+						<h1 class="text-2xl font-bold leading-none tracking-widest uppercase text-neutral-700 sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl sm:header-circle-lg lg:header-circle-xl">
 							Стальные панельные радиаторы</h1>
-						<p class="w-full text-xl font-light sm:text-2xl md:text-3xl xl:text-4xl text-neutral-600">
+						<p class="w-full text-xl font-light leading-none sm:text-2xl md:text-3xl xl:text-4xl text-neutral-600">
 							Высокое качество <br/>по&nbsp;доступной цене
 						</p>
 					</div>
 					<div class="relative px-[5%] md:px-0 md:max-w-[70%] z-0 min-h-[40svh] md:h-auto order-1 md:order-2 -bottom-16">
-						<div class="absolute -top-[15%] left-1/2">
+						<div class="absolute -top-[15%] left-1/2 hidden md:block">
 							<div class="flex flex-col items-start justify-start gap-1">
 								<div class="self-stretch text-base font-normal leading-none text-neutral-700 lg:text-lg lg:leading-none">СООТВЕТСВИЕ</div>
 								<div class="self-stretch text-lg font-bold leading-none text-neutral-700 lg:text-xl lg:leading-none">ГОСТ 31311-2005</div>
 							</div>
 						</div>
-						<div class="absolute -bottom-0 h-[120%] w-1/2 -z-10 -left-8 bg-neutral-100 rounded-tl-[64px] rounded-tr-lg"></div>
+						<div class="absolute -bottom-0 h-[120%] w-1/2 -z-10 right-0 sm:-left-8 bg-neutral-100 rounded-tl-[64px] rounded-tr-lg"></div>
 						<div class="absolute bottom-16 lg:bottom-24 h-0.5 w-[150%] -z-10 -left-[150%] bg-gradient-to-l from-neutral-50 via-neutral-50/0 to-neutral-50/0 "></div>
-						<div class="absolute z-10 w-32 h-32 border-2 rounded-full -bottom-16 -left-24 lg:h-48 lg:w-48 lg:-bottom-24 lg:-left-32 bg-neutral-50/30 backdrop-blur-sm border-neutral-50 scroll-scale-fade"></div>
+						<div class="absolute z-10 w-32 h-32 border-2 rounded-full -right-16 -bottom-16 sm:-left-24 lg:h-48 lg:w-48 lg:-bottom-24 lg:-left-32 bg-neutral-50/30 backdrop-blur-sm border-neutral-50 scroll-scale-fade"></div>
 						<Image alt="" src={heater}/>
 					</div>
 				</div>
@@ -74,11 +74,11 @@ console.log(pathname);
 
 			<!--  -->
 			<div class="container-center my-16 tracking-widest flex flex-col md:flex-row pb-[10svh] pt-8  scroll-control perspective-1000 snap-center ">
-				<div class="flex flex-col items-start py-8 md:py-24 px-16 bg-neutral-200/40 rounded-br-3xl md:max-w-[calc(50%-6rem)] relative scroll_main_header transform-gpu ">
-					<h2 class="max-w-screen-sm mb-8 text-4xl font-bold tracking-widest md:text-4xl lg:text-5xl whitespace-nowrap ">Высочайшее качество, <br/>подтвержденное <br/>сертификатом</h2>
+				<div class="flex flex-col items-start py-8 md:py-24 px-6 sm:px-16 bg-neutral-200/40 rounded-br-3xl md:max-w-[calc(50%-6rem)] relative scroll_main_header transform-gpu ">
+					<h2 class="max-w-screen-sm mb-2 text-2xl font-bold tracking-widest sm:mb-8 sm:text-4xl md:text-4xl lg:text-5xl sm:whitespace-nowrap ">Высочайшее качество, <br/>подтвержденное <br/>сертификатом</h2>
 					<Button text="Сертификат соответствия" icon="Sertificate" type="download" size=20 link={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`}/>
 				</div>				
-				<div class="relative flex flex-col max-w-xl gap-4 pt-8 pl-12 text-xl md:pt-48 md:pl-32 inview-block">
+				<div class="relative flex flex-col max-w-xl pt-8 sm:gap-4 sm:pl-12 sm:text-xl md:pt-48 md:pl-32 inview-block">
 					{
 						[
 							["Произведены в Турции на заводе c богатейшим опытом","Sertificate",1],
@@ -109,10 +109,10 @@ console.log(pathname);
 				</div>
 				<div class="">
 					<div class="relative flex flex-col items-start px-16 py-8 scroll_main_header">
-						<h2 class="max-w-screen-sm mb-8 text-4xl font-bold tracking-widest md:text-4xl lg:text-5xl whitespace-nowrap">Широкий <br/>типоразмерный ряд</h2>
+						<h2 class="max-w-screen-sm mb-2 text-2xl font-bold tracking-widest sm:mb-8 sm:text-4xl md:text-4xl lg:text-5xl whitespace-nowrap">Широкий <br/>типоразмерный ряд</h2>
 						<Button text="Каталог продукции" icon="Sertificate" type="link" size=20 link={`${import.meta.env.BASE_URL}/Стальные панельные радиаторы`}/>
 					</div>
-					<div class="relative flex flex-col gap-4 pt-4 pl-12 text-xl inview-block">
+					<div class="relative flex flex-col pt-4 sm:gap-4 sm:text-xl sm:pl-12 inview-block">
 						{
 							[
 								["В комплектацию входит все необходимое для монтажа радиатора на стену","Sertificate"],
@@ -170,10 +170,10 @@ console.log(pathname);
 
 
 		<!-- models -->
-		<section class="bg-secondary/70 min-h-svh snap-center snap-always " id="models">
-			<div class="flex flex-col items-center gap-16 py-32 container-center text-neutral-600">
-				<h2 class="text-6xl font-semibold header-circle-xl before:bg-neutral-50">Модели радиаторов</h2>
-				<div class="grid grid-cols-2 gap-8 xl:gap-16 lg:grid-cols-4">
+		<section class="bg-secondary/30 min-h-svh snap-center snap-always " id="models">
+			<div class="flex flex-col items-center gap-16 py-16 md:py-32 container-center text-neutral-600">
+				<h2 class="text-3xl font-semibold md:text-6xl header-circle-lg md:header-circle-xl ">Модели радиаторов</h2>
+				<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4">
 					{
 						[
 							{
@@ -240,6 +240,37 @@ console.log(pathname);
 
 <script >
 	import { animate,scroll,stagger, inView } from "motion";
+	import Fuse from 'fuse.js'
+
+	document.addEventListener('astro:page-load', async () => {
+
+		const options = {
+			includeScore: true,
+			minMatchCharLength:3,
+			threshold: 0.3,
+			// Search in `author` and in `tags` array
+			keys: ['Наименование', 'Категория']
+		}
+
+		// const fuse = new Fuse(list, options)
+		// search_map.json
+		const response = await fetch('/heaton/search_map.json');
+        const data = await response.json();
+		const fuse = new Fuse(data, options);
+
+		
+		document.addEventListener("searchInputEvent",(e)=>{
+
+		})
+		let result = fuse.search('1200')
+		console.log(result);
+		result = fuse.search('1200 400')
+		console.log(result);
+		result = fuse.search('1200 400 C')
+		console.log(result);
+		result = fuse.search('12C')
+		console.log(result);
+	});
 	document.addEventListener('astro:page-load', () => {
 
 		// animate("#motion-test",{ scale: [0.4, 1]});

@@ -20,7 +20,7 @@
     font-family: "Exo 2", system-ui, sans-serif;
   } */
   body{
-    @apply bg-neutral-400 overscroll-none overflow-x-clip;
+    @apply bg-neutral-400 overscroll-none overflow-x-clip text-neutral-700;
   }
 
 }

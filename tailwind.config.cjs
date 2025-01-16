@@ -8,7 +8,18 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				'primary':"#600610",
+				'primary':{
+					DEFAULT:"#600610",
+					100:"#DDD7D1",
+					200:"#CEC2B8",
+					300:"#B8A89E",
+					400:"#A48D83",
+					500:"#7D5856",
+					600:"#6D3A3C",
+					700:"#581114",
+					800:"#47070A",
+					900:"#330406",
+				},
 				'secondary':"#FCD47F",
 			},
 			boxShadow: {

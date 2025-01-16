@@ -1,54 +1,116 @@
 ---
 import InputNumber from "./Inputs/InputNumber.astro";
-import RadioGroup from "./Inputs/RadioGroup.astro"
+import RadioGroup from "./Inputs/RadioGroup.astro";
 
 // значения кнопок для радиогрупп
-const heights = [{buttonText:"2,5 м",value:2.5,checked:true},{buttonText:"3 м",value:3},{buttonText:"3,5 м",value:3}];
-const insulation = [{buttonText:"Плохая",value:.2},{buttonText:"Средняя",value:0.5,checked:true},{buttonText:"Хорошая",value:1}];
-const windows = [{buttonText:1,value:1},{buttonText:2,value:2,checked:true},{buttonText:3,value:3},{buttonText:4,value:4},{buttonText:5,value:5}];
-const glazing = [{buttonText:"Одинарное",value:.2},{buttonText:"Двойное",value:1,checked:true}];
+const heights = [
+  { buttonText: "2,5 м", value: 2.5, checked: true },
+  { buttonText: "3 м", value: 3 },
+  { buttonText: "3,5 м", value: 3 },
+];
+const insulation = [
+  { buttonText: "Плохая", value: 1.5 },
+  { buttonText: "Средняя", value: 1.2, checked: true },
+  { buttonText: "Хорошая", value: 1.0 },
+];
+const windows = [
+  { buttonText: 1, value: 1 },
+  { buttonText: 2, value: 2, checked: true },
+  { buttonText: 3, value: 3 },
+  { buttonText: 4, value: 4 },
+  { buttonText: 5, value: 5 },
+];
+const glazing = [
+  { buttonText: "Одинарное", value: 1.8 },
+  { buttonText: "Двойное", value: 1.2, checked: true },
+];
 
-const {class:className} = Astro.props;
+const { class: className } = Astro.props;
 ---
-<section class="" class:list={className}>
-    <div class="flex flex-col items-center w-full gap-16 py-32 container-center text-neutral-600 min-h-svh">
-        <h2 class="text-6xl font-semibold header-circle-xl">Подбор радиаторов</h2>
-        <div class="grid items-center justify-center w-full grid-cols-2 gap-8 md:items-start lg:gap-32 md:flex-row">
-            <div class="px-8 md:w-auto md:px-0">
-                <!-- <div class="px-8">
-                    <label class="block">
-                        <span class="text-xs font-bold leading-none tracking-wide text-gray-700 uppercase text-neutral-700">Площадь помещения</span>
-                        <input type="range" class="block w-full mt-1">
-                    </label>
-                </div> -->
-                <form class="pr-8">
-                    <div class="relative mb-8">
-                      <label for="area" class="block mb-2 text-sm font-bold text-gray-700">Площадь помещения</label>
-                      <div class="flex items-center gap-4 md:max-w-md">
-                        <span class="left-0 block px-3 py-1 text-lg leading-none text-center rounded-lg top-8 text-neutral-700 min-w-20 whitespace-nowrap bg-neutral-50"><span class="value">15</span> м²</span>
-                        <input type="range" id="area" name="area" min="2" max="100" class="w-full" value=70>
-                      </div>
-                    </div>
-                    <div class="mb-8">
-                        <RadioGroup header="Высота помещения" name="height" values={heights}/>
-                    </div>
-                    <div class="mb-8">
-                        <RadioGroup header="Теплоизоляция" name="insulation" values={insulation}/>
-                    </div>
-                    <div class="mb-8">
-                        <RadioGroup header="Количество окон" name="windows" values={windows}/>
-                    </div>
-                    <div class="mb-8">
-                        <RadioGroup header="Вид остекления" name="glazing" values={glazing}/>
-                    </div>
-                    <div class="relative mb-8">
-                      <label for="area" class="block mb-2 text-sm font-bold text-gray-700">Минимальная температура</label>
-                      <div class="flex items-center gap-4 md:max-w-md">
-                        <span class="left-0 block px-3 py-1 text-lg leading-none text-center rounded-lg top-8 text-neutral-700 min-w-20 whitespace-nowrap bg-neutral-50"><span class="value">-5</span> °C</span>
-                        <input type="range" id="area" name="area" min="-40" max="20" class="w-full" value=0>
-                      </div>
-                    </div>
-                    <!-- <div class="mb-8">
+
+<section class="tracking-wide" class:list={className}>
+  <div
+    class="flex flex-col items-center w-full gap-16 py-16 md:py-32 container-center text-neutral-600 min-h-svh"
+  >
+    <h2 class="text-3xl font-semibold md:text-6xl header-circle-lg md:header-circle-xl">Подбор радиаторов</h2>
+    <div
+      class="flex flex-col items-center gap-8 justify-stretch md:flex-row md:items-start lg:gap-16 "
+    >
+      <div class="min-w-full px-8 md:mt-8 md:w-auto md:px-0 md:min-w-fit">
+        <form class="md:pr-8" id="calculator">
+          <div class="relative mb-8">
+            <label for="area" class="block mb-2 text-sm font-bold text-gray-700"
+              >Площадь помещения</label
+            >
+            <div class="flex items-center gap-4">
+              <span
+                class="left-0 block px-3 py-1 text-lg leading-none text-center rounded-lg top-8 text-neutral-700 min-w-20 whitespace-nowrap bg-neutral-50"
+                ><span class="value will-change-contents">15</span> м²</span
+              >
+              <input
+                type="range"
+                id="area"
+                name="area"
+                min="2"
+                max="100"
+                class="w-full"
+                value="70"
+              />
+            </div>
+          </div>
+          <div class="mb-8">
+            <RadioGroup
+              header="Высота помещения"
+              name="height"
+              class="flex-1"
+              values={heights}
+            />
+          </div>
+          <div class="mb-8">
+            <RadioGroup
+              header="Теплоизоляция"
+              name="insulation"
+              class="flex-1"
+              values={insulation}
+            />
+          </div>
+          <div class="mb-8">
+            <RadioGroup
+              header="Количество радиаторов"
+              name="windows"
+              class="flex-1"
+              values={windows}
+            />
+          </div>
+          <div class="mb-8">
+            <RadioGroup
+              header="Вид остекления"
+              name="glazing"
+              class="flex-1"
+              values={glazing}
+            />
+          </div>
+          <div class="relative mb-8">
+            <label for="area" class="block mb-2 text-sm font-bold text-gray-700"
+              >Минимальная температура</label
+            >
+            <div class="flex items-center gap-4 ">
+              <span
+                class="left-0 block px-3 py-1 text-lg leading-none text-center rounded-lg top-8 text-neutral-700 min-w-20 whitespace-nowrap bg-neutral-50"
+                ><span class="value will-change-contents">-5</span> °C</span
+              >
+              <input
+                type="range"
+                id="temperature"
+                name="temperature"
+                min="-40"
+                max="20"
+                class="w-full"
+                value="-1"
+              />
+            </div>
+          </div>
+          <!-- <div class="mb-8">
                       <label for="minTemp" class="block mb-2 text-sm font-bold text-gray-700">Минимальная температура</label>
                       <div class="flex items-center gap-4">
                         <InputNumber/>
@@ -56,11 +118,89 @@ const {class:className} = Astro.props;
                       </div>
                       
                     </div> -->
-                  </form>
+        </form>
+      </div>
+      <div class="w-full p-8 md:w-auto bg-neutral-50 rounded-3xl">
+        <div class="px-2"><span>Рекомендуемая общая мощность: </span><span id="totalPower" class="px-2 rounded-full will-change-contents bg-secondary/70">1800 кВт</span></div>
+        <h3 class="px-2 my-4 text-2xl font-black">Список подходящих радиаторов:</h3>
+        <ul class="flex flex-col gap-4 text-xl" id="heaters_outputs">
+          <li class="flex items-center gap-8 p-2 rounded-xl hover:bg-neutral-100">
+            <div class="flex flex-col items-start grow">
+              <div class="font-black">C 33 300x400</div>
+              <ul class="flex items-center gap-1">
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power">1239 Вт</li>
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-200 connection">Нижнее</li>
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 type empty:hidden"></li>
+              </ul>
             </div>
-            <div class="w-full md:w-auto">
-                <!-- RAW -->
-                <div class="flex flex-col items-start justify-start gap-8 px-8 py-6 bg-neutral-50 rounded-2xl">
+            <div class="flex items-center gap-4 text-neutral-300">
+              <div class="font-black">
+                <span class="text-xl">x</span>
+              </div>
+              <div class="font-black ">
+                <span class="text-4xl">2</span><span>&nbsp;шт</span>
+              </div>
+            </div>
+          </li>
+          <li class="flex items-center gap-8 p-2 rounded-xl hover:bg-neutral-100">
+            <div class="flex flex-col items-start grow">
+              <div class="font-black">C 33 300x400</div>
+              <ul class="flex items-center gap-1">
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power">1239 Вт</li>
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-200 connection">Нижнее</li>
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 type empty:hidden"></li>
+              </ul>
+            </div>
+            <div class="flex items-center gap-4 text-neutral-300">
+              <div class="font-black">
+                <span class="text-xl">x</span>
+              </div>
+              <div class="font-black ">
+                <span class="text-4xl">2</span><span>&nbsp;шт</span>
+              </div>
+            </div>
+          </li>
+          <li class="flex items-center gap-8 p-2 rounded-xl hover:bg-neutral-100">
+            <div class="flex flex-col items-start grow">
+              <div class="font-black">C 33 300x400</div>
+              <ul class="flex items-center gap-1">
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power">1239 Вт</li>
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-200 connection">Нижнее</li>
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 type empty:hidden">Гигиенический</li>
+              </ul>
+            </div>
+            <div class="flex items-center gap-4 text-neutral-300">
+              <div class="font-black">
+                <span class="text-xl">x</span>
+              </div>
+              <div class="font-black ">
+                <span class="text-4xl">2</span><span>&nbsp;шт</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="flex items-center flex-1 gap-8 p-2 rounded-xl hover:bg-neutral-100">
+            <div class="flex flex-col items-start grow">
+              <div class="font-black">C 33 300x400</div>
+              <ul class="flex items-center gap-1">
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power">1239 Вт</li>
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-200 connection">Нижнее</li>
+                <li class="px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 type empty:hidden">Гигиенический</li>
+              </ul>
+            </div>
+            <div class="flex items-center gap-4 text-neutral-300">
+              <div class="font-black">
+                <span class="text-xl">x</span>
+              </div>
+              <div class="font-black ">
+                <span class="text-4xl">2</span><span>&nbsp;шт</span>
+              </div>
+            </div>
+          </li>
+          
+        </ul>
+        <!-- RAW -->
+        <!-- <div class="flex flex-col items-start justify-start gap-8 px-8 py-6 bg-neutral-50 rounded-2xl">
         
                     <div class="self-stretch text-neutral-700 text-base font-bold font-['Ubuntu'] uppercase leading-loose tracking-wider">Список подходящих радиаторов:</div>
                     <div class="flex flex-col items-center justify-start gap-2">
@@ -114,42 +254,130 @@ const {class:className} = Astro.props;
                         <div class="text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">2 шт</div>
                       </div>
                     </div>
-                  </div>
-                  <!--  -->
-            </div>
-        </div>
+                  </div> -->
+        <!--  -->
+      </div>
     </div>
- </section>
- <script>
-  document.addEventListener('astro:page-load', () => {
+  </div>
+</section>
+<script>
+  function calculateHeatLoss(
+    area: number,
+    height: number,
+    insulationFactor: number,
+    glazingFactor: number,
+    minTemp: number
+  ) {
+    console.log(area);
+    console.log(height);
+    console.log(insulationFactor);
+    console.log(glazingFactor);
+    console.log(minTemp);
+    const heatLoss =
+      area * height * insulationFactor * glazingFactor * (20 - minTemp);
+    return heatLoss;
+  }
+  function initCalculator(form: HTMLFormElement) {
+    const area = form.querySelector('input[name="area"]') as HTMLInputElement;
+    const temperature = form.querySelector(
+      'input[name="temperature"]'
+    ) as HTMLInputElement;
+    const insulation = form.querySelector(
+      'input[name="insulation"]:checked'
+    ) as HTMLInputElement;
+    const windows = form.querySelector(
+      'input[name="windows"]:checked'
+    ) as HTMLInputElement;
+    const glazing = form.querySelector(
+      'input[name="glazing"]:checked'
+    ) as HTMLInputElement;
+    const height = form.querySelector(
+      'input[name="height"]:checked'
+    ) as HTMLInputElement;
+
+    const heatLoss = calculateHeatLoss(
+      parseFloat(area.value),
+      parseFloat(height.value),
+      parseFloat(insulation.value),
+      parseFloat(glazing.value),
+      parseFloat(temperature.value)
+    );
+
+    const event = new CustomEvent("calculatorFormHeatPower", {
+          detail: {
+            heat: heatLoss, heaters: parseInt(windows.value), // Элемент, который вы хотите передать
+          },
+          bubbles: true,
+        });
+    document.dispatchEvent(event);
     
-    document.addEventListener("calculatorFormEvent",(e:any)=>{
-      console.log(`${e.detail.values.name}: ${e.detail.values.value}`)
+    // console.log(`${heatLoss} Вт`);
+    // console.log(
+    //   `${Math.ceil(heatLoss / parseInt(windows.value))} Вт на каждый радиатор`
+    // );
+  }
+  document.addEventListener("astro:page-load", () => {
+    const form = document.getElementById("calculator") as HTMLFormElement;
+    initCalculator(form);
+
+    document.addEventListener("calculatorFormEvent", (e: any) => {
+      initCalculator(form);
     });
 
-    const rangeInputs = document.querySelectorAll('input[type="range"]')
+    document.addEventListener("calculatorFormHeatPower", (e: any) => {
+      const totalPower = document.getElementById("totalPower") as HTMLSpanElement;
 
+      totalPower.textContent = `${parseInt(e.detail.heat)} Вт`;
+      // console.log(`${e.detail.heat} Вт`);
+    });
 
-		function handleInputChange(e:any) {
-        let target = e.target
-        if (e.target.type !== 'range') {
-          target = document.getElementById('range')
-        } 
-        const min = target.min
-        const max = target.max
-        const val = target.value
-        
-        target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+    const rangeInputs = document.querySelectorAll('input[type="range"]');
 
-        // Находим ближайший элемент с классом .value среди соседних элементов
-        const valueSpan = target.closest('.flex').querySelector('.value');
-        valueSpan.textContent = val;
-			}
+    let timeout = setTimeout(function () {}, 10);
 
-			rangeInputs.forEach(input => {
-			  input.addEventListener('input', handleInputChange)
-			})
+    function handleInputChange(e: any) {
+      let target = e.target;
+      if (e.target.type !== "range") {
+        target = document.getElementById("range");
+      }
+      const min = target.min;
+      const max = target.max;
+      const val = target.value;
 
-		  // numberInput?numberInput.addEventListener('input', handleInputChange):"";
+      target.style.backgroundSize =
+        ((val - min) * 100) / (max - min) + "% 100%";
+
+      // Находим ближайший элемент с классом .value среди соседних элементов
+      const valueSpan = target.closest(".flex").querySelector(".value");
+      valueSpan.textContent = val;
+
+      // Чтоб не рябила консоль
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        const event = new CustomEvent("calculatorFormEvent", {
+          detail: {
+            values: { name: target.name, value: target.value }, // Элемент, который вы хотите передать
+          },
+          bubbles: true,
+        });
+        document.dispatchEvent(event);
+      }, 50);
+    }
+
+    rangeInputs.forEach((input: any) => {
+      input.addEventListener("input", handleInputChange);
+
+      // refresh range from span with number
+      const valueSpan = input.closest(".flex").querySelector(".value");
+      input.value = valueSpan.textContent;
+
+      const min = input.min;
+      const max = input.max;
+      const val = input.value;
+
+      input.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
+
+      console.log(input);
+    });
   });
- </script>
+</script>
