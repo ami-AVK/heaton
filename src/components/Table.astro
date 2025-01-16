@@ -1,12 +1,13 @@
 ---
 import pkg from "papaparse";
+import Row from "./SmartTable/Row.astro"
 const { parse } = pkg;
 
 interface CsvTableProps {
   csvData: string;
 }
 
-const { csvData } = Astro.props as CsvTableProps;
+const { csvData, path_ } = Astro.props;
 
 const parsedData = parse(csvData, {
   header: true,
@@ -17,30 +18,20 @@ const parsedData = parse(csvData, {
 const headers = parsedData.length > 0 ? Object.keys(parsedData[0]) : [];
 ---
 
-<div class="flex flex-col">
-  <div class="overflow-x-auto">
-    <div class="min-w-full inline-block align-middle">
-      <div class="overflow-hidden  rounded-3xl">
-        <table class=" min-w-full rounded-xl">
-          <thead>
-            <tr class="bg-stone-50 py-1">
-              {headers.map((header) => <th scope="col" class="px-2 py-1 text-left text-xs leading-6 font-normal text-stone-600 capitalize whitespace-nowrap first-of-type:pl-3">{header}</th>)}
-            </tr>
-          </thead>
-          <tbody>
-            {
-              parsedData.map((row) => (
-                <tr class="odd:bg-stone-50 even:bg-stone-100 hover:bg-stone-200 data-[current]:bg-[#FCD47F]">
-                  {headers.map((header) => (
-                    <td class="px-2 my-1 whitespace-nowrap text-sm leading-6 font-normal text-stone-700 first-of-type:pl-3" id=`${header==="Номенклатурный номер"?row[header]:""}`>{row[header]}</td>
-                  ))}
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+<div class="px-4 py-4 -mx-4 rounded-2xl bg-neutral-50">
+<div class="overflow-x-auto">
+  <table class="min-w-full">
+    <thead class="sticky top-0 z-50">
+        <Row values={headers} headers={headers} isHeader={true} class="sticky top-0 z-50"/>
+    </thead>
+    <tbody class="">
+      {
+        parsedData.map((row) => (
+          <Row values={row} headers={headers} id={row["Номенклатурный номер"]} path_={path_}/>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
 </div>
 

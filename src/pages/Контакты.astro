@@ -1,0 +1,60 @@
+---
+import { ClientRouter } from "astro:transitions";
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
+import '../styles/main.css';
+---
+
+<html lang="ru" class="bg-neutral-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href=`${import.meta.env.BASE_URL}/favicon.svg`
+    />
+    <!-- <meta name="generator" content={Astro.generator} /> -->
+    <title>Heaton</title>
+  </head>
+
+  <body class="flex flex-col min-h-screen bg-neutral-100">
+    <ClientRouter />
+    <!-- hero -->
+
+    <div class="bg-gr-metallic">
+      <div class="relative px-4 py-8 mx-auto container-center md:px-8 lg:px-16">
+        <NavBar />
+      </div>
+      <div class="container-center ">
+        <h1 class="text-3xl lg:text-4xl xl:text-5xl header-circle-lg my-[10svh]">Контакты</h1>
+      </div>
+    </div>
+    <div class="w-full min-h-screen container-center">
+     
+      <div class="py-8">
+        <h2 class="my-8 text-2xl font-black">Центральный офис</h2>
+        <div class="relative flex flex-col w-full py-4">
+          <ul class="text-lg tracking-wide font text-neutral-700">
+            <li class="py-1">Белокаменное шоссе 1</li>
+            <li class="py-1">8 499 645-00-00</li>
+            <li class="py-1">retail@heaton.ru</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="">
+        <h2 class="my-8 text-2xl font-black">Где купить</h2>
+        <div class="relative flex flex-col w-full py-4 -mx-8">
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A831fffd317d1464537c6b37a7c499d5f0de5482e8680fa2fb2da1c313e12c7b9&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
+        </div>
+      </div>
+  
+      
+    </div>
+    <Footer class="mt-auto"/>
+  </body>
+</html>

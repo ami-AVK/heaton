@@ -1,0 +1,91 @@
+---
+import { ClientRouter } from "astro:transitions";
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
+import '../styles/main.css';
+---
+
+<html lang="ru" class="bg-neutral-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href=`${import.meta.env.BASE_URL}/favicon.svg`
+    />
+    <!-- <meta name="generator" content={Astro.generator} /> -->
+    <title>Heaton</title>
+  </head>
+
+  <body class="flex flex-col min-h-screen bg-neutral-100">
+    <ClientRouter />
+    <!-- hero -->
+
+    <div class="bg-gr-metallic">
+      <div class="relative px-4 py-8 mx-auto container-center md:px-8 lg:px-16">
+        <NavBar />
+      </div>
+      <div class="container-center">
+        <h1 class="text-3xl lg:text-4xl xl:text-5xl header-circle-xl my-[10svh]">Документация</h1>
+      </div>
+      
+    </div>
+    <div class="w-full min-h-screen container-center">
+      
+      
+      <!--  -->
+      <div class="py-8">
+        <h2 class="my-8 text-2xl font-black">Паспорта</h2>
+        <ul class="grid grid-cols-3 gap-16 text-xl text-neutral-700">
+          {
+            [
+              {name:"Стальные панельные радиаторы",link:"",capture:""},
+              {name:"Внутрипольные конвекторы",link:"",capture:""},
+              {name:"Внутрипольные конвекторы Turbo",link:"",capture:""},
+            ].map((element)=>(
+              <li class="p-8 text-lg min-w-64 rounded-2xl bg-neutral-50">{element.name}</li>
+              ))
+          }
+        </ul>
+      </div>
+
+      <!--  -->
+      <div class="py-8">
+        <h2 class="my-8 text-2xl font-black">Сертификаты</h2>
+        <ul class="grid grid-cols-3 gap-16 text-xl text-neutral-700">
+          {
+            [
+              {name:"Гигиенический сертификат",link:"",capture:""},
+              {name:"Сертификат соответсвия",link:"",capture:""},
+            ].map((element)=>(
+              <li class="p-8 text-lg min-w-64 rounded-2xl bg-neutral-50">{element.name}</li>
+              ))
+          }
+        </ul>
+      </div>
+  
+      
+      <!--  -->
+      <div class="py-8">
+        <h2 class="my-8 text-2xl font-black">Графические материалы</h2>
+        <ul class="grid grid-cols-3 gap-16 text-xl text-neutral-700">
+          {
+            [
+              {name:"Каталог",link:"",capture:""},
+              {name:"Логотип",link:"",capture:""},
+            ].map((element)=>(
+              <li class="p-8 text-lg min-w-64 rounded-2xl bg-neutral-50">{element.name}</li>
+              ))
+          }
+        </ul>
+      </div>
+  
+      
+    </div>
+    <Footer class="mt-auto"/>
+  </body>
+</html>

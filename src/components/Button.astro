@@ -6,17 +6,19 @@ interface ButtonProps {
 	icon?: string;
 	link?: string;
 	type?: 'button' | 'submit' | 'reset' |'download';
+	class?: string;
   }
   
-  const { text, icon, type = 'button' ,link} = Astro.props as ButtonProps;
+  const { text, icon, type = 'button' ,link, class:className} = Astro.props as ButtonProps;
   const isDownload = type === 'download';
-//   data-[current=true]:bg-[#FCD47F]"
+//   data-[current=true]:bg-secondary"
 ---
 {
 isDownload?
 	<a
 		href={link}		
-		class="px-5 py-2.5 text-sm font-medium text-stone-700 inline-flex items-center bg-[#FCD47F] hover:bg-[#ffe09c] focus:ring-1 border-none outline-none focus:outline-[#ffeec9] rounded-full text-center "
+		class="px-5 py-2.5 text-sm font-medium text-neutral-700 inline-flex items-center bg-secondary hover:bg-[#ffe09c] focus:ring-1 border-none outline-none focus:outline-[#ffeec9] rounded-full text-center  justify-center"
+		class:list={className}
 	>
 		{icon?<Icon name={icon} width="24"/>:""}
 		{text}
@@ -24,7 +26,8 @@ isDownload?
 :
 	<button
 		type={type}
-		class="px-5 py-2.5 text-sm font-medium text-stone-700 inline-flex items-center bg-[#FCD47F] hover:bg-[#ffe09c] focus:ring-1 border-none outline-none focus:outline-[#ffeec9] rounded-full text-center "
+		class="px-5 py-2.5 text-sm font-medium text-neutral-700 inline-flex items-center bg-secondary hover:bg-[#ffe09c] focus:ring-1 border-none outline-none focus:outline-[#ffeec9] rounded-full text-center justify-center"
+		class:list={className}
 	>
 		{icon?<Icon name={icon} width="24"/>:""}
 		{text}

@@ -12,68 +12,85 @@ const paths = collection.map((file) => ({
     props:{filePath:file.toString(),category: file.split('/')[2],model: file.split('/')[3],type: file.split('/')[4].replace(".csv","")},
   }));
 const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths[0].props.model}/${paths[0].props.type}`
+
+const mainLinks = [
+                    {text:"Продукция",href:pathname},
+                    {text:"Документация",href:`${import.meta.env.BASE_URL}/Документация`},
+                    {text:"Контакты",href:`${import.meta.env.BASE_URL}/Контакты`},
+                  ]
 ---
 
-<div class="flex flex-row items-center justify-between relative">
-    <div class="flex items-center gap-4">
-        <a href=`${import.meta.env.BASE_URL}/` class=`cursor-pointer text-[#FCD47F] ${mainpage?"pointer-events-none":""}`>
-          <Logo class="w-20 md:w-32 lg:w-40 hidden md:block"/>
-          <LogoSmall class="w-16 md:hidden"/>
-        </a>
-        <div class="flex flex-col gap-2">
-            <div class="flex gap-2 items-center text-stone-100">
-                <Icon name="Phone call" />
-                <div class="text-base leading-5 font-semibold relative  tracking-wider">8 499 645-00-00</div>
-            </div>
-            <div class="flex gap-2 items-center text-stone-100">
-                <Icon name="At sign" />
-                <div class="text-base leading-5 font-semibold relative  tracking-wider">retail@heaton.ru</div>
-            </div>
-        </div>
-    </div>
-   
-    <div class="flex flex-row gap-8 items-center justify-start shrink-0 relative">
-      <div
-        class="bg-stone-600 text-stone-100 rounded-full pt-1 pr-1 pb-1 pl-4 flex flex-row gap-4 items-center justify-start shrink-0 relative data-[active]:bg-[#FCD47F] data-[active]:text-[#FCD47F]  overflow-clip group/container"
-        id="search-container"
-      >
+<div class="z-50 nav-scroll">
+    <div class="relative z-50 flex flex-row items-center justify-between w-full">
+      <div class="flex items-center gap-4 nav-left-block">
+          <a href=`${import.meta.env.BASE_URL}/` class=`cursor-pointer text-secondary ${mainpage?"pointer-events-none":""}`>
+            <Logo class="hidden w-20 md:w-32 lg:w-40 md:block text-primary"/>
+            <LogoSmall class="w-16 md:hidden text-primary"/>
+          </a>
+          <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-2 text-neutral-700">
+                  <Icon name="Phone call" />
+                  <div class="relative text-base font-semibold leading-5 tracking-wider">8 499 645-00-00</div>
+              </div>
+              <div class="flex items-center gap-2 text-neutral-700">
+                  <Icon name="At sign" />
+                  <div class="relative text-base font-semibold leading-5 tracking-wider">retail@heaton.ru</div>
+              </div>
+          </div>
+      </div>
+    
+      <div class="relative">
         <div
-          class="p-2.5 flex flex-row gap-2.5 items-center justify-center shrink-0 relative"
+          class="bg-neutral-50 text-neutral-700 rounded-full pt-1 pr-1 pb-1 pl-4 flex flex-row gap-4 items-center justify-start shrink-0 relative data-[active]:bg-primary data-[active]:text-primary  overflow-clip group/container data-[active]:shadow-2xl"
+          id="search-container"
         >
-          <ul
-            class="flex flex-row gap-6 items-center justify-start shrink-0 relative"
+          <div
+            class="p-2.5 flex flex-row gap-2.5 items-center justify-center shrink-0 relative"
           >
-            <li
-              class=" text-left font-['Exo2-Medium',_sans-serif] text-sm leading-5 font-medium relative"
-              style="letter-spacing: 0.02em"
+            <ul
+              class="relative flex flex-row items-center justify-start gap-6 shrink-0"
             >
-              <a href=`${import.meta.env.BASE_URL}/#models`>Модели</a>
-            </li>
-            <li
-              class=" text-left font-['Exo2-Medium',_sans-serif] text-sm leading-5 font-medium relative"
-              style="letter-spacing: 0.02em"
-            >
-              <a href={pathname}>Продукция</a>
-            </li>
-            <li
-              class=" text-left font-['Exo2-Medium',_sans-serif] text-sm leading-5 font-medium relative"
-              style="letter-spacing: 0.02em"
-            >
-              <a href=`${import.meta.env.BASE_URL}/`>Документация</a>
-            </li>
-          </ul>
-        </div>
-        <button
-          class="rounded-full bg-[#FCD47F] flex flex-row items-end justify-end shrink-0 right-0 transition-all text-stone-800 p-3 cursor-pointer  relative data-[active]:right-[calc(100%-40px)] group/btn"
-          id="search-btn"
-        >   
-            <Icon name="Search" height="24" width="24" class="text-stone-800 "/>
-            <div class="flex flex-row  w-0 transition-all group-data-[active]/btn:w-80 overflow-clip absolute left-12 gap-4">
-              <input type="search" name="main-search" id="main-search-input" class=" focus:outline-none bg-[#FCD47F] opacity-0 text-stone-800 transition-colors shad  group-data-[active]/btn:shadow-2xl  group-data-[active]/btn:opacity-100 border-stone-600 border-b-[1px] w-[17rem]">
+              {
+                mainLinks.map((link)=>(
+                  <li
+                  class="relative text-sm font-medium leading-5 text-left"
+                  >
+                    <a href={link.href} class="hover:underline">{link.text}</a>
+                  </li>
+              ))}
               
-            </div>
-        </button>
-        <button class="text-[#FCD47F] p-1 bg-stone-600 transition-all scale-50 rounded-full absolute invisible opacity-0 right-3 group-data-[active]/container:opacity-100 group-data-[active]/container:scale-100 group-data-[active]/container:visible flex items-center hover:bg-stone-800" id="main-search-close"><Icon name="X" height="24" width="24" /></button>
+            </ul>
+          </div>
+          <button
+            class="rounded-full bg-primary flex flex-row items-center justify-end shrink-0 right-0 transition-all text-neutral-50 p-3 cursor-pointer  relative data-[active]:right-[calc(100%-40px)] group/btn hover:bg-primary/80"
+            id="search-btn"
+          >   
+              <Icon name="Search" height="24" width="24" class="text-neutral-50 "/>
+              <div class="flex flex-row  w-0 transition-all group-data-[active]/btn:w-80 overflow-clip absolute left-12 gap-4">
+                <input type="search" name="main-search" id="main-search-input" class=" focus:outline-none bg-primary opacity-0 text-neutral-50 transition-colors group-data-[active]/btn:shadow-2xl  group-data-[active]/btn:opacity-100 w-[17rem] appearance-none accent-neutral-50 focus:ring-0  focus:border-l-0 focus:border-t-0 focus:border-r-0 focus:border-b-[1px] focus:border-neutral-50">
+              </div>
+          </button>
+          <button class="text-primary p-1 bg-neutral-50 transition-all scale-50 rounded-full absolute invisible opacity-0 right-3 group-data-[active]/container:opacity-100 group-data-[active]/container:scale-100 group-data-[active]/container:visible flex items-center hover:bg-secondary" id="main-search-close"><Icon name="X" height="24" width="24" /></button>
+        </div>
+
+        <div id="search-result" class="absolute w-full group/result h-fit top-1/2 -z-10 overflow-clip will-change-auto">
+          <div class="-translate-y-full relative left-0 w-full -z-10 bg-neutral-50 px-16 pt-12 pb-6 rounded-b-3xl invisible transition-all opacity-0 will-change-contents text-neutral-50
+          group-data-[search-active]/result:translate-y-0  
+          group-data-[search-active]/result:bg-primary/80  
+          group-data-[search-active]/result:opacity-100
+          group-data-[search-active]/result:visible 
+           backdrop-blur-sm
+          ">
+            <ul class="w-full ">
+              <li><span>1212</span></li>
+              <li><a href=`${import.meta.env.BASE_URL}/Документация`>1212</a></li>
+              <li>1212</li>
+              <li>1212</li>
+              <li>1212</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -86,6 +103,33 @@ const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths
     //   return fuse;
     //   // input.addEventListener('onInput', fuse
     // }
+    // offset: ["start end", "end end", "start start", "end start"],
+
+
+      // SCROLL FOLD
+    // import { animate,scroll,stagger, inView } from "motion";
+	  // document.addEventListener('astro:page-load', () => {
+    //   document.querySelectorAll(".nav-scroll").forEach((section) => {
+    //     const header = section.querySelector(".nav-left-block") as HTMLDivElement;
+    //     const staggers = section.querySelectorAll(".inview-block") as NodeList;
+    //     const sequence = [
+    //       [header, { opacity:[0,1],y:[400,0],rotateY:[45,0],rotateZ:[5,0]}, { ease: "linear" ,duration: .4}],
+    //       [staggers, { opacity: [0,1], x: [300, 0], rotateY:[-45,0]},{ ease:  "easeInOut", at: .1, duration: .3 }],
+          
+    //     ];
+		// 	scroll(
+		// 		animate(
+		// 			header, { opacity:[1,.1],x:[0,-200]}, { ease: "linear"}),
+		// 		{
+		// 			target: section,
+		// 			offset: ["0 0", "200px 0"],
+		// 		}
+		// 	);
+
+		// 	});
+    // });
+
+
     document.addEventListener('astro:page-load', () => {
       
       const search_btn= document.getElementById("search-btn") as HTMLBaseElement;
@@ -93,6 +137,7 @@ const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths
       search_btn.addEventListener('click', (e) => openSearch());
       // document.getElementById("main-search-close").addEventListener('click', (e) => closeSearch(e));
       document.addEventListener('keydown', (event) => event.key === "Escape"?closeSearch():"");
+      
       search_input.addEventListener('blur', (e) => closeSearch());
       // startFuse(search_input,[{id:'112-3223',model:"C10 2000x300",power:1321},{id:'212-3223',model:"VC10 2000x300",power:321}]);
     });
@@ -100,10 +145,12 @@ const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths
         const search = document.getElementById("search-btn") as HTMLInputElement;
         const search_cont = document.getElementById("search-container") as HTMLBaseElement;
         const search_input = document.getElementById("main-search-input") as HTMLBaseElement;
+        const outputField = document.getElementById("search-result") as HTMLBaseElement;
         search.setAttribute("data-active","");
         // search.toggleAttribute("enabled");
         search_cont.setAttribute("data-active","");
         search_input.setAttribute("data-active","");
+        outputField.setAttribute("data-search-active","");
       
         search_input.focus();
         // cont.classList.toggle('active');
@@ -112,10 +159,12 @@ const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths
         const search = document.getElementById("search-btn") as HTMLInputElement;
         const search_cont = document.getElementById("search-container") as HTMLBaseElement;
         const search_input = document.getElementById("main-search-input") as HTMLBaseElement;
+        const outputField = document.getElementById("search-result") as HTMLBaseElement;
         search.removeAttribute("data-active");
         // search.toggleAttribute("enabled");
         search_cont.removeAttribute("data-active");
         search_input.removeAttribute("data-active");
+        outputField.removeAttribute("data-search-active");
         search_input.blur();
         search.blur();
         // cont.classList.toggle('active');

@@ -16,6 +16,7 @@ import { ClientRouter } from "astro:transitions";
 import "../../../styles/main.css";
 import { Image } from "astro:assets"
 import Footer from "../../../components/Footer.astro";
+import ButtonFile from "../../../components/ButtonFile.astro";
 
 const csvCollection = await glob(["./src/data/**/**/*.csv"]);
 
@@ -56,8 +57,8 @@ const jsonPath = path.join(process.cwd(), `${csvFile.substring(0,csvFile.lastInd
 const pasport = path.join(process.cwd(), `${csvFile.substring(0,csvFile.lastIndexOf('.csv'))}.pdf`);
 
 const csvData = fs.readFileSync(csvFilePath, "utf-8");
-const pathname = new URL(Astro.request.url);
-
+// const pathname = new URL(Astro.request.url);
+const pathname = `${import.meta.env.BASE_URL}/${category}/${model}/${type}`;
 
 // const imageFilePath = `${import.meta.env.BASE_URL}/${image.id}.webp`
 // const image____file____path = `./src/data/${category}/${model}/${type}.webp`;
@@ -67,18 +68,23 @@ const imageFilePath = images[Astro.props.image.replace("src/","")]();
 //  console.log();
 // console.log(images[Astro.props.image.replace("src/","")]());
 
-const links = [
-  { href: '/Стальные панельные радиаторы', text: 'Продукция' },
-  { href: '#', text: 'Документация' },
-];
+const mainLinks = [
+                    {text:"Продукция",href:pathname},
+                    {text:"Документация",href:`${import.meta.env.BASE_URL}/Документация`},
+                    {text:"Где купить",href:`${import.meta.env.BASE_URL}/Где купить`},
+                  ]
 
-const sitemap = [{name:"Compact (C)",icon:"C", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Compact (C)/11`},{name:"Ventil Compact (VC)",icon:"VC", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Ventil Compact (VC)/11`},{name:"Hygiene Compact (HC)",icon:"HC", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Compact (HC)/10`},{name:"Hygiene Ventil Compact (HVC)",icon:"HVC", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Ventil Compact (HVC)/10`}];
+const sitemap = [
+  {name:"Compact (C)",icon:"C", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Compact (C)/11`, props:{connect:"Боковое подключение",type:"Стандартный"}},
+  {name:"Ventil Compact (VC)",icon:"VC", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Ventil Compact (VC)/11`, props:{connect:"Нижнее подключение",type:"Стандартный"}},
+  {name:"Hygiene Compact (HC)",icon:"HC", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Compact (HC)/10`, props:{connect:"Боковое подключение",type:"Гигиенический"}},
+  {name:"Hygiene Ventil Compact (HVC)",icon:"HVC", url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Ventil Compact (HVC)/10`, props:{connect:"Нижнее подключение",type:"Гигиенический"}}];
 const modeltypes = csvCollection.filter((file) => file.includes(`/${model}/`));
-console.log(csvCollection);
-console.log("_____");
+// console.log(csvCollection);
+// console.log("_____");
 ---
 
-<html lang="ru" class="bg-stone-700">
+<html lang="ru" class="bg-neutral-700">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -90,28 +96,28 @@ console.log("_____");
     <title>Heaton</title>
   </head>
 
-  <body class="bg-stone-100">
+  <body class="bg-neutral-100">
     <ClientRouter/>
     <!-- hero -->
 
-    <div class="w-full bg-gradient-to-br from-stone-700 to-stone-600">
-      <div class="max-w-6xl mx-auto py-8 relative px-4 md:px-8 lg:px-16">
+    <div class="">
+      <div class="relative px-4 py-8 mx-auto container-center md:px-8 lg:px-16">
         <NavBar />
       </div>
     </div>
 
-    <div class="max-w-5xl mx-auto px-4 lg:px-4 mb-16">
+    <div class="px-4 mx-auto mb-16 container-center lg:px-16">
       <!--  -->
-      <div class="flex-col justify-start items-start inline-flex py-12 ">
-        <h2 class="grow shrink basis-0 self-stretch text-stone-800 text-base font-bold leading-normal tracking-wider pb-2">Стальные панельные радиаторы:</h2>
-        <div class="justify-start items-center gap-6 inline-flex">
+      <div class="inline-flex flex-col items-start justify-start py-12 ">
+        <h2 class="self-stretch pb-2 text-base font-bold leading-normal tracking-wider grow shrink basis-0 text-neutral-800">Стальные панельные радиаторы:</h2>
+        <div class="inline-flex items-center justify-start gap-6">
           {
             sitemap.map((model_) => (
-            <div class="justify-center items-start gap-1 flex">
-              <a href={model_.url} class="px-2 py-2 rounded-3xl justify-start items-center gap-1 flex hover:bg-gray-50 data-[current=true]:bg-[#FCD47F] data-[current=true]:hover:bg-[#FCD47F]" data-current={model_.name==model} >
-                <Icon name={model_.icon} class="w-8 h-8 text-stone-600 p-1"/>
+            <div class="flex items-start justify-center gap-1">
+              <a href={model_.url} class="px-2 py-2 rounded-3xl justify-start items-center gap-1 flex hover:bg-gray-50 data-[current=true]:bg-secondary data-[current=true]:hover:bg-secondary" data-current={model_.name==model} >
+                <Icon name={model_.icon} class="w-8 h-8 p-1 text-neutral-600"/>
                 {/* <img class="w-16 h-16 rounded-xl" src="" /> */}
-                <div class="text-stone-700 text-sm font-normal leading-normal tracking-wide">{model_.name}</div>
+                <div class="text-sm font-normal leading-normal tracking-wide text-neutral-700 ">{model_.name}</div>
               </a>
             </div>
           ))
@@ -119,51 +125,75 @@ console.log("_____");
         </div>
       </div>
       <!--  -->
-      <div class="flex-col justify-start items-start">
+      <div class="flex-col items-start justify-start ">
         <div class="self-stretch justify-start items-start gap-2.5 flex flex-col md:flex-row">
           <div
             class="flex self-stretch grow shrink basis-0 flex-col gap-2.5 pb-8"
           >
             <div class="self-stretch md:min-w-64">
-              <Image src={imageFilePath} alt="" class="rounded-3xl"/>
-            </div>
-            <div class="flex gap-4 mt-auto">
-              <Button text="Паспорт" icon="Document" type="download" link={`${import.meta.env.BASE_URL}/pasports/pasport.pdf`}/>
-              <Button text="Сертификаты" icon="Sertificate" type="download" link={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`}/>
+              <Image src={imageFilePath as any} alt="" class="rounded-3xl"/>
             </div>
           </div>
           <div
-            class="md:w-1/2 p-8 rounded-3xl flex-col justify-start items-start gap-2.5 inline-flex"
+            class="md:w-1/2 p-8 rounded-3xl flex-col justify-start items-start gap-2.5 inline-flex bg-neutral-50"
           >
             <div
-              class="self-stretch flex-col justify-start items-start gap-6 flex text-stone-800"
-            > <h1 class="text-3xl">Heaton {model}</h1>
+              class="flex flex-col items-start self-stretch justify-start gap-6 text-neutral-800"
+            > <h1 class="text-4xl header-circle-lg">Heaton {model}</h1>
               <ProductData excelFilePath="./src/data/Стальные панельные радиаторы/Compact (C)/11.xlsx"/>
+              <div class="flex flex-wrap gap-4 mt-auto">
+                <ButtonFile size="20" text="Технический паспорт" icon="Document" type="download" link={`${import.meta.env.BASE_URL}/pasports/pasport.pdf`} class="bg-neutral-200"/>
+                <ButtonFile size="20" text="Сертификат соответсвия" icon="Sertificate" type="download" link={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`} class="bg-neutral-200"/>
+                <ButtonFile size="20" text="Гигиенический сертификат" icon="Sertificate" type="download" link={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`} class="bg-neutral-200"/>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <!--  -->
-      <div class="flex justify-between items-start pb-2 flex-col sm:items-center sm:flex-row px-8 sm:px-0">
+      <div class="flex flex-col items-start justify-between px-8 pb-2 sm:items-center sm:flex-row sm:px-0">
         <h2 class="text-2xl">Характеристики</h2>
-        <div class="flex gap-4 items-center">
-          <h3 class="font-bold ">Типы радиаторов:</h3>
-          <ul class="flex gap-3 py-4">
-            {
-              modeltypes.map((file) => (
-                  <CircleLink fileName = `${file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))}` 
-                  current={file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))==type} 
-                  href={`${import.meta.env.BASE_URL}/${category}/${model}/${file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))}`}
-                  />
-                ))
-            }
-          </ul>
+        <div class="flex items-center gap-12">
+          <div class="flex items-center gap-4">
+            <h3 class="font-bold ">Типы:</h3>
+            <ul class="flex gap-3 py-4">
+              {
+                // modeltypes.map((file) => (
+                //     <CircleLink fileName = `${file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))}` 
+                //     current={file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))==type} 
+                //     href={`${import.meta.env.BASE_URL}/${category}/${model}/${file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))}`}
+                //     />
+                //   ))
+            
+                sitemap.forEach(link => {
+                    <CircleLink fileName = {link.icon} 
+                    current = {true}
+                    href={link.url}
+                    />
+                })
+              }
+            </ul>
+          </div>
+          <div class="flex items-center gap-4">
+            <h3 class="font-bold ">Модели:</h3>
+            <ul class="flex gap-3 py-4">
+              {
+                modeltypes.map((file) => (
+                    <CircleLink fileName = `${file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))}` 
+                    current={file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))==type} 
+                    href={`${import.meta.env.BASE_URL}/${category}/${model}/${file.substring(file.lastIndexOf("/")+1,file.lastIndexOf("."))}`}
+                    />
+                  ))
+              }
+            </ul>
+          </div>
+          
         </div>
       </div>
-      <div class="" ><Table csvData={csvData} /></div>
+      <Table csvData={csvData} path_={pathname}/>
     </div>
     
-    <Footer links={links}/>
+    <Footer links={mainLinks}/>
   </body>
 </html>
 <script>

@@ -1,0 +1,27 @@
+---
+interface RadioItemProps {
+  file: string;
+  type: string;
+  current: string;
+  href: string;
+}
+const {header, name, values} = Astro.props;
+---
+<div class="">
+    <label class="block text-gray-700 text-sm font-bold mb-2">{header}</label>
+    <div class="flex space-x-4">
+    {
+        values.map((value: any, index: number) =>
+        (
+            <label class="flex items-center">
+                {value.checked?
+                    <input type="radio" name={name} value={value.value} class="absolute opacity-0 peer" checked>
+                    :
+                    <input type="radio" name={name} value={value.value} class="absolute opacity-0 peer">
+                }
+                <span class="bg-neutral-50 px-3 py-1 bg-gray-200 rounded-lg cursor-pointer peer-hover:bg-secondary/75 peer-hover:shadow-active peer-checked:bg-secondary peer-checked:animate-flyIn text-lg">{value.buttonText}</span>
+            </label>
+        ))
+    }
+    </div>
+</div>

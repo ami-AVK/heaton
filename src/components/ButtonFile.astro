@@ -1,0 +1,20 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface ButtonProps {
+	text: string;
+	icon?: string;
+	link?: string;
+	type?: 'button' | 'submit' | 'reset' |'download'|'link';
+  size?: number;
+  class?: string;
+  }
+  
+  const { text, icon, type = 'button' ,link, size=32, class:className} = Astro.props as ButtonProps;
+  const Tag = type ==='link'?"a":"button";
+---
+
+<a href={link} class="flex items-center gap-1 px-3 py-2 tracking-widest rounded-2xl hover:bg-secondary min-w-min" class:list={[className,{"bg-neutral-50":!className}]}>
+    {icon?<Icon name={icon} height={size} width={size}/>:""}
+    <span class="text-sm whitespace-nowrap">{text}</span>
+</a>

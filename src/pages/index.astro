@@ -1,23 +1,17 @@
 ---
 // Component Imports
-import Button from '../components/Button.astro';
 import NavBar from '../components/NavBar.astro';
-import ModelCard from '../components/ModelCard.astro';
+import ModelCard from '../components/_ModelCard.astro';
+import TSlider from '../components/Inputs/TemperatureSlider.astro';
 import { Image } from "astro:assets"
-import heater from "../img/heater_.png"
-import icon_complectation from "../img/комплектация.webp"
-import icon_steel from "../img/толщина стали.webp"
-import icon_sertificate from "../img/сертификат.webp"
-import icon_factory from "../img/завод.webp"
-import icon_delivery from "../img/доставка.webp"
-import icon_models from "../img/модельный ряд.webp"
-import factoids_grid from "../img/каплевидная решетка.webp"
+import heater from "../img/heater_main.webp"
+import { Icon } from 'astro-icon/components';
 import '../styles/main.css';
-import SmallLogo from '../svg/logo_small_.svg';
 import { glob, globSync, globStream, globStreamSync, Glob } from 'glob'
 import { ClientRouter } from 'astro:transitions';
 import Footer from '../components/Footer.astro';
 import Calculator from '../components/Calculator.astro';
+import Button from '../components/ButtonFile.astro';
 
 const links = [
   { href: '/Стальные панельные радиаторы', text: 'Продукция' },
@@ -33,7 +27,7 @@ const pathname = `/${paths[0].props.category}/${paths[0].props.model}/${paths[0]
 console.log(pathname);
 ---
 
-<html lang="ru" class="scroll-smooth">
+<html lang="ru" class="scroll-smooth snap-y snap-mandatory">
 	<head>
 		<meta charset="utf-8" />
 		<!-- <meta name="viewport" content="width=device-width" /> -->
@@ -44,105 +38,321 @@ console.log(pathname);
 		<ClientRouter />
 	</head>
 
-	<body class="bg-stone-100">
+	<body class="bg-neutral-100 ">
+
+
+
 		<!-- hero -->
-		<div class="w-full bg-gradient-to-br from-stone-700 to-stone-600">
-			<div class="max-w-6xl mx-auto min-h-96 py-8 relative px-4 md:px-8 lg:px-16 pb-16">
+		<section class="relative w-full bg-gr-metallic min-h-svh overflow-x-clip snap-center">
+			<div class="z-0 py-8 pb-16 container-center">
 				<NavBar/>
-				<div class="absolute -left-96 top-32">
-					<Image alt="" src={heater} width={900} height={500} layout="responsive" />
-				</div>
-				<h1 class="text-stone-100 text-6xl font-normal leading-none tracking-widest max-w-64 relative left-1/2 mt-32 mb-16">СТАЛЬНЫЕ ПАНЕЛЬНЫЕ РАДИАТОРЫ</h1>
-				<div class="absolute -bottom-[175px] -right-28 origin-top-left rotate-[-19deg]">
-						<SmallLogo fill="#44403C" width="300" transition:animate="slide"/>
+				<div class="flex flex-col justify-center mt-[15%] ml-4 md:flex-row md:justify-start md:mt-32 md:ml-auto ">
+					<div class="flex flex-col z-10 px-[10%] mt-24 md:mt-auto md:px-0 relative md:max-w-[40%] gap-12 md:my-auto mr-[10%] order-2 md:order-1 lg:ml-16">
+						<h1 class="text-2xl font-bold leading-none tracking-widest uppercase text-neutral-700 sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl header-circle-xl">
+							Стальные панельные радиаторы</h1>
+						<p class="w-full text-xl font-light sm:text-2xl md:text-3xl xl:text-4xl text-neutral-600">
+							Высокое качество <br/>по&nbsp;доступной цене
+						</p>
+					</div>
+					<div class="relative px-[5%] md:px-0 md:max-w-[70%] z-0 min-h-[40svh] md:h-auto order-1 md:order-2 -bottom-16">
+						<div class="absolute -top-[15%] left-1/2">
+							<div class="flex flex-col items-start justify-start gap-1">
+								<div class="self-stretch text-base font-normal leading-none text-neutral-700 lg:text-lg lg:leading-none">СООТВЕТСВИЕ</div>
+								<div class="self-stretch text-lg font-bold leading-none text-neutral-700 lg:text-xl lg:leading-none">ГОСТ 31311-2005</div>
+							</div>
+						</div>
+						<div class="absolute -bottom-0 h-[120%] w-1/2 -z-10 -left-8 bg-neutral-100 rounded-tl-[64px] rounded-tr-lg"></div>
+						<div class="absolute bottom-16 lg:bottom-24 h-0.5 w-[150%] -z-10 -left-[150%] bg-gradient-to-l from-neutral-50 via-neutral-50/0 to-neutral-50/0 "></div>
+						<div class="absolute z-10 w-32 h-32 border-2 rounded-full -bottom-16 -left-24 lg:h-48 lg:w-48 lg:-bottom-24 lg:-left-32 bg-neutral-50/30 backdrop-blur-sm border-neutral-50 scroll-scale-fade"></div>
+						<Image alt="" src={heater}/>
+					</div>
 				</div>
 			</div>
-		</div>
-		
-		<!-- content -->
-		<div class="py-32 mx-auto flex flex-col items-center max-w-6xl">
-			<!-- intro -->
-			<div class="flex-col justify-start items-center gap-8 inline-flex mx-auto ">
-				<div class="max-w-2xl text-center text-stone-700 text-3xl font-light leading-9 tracking-widest pb-8">Бренд Heaton — это стальные панельные радиаторы высочайшего качества по доступной цене</div>
-				<div class="grid grid-cols-3 gap-y-8 gap-x-32">
-				  <div class="flex flex-col items-center max-w-72">
-					<Image alt="" src={icon_factory} width={128} height={128} layout="responsive"/>
-					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider">Произведены в Турции на заводе с богатейшим опытом</div>
-				  </div>
-				  <div class="flex flex-col items-center max-w-72">
-					<Image alt="" src={icon_sertificate} width={128} height={128} layout="responsive"/>
-					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider"> Высочайшее качество, подтвержденное сертификатом</div>
-				  </div>
-				  <div class="flex flex-col items-center max-w-72">
-					<Image alt="" src={icon_models} width={128} height={128} layout="responsive"/>
-					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider">Широкий типоразмерный ряд в стандартном исполнении</div>
-				  </div>
-				  <div class="flex flex-col items-center max-w-72">
-					<Image alt="" src={icon_complectation} width={128} height={128} layout="responsive"/>
-					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider">В комплектацию входит все необходимое для монтажа радиатора на стену</div>
-				  </div>
-				  <div class="flex flex-col items-center max-w-72">
-					<Image alt="" src={icon_steel} width={128} height={128} layout="responsive"/>
-					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider"> Высококачественное сырье: холоднокатанная сталь 1,3 мм</div>
-				  </div>
-				  <div class="flex flex-col items-center max-w-72">
-					<Image alt="" src={icon_delivery} width={128} height={128} layout="responsive"/>
-					<div class="self-stretch text-center text-stone-700 text-lg font-light leading-tight tracking-wider"> Максимально быстрые сроки поставки</div>
-				  </div>
-				</div>
-			  </div>
-			  <!-- extra -->
-			  <div class="h-24 px-8 py-3 bg-[#fbd47e] rounded-full  justify-center items-center gap-3.5 inline-flex mt-12 mb-2 shadow-2xl cursor-pointer">
-				<div class="justify-center items-center gap-2.5 flex">
-					<Image alt="" src={icon_sertificate} width={128} height={128} layout="responsive"/>
-				  <div class="text-stone-700 text-xl font-light leading-tight tracking-wider">Продукция имеет <br/>гигиенический сертификат</div>
-				</div>
-			  </div>
-			  <!-- big factoids -->
-			  <div class="flex flex-col gap-8">
-				<div class="flex items-center gap-16">
-					<div class="grow shrink basis-0 flex">
-						<Image alt="" src={factoids_grid} width={450} layout="responsive" class="rounded-3xl"/>
-					</div>
-					<div class="grow shrink basis-0 flex flex-col gap-8 max-w-lg">
-						<h3 class="self-stretch text-neutral-700 text-3xl font-light leading-9 tracking-wides whitespace-pre-wrap">«Технология &#10;усечённого канала»</h3>
-						<p class="self-stretch text-neutral-700 text-lg font-light leading-tight tracking-wider">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
-					</div>
-				</div>
-				<div class="flex items-center gap-16">
-					<div class="grow shrink basis-0 flex flex-col gap-8 max-w-lg">
-						<h3 class="self-stretch text-neutral-700 text-3xl font-light leading-9 tracking-wides whitespace-pre-wrap">Верхняя решетка &#10;крыловидной формы</h3>
-						<p class="self-stretch text-neutral-700 text-lg font-light leading-tight tracking-wider">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
-					</div>
-					<div class="grow shrink basis-0 flex">
-						<Image alt="" src={factoids_grid} width={450} layout="responsive" class="rounded-3xl"/>
-					</div>
-				</div>
-			  </div>
+		</section>
 
-			  <!--  -->
-			  <div class="flex-col justify-start items-center gap-8 inline-flex py-32">
-				<h2 class="text-center text-stone-700 text-3xl font-light leading-9 tracking-widest">Назначение</h2>
-				<div class=" max-w-3xl text-center text-stone-700 text-lg font-light leading-tight tracking-wider">Стальные панельные радиаторы Heaton предназначены для применения в закрытых, независимых системах водяного отопления жилых, административных, промышленных, общественных зданий, медицинских учреждений, а также индивидуальных домов и коттеджей. </div>
-			  </div>
-			  <!--  -->
-				<!--  -->
-				<!-- <div class="flex-col justify-start items-center gap-8 inline-flex py-32">
-					<h2 class="text-center text-stone-700 text-3xl font-light leading-9 tracking-widest">Маркировка</h2>
-					<div class=" max-w-3xl text-center text-stone-700 text-lg font-light leading-tight tracking-wider"> Например</div>
-				</div> -->
-				<!--  -->
-			  <div class="flex-col justify-start items-center gap-8 inline-flex py-32" id="models">
-				<h2 class="text-center text-stone-700 text-3xl font-light leading-9 tracking-widest">Модели</h2>
-				<ul class="">
-						<ModelCard/>
-						<ModelCard/>
-						<ModelCard/>
-						<ModelCard/>
-				</ul>
-			  </div>
-		</div>
-		<Calculator/>
-		<Footer links={links}/>
+
+
+		<!-- features -->
+		<!-- <section class="pb-32 text-left container-center text-neutral-700 snap-start snap-always scroll-mt-32"> -->
+
+			<!--  -->
+			<div class="container-center my-16 tracking-widest flex flex-col md:flex-row pb-[10svh] pt-8  scroll-control perspective-1000 snap-center ">
+				<div class="flex flex-col items-start py-8 md:py-24 px-16 bg-neutral-200/40 rounded-br-3xl md:max-w-[calc(50%-6rem)] relative scroll_main_header transform-gpu ">
+					<h2 class="max-w-screen-sm mb-8 text-4xl font-bold tracking-widest md:text-4xl lg:text-5xl whitespace-nowrap ">Высочайшее качество, <br/>подтвержденное <br/>сертификатом</h2>
+					<Button text="Сертификат соответствия" icon="Sertificate" type="download" size=20 link={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`}/>
+				</div>				
+				<div class="relative flex flex-col max-w-xl gap-4 pt-8 pl-12 text-xl md:pt-48 md:pl-32 inview-block">
+					{
+						[
+							["Произведены в Турции на заводе c богатейшим опытом","Sertificate",1],
+							["Продукция имеет гигиенический сертификат","Sertificate",2],
+							["Высококачественное сырье: холоднокатанная сталь 1,3 мм","Sertificate",3],
+						]
+						.map(([text,icon,index])=>(
+							<div class="flex items-center gap-2 p-4 my-2 hover:bg-neutral-50 rounded-3xl group scroll-stagger" >
+								<div class="max-w-48"><Icon name={icon} size={48}/></div>
+								<h2 class="max-w-lg">{text}</h2>
+								{/* <div class="absolute top-0 flex items-center justify-center invisible w-full h-32 text-xs tracking-widest text-center transition-opacity rounded-md opacity-0 left-32 bg-neutral-50 text-neutral-300 group-hover:opacity-100 group-hover:visible">Изображение к «{text}»</div> */}
+							</div>
+						))
+					}
+				</div>
+			</div>
+
+			<!--  -->
+			<div class="container-center relative  md:-ml-16 tracking-widest flex flex-col md:flex-row mb-[10svh] md:my-[10svh] scroll-control items-center justify-center snap-center ">
+				<div class="relative flex justify-end md:w-1/2">
+					<div class="overflow-clip px-12 md:px-0 md:w-[32rem] md:mr-16">
+						<div class="md:w-[42rem] relative">
+							<Image alt="" src={heater}/>
+							<div class="absolute z-10 w-32 h-32 border-2 rounded-full -bottom-16 -left-24 lg:h-48 lg:w-48 lg:-bottom-24 lg:-left-32 bg-neutral-50/30 backdrop-blur-sm border-neutral-50 "></div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="">
+					<div class="relative flex flex-col items-start px-16 py-8 scroll_main_header">
+						<h2 class="max-w-screen-sm mb-8 text-4xl font-bold tracking-widest md:text-4xl lg:text-5xl whitespace-nowrap">Широкий <br/>типоразмерный ряд</h2>
+						<Button text="Каталог продукции" icon="Sertificate" type="link" size=20 link={`${import.meta.env.BASE_URL}/Стальные панельные радиаторы`}/>
+					</div>
+					<div class="relative flex flex-col gap-4 pt-4 pl-12 text-xl inview-block">
+						{
+							[
+								["В комплектацию входит все необходимое для монтажа радиатора на стену","Sertificate"],
+								["Максимально быстрые сроки поставки","Sertificate"],
+							]
+							.map(([text,icon])=>(
+								<div class="flex items-center gap-2 p-4 my-2 hover:bg-neutral-50 rounded-3xl group scroll-stagger">
+									<div class="max-w-48"><Icon name={icon} size={48}/></div>
+									<h2 class="max-w-lg">{text}</h2>
+									{/* <div class="absolute top-0 flex items-center justify-center invisible w-full h-32 text-xs tracking-widest text-center transition-opacity rounded-md opacity-0 left-32 bg-neutral-50 text-neutral-300 group-hover:opacity-100 group-hover:visible">Изображение к «{text}»</div> */}
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+
+			<!--  -->
+			<div class="container-center relative tracking-widest flex flex-col lg:flex-row items-center my-[10svh] min-h-[60svh] scroll-control perspective-1000 mx-auto snap-center ">
+				<div class="order-2 lg:w-1/2 inview-scale will-change-transform lg:order-1">
+					<div class="relative flex flex-col items-start px-16 py-8" >
+						<h2 class="max-w-screen-sm mb-8 text-2xl font-bold tracking-widest md:text-4xl lg:text-5xl">Верхняя решетка крыловидной формы</h2>
+						<p class="text-xl leading-loose">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
+					</div>
+				</div>
+				<div class="relative flex justify-end order-1 lg:w-1/2 lg:order-2">
+					<div class="mx-8 lg:ml-16">
+						<div class="relative">
+							<Image alt="" src={heater}/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--  -->
+			<div class="container-center relative  tracking-widest flex flex-col lg:flex-row items-center my-[10svh] min-h-[60svh] scroll-control perspective-1000 mx-auto snap-center ">
+				<div class="relative flex justify-end lg:w-1/2">
+					<div class="mx-8 lg:mr-16">
+						<div class="relative">
+							<Image alt="" src={heater}/>
+						</div>
+					</div>
+				</div>
+				<div class="inview-scale will-change-transform lg:w-1/2">
+					<div class="relative flex flex-col items-start px-16 py-8">
+						<h2 class="mb-8 text-2xl font-bold tracking-widest md:text-4xl lg:text-5xl lg:max-w-screen-sm">«Технология усечённого канала»</h2>
+						<p class="text-xl leading-loose"> Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
+					</div>
+				</div>
+			</div>
+		<!-- </section> -->
+
+
+
+
+
+		<!-- models -->
+		<section class="bg-neutral-50 snap-center snap-always " id="models">
+			<div class="flex flex-col items-center gap-16 py-32 container-center text-neutral-600">
+				<h2 class="text-6xl font-semibold header-circle-xl">Модели радиаторов</h2>
+				<div class="grid grid-cols-2 gap-8 xl:gap-16 lg:grid-cols-4">
+					{
+						[
+							{
+								shortName: "C",
+								longName: "Compact",
+								sub:null,
+								characteristics: [
+									{ name: "Панели", icon: true },
+									{ name: "Рассеиватели", icon: true },
+									{ name: "Решетка сверху", icon: true },
+									{ name: "Боковое подключение", icon: true }
+								]
+							},
+							{
+								shortName: "VC",
+								longName: "Ventil Compact",
+								sub:null,
+								characteristics: [
+									{ name: "Панели", icon: true },
+									{ name: "Рассеиватели", icon: true },
+									{ name: "Решетка сверху", icon: true },
+									{ name: "Нижнее подключение", icon: true }
+								]
+							},
+							{
+								shortName: "HC",
+								longName: "Compact",
+								sub:"Hygiene",
+								characteristics: [
+									{ name: "Панели", icon: true },
+									{ name: "Рассеиватели", icon: false },
+									{ name: "Решетка сверху", icon: false },
+									{ name: "Боковое подключение", icon: true }
+								]
+							},
+							{
+								shortName: "HVC",
+								longName: "Ventil Compact",
+								sub:"Hygiene",
+								characteristics: [
+									{ name: "Панели", icon: true },
+									{ name: "Рассеиватели", icon: false },
+									{ name: "Решетка сверху", icon: false },
+									{ name: "Нижнее подключение", icon: true }
+								]
+							}
+						].map((element)=>(
+							<ModelCard name={element.longName} shortname={element.shortName} characteristics={element.characteristics} subname={element.sub}/>
+						))
+					}
+				</div>
+			</div>
+		</section>
+		<!-- calculator -->
+		 	<Calculator class="snap-center snap-always "/>
+		
+		<Footer links={links} class="snap-end"/>
 	</body>
 </html>
+
+<script >
+	import { animate,scroll,stagger, inView } from "motion";
+	document.addEventListener('astro:page-load', () => {
+
+
+		const rangeInputs = document.querySelectorAll('input[type="range"]')
+		const numberInput = document.querySelector('input[type="number"]')
+
+		function handleInputChange(e:any) {
+			let target = e.target
+			if (e.target.type !== 'range') {
+				target = document.getElementById('range')
+			} 
+			const min = target.min
+			const max = target.max
+			const val = target.value
+			
+			target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+			}
+
+			rangeInputs.forEach(input => {
+			input.addEventListener('input', handleInputChange)
+			})
+		numberInput?numberInput.addEventListener('input', handleInputChange):"";
+
+		// animate("#motion-test",{ scale: [0.4, 1]});
+		inView(".inview-block", ({ target }) => {
+			const staggers = target.querySelectorAll(".scroll-stagger");
+			animate(
+				staggers,{ opacity: [0,1], scale:[1.1,1] }, { delay: stagger(0.3, {startDelay: 0.2}) , ease:"easeIn", duration:.6}
+			)
+        	return () => animate(staggers, { opacity: 0, scale:[1.1]})
+    	},
+		{ margin: "0px 0px -300px 0px" }
+		);
+		inView(".inview-scale", ({ target }) => {
+			animate(
+			target,{ opacity: [0,1], scale:[1.1,1], rotateY:[10,0] }, { delay: stagger(0.3) , ease:"easeIn", duration:.6}
+			)
+        	return () => animate(target, { opacity: 0, scale:[1.1], rotateY:[30]})
+		});
+		// document.querySelectorAll(".scroll-scale-fade").forEach((scaledElement) => {
+		// 	scroll(
+		// 		animate(
+		// 			scaledElement, { scale:[1,7],opacity:[1,0]}, { ease: "linear"}),
+		// 		{
+		// 			target: scaledElement,
+		// 			offset: ["end end", "end start"],
+		// 		}
+		// 	);
+		// });
+		document.querySelectorAll(".scroll-control").forEach((section ) => {
+			const header = section.querySelector(".scroll_main_header") as HTMLDivElement;
+			const staggers = section.querySelectorAll(".inview-block") as NodeList;
+			const sequence = [
+				[header, { opacity:[0,1],y:[400,0],rotateY:[45,0],rotateZ:[5,0]}, { ease: "linear" ,duration: .4}],
+				[staggers, { opacity: [0,1], x: [300, 0], rotateY:[-45,0]},{ ease:  "easeInOut", at: .1, duration: .3 }],
+				
+			];
+			// scroll(
+			// 	animate(
+			// 	section, 
+			// 		{ opacity: [0,1], y: [400, 0]}, 
+			// 		{ ease:  "easeOut"}), 
+			// 	{
+			// 		target: section,
+			// 		offset: ["start end", "end end"],
+
+			// 	}
+			// );
+
+			// scroll(
+			// 	animate(
+			// 		sequence as any),
+			// 	{
+			// 		target: section,
+			// 		offset: ["start end", "end start"],
+			// 	}
+			// );
+			scroll(
+				animate(
+					header, { opacity:[0,1],y:[400,0], rotateY:[30,0]}, { ease: "linear"}),
+				{
+					target: section,
+					offset: ["start end", "end end"],
+				}
+			);
+
+
+			// scroll(
+			// 	animate(
+			// 		staggers, 
+			// 		{ opacity: [0,1], x: [300, 0]}, 
+			// 		{ ease:  "easeInOut"}), 
+			// 	{
+			// 		target: section,
+			// 		offset: ["start end", "end end"],
+
+			// 	}
+			// );
+			// scroll(
+			// 	animate(
+			// 		staggers, 
+			// 		{ opacity:[-1,1,1,1], x:[200,0,0,0] }, 
+			// 		{ ease:"linear"}), 
+					
+			// 	{
+			// 		target: header,
+			// 		offset: ["start end", "end end", "start start", "end start"],
+			// 	}
+			// );
+			});
+
+
+
+
+	});
+	
+</script>

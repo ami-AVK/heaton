@@ -1,0 +1,65 @@
+---
+const { class: className, value, unit, header, path_ } = Astro.props;
+const Tag = header ? "th" : "td";
+
+
+let name = value;
+const hasURL = path_?true:false;
+const url_ = `${path_}/${name}`;
+let unitValue = "";
+// console.log("_____________________");
+// console.log(hasURL);
+if (header) {
+  const parts = name.split(",");
+  if (parts.length > 1) {
+    name = parts.slice(0, -1).join(",").trim();
+    unitValue = parts[parts.length - 1].trim();
+  } else {
+    name = value.trim();
+  }
+}
+
+// Функция для проверки, является ли строка числом
+function isNumeric(str:any) {
+  if (typeof str !== 'string') {
+    return true;
+  }
+  return /^-?\d+(\.\d+)?$/.test(str.replace(",", "."));
+}
+// Определяем, является ли name числом или текстом
+const isNameNumeric = isNumeric(name);
+---
+
+
+  {
+    header ? 
+    // header row with unit
+    <Tag class="group px-4 py-1 whitespace-nowrap text-xs font-normal text-neutral-700 first-of-type:pl-3 hover:bg-neutral-200 rounded-lg align-bottom" class:list={className}>
+      <div class="flex flex-col items-start  p-0 m-0 border-b-[1px] border-neutral-200 cursor-pointer w-full">
+        <span class="relative font-bold w-full text-left grow">
+            <span class="after:content-['↓'] after:absolute after:right-0 after:transition-opacity after:group-hover:opacity-100 after:opacity-0">{name}</span>
+            {/* <button class="group-hover:opacity-100 transition-opacity opacity-0 ml-1 absolute right-0">↓</button> */}
+        </span>
+        {
+            unitValue==""?
+            <span class="w-fit">&nbsp;</span>
+            :
+            <span class="opacity-0 absolute">, </span>
+            <span class="text-neutral-400">{unitValue}</span>
+        }
+        
+      </div>
+    </Tag>
+    :
+    // data row
+    <Tag class="px-4 py-1 whitespace-nowrap text-sm leading-6 font-normal text-neutral-700 first-of-type:pl-3" class:list={{"text-right":isNameNumeric}}>
+      {hasURL?
+        <a href={url_} class="border-b-[1px] border-neutral-300 hover:bg-secondary relative group">
+          {name}
+          {/* <span class="group-hover:before:content-['Перейти'] group-hover:before:block before:-right-16 before:rounded-full before:text-neutral-400 before:absolute">{name}</span> */}
+        </a>
+      :
+        name
+      }
+    </Tag>
+  }

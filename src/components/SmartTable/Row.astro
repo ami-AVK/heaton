@@ -1,0 +1,36 @@
+---
+import Cell from "./Cell.astro"
+
+interface Props {
+    class?: string;
+    values: Record<string, any>;
+    headers: string[];
+    id?: string;
+    isHeader?: boolean;
+    path_?: string;
+}
+const addUrlHeaderName = "Модель" as string;
+const {class: className, values, headers, id, isHeader, path_} = Astro.props as Props;
+
+// odd:bg-neutral-50 even:bg-neutral-100
+---
+{
+    isHeader?
+        // header row
+        <tr class="data-[current]:bg-secondary align-top" class:list={className} id={id}>
+            {headers.map((header:string) => (
+                <Cell value={header} header={isHeader} class:list={className}/>
+            ))}
+        </tr>
+    :
+        // data row
+        <tr class="font-mono border-y-[1px] border-neutral-50 hover:bg-secondary/20 data-[current]:bg-secondary" id={id}>
+            {headers.map((header:string, index:number) => (
+
+                (header===addUrlHeaderName)?
+                (<Cell value={values[header]} path_={path_}/>)
+                :
+                (<Cell value={values[header]}/>)
+            ))}
+        </tr>
+}
