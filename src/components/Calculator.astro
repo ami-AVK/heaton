@@ -123,7 +123,7 @@ const { class: className } = Astro.props;
       <div class="p-4 mx-8 sm:p-8 sm:w-auto bg-secondary/30 rounded-3xl ">
         <div class="flex flex-col flex-wrap px-2 sm:gap-2 sm:flex-row sm:items-center"><span class="block mb-1 text-xs font-bold leading-none text-gray-700 sm:mb-0 sm:text-sm">Рекомендуемая общая мощность: </span><span id="totalPower" class="block px-2 text-lg rounded-full will-change-contents bg-secondary">1800 кВт</span></div>
         <h3 class="block my-6 mb-2 text-xs font-bold leading-none text-gray-700 sm:text-sm sm:px-2">Список подходящих радиаторов:</h3>
-        <ul class="flex flex-col gap-4 text-xl" id="heaters_outputs">
+        <ul class="flex flex-col gap-4 text-xl" id="outputField">
           <li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100">
             <div class="flex flex-col items-start grow">
               <div class="font-black">C 33 300x400</div>
@@ -261,6 +261,23 @@ const { class: className } = Astro.props;
   </div>
 </section>
 <script>
+  
+const radiators = await fetchRadiators();
+
+// Функция для загрузки данных о радиаторах с сервера
+async function fetchRadiators() {
+
+  const response = await fetch('/heaton/search_map_radiator_power.json'); // Замените на ваш URL
+  if (!response.ok) {
+    throw new Error('Fail to fetch heaters powers');
+  }
+  const data = await response.json();
+  // console.log(`Fetched ${data.length}`);
+  return data;
+  }
+
+
+
   function calculateHeatLoss(
     area: number,
     height: number,
@@ -268,11 +285,11 @@ const { class: className } = Astro.props;
     glazingFactor: number,
     minTemp: number
   ) {
-    console.log(area);
-    console.log(height);
-    console.log(insulationFactor);
-    console.log(glazingFactor);
-    console.log(minTemp);
+    // console.log(area);
+    // console.log(height);
+    // console.log(insulationFactor);
+    // console.log(glazingFactor);
+    // console.log(minTemp);
     const heatLoss =
       area * height * insulationFactor * glazingFactor * (20 - minTemp);
     return heatLoss;
@@ -324,10 +341,43 @@ const { class: className } = Astro.props;
       initCalculator(form);
     });
 
+    // Поиск радиаторов завершен
+    document.addEventListener("heatersSearchComplete",(e: any) => {
+      const outputField = document.getElementById("outputField") as HTMLUListElement;
+      const heatersArray = e.detail.heaters;
+      let totalInner = "";
+      heatersArray.forEach((element:any,index:number)=>{
+        console.log(element);
+        totalInner+=
+        `<li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100">
+                    <a href="/heaton/${element['Ссылка']}" class="flex flex-col items-start grow">
+                      <div class="font-black">${element['Наименование']}</div>
+                      <ul class="flex items-center gap-1">
+                        <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power whitespace-nowrap">${element.power} Вт</li>
+                        <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">${element.side?"Нижнее":"Боковое"}</li>
+                        <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden">${element.hygiene?"Гигиенический":""}</li>
+                      </ul>
+                    </a>
+                    <a class="flex items-center gap-4 text-neutral-700/30">
+                      <div class="font-black">
+                        <span class="text-xl">x</span>
+                      </div>
+                      <div class="font-black ">
+                        <span class="text-4xl">2</span><span>&nbsp;шт</span>
+                      </div>
+                    </a>
+          </li>`
+      });
+      
+                  
+        outputField.innerHTML = totalInner;
+    });
+
     document.addEventListener("calculatorFormHeatPower", (e: any) => {
       const totalPower = document.getElementById("totalPower") as HTMLSpanElement;
 
       totalPower.textContent = `${parseInt(e.detail.heat)} Вт`;
+      searchHeaters(parseInt(e.detail.heat));
       // console.log(`${e.detail.heat} Вт`);
     });
 
@@ -380,4 +430,114 @@ const { class: className } = Astro.props;
       console.log(input);
     });
   });
+  
+
+
+  // 
+  // 
+  // 
+  // Функция для бинарного поиска ближайшей мощности, которая больше запрошенного значения
+function binarySearchClosestGreater(arr:any, target:number) {
+  let left = 0;
+  let right = arr.length - 1;
+  let closestIndex = -1;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+
+    if (arr[mid].power > target) {
+      closestIndex = mid;
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+
+  return closestIndex;
+}
+
+// Функция для поиска ближайших радиаторов
+// function findClosestRadiators(radiators:any, minPower:number, count:number|undefined, width:number|undefined, height:number|undefined, hygiene:boolean|undefined, side:boolean|undefined) {
+function findClosestRadiators(radiators:any, minPower:number) {
+  // Используем бинарный поиск для нахождения ближайшей мощности, которая больше запрошенного значения
+  let closestIndex = binarySearchClosestGreater(radiators, minPower);
+  console.log(`${radiators.lenght} ${minPower}`);
+  // Если не найдено радиаторов с мощностью больше запрошенного значения, возвращаем пустой массив
+  if (closestIndex === -1) {
+    return [];
+  }
+
+  // Ограничиваем количество радиаторов до 50, начиная с ближайшего индекса
+  let limitedRadiators = [];
+  let left = closestIndex;
+  let right = closestIndex;
+
+  while (limitedRadiators.length < 50 && (left >= 0 || right < radiators.length)) {
+    if (left >= 0 && (right >= radiators.length || radiators[left].power > minPower)) {
+      limitedRadiators.push(radiators[left]);
+      left--;
+    } else if (right < radiators.length && radiators[right].power > minPower) {
+      limitedRadiators.push(radiators[right]);
+      right++;
+    } else {
+      break;
+    }
+  }
+
+  // // Фильтруем ограниченные радиаторы по дополнительным параметрам
+  // let filteredRadiators = limitedRadiators.filter(radiator => {
+  //   return (
+  //     (width === undefined || width === null || radiator.width === width) &&
+  //     (height === undefined || height === null || radiator.height === height) &&
+  //     (hygiene === undefined || hygiene === null || radiator.hygiene === hygiene) &&
+  //     (side === undefined || side === null || radiator.side === side)
+  //   );
+  // });
+  let filteredRadiators = limitedRadiators;
+  // Возвращаем ближайшие радиаторы
+  let result = [];
+  let leftFiltered = 0;
+  let rightFiltered = filteredRadiators.length - 1;
+
+  while (result.length < 20 && (leftFiltered <= rightFiltered)) {
+    if (Math.abs(filteredRadiators[leftFiltered].power - minPower) <= Math.abs(filteredRadiators[rightFiltered].power - minPower)) {
+      result.push(filteredRadiators[leftFiltered]);
+      leftFiltered++;
+    } else {
+      result.push(filteredRadiators[rightFiltered]);
+      rightFiltered--;
+    }
+  }
+
+  return result;
+}
+
+
+
+// Пример использования
+// async function searchHeaters(power:number, heater_count:number, heater_width:number, heater_height:number, heater_hygiene:boolean, heater_side:boolean) {
+async function searchHeaters(power:number) {
+  try {
+    const minPower = power;
+    // const count = heater_count||undefined;
+    // const width = heater_width||undefined;
+    // const height = heater_height||undefined;
+    // const hygiene = heater_hygiene||undefined;
+    // const side = heater_side||undefined;
+    // const closestRadiators = findClosestRadiators(radiators, minPower, count, width, height, hygiene, side);
+    const closestRadiators = findClosestRadiators(await radiators, minPower);
+
+    const event = new CustomEvent("heatersSearchComplete", {
+          detail: {
+            heaters: closestRadiators // Элемент, который вы хотите передать
+          },
+          bubbles: true,
+        });
+    document.dispatchEvent(event);
+    // console.log(closestRadiators);
+  } catch (error) {
+    console.error('Error fetching radiators:', error);
+  }
+}
+
 </script>

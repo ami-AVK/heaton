@@ -24,7 +24,7 @@ const pathname = `/${paths[0].props.category}/${paths[0].props.model}/${paths[0]
 console.log(pathname);
 ---
 
-<html lang="ru" class="scroll-smooth snap-y snap-mandatory">
+<html lang="ru" class="scroll-smooth snap-y snap-proximity">
 	<head>
 		<meta charset="utf-8" />
 		<!-- <meta name="viewport" content="width=device-width" /> -->
@@ -35,7 +35,7 @@ console.log(pathname);
 		<ClientRouter />
 	</head>
 
-	<body class="bg-neutral-100 ">
+	<body class="bg-neutral-100">
 
 
 
@@ -74,7 +74,7 @@ console.log(pathname);
 
 			<!--  -->
 			<div class="container-center my-16 tracking-widest flex flex-col md:flex-row pb-[10svh] pt-8  scroll-control perspective-1000 snap-center ">
-				<div class="flex flex-col items-start py-8 md:py-24 px-6 sm:px-16 bg-neutral-200/40 rounded-br-3xl md:max-w-[calc(50%-6rem)] relative scroll_main_header transform-gpu ">
+				<div class="flex flex-col items-start py-8 md:py-24 px-6 sm:px-16 bg-neutral-200/40 rounded-br-3xl md:max-w-[calc(50%-6rem)] relative scroll_main_header_fromright transform-gpu ">
 					<h2 class="max-w-screen-sm mb-2 text-2xl font-bold tracking-widest sm:mb-8 sm:text-4xl md:text-4xl lg:text-5xl sm:whitespace-nowrap ">Высочайшее качество, <br/>подтвержденное <br/>сертификатом</h2>
 					<Button text="Сертификат соответствия" icon="Sertificate" type="download" size=20 link={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`}/>
 				</div>				
@@ -97,18 +97,17 @@ console.log(pathname);
 			</div>
 
 			<!--  -->
-			<div class="container-center relative md:-ml-16 tracking-widest flex flex-col md:flex-row mb-[10svh] md:my-[10svh] scroll-control items-center justify-center snap-center ">
-				<div class="relative flex justify-end md:w-1/2">
+			<div class="container-center relative md:-ml-16 tracking-widest flex flex-col md:flex-row mb-[10svh] md:my-[10svh] scroll-control perspective-1000 items-center justify-center snap-center">
+				<div class="relative flex justify-end md:w-1/2 scroll_main_header_fromright">
 					<div class="overflow-clip px-12 md:px-0 md:w-[32rem] md:mr-16">
 						<div class="md:w-[42rem] relative">
 							<Image alt="" src={heater}/>
 							<div class="absolute z-10 w-32 h-32 border-2 rounded-full -bottom-16 -left-24 lg:h-48 lg:w-48 lg:-bottom-24 lg:-left-32 bg-neutral-50/30 backdrop-blur-sm border-neutral-50 "></div>
 						</div>
 					</div>
-					
 				</div>
 				<div class="">
-					<div class="relative flex flex-col items-start px-16 py-4 sm:py-8 scroll_main_header">
+					<div class="relative flex flex-col items-start px-16 py-4 sm:py-8 scroll_main_header_fromleft transform-gpu will-change-transform">
 						<h2 class="max-w-screen-sm mb-2 text-2xl font-bold tracking-widest sm:mb-8 sm:text-4xl md:text-4xl lg:text-5xl whitespace-nowrap">Широкий <br/>типоразмерный ряд</h2>
 						<Button text="Каталог продукции" icon="Sertificate" type="link" size=20 link={`${import.meta.env.BASE_URL}/Стальные панельные радиаторы`}/>
 					</div>
@@ -133,7 +132,7 @@ console.log(pathname);
 			<!--  -->
 			<div class="container-center relative tracking-widest flex flex-col lg:flex-row items-center my-[10svh] min-h-[60svh] scroll-control perspective-1000 mx-auto snap-center ">
 				<div class="order-2 lg:w-1/2 inview-scale will-change-transform lg:order-1">
-					<div class="relative flex flex-col items-start px-8 py-8 sm:px-16" >
+					<div class="relative flex flex-col items-start px-8 py-8 sm:px-16 " >
 						<h2 class="max-w-screen-sm mb-8 text-2xl font-bold tracking-widest md:text-4xl lg:text-5xl">Верхняя решетка крыловидной формы</h2>
 						<p class="leading-loose sm:text-xl">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
 					</div>
@@ -173,7 +172,7 @@ console.log(pathname);
 		<section class="bg-secondary/30 min-h-svh snap-center snap-always " id="models">
 			<div class="flex flex-col items-center gap-16 py-16 md:py-32 container-center text-neutral-600">
 				<h2 class="text-3xl font-semibold md:text-6xl header-circle-lg md:header-circle-xl ">Модели радиаторов</h2>
-				<div class="grid grid-cols-1 gap-8 px-8 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4 sm:px-0">
+				<div class="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4 sm:px-0">
 					{
 						[
 							{
@@ -300,18 +299,20 @@ console.log(pathname);
 		// 	);
 		// });
 		document.querySelectorAll(".scroll-control").forEach((section ) => {
-			const header = section.querySelector(".scroll_main_header") as HTMLDivElement;
+			// const header = section.querySelector(".scroll_main_header") as HTMLDivElement;
+			const header_from_right = section.querySelector(".scroll_main_header_fromright") as HTMLDivElement;
+			const header_from_left = section.querySelector(".scroll_main_header_fromleft") as HTMLDivElement;
 			const staggers = section.querySelectorAll(".inview-block") as NodeList;
-			const sequence = [
-				[header, { opacity:[0,1],y:[400,0],rotateY:[45,0],rotateZ:[5,0]}, { ease: "linear" ,duration: .4}],
-				[staggers, { opacity: [0,1], x: [300, 0], rotateY:[-45,0]},{ ease:  "easeInOut", at: .1, duration: .3 }],
+			// const sequence = [
+			// 	[header, { opacity:[0,1],y:[400,0],rotateY:[45,0],rotateZ:[5,0]}, { ease: "linear" ,duration: .4}],
+			// 	[staggers, { opacity: [0,1], x: [300, 0], rotateY:[-45,0]},{ ease:  "easeInOut", at: .1, duration: .3 }],
 				
-			];
+			// ];
 			scroll(
 				animate(
 				section, 
-					{ opacity: [0,1], y: [400, 0]}, 
-					{ ease:  "easeOut"}), 
+					{ opacity: [0,1]}, 
+					{ ease:  "linear"}), 
 				{
 					target: section,
 					offset: ["start end", "end end"],
@@ -319,14 +320,22 @@ console.log(pathname);
 				}
 			);
 
-			// scroll(
-			// 	animate(
-			// 		header, { opacity:[0,1],y:[400,0], rotateY:[30,0]}, { ease: "linear"}),
-			// 	{
-			// 		target: section,
-			// 		offset: ["start end", "end end"],
-			// 	}
-			// );
+			scroll(
+				animate(
+				header_from_right, { opacity:[0,1],x:[200,0]}, { ease: "linear"}),
+				{
+					target: section,
+					offset: ["start end", "end end"],
+				}
+			);
+			scroll(
+				animate(
+				header_from_left, { opacity:[0,1],x:[-200,0]}, { ease: "linear"}),
+				{
+					target: section,
+					offset: ["start end", "end end"],
+				}
+			);
 
 
 			// scroll(
