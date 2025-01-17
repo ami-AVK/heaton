@@ -133,9 +133,9 @@ console.log(pathname);
 			<!--  -->
 			<div class="container-center relative tracking-widest flex flex-col lg:flex-row items-center my-[10svh] min-h-[60svh] scroll-control perspective-1000 mx-auto snap-center ">
 				<div class="order-2 lg:w-1/2 inview-scale will-change-transform lg:order-1">
-					<div class="relative flex flex-col items-start px-16 py-8" >
+					<div class="relative flex flex-col items-start px-8 py-8 sm:px-16" >
 						<h2 class="max-w-screen-sm mb-8 text-2xl font-bold tracking-widest md:text-4xl lg:text-5xl">Верхняя решетка крыловидной формы</h2>
-						<p class="text-xl leading-loose">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
+						<p class="leading-loose sm:text-xl">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
 					</div>
 				</div>
 				<div class="relative flex justify-end order-1 lg:w-1/2 lg:order-2">
@@ -157,9 +157,9 @@ console.log(pathname);
 					</div>
 				</div>
 				<div class="inview-scale will-change-transform lg:w-1/2">
-					<div class="relative flex flex-col items-start px-16 py-8">
+					<div class="relative flex flex-col items-start px-8 py-8 sm:px-16">
 						<h2 class="mb-8 text-2xl font-bold tracking-widest md:text-4xl lg:text-5xl lg:max-w-screen-sm">«Технология усечённого канала»</h2>
-						<p class="text-xl leading-loose"> Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
+						<p class="leading-loose sm:text-xl"> Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
 					</div>
 				</div>
 			</div>
@@ -173,7 +173,7 @@ console.log(pathname);
 		<section class="bg-secondary/30 min-h-svh snap-center snap-always " id="models">
 			<div class="flex flex-col items-center gap-16 py-16 md:py-32 container-center text-neutral-600">
 				<h2 class="text-3xl font-semibold md:text-6xl header-circle-lg md:header-circle-xl ">Модели радиаторов</h2>
-				<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4">
+				<div class="grid grid-cols-1 gap-8 px-8 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4 sm:px-0">
 					{
 						[
 							{
@@ -281,7 +281,7 @@ console.log(pathname);
 			)
         	return () => animate(staggers, { opacity: 0, scale:[1.1]})
     	},
-		{ margin: "0px 0px -300px 0px" }
+		{ margin: "0px 0px 0px 0px"}
 		);
 		inView(".inview-scale", ({ target }) => {
 			animate(

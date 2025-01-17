@@ -9,7 +9,7 @@ interface RadioItemProps {
 const {header, name, values, class: className} = Astro.props;
 ---
 <fieldset class="">
-    <label class="block mb-2 text-sm font-bold text-gray-700">{header}</label>
+    <label class="block mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm">{header}</label>
     <div class="flex gap-3 justify-stretch">
     {
         values.map((value: any) =>
@@ -20,7 +20,7 @@ const {header, name, values, class: className} = Astro.props;
                     :
                     <input type="radio" name={name} value={value.value} class="absolute opacity-0 peer">
                 }
-                <span class="block w-full px-4 py-1 text-lg text-center bg-gray-200 rounded-lg cursor-pointer bg-neutral-50 peer-hover:bg-secondary/75 peer-hover:shadow-active peer-checked:bg-secondary/30 peer-checked:animate-flyIn">{value.buttonText}</span>
+                <span class="block w-full px-3 py-0.5 sm:py-1 text-lg text-center bg-gray-200 rounded-lg cursor-pointer border_ sm:px-4 bg-neutral-50 border-neutral-300_ peer-hover:bg-secondary/75 peer-hover:shadow-active peer-checked:bg-secondary/50 peer-checked:animate-flyIn">{value.buttonText}</span>
             </label>
             )
         )

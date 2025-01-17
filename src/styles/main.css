@@ -100,6 +100,9 @@
   .header-circle-lg {
     @apply  header-before-shape before:-left-[18px] before:-top-[9px]  before:w-16 before:h-16;
   }
+  .header-circle-sm {
+    @apply  header-before-shape before:-left-3 before:-top-0.5 before:w-10 before:h-10;
+  }
   .separator {
     @apply z-0 before:-z-10  before:content-['/'] before:block before:absolute relative text-base before:text-neutral-300 before:-right-2;
   }
