@@ -34,7 +34,7 @@ const { class: className } = Astro.props;
   >
     <h2 class="text-3xl font-semibold md:text-6xl header-circle-sm md:header-circle-lg md:header-circle-xl">Подбор радиаторов</h2>
     <div
-      class="flex flex-col items-center gap-8 px-16 justify-stretch md:flex-row md:items-start lg:gap-16 sm:px-0"
+      class="flex flex-col items-center gap-8 px-16 justify-stretch md:flex-row md:items-stretch lg:gap-16 sm:px-0"
     >
       <div class="min-w-full px-16 sm:px-8 md:mt-8 md:w-auto md:px-0 sm:min-w-fit">
         <form class="flex flex-col gap-4 md:pr-8 sm:gap-8" id="calculator">
@@ -122,18 +122,18 @@ const { class: className } = Astro.props;
       </div>
       <div class="p-4 mx-8 sm:p-8 sm:w-auto bg-secondary/30 rounded-3xl ">
         <div class="flex flex-col flex-wrap px-2 sm:gap-2 sm:flex-row sm:items-center"><span class="block mb-1 text-xs font-bold leading-none text-gray-700 sm:mb-0 sm:text-sm">Рекомендуемая общая мощность: </span><span id="totalPower" class="block px-2 text-lg rounded-full will-change-contents bg-secondary">1800 кВт</span></div>
-        <h3 class="px-2 my-4 text-xl font-black sm:text-2xl">Список подходящих радиаторов:</h3>
+        <h3 class="block my-6 mb-2 text-xs font-bold leading-none text-gray-700 sm:text-sm sm:px-2">Список подходящих радиаторов:</h3>
         <ul class="flex flex-col gap-4 text-xl" id="heaters_outputs">
-          <li class="flex items-center gap-2 p-2 sm:gap-8 rounded-xl hover:bg-neutral-100">
+          <li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100">
             <div class="flex flex-col items-start grow">
               <div class="font-black">C 33 300x400</div>
               <ul class="flex items-center gap-1">
                 <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power whitespace-nowrap">1239 Вт</li>
                 <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">Нижнее</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 type empty:hidden"></li>
+                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden"></li>
               </ul>
             </div>
-            <div class="flex items-center gap-4 text-neutral-300">
+            <div class="flex items-center gap-4 text-neutral-700/30">
               <div class="font-black">
                 <span class="text-xl">x</span>
               </div>
@@ -142,16 +142,16 @@ const { class: className } = Astro.props;
               </div>
             </div>
           </li>
-          <li class="flex items-center gap-8 p-2 rounded-xl hover:bg-neutral-100">
+          <li class="flex items-center gap-8 p-2 cursor-pointer rounded-xl hover:bg-neutral-100">
             <div class="flex flex-col items-start grow">
               <div class="font-black">C 33 300x400</div>
               <ul class="flex items-center gap-1">
                 <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power whitespace-nowrap">1239 Вт</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 connection">Нижнее</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 type empty:hidden"></li>
+                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">Нижнее</li>
+                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden"></li>
               </ul>
             </div>
-            <div class="flex items-center gap-4 text-neutral-300">
+            <div class="flex items-center gap-4 text-neutral-700/30">
               <div class="font-black">
                 <span class="text-xl">x</span>
               </div>
@@ -160,16 +160,16 @@ const { class: className } = Astro.props;
               </div>
             </div>
           </li>
-          <li class="flex items-center gap-8 p-2 rounded-xl hover:bg-neutral-100">
+          <li class="flex items-center gap-8 p-2 cursor-pointer rounded-xl hover:bg-neutral-100">
             <div class="flex flex-col items-start grow">
               <div class="font-black">C 33 300x400</div>
               <ul class="flex items-center gap-1">
                 <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power whitespace-nowrap">1239 Вт</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 connection">Нижнее</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 type empty:hidden">Гигиенический</li>
+                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">Нижнее</li>
+                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden">Гигиенический</li>
               </ul>
             </div>
-            <div class="flex items-center gap-4 text-neutral-300">
+            <div class="flex items-center gap-4 text-neutral-700/30">
               <div class="font-black">
                 <span class="text-xl">x</span>
               </div>
@@ -179,16 +179,16 @@ const { class: className } = Astro.props;
             </div>
           </li>
 
-          <li class="flex items-center flex-1 gap-8 p-2 rounded-xl hover:bg-neutral-100">
+          <li class="flex items-center flex-1 gap-8 p-2 cursor-pointer rounded-xl hover:bg-neutral-100">
             <div class="flex flex-col items-start grow">
               <div class="font-black">C 33 300x400</div>
               <ul class="flex items-center gap-1">
                 <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power whitespace-nowrap">1239 Вт</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 connection">Нижнее</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50 border border-neutral-300 type empty:hidden">Гигиенический</li>
+                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">Нижнее</li>
+                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden">Гигиенический</li>
               </ul>
             </div>
-            <div class="flex items-center gap-4 text-neutral-300">
+            <div class="flex items-center gap-4 text-neutral-700/30">
               <div class="font-black">
                 <span class="text-xl">x</span>
               </div>
