@@ -6,7 +6,7 @@ import RadioGroup from "./Inputs/RadioGroup.astro";
 const heights = [
   { buttonText: "2,5 м", value: 2.5, checked: true },
   { buttonText: "3 м", value: 3 },
-  { buttonText: "3,5 м", value: 3 },
+  { buttonText: "3,5 м", value: 3.5 },
 ];
 const insulation = [
   { buttonText: "Плохая", value: 1.5 },
@@ -34,10 +34,11 @@ const { class: className } = Astro.props;
   >
     <h2 class="text-3xl font-semibold md:text-6xl header-circle-sm md:header-circle-lg md:header-circle-xl">Подбор радиаторов</h2>
     <div
-      class="flex flex-col items-center gap-8 px-16 justify-stretch md:flex-row md:items-stretch lg:gap-16 sm:px-0"
+      class="flex flex-col items-center w-full gap-0 justify-stretch lg:flex-row md:items-start lg:gap-0 sm:px-0"
     >
-      <div class="min-w-full px-16 sm:px-8 md:mt-8 md:w-auto md:px-0 sm:min-w-fit">
-        <form class="flex flex-col gap-4 md:pr-8 sm:gap-8" id="calculator">
+    <!-- Меню -->
+      <div class="w-full min-w-full p-4 lg:w-72 sm:px-8 md:w-auto md:p-8 sm:min-w-fit bg-secondary/30 rounded-t-3xl lg:rounded-none lg:rounded-l-3xl text-neutral-700">
+        <form class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1 sm:gap-8" id="calculator">
           <div class="relative ">
             <label for="area" class="block mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm"
               >Площадь помещения</label
@@ -110,20 +111,81 @@ const { class: className } = Astro.props;
               />
             </div>
           </div>
-          <!-- <div class="mb-8">
-                      <label for="minTemp" class="block mb-2 text-sm font-bold text-gray-700">Минимальная температура</label>
-                      <div class="flex items-center gap-4">
-                        <InputNumber/>
-                        <input type="range" id="minTemp" name="minTemp" min="-50" max="15" class="w-full" value=-10>
-                      </div>
-                      
-                    </div> -->
+          <div class="relative ">
+            <label for="area" class="block mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm"
+              >Желаемая температура в помещении</label
+            >
+            <div class="flex items-center gap-4 ">
+              <span
+                class="left-0 block px-3 py-1 text-lg leading-none text-center rounded-lg top-8 text-neutral-700 min-w-20 whitespace-nowrap bg-neutral-50"
+                ><span class="value will-change-contents">21</span> °C</span
+              >
+              <input
+                type="range"
+                id="homeTemperature"
+                name="homeTemperature"
+                min="0"
+                max="40"
+                class="w-full"
+                value="21"
+              />
+            </div>
+          </div>
         </form>
       </div>
-      <div class="p-4 mx-8 sm:p-8 sm:w-auto bg-secondary/30 rounded-3xl ">
-        <div class="flex flex-col flex-wrap px-2 sm:gap-2 sm:flex-row sm:items-center"><span class="block mb-1 text-xs font-bold leading-none text-gray-700 sm:mb-0 sm:text-sm">Рекомендуемая общая мощность: </span><span id="totalPower" class="block px-2 text-lg rounded-full will-change-contents bg-secondary">1800 кВт</span></div>
-        <h3 class="block my-6 mb-2 text-xs font-bold leading-none text-gray-700 sm:text-sm sm:px-2">Список подходящих радиаторов:</h3>
-        <ul class="flex flex-col gap-4 text-xl" id="outputField">
+
+      <div class="p-4 lg:flex-auto sm:p-8 sm:w-auto bg-neutral-50 rounded-b-3xl lg:rounded-none lg:rounded-r-3xl ">
+        <div class="flex flex-col flex-wrap px-2 font-black sm:gap-2 sm:flex-row sm:items-center"><span class="block mb-1 text-xs font-black leading-none text-gray-700 sm:mb-0 sm:text-lg">Рекомендуемая общая мощность: </span><span id="totalPower" class="block px-2 text-lg rounded-full will-change-contents bg-secondary">1800 кВт</span></div>
+        <form action="" id="calculatorExtra" name="calculatorExtra" class="flex flex-wrap gap-6 px-2 py-4 -mx-2.5 text-neutral-600">
+            <div class="">
+              <label class="block pl-2.5 mr-2.5 mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm">Длина радиатора</label
+            >
+              <select name="lenght" class=" w-full block py-1 mt-0.5 border-transparent rounded-lg border-none bg-neutral-50/60 focus:border-gray-500 focus:bg-white ring-0 focus:ring-0">
+                {["Неважно",400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000].map((height:number|string)=>
+                  (
+                    <option>{height}</option>
+                  )
+                  )}
+              </select>
+            </div>
+            <div class="">
+              <label class="pl-2.5 mr-2.5 block mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm">Высота радиатора</label
+            >
+              <select name="height" class="w-full block py-1 mt-0.5 border-transparent rounded-lg border-none bg-neutral-50/60 focus:border-gray-500 focus:bg-white ring-0 focus:ring-0">
+                {["Неважно",300, 400, 500, 600, 900].map((height:number|string)=>
+                  (
+                    <option>{height}</option>
+                  )
+                )}
+              </select>
+            </div>
+            <div class="">
+              <label class="pl-2.5 mr-2.5 block mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm">Тип подключения</label
+            >
+              <select name="connectionSide" class="w-full block py-1 mt-0.5 border-transparent rounded-lg border-none bg-neutral-50/60 focus:border-gray-500 focus:bg-white ring-0 focus:ring-0">
+                {["Неважно","Боковое","Нижнее"].map((height:number|string)=>
+                  (
+                    <option>{height}</option>
+                  )
+                )}
+              </select>
+            </div>
+            <div class="">
+              <label class="pl-2.5 mr-2.5 block mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm">Вид радиатора</label
+            >
+              <select name="typeOfHeater" class="w-full block py-1 mt-0.5 border-transparent border-none bg-neutral-50/60 rounded-lg  focus:border-gray-500 focus:bg-white ring-0 focus:ring-0">
+                {["Неважно","Гигиенический","Стандартный"].map((height:number|string)=>
+                  (
+                    <option>{height}</option>
+                  )
+                )}
+              </select>
+            </div>
+        </form>
+        <h3 class="block my-6 mt-4 text-xs font-bold font-black leading-none text-gray-700 sm:text-lg sm:px-2">Список подходящих радиаторов:</h3>
+
+        <!-- Heaters list -->
+        <ul class="flex flex-col gap-4 overflow-y-scroll text-xl max-h-[420px] will-change-contents" id="outputField">
           <li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100">
             <div class="flex flex-col items-start grow">
               <div class="font-black">C 33 300x400</div>
@@ -142,120 +204,7 @@ const { class: className } = Astro.props;
               </div>
             </div>
           </li>
-          <li class="flex items-center gap-8 p-2 cursor-pointer rounded-xl hover:bg-neutral-100">
-            <div class="flex flex-col items-start grow">
-              <div class="font-black">C 33 300x400</div>
-              <ul class="flex items-center gap-1">
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power whitespace-nowrap">1239 Вт</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">Нижнее</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden"></li>
-              </ul>
-            </div>
-            <div class="flex items-center gap-4 text-neutral-700/30">
-              <div class="font-black">
-                <span class="text-xl">x</span>
-              </div>
-              <div class="font-black ">
-                <span class="text-4xl">2</span><span>&nbsp;шт</span>
-              </div>
-            </div>
-          </li>
-          <li class="flex items-center gap-8 p-2 cursor-pointer rounded-xl hover:bg-neutral-100">
-            <div class="flex flex-col items-start grow">
-              <div class="font-black">C 33 300x400</div>
-              <ul class="flex items-center gap-1">
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power whitespace-nowrap">1239 Вт</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">Нижнее</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden">Гигиенический</li>
-              </ul>
-            </div>
-            <div class="flex items-center gap-4 text-neutral-700/30">
-              <div class="font-black">
-                <span class="text-xl">x</span>
-              </div>
-              <div class="font-black ">
-                <span class="text-4xl">2</span><span>&nbsp;шт</span>
-              </div>
-            </div>
-          </li>
-
-          <li class="flex items-center flex-1 gap-8 p-2 cursor-pointer rounded-xl hover:bg-neutral-100">
-            <div class="flex flex-col items-start grow">
-              <div class="font-black">C 33 300x400</div>
-              <ul class="flex items-center gap-1">
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power whitespace-nowrap">1239 Вт</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">Нижнее</li>
-                <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden">Гигиенический</li>
-              </ul>
-            </div>
-            <div class="flex items-center gap-4 text-neutral-700/30">
-              <div class="font-black">
-                <span class="text-xl">x</span>
-              </div>
-              <div class="font-black ">
-                <span class="text-4xl">2</span><span>&nbsp;шт</span>
-              </div>
-            </div>
-          </li>
-          
         </ul>
-        <!-- RAW -->
-        <!-- <div class="flex flex-col items-start justify-start gap-8 px-8 py-6 bg-neutral-50 rounded-2xl">
-        
-                    <div class="self-stretch text-neutral-700 text-base font-bold font-['Ubuntu'] uppercase leading-loose tracking-wider">Список подходящих радиаторов:</div>
-                    <div class="flex flex-col items-center justify-start gap-2">
-                      <div class="inline-flex items-start justify-start gap-4">
-                        <div class="flex-col justify-center items-start gap-0.5 inline-flex">
-                          <div class="w-40 text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">C 33 300Х400</div>
-                          <div class="text-neutral-400 text-xs font-normal font-['Ubuntu'] leading-3 tracking-tight">Боковое подключение</div>
-                        </div>
-                        <div class="text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">х</div>
-                        <div class="text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">2 шт</div>
-                      </div>
-                      <div class="inline-flex items-start justify-start gap-4">
-                        <div class="px-1 py-0.5 bg-neutral-100 rounded-lg flex-col justify-center items-start gap-0.5 inline-flex">
-                          <div class="text-neutral-400 text-xs font-normal font-['Ubuntu'] leading-3 tracking-tight">Или</div>
-                        </div>
-                      </div>
-                      <div class="inline-flex items-start justify-start gap-4">
-                        <div class="flex-col justify-center items-start gap-0.5 inline-flex">
-                          <div class="w-40 text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">VC 33 300Х400</div>
-                          <div class="text-neutral-400 text-xs font-normal font-['Ubuntu'] leading-3 tracking-tight">Нижнее подключение</div>
-                        </div>
-                        <div class="text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">х</div>
-                        <div class="text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">2 шт</div>
-                      </div>
-                      <div class="inline-flex items-start justify-start gap-4">
-                        <div class="px-1 py-0.5 bg-neutral-100 rounded-lg flex-col justify-center items-start gap-0.5 inline-flex">
-                          <div class="text-neutral-400 text-xs font-normal font-['Ubuntu'] leading-3 tracking-tight">Или</div>
-                        </div>
-                      </div>
-                      <div class="inline-flex items-start justify-start gap-4">
-                        <div class="flex-col justify-center items-start gap-0.5 inline-flex">
-                          <div class="w-40 text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">HC 33 300Х400</div>
-                          <div class="text-neutral-400 text-xs font-normal font-['Ubuntu'] leading-3 tracking-tight">Боковое подключение</div>
-                          <div class="text-neutral-400 text-xs font-normal font-['Ubuntu'] leading-3 tracking-tight">Гигиенический</div>
-                        </div>
-                        <div class="text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">х</div>
-                        <div class="text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">2 шт</div>
-                      </div>
-                      <div class="inline-flex items-start justify-start gap-4">
-                        <div class="px-1 py-0.5 bg-neutral-100 rounded-lg flex-col justify-center items-start gap-0.5 inline-flex">
-                          <div class="text-neutral-400 text-xs font-normal font-['Ubuntu'] leading-3 tracking-tight">Или</div>
-                        </div>
-                      </div>
-                      <div class="inline-flex items-start justify-start gap-4">
-                        <div class="flex-col justify-center items-start gap-0.5 inline-flex">
-                          <div class="w-40 text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">HVC 33 3200Х900</div>
-                          <div class="text-neutral-400 text-xs font-normal font-['Ubuntu'] leading-3 tracking-tight">Нижнее подключение</div>
-                          <div class="text-neutral-400 text-xs font-normal font-['Ubuntu'] leading-3 tracking-tight">Гигиенический</div>
-                        </div>
-                        <div class="text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">х</div>
-                        <div class="text-neutral-700 text-base font-bold font-['Ubuntu'] leading-normal tracking-wider">2 шт</div>
-                      </div>
-                    </div>
-                  </div> -->
-        <!--  -->
       </div>
     </div>
   </div>
@@ -264,7 +213,7 @@ const { class: className } = Astro.props;
   
 const radiators = await fetchRadiators();
 
-// Функция для загрузки данных о радиаторах с сервера
+// Функция для загрузки данных о радиаторах
 async function fetchRadiators() {
 
   const response = await fetch('/heaton/search_map_radiator_power.json'); // Замените на ваш URL
@@ -274,55 +223,60 @@ async function fetchRadiators() {
   const data = await response.json();
   // console.log(`Fetched ${data.length}`);
   return data;
-  }
+}
 
 
 
-  function calculateHeatLoss(
+function calculateHeatLoss(
     area: number,
     height: number,
     insulationFactor: number,
     glazingFactor: number,
-    minTemp: number
+    minTemp: number,
+    homeTemp: number,
   ) {
-    // console.log(area);
-    // console.log(height);
-    // console.log(insulationFactor);
-    // console.log(glazingFactor);
-    // console.log(minTemp);
     const heatLoss =
-      area * height * insulationFactor * glazingFactor * (20 - minTemp);
+      area * height * insulationFactor * glazingFactor * (homeTemp - minTemp);
     return heatLoss;
   }
-  function initCalculator(form: HTMLFormElement) {
+function initCalculator(form: HTMLFormElement) {
+
+    const calculatorExtra = document.querySelector('#calculatorExtra') as HTMLFormElement;
+
+    let extraFilterData = {};
+    if(calculatorExtra){
+      const lenght = calculatorExtra.querySelector('select[name="lenght"]') as HTMLSelectElement;
+      const height_heater = calculatorExtra.querySelector('select[name="height"]') as HTMLSelectElement;
+      const connectionSide = calculatorExtra.querySelector('select[name="connectionSide"]') as HTMLSelectElement;
+      const typeOfHeater = calculatorExtra.querySelector('select[name="typeOfHeater"]') as HTMLSelectElement;
+      extraFilterData = {
+        "lenght":lenght.selectedIndex===0?null:parseInt(lenght.value),
+        "height":height_heater.selectedIndex===0?null:parseInt(height_heater.value),
+        "isSide":connectionSide.selectedIndex===0?null:connectionSide.selectedIndex===1,
+        "isHygiene":typeOfHeater.selectedIndex===0?null:typeOfHeater.selectedIndex===1,
+      };
+    }
+
     const area = form.querySelector('input[name="area"]') as HTMLInputElement;
-    const temperature = form.querySelector(
-      'input[name="temperature"]'
-    ) as HTMLInputElement;
-    const insulation = form.querySelector(
-      'input[name="insulation"]:checked'
-    ) as HTMLInputElement;
-    const windows = form.querySelector(
-      'input[name="windows"]:checked'
-    ) as HTMLInputElement;
-    const glazing = form.querySelector(
-      'input[name="glazing"]:checked'
-    ) as HTMLInputElement;
-    const height = form.querySelector(
-      'input[name="height"]:checked'
-    ) as HTMLInputElement;
+    const temperature = form.querySelector('input[name="temperature"]') as HTMLInputElement;
+    const homeTemperature = form.querySelector('input[name="homeTemperature"]') as HTMLInputElement;
+    const insulation = form.querySelector('input[name="insulation"]:checked') as HTMLInputElement;
+    const windows = form.querySelector('input[name="windows"]:checked') as HTMLInputElement;
+    const glazing = form.querySelector('input[name="glazing"]:checked') as HTMLInputElement;
+    const height = form.querySelector('input[name="height"]:checked') as HTMLInputElement;
 
     const heatLoss = calculateHeatLoss(
       parseFloat(area.value),
       parseFloat(height.value),
       parseFloat(insulation.value),
       parseFloat(glazing.value),
-      parseFloat(temperature.value)
+      parseFloat(temperature.value),
+      parseFloat(homeTemperature.value),
     );
 
     const event = new CustomEvent("calculatorFormHeatPower", {
           detail: {
-            heat: heatLoss, heaters: parseInt(windows.value), // Элемент, который вы хотите передать
+            heat: heatLoss, count: parseInt(windows.value), extra:extraFilterData // Элемент, который вы хотите передать
           },
           bubbles: true,
         });
@@ -334,6 +288,15 @@ async function fetchRadiators() {
     // );
   }
   document.addEventListener("astro:page-load", () => {
+    const extraFilterInputs = document.querySelectorAll('#calculatorExtra select');
+    extraFilterInputs.forEach(input => {
+			  input.addEventListener('change', (e:any)=>{
+                const event = new CustomEvent('calculatorFormEvent', {
+                    bubbles:true
+                });
+                document.dispatchEvent(event);
+            })
+			})
     const form = document.getElementById("calculator") as HTMLFormElement;
     initCalculator(form);
 
@@ -350,11 +313,11 @@ async function fetchRadiators() {
         console.log(element);
         totalInner+=
         `<li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100">
-                    <a href="/heaton/${element['Ссылка']}" class="flex flex-col items-start grow">
-                      <div class="font-black">${element['Наименование']}</div>
+                    <a href="/heaton/${element.url}" class="flex flex-col items-start grow">
+                      <div class="font-black">${element.name}</div>
                       <ul class="flex items-center gap-1">
                         <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power whitespace-nowrap">${element.power} Вт</li>
-                        <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">${element.side?"Нижнее":"Боковое"}</li>
+                        <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">${element.side?"Боковое":"Нижнее"}</li>
                         <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden">${element.hygiene?"Гигиенический":""}</li>
                       </ul>
                     </a>
@@ -374,16 +337,25 @@ async function fetchRadiators() {
     });
 
     document.addEventListener("calculatorFormHeatPower", (e: any) => {
+
       const totalPower = document.getElementById("totalPower") as HTMLSpanElement;
 
-      totalPower.textContent = `${parseInt(e.detail.heat)} Вт`;
-      searchHeaters(parseInt(e.detail.heat));
-      // console.log(`${e.detail.heat} Вт`);
+      const totalPowerValue = parseInt(e.detail.heat);
+      const heatersCount= parseInt(e.detail.count);
+
+      // Обновляем вывод общей теплоотдачи
+      totalPower.textContent = `${totalPowerValue} Вт`;
+
+      // Запрашиваем поиск радиатора по списку, в первом параметре искомая теплоотдача на один радиатор, во втором дополнительная фильтрация
+      searchHeaters(Math.ceil(totalPowerValue/heatersCount),e.detail.extra);
     });
 
     const rangeInputs = document.querySelectorAll('input[type="range"]');
-
-    let timeout = setTimeout(function () {}, 10);
+    
+    // инициализируем отсечку и заодно запускаем калькулятор на расчет в первый раз
+    let timeout = setTimeout(function () {
+      rangeInputs[0].dispatchEvent(new Event('input', { bubbles: true }));
+    }, 200);
 
     function handleInputChange(e: any) {
       let target = e.target;
@@ -401,12 +373,12 @@ async function fetchRadiators() {
       const valueSpan = target.closest(".flex").querySelector(".value");
       valueSpan.textContent = val;
 
-      // Чтоб не рябила консоль
+      // Добавим здравую отсечку, чтобы не считать каждое движение
       clearTimeout(timeout);
       timeout = setTimeout(function () {
         const event = new CustomEvent("calculatorFormEvent", {
           detail: {
-            values: { name: target.name, value: target.value }, // Элемент, который вы хотите передать
+            values: { name: target.name, value: target.value },
           },
           bubbles: true,
         });
@@ -417,7 +389,7 @@ async function fetchRadiators() {
     rangeInputs.forEach((input: any) => {
       input.addEventListener("input", handleInputChange);
 
-      // refresh range from span with number
+      // Находим ближайшин спан с классом value, и кидаем в него значения ползунка
       const valueSpan = input.closest(".flex").querySelector(".value");
       input.value = valueSpan.textContent;
 
@@ -426,17 +398,11 @@ async function fetchRadiators() {
       const val = input.value;
 
       input.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
-
-      console.log(input);
     });
   });
-  
 
 
-  // 
-  // 
-  // 
-  // Функция для бинарного поиска ближайшей мощности, которая больше запрошенного значения
+// Функция для бинарного поиска ближайшей мощности, которая больше запрошенного значения
 function binarySearchClosestGreater(arr:any, target:number) {
   let left = 0;
   let right = arr.length - 1;
@@ -457,11 +423,12 @@ function binarySearchClosestGreater(arr:any, target:number) {
 }
 
 // Функция для поиска ближайших радиаторов
-// function findClosestRadiators(radiators:any, minPower:number, count:number|undefined, width:number|undefined, height:number|undefined, hygiene:boolean|undefined, side:boolean|undefined) {
-function findClosestRadiators(radiators:any, minPower:number) {
+function findClosestRadiators(radiators: any, minPower: number, extraFilters?: any) {
+
   // Используем бинарный поиск для нахождения ближайшей мощности, которая больше запрошенного значения
   let closestIndex = binarySearchClosestGreater(radiators, minPower);
   console.log(`${radiators.lenght} ${minPower}`);
+
   // Если не найдено радиаторов с мощностью больше запрошенного значения, возвращаем пустой массив
   if (closestIndex === -1) {
     return [];
@@ -472,7 +439,7 @@ function findClosestRadiators(radiators:any, minPower:number) {
   let left = closestIndex;
   let right = closestIndex;
 
-  while (limitedRadiators.length < 50 && (left >= 0 || right < radiators.length)) {
+  while (limitedRadiators.length < 100 && (left >= 0 || right < radiators.length)) {
     if (left >= 0 && (right >= radiators.length || radiators[left].power > minPower)) {
       limitedRadiators.push(radiators[left]);
       left--;
@@ -484,16 +451,16 @@ function findClosestRadiators(radiators:any, minPower:number) {
     }
   }
 
-  // // Фильтруем ограниченные радиаторы по дополнительным параметрам
-  // let filteredRadiators = limitedRadiators.filter(radiator => {
-  //   return (
-  //     (width === undefined || width === null || radiator.width === width) &&
-  //     (height === undefined || height === null || radiator.height === height) &&
-  //     (hygiene === undefined || hygiene === null || radiator.hygiene === hygiene) &&
-  //     (side === undefined || side === null || radiator.side === side)
-  //   );
-  // });
-  let filteredRadiators = limitedRadiators;
+  // Жестко фильтруем ограниченные радиаторы по дополнительным параметрам
+  let filteredRadiators = limitedRadiators.filter(radiator => {
+    return (
+      (extraFilters.lenght === 0 || extraFilters.lenght === undefined || extraFilters.lenght === null || radiator.width === extraFilters.lenght) &&
+      (extraFilters.height === 0 || extraFilters.height === undefined || extraFilters.height === null || radiator.height === extraFilters.height) &&
+      (extraFilters.isSide === 0 || extraFilters.isSide === undefined || extraFilters.isSide === null || radiator.side === extraFilters.isSide) &&
+      (extraFilters.isHygiene === 0 || extraFilters.isHygiene === undefined || extraFilters.isHygiene === null || radiator.hygiene === extraFilters.isHygiene) 
+    );
+  });
+  
   // Возвращаем ближайшие радиаторы
   let result = [];
   let leftFiltered = 0;
@@ -512,21 +479,10 @@ function findClosestRadiators(radiators:any, minPower:number) {
   return result;
 }
 
-
-
-// Пример использования
-// async function searchHeaters(power:number, heater_count:number, heater_width:number, heater_height:number, heater_hygiene:boolean, heater_side:boolean) {
-async function searchHeaters(power:number) {
+async function searchHeaters(power:number, extraFilters:any) {
   try {
     const minPower = power;
-    // const count = heater_count||undefined;
-    // const width = heater_width||undefined;
-    // const height = heater_height||undefined;
-    // const hygiene = heater_hygiene||undefined;
-    // const side = heater_side||undefined;
-    // const closestRadiators = findClosestRadiators(radiators, minPower, count, width, height, hygiene, side);
-    const closestRadiators = findClosestRadiators(await radiators, minPower);
-
+    const closestRadiators = findClosestRadiators(await radiators, minPower, extraFilters);
     const event = new CustomEvent("heatersSearchComplete", {
           detail: {
             heaters: closestRadiators // Элемент, который вы хотите передать

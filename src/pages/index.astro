@@ -24,7 +24,7 @@ const pathname = `/${paths[0].props.category}/${paths[0].props.model}/${paths[0]
 console.log(pathname);
 ---
 
-<html lang="ru" class="scroll-smooth snap-y snap-proximity">
+<html lang="ru" class="scroll-smooth snap-y snap-mandatory">
 	<head>
 		<meta charset="utf-8" />
 		<!-- <meta name="viewport" content="width=device-width" /> -->
@@ -169,7 +169,7 @@ console.log(pathname);
 
 
 		<!-- models -->
-		<section class="bg-secondary/30 min-h-svh snap-center snap-always " id="models">
+		<section class="bg-secondary/30 min-h-svh snap-center" id="models">
 			<div class="flex flex-col items-center gap-16 py-16 md:py-32 container-center text-neutral-600">
 				<h2 class="text-3xl font-semibold md:text-6xl header-circle-lg md:header-circle-xl ">Модели радиаторов</h2>
 				<div class="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4 sm:px-0">
@@ -231,7 +231,7 @@ console.log(pathname);
 			</div>
 		</section>
 		<!-- calculator -->
-		 	<Calculator class="snap-center snap-always"/>
+		 	<Calculator class="snap-center"/>
 		
 		<Footer class="snap-end"/>
 	</body>

@@ -78,18 +78,15 @@ def create_json_from_directory_powerSearch(root_dir):
                                 continue
 
                             side = model in ["Compact (C)", "Hygiene Compact (HC)"]
-                            hygiene = model in ["Ventil Compact (VC)", "Hygiene Ventil Compact (HVC)"]
+                            hygiene = model in ["Hygiene Compact (HC)", "Hygiene Ventil Compact (HVC)"]
                             width = int(row['Длина, мм'])
                             height = int(row['Высота, мм'])
                             power = int(row['Теплоотдача, Вт'])
                             panels = int(type_name[0])
 
                             data.append({
-                                # "Категория": category,
-                                # "Модель": model,
-                                # "Тип": type_name,
-                                "Наименование": item_name,
-                                "Ссылка": link,
+                                "name": item_name,
+                                "url": link,
                                 "side": side,
                                 "hygiene": hygiene,
                                 "width": width,
