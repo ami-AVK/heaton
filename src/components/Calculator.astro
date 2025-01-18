@@ -37,7 +37,7 @@ const { class: className } = Astro.props;
       class="flex flex-col items-center w-full gap-0 justify-stretch lg:flex-row md:items-start lg:gap-0 sm:px-0"
     >
     <!-- Меню -->
-      <div class="w-full min-w-full p-4 lg:w-72 sm:px-8 md:w-auto md:p-8 sm:min-w-fit bg-secondary/30 rounded-t-3xl lg:rounded-none lg:rounded-l-3xl text-neutral-700">
+      <div class="w-full min-w-full p-4 lg:w-72 sm:px-8 sm:self-stretch md:p-8 sm:min-w-fit bg-secondary_ bg-neutral-300/80 rounded-t-3xl lg:rounded-none lg:rounded-l-3xl text-neutral-700">
         <form class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1 sm:gap-8" id="calculator">
           <div class="relative ">
             <label for="area" class="block mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm"
@@ -134,9 +134,9 @@ const { class: className } = Astro.props;
         </form>
       </div>
 
-      <div class="p-4 lg:flex-auto sm:p-8 sm:w-auto bg-neutral-50 rounded-b-3xl lg:rounded-none lg:rounded-r-3xl ">
+      <div class="self-stretch max-h-full p-4 lg:flex-auto sm:p-8 sm:w-auto bg-secondary_/30 bg-neutral-300/50 rounded-b-3xl lg:rounded-none lg:rounded-r-3xl">
         <div class="flex flex-col flex-wrap px-2 font-black sm:gap-2 sm:flex-row sm:items-center"><span class="block mb-1 text-xs font-black leading-none text-gray-700 sm:mb-0 sm:text-lg">Рекомендуемая общая мощность: </span><span id="totalPower" class="block px-2 text-lg rounded-full will-change-contents bg-secondary">1800 кВт</span></div>
-        <form action="" id="calculatorExtra" name="calculatorExtra" class="flex flex-wrap gap-6 px-2 py-4 -mx-2.5 text-neutral-600">
+        <form action="" id="calculatorExtra" name="calculatorExtra" class="grid grid-cols-2 sm:flex sm:flex-wrap  gap-6 px-2 py-4 -mx-2.5 text-neutral-600">
             <div class="">
               <label class="block pl-2.5 mr-2.5 mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm">Длина радиатора</label
             >
@@ -185,8 +185,8 @@ const { class: className } = Astro.props;
         <h3 class="block my-6 mt-4 text-xs font-bold font-black leading-none text-gray-700 sm:text-lg sm:px-2">Список подходящих радиаторов:</h3>
 
         <!-- Heaters list -->
-        <ul class="flex flex-col gap-4 overflow-y-scroll text-xl max-h-[420px] will-change-contents" id="outputField">
-          <li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100">
+        <ul class="overflow-y-scroll text-xl max-h-[420px] will-change-contents" id="outputField">
+          <li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100 a-delay-0 a-delay-1 a-delay-2 a-delay-3 a-delay-4 a-delay-5 a-delay-6">
             <div class="flex flex-col items-start grow">
               <div class="font-black">C 33 300x400</div>
               <ul class="flex items-center gap-1">
@@ -215,13 +215,13 @@ const radiators = await fetchRadiators();
 
 // Функция для загрузки данных о радиаторах
 async function fetchRadiators() {
-
+  console.log(`Fetched start`);
   const response = await fetch('/heaton/search_map_radiator_power.json'); // Замените на ваш URL
   if (!response.ok) {
     throw new Error('Fail to fetch heaters powers');
   }
   const data = await response.json();
-  // console.log(`Fetched ${data.length}`);
+  console.log(`Fetched ${data.length}`);
   return data;
 }
 
@@ -287,7 +287,8 @@ function initCalculator(form: HTMLFormElement) {
     //   `${Math.ceil(heatLoss / parseInt(windows.value))} Вт на каждый радиатор`
     // );
   }
-  document.addEventListener("astro:page-load", () => {
+document.addEventListener("astro:page-load", () => {
+  console.log("astro:page-load");
     const extraFilterInputs = document.querySelectorAll('#calculatorExtra select');
     extraFilterInputs.forEach(input => {
 			  input.addEventListener('change', (e:any)=>{
@@ -309,10 +310,10 @@ function initCalculator(form: HTMLFormElement) {
       const outputField = document.getElementById("outputField") as HTMLUListElement;
       const heatersArray = e.detail.heaters;
       let totalInner = "";
-      heatersArray.forEach((element:any,index:number)=>{
-        console.log(element);
+      heatersArray.slice(0, 6).forEach((element:any,index:number)=>{
+        // console.log(element);
         totalInner+=
-        `<li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100">
+        `<li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100 slide-from-top a-delay-${index}">
                     <a href="/heaton/${element.url}" class="flex flex-col items-start grow">
                       <div class="font-black">${element.name}</div>
                       <ul class="flex items-center gap-1">
@@ -400,7 +401,9 @@ function initCalculator(form: HTMLFormElement) {
       input.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
     });
   });
-
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOMContentLoaded");
+  });
 
 // Функция для бинарного поиска ближайшей мощности, которая больше запрошенного значения
 function binarySearchClosestGreater(arr:any, target:number) {
@@ -427,7 +430,7 @@ function findClosestRadiators(radiators: any, minPower: number, extraFilters?: a
 
   // Используем бинарный поиск для нахождения ближайшей мощности, которая больше запрошенного значения
   let closestIndex = binarySearchClosestGreater(radiators, minPower);
-  console.log(`${radiators.lenght} ${minPower}`);
+  // console.log(`${radiators.lenght} ${minPower}`);
 
   // Если не найдено радиаторов с мощностью больше запрошенного значения, возвращаем пустой массив
   if (closestIndex === -1) {

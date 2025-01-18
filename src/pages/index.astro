@@ -155,7 +155,7 @@ console.log(pathname);
 						</div>
 					</div>
 				</div>
-				<div class="inview-scale will-change-transform lg:w-1/2">
+				<div class="inview-scale will-change-transform lg:w-1/2 ">
 					<div class="relative flex flex-col items-start px-8 py-8 sm:px-16">
 						<h2 class="mb-8 text-2xl font-bold tracking-widest md:text-4xl lg:text-5xl lg:max-w-screen-sm">«Технология усечённого канала»</h2>
 						<p class="leading-loose sm:text-xl"> Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
@@ -169,7 +169,7 @@ console.log(pathname);
 
 
 		<!-- models -->
-		<section class="bg-secondary/30 min-h-svh snap-center" id="models">
+		<section class="bg-secondary_/30 bg-neutral-300 min-h-svh snap-center" id="models">
 			<div class="flex flex-col items-center gap-16 py-16 md:py-32 container-center text-neutral-600">
 				<h2 class="text-3xl font-semibold md:text-6xl header-circle-lg md:header-circle-xl ">Модели радиаторов</h2>
 				<div class="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4 sm:px-0">
@@ -240,9 +240,9 @@ console.log(pathname);
 <script >
 	import { animate,scroll,stagger, inView } from "motion";
 	import Fuse from 'fuse.js'
+	let gloabal_fuse;
 
-	document.addEventListener('astro:page-load', async () => {
-
+	async function getHeatersForSearch() {
 		const options = {
 			includeScore: true,
 			minMatchCharLength:3,
@@ -253,25 +253,26 @@ console.log(pathname);
 
 		// const fuse = new Fuse(list, options)
 		// search_map.json
-		const response = await fetch('/heaton/search_map.json');
+		const response = await fetch('/heaton/search_map.json') ;
         const data = await response.json();
-		const fuse = new Fuse(data, options);
+		gloabal_fuse = new Fuse(data, options);
 
-		
-		document.addEventListener("searchInputEvent",(e)=>{
+		let result = gloabal_fuse.search('1200')
+		console.log(result);
+		result = gloabal_fuse.search('1200 400')
+		console.log(result);
+		result = gloabal_fuse.search('1200 400 C')
+		console.log(result);
+		result = gloabal_fuse.search('12C')
+		console.log(result);
+}
 
-		})
-		let result = fuse.search('1200')
-		console.log(result);
-		result = fuse.search('1200 400')
-		console.log(result);
-		result = fuse.search('1200 400 C')
-		console.log(result);
-		result = fuse.search('12C')
-		console.log(result);
-	});
-	document.addEventListener('astro:page-load', () => {
+document.addEventListener("searchInputEvent",(e)=>{
+	console.log("searchInputEvent");
+}) 
 
+document.addEventListener('astro:page-load', () => {
+		// 
 		// animate("#motion-test",{ scale: [0.4, 1]});
 		inView(".inview-block", ({ target }) => {
 			const staggers = target.querySelectorAll(".scroll-stagger");
@@ -365,6 +366,6 @@ console.log(pathname);
 
 
 
-	});
+	},{once:true});
 	
 </script>
