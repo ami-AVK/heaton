@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="uuid-7e42b97b-53e6-4e6b-a7cb-04007ab53dc1">
+      <rect x="1087.78" y="-1065.55" width="1641.18" height="1009.47" fill="none"/>
+    </clipPath>
+    <radialGradient id="uuid-14c2b0e1-c4b3-4591-b39c-5409f34465ce" cx="2392.02" cy="-709.92" fx="2392.02" fy="-709.92" r="1373.34" gradientTransform="translate(-3934.89 43.82) scale(2.56 .27)" gradientUnits="userSpaceOnUse">
+      <stop offset=".43" stop-color="#000"/>
+      <stop offset=".43" stop-color="#090909"/>
+      <stop offset=".44" stop-color="#363737"/>
+      <stop offset=".46" stop-color="#616262"/>
+      <stop offset=".47" stop-color="#878787"/>
+      <stop offset=".49" stop-color="#a7a8a8"/>
+      <stop offset=".51" stop-color="#c2c3c3"/>
+      <stop offset=".53" stop-color="#d8d9d9"/>
+      <stop offset=".56" stop-color="#e9eaea"/>
+      <stop offset=".59" stop-color="#f5f6f6"/>
+      <stop offset=".63" stop-color="#fcfdfd"/>
+      <stop offset=".76" stop-color="#feffff"/>
+      <stop offset="1" stop-color="#feffff"/>
+    </radialGradient>
+  </defs>
+  <g isolation="isolate">
+    <g id="uuid-a6a07a7b-bd17-4499-ab58-a93f53797a1a" data-name="Layer 1">
+      <path d="M12.28,3.34c-4.8,0-8.71,3.91-8.71,8.71s3.91,8.71,8.71,8.71c4.8,0,8.71-3.91,8.71-8.71S17.09,3.34,12.28,3.34ZM16.06,13.76c.85.75,1.02,1.02,1.05,1.07.35.56-.39.62-.39.62h-1.56s-.38,0-.7-.21c-.53-.35-1.08-1.02-1.47-.9-.33.1-.32.54-.32.92,0,.14-.12.2-.38.2h-.49c-.85,0-1.78-.29-2.71-1.25-1.31-1.37-2.46-4.12-2.46-4.12,0,0-.07-.14,0-.22.08-.09.31-.08.31-.08h1.51s.14.03.24.1c.08.06.13.17.13.17,0,0,.25.84.58,1.37.63,1.04.93,1.07,1.14.96.31-.16.21-1.27.21-1.27,0,0,.01-.48-.15-.69-.13-.16-.37-.25-.47-.27-.09-.01.06-.16.24-.25.24-.11.57-.14,1.14-.13.44,0,.57.03.74.07.52.12.39.44.39,1.55,0,.36-.05.86.22,1.03.12.07.51.16,1.22-.99.34-.55.6-1.45.6-1.45,0,0,.06-.1.14-.15.09-.05.09-.05.21-.05s1.33,0,1.59,0,.51,0,.56.15c.06.22-.2.99-.85,1.82-1.07,1.36-1.19,1.23-.3,2.02Z"/>
+      <g clip-path="url(#uuid-7e42b97b-53e6-4e6b-a7cb-04007ab53dc1)">
+        <ellipse cx="2180.16" cy="-150.99" rx="3510.85" ry="376.85" fill="url(#uuid-14c2b0e1-c4b3-4591-b39c-5409f34465ce)" mix-blend-mode="screen"/>
+      </g>
+    </g>
+  </g>
+</svg>

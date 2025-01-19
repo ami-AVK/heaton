@@ -1,38 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.2 337.2">
-  <defs>
-    <style>
-      .cls-1, .cls-2 {
-        fill: none;
-      }
-
-      .cls-1, .cls-2, .cls-3 {
-        stroke: currentColor;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-
-      .cls-1, .cls-3 {
-        stroke-width: 12px;
-      }
-
-      .cls-2 {
-        stroke-width: 8px;
-      }
-
-      .cls-3 {
-        fill: #fafdfe;
-      }
-    </style>
-  </defs>
-  <path class="cls-1" d="M58.09,297.61V44.5h156.32c26.18,0,47.4,21.22,47.4,47.4v205.71"/>
-  <rect class="cls-3" x="87.17" y="44.5" width="44.93" height="65.32"/>
-  <path class="cls-1" d="M82.79,297.61l19.15-15c11.25-8.81,27.06-8.81,38.31,0h0c11.25,8.81,27.06,8.81,38.31,0h0c11.25-8.81,27.06-8.81,38.31,0l19.15,15"/>
-  <line class="cls-2" x1="87.17" y1="138.52" x2="172.05" y2="138.52"/>
-  <line class="cls-2" x1="87.17" y1="158.49" x2="141.91" y2="158.49"/>
-  <line class="cls-2" x1="87.17" y1="196.99" x2="231.53" y2="196.99"/>
-  <line class="cls-2" x1="87.17" y1="217.97" x2="211.53" y2="217.97"/>
-  <line class="cls-2" x1="87.17" y1="238.95" x2="231.53" y2="238.95"/>
-  <circle class="cls-1" cx="211.53" cy="95.55" r="13.83"/>
-  <path class="cls-1" d="M287.58,299.47V114.29"/>
+<svg id="uuid-2aea0f02-c95c-43fb-ba0e-862bf51f9d4f" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.2 337.2">
+  <g>
+    <rect width="337.2" height="337.2" fill="none"/>
+    <path d="M58.09,297.61V44.5h156.32c26.18,0,47.4,21.22,47.4,47.4v205.71" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+    <rect x="87.17" y="44.5" width="44.93" height="65.32" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+    <path d="M82.79,297.61l19.15-15c11.25-8.81,27.06-8.81,38.31,0h0c11.25,8.81,27.06,8.81,38.31,0h0c11.25-8.81,27.06-8.81,38.31,0l19.15,15" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+    <line x1="87.17" y1="138.52" x2="172.05" y2="138.52" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+    <line x1="87.17" y1="158.49" x2="141.91" y2="158.49" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+    <line x1="87.17" y1="196.99" x2="231.53" y2="196.99" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+    <line x1="87.17" y1="217.97" x2="211.53" y2="217.97" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+    <line x1="87.17" y1="238.95" x2="231.53" y2="238.95" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+    <circle cx="211.53" cy="95.55" r="13.83" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+  </g>
+  <path d="M287.58,299.47V114.29" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
 </svg>

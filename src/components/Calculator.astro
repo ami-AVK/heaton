@@ -135,7 +135,7 @@ const { class: className } = Astro.props;
       </div>
 
       <div class="self-stretch max-h-full p-4 lg:flex-auto sm:p-8 sm:w-auto bg-secondary_/30 bg-neutral-300/30 rounded-b-3xl lg:rounded-none lg:rounded-r-3xl">
-        <div class="flex flex-col flex-wrap px-2 font-black sm:gap-2 sm:flex-row sm:items-center"><span class="block mb-1 text-xs font-black leading-none text-gray-700 sm:mb-0 sm:text-lg">Рекомендуемая общая мощность: </span><span id="totalPower" class="block px-2 text-lg rounded-full will-change-contents bg-secondary">1800 кВт</span></div>
+        <div class="flex flex-col flex-wrap px-2 font-black sm:gap-2 sm:flex-row sm:items-center"><span class="block mb-1 text-xs font-black leading-none text-gray-700 sm:mb-0 sm:text-lg">Рекомендуемая общая мощность: </span><span id="totalPower" class="block px-2 text-lg rounded-full will-change-contents bg-secondary">1800 Вт</span></div>
         <form action="" id="calculatorExtra" name="calculatorExtra" class="grid grid-cols-2 sm:flex sm:flex-wrap  gap-6 px-2 py-4 -mx-2.5 text-neutral-600">
             <div class="">
               <label class="block pl-2.5 mr-2.5 mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm">Длина радиатора</label
@@ -210,8 +210,28 @@ const { class: className } = Astro.props;
   </div>
 </section>
 <script>
-  
-const radiators = await fetchRadiators();
+
+
+let radiators = await fetchRadiators();
+let calculator_form:HTMLFormElement;
+let calclulatorStatus = false;
+calcalatorItialisation();
+document.addEventListener("astro:page-load",(e)=>{
+  console.log(e);
+  console.log(radiators.length);
+  if(document.getElementById("calculator") as HTMLFormElement){
+    calcalatorItialisation();
+  }
+})
+// последняя надежда, хрен его знает куда этот сраный astro:page-load девается
+// setTimeout(()=>{
+//   if(!calclulatorStatus){
+//     document.dispatchEvent(new CustomEvent('initCalculator', {bubbles:true}));
+//   }
+//   else{
+//     console.log("Calculator is initializated");
+//   }
+// },300);
 
 // Функция для загрузки данных о радиаторах
 async function fetchRadiators() {
@@ -225,21 +245,7 @@ async function fetchRadiators() {
   return data;
 }
 
-
-
-function calculateHeatLoss(
-    area: number,
-    height: number,
-    insulationFactor: number,
-    glazingFactor: number,
-    minTemp: number,
-    homeTemp: number,
-  ) {
-    const heatLoss =
-      area * height * insulationFactor * glazingFactor * (homeTemp - minTemp);
-    return heatLoss;
-  }
-function initCalculator(form: HTMLFormElement) {
+function calculateHeatLost(form: HTMLFormElement) {
 
     const calculatorExtra = document.querySelector('#calculatorExtra') as HTMLFormElement;
 
@@ -265,16 +271,9 @@ function initCalculator(form: HTMLFormElement) {
     const glazing = form.querySelector('input[name="glazing"]:checked') as HTMLInputElement;
     const height = form.querySelector('input[name="height"]:checked') as HTMLInputElement;
 
-    const heatLoss = calculateHeatLoss(
-      parseFloat(area.value),
-      parseFloat(height.value),
-      parseFloat(insulation.value),
-      parseFloat(glazing.value),
-      parseFloat(temperature.value),
-      parseFloat(homeTemperature.value),
-    );
+    const heatLoss = parseFloat(area.value) * parseFloat(height.value) * parseFloat(insulation.value) * parseFloat(glazing.value) * (parseFloat(homeTemperature.value) - parseFloat(temperature.value));
 
-    const event = new CustomEvent("calculatorFormHeatPower", {
+    const event = new CustomEvent("HeatLostCalculationDone", {
           detail: {
             heat: heatLoss, count: parseInt(windows.value), extra:extraFilterData // Элемент, который вы хотите передать
           },
@@ -287,30 +286,10 @@ function initCalculator(form: HTMLFormElement) {
     //   `${Math.ceil(heatLoss / parseInt(windows.value))} Вт на каждый радиатор`
     // );
   }
-document.addEventListener("initCalculator", () => {
-  console.log("initCalculator");
-    const extraFilterInputs = document.querySelectorAll('#calculatorExtra select');
-    extraFilterInputs.forEach(input => {
-			  input.addEventListener('change', (e:any)=>{
-                const event = new CustomEvent('calculatorFormEvent', {
-                    bubbles:true
-                });
-                document.dispatchEvent(event);
-            })
-			})
-    const form = document.getElementById("calculator") as HTMLFormElement;
-    initCalculator(form);
 
-    document.addEventListener("calculatorFormEvent", (e: any) => {
-      initCalculator(form);
-    });
-
-    // Поиск радиаторов завершен
-    document.addEventListener("heatersSearchComplete",(e: any) => {
-      const outputField = document.getElementById("outputField") as HTMLUListElement;
-      const heatersArray = e.detail.heaters;
-      const heaters_count = e.detail.heaters_count;
-      let totalInner = "";
+function updateOutputBox(heatersArray: any, heatersCount: any){
+  const outputField = document.getElementById("outputField") as HTMLUListElement;
+  let totalInner = "";
       heatersArray.slice(0, 6).forEach((element:any,index:number)=>{
         // console.log(element);
         totalInner+=
@@ -328,7 +307,7 @@ document.addEventListener("initCalculator", () => {
                         <span class="text-xl">x</span>
                       </div>
                       <div class="font-black ">
-                        <span class="text-4xl">${heaters_count}</span><span>&nbsp;шт</span>
+                        <span class="text-4xl">${heatersCount}</span><span>&nbsp;шт</span>
                       </div>
                     </a>
           </li>`
@@ -336,21 +315,50 @@ document.addEventListener("initCalculator", () => {
       
                   
         outputField.innerHTML = totalInner;
+}
+
+document.addEventListener("calculatorFormChange", (e: any) => {
+    console.log("calculatorFormChange");
+    if(calculator_form as HTMLFormElement){
+      calculateHeatLost(calculator_form as HTMLFormElement);
+    }
+  });
+
+// Поиск радиаторов завершен
+document.addEventListener("heatersSearchComplete",(e: any) => {
+      console.log("heatersSearchComplete");
+      const heatersArray = e.detail.heaters;
+      const heatersCount = e.detail.heatersCount;
+      updateOutputBox(heatersArray,heatersCount);
     });
 
-    document.addEventListener("calculatorFormHeatPower", (e: any) => {
+document.addEventListener("HeatLostCalculationDone", (e: any) => {
 
-      const totalPower = document.getElementById("totalPower") as HTMLSpanElement;
+  console.log("HeatLostCalculationDone");
+  const totalPower = document.getElementById("totalPower") as HTMLSpanElement;
+  const totalPowerValue = parseInt(e.detail.heat);
+  const heatersCount= parseInt(e.detail.count);
 
-      const totalPowerValue = parseInt(e.detail.heat);
-      const heatersCount= parseInt(e.detail.count);
+  // Обновляем вывод общей теплоотдачи
+  totalPower.textContent = `${totalPowerValue} Вт`;
 
-      // Обновляем вывод общей теплоотдачи
-      totalPower.textContent = `${totalPowerValue} Вт`;
+  // Запрашиваем поиск радиатора по списку, в первом параметре искомая теплоотдача на один радиатор, во втором дополнительная фильтрация
+  searchHeaters(Math.ceil(totalPowerValue/heatersCount),e.detail.extra, heatersCount);
+});
+// 
 
-      // Запрашиваем поиск радиатора по списку, в первом параметре искомая теплоотдача на один радиатор, во втором дополнительная фильтрация
-      searchHeaters(Math.ceil(totalPowerValue/heatersCount),e.detail.extra, heatersCount);
-    });
+function calcalatorItialisation(){
+    const extraFilterInputs = document.querySelectorAll('#calculatorExtra select');
+    extraFilterInputs.forEach(input => {
+			  input.addEventListener('change', (e:any)=>{
+                const event = new CustomEvent('calculatorFormChange', {
+                    bubbles:true
+                });
+                document.dispatchEvent(event);
+            })
+			})
+    calculator_form = document.getElementById("calculator") as HTMLFormElement;
+    calculateHeatLost(calculator_form);
 
     const rangeInputs = document.querySelectorAll('input[type="range"]');
     
@@ -378,7 +386,7 @@ document.addEventListener("initCalculator", () => {
       // Добавим здравую отсечку, чтобы не считать каждое движение
       clearTimeout(timeout);
       timeout = setTimeout(function () {
-        const event = new CustomEvent("calculatorFormEvent", {
+        const event = new CustomEvent("calculatorFormChange", {
           detail: {
             values: { name: target.name, value: target.value },
           },
@@ -401,10 +409,10 @@ document.addEventListener("initCalculator", () => {
 
       input.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
     });
-  });
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOMContentLoaded");
-  });
+}
+
+
+
 
 // Функция для бинарного поиска ближайшей мощности, которая больше запрошенного значения
 function binarySearchClosestGreater(arr:any, target:number) {
@@ -489,7 +497,7 @@ async function searchHeaters(power: number, extraFilters: any, heatersCount?: nu
     const closestRadiators = findClosestRadiators(await radiators, minPower, extraFilters);
     const event = new CustomEvent("heatersSearchComplete", {
           detail: {
-            heaters: closestRadiators, heaters_count:heatersCount // Элемент, который вы хотите передать
+            heaters: closestRadiators, heatersCount:heatersCount // Элемент, который вы хотите передать
           },
           bubbles: true,
         });

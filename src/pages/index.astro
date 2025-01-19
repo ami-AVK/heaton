@@ -4,8 +4,11 @@ import NavBar from '../components/NavBar.astro';
 import ModelCard from '../components/_ModelCard.astro';
 import TSlider from '../components/Inputs/TemperatureSlider.astro';
 import LogoSmall from '../svg/logo_small.svg';
+import Logo from '../svg/logo_big.svg';
 import { Image } from "astro:assets"
 import heater from "../img/heater_main.webp"
+import top_panel from "../img/top_panel.webp"
+import img_models from "../img/models.webp"
 import cetrificate from "../img/sertificate.webp"
 import { Icon } from 'astro-icon/components';
 import '../styles/main.css';
@@ -34,7 +37,7 @@ console.log(pathname);
 		<link rel="icon" type="image/svg+xml" href=`${import.meta.env.BASE_URL}/favicon.svg` />
 		<!-- <meta name="generator" content={Astro.generator} /> -->
 		<title>Heaton</title>
-		<ClientRouter />
+		<ClientRouter/>
 	</head>
 
 	<body class="bg-neutral-100">
@@ -45,13 +48,22 @@ console.log(pathname);
 		<section class="relative w-full bg-gr-metallic min-h-svh overflow-x-clip snap-center">
 			<div class="z-0 py-8 pb-16 container-center">
 				<NavBar/>
-				<div class="flex flex-col justify-center mt-[15%] ml-4 md:flex-row md:justify-start md:mt-32 md:ml-auto ">
-					<div class="flex flex-col z-10 px-[10%] mt-12 sm:mt-24 md:mt-auto md:px-0 relative md:max-w-[40%] gap-4 sm:gap-12 md:my-auto sm:mr-[10%] order-2 md:order-1 lg:ml-16">
-						<h1 class="text-2xl font-black leading-none tracking-widest uppercase text-neutral-700 sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl sm:header-circle-lg lg:header-circle-xl">
+				<div class="flex flex-col justify-center sm:mt-[15%] ml-4 md:flex-row md:justify-start md:mt-32 md:ml-auto ">
+					<div class="flex flex-col z-10 px-[10%] mt-6 sm:mt-24 md:mt-auto md:px-0 relative md:max-w-[40%] gap-4 sm:gap-12 md:my-auto sm:mr-[10%] order-2 md:order-1 lg:ml-16">
+						<Logo class="w-56 md:w-72 lg:w-96 md:block text-primary"/>
+						<h1 class="text-[22px] md:text-3xl lg:text-4xl font-medium leading-tight -mt-6 lg:-mt-16 tracking-widest uppercase text-neutral-700">
+							Стальные<br/>панельные<br/>радиаторы</h1>
+						<div class="socials flex gap-4 relative md:translate-y-24 lg:translate-y-36">
+							<Icon name="whatsup" class="size-8 md:size-12 text-primary"/>
+							<Icon name="telegram" class="size-8 md:size-12 text-primary"/>
+							<Icon name="vk" class="size-8 md:size-12 text-primary"/>
+							<Icon name="wechat" class="size-8 md:size-12 text-primary"/>
+						</div>
+						<!-- <h1 class="text-2xl font-black leading-none tracking-widest uppercase text-neutral-700 sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl sm:header-circle-lg lg:header-circle-xl">
 							Стальные панельные радиаторы</h1>
 						<p class="w-full text-xl font-light leading-none sm:text-2xl md:text-3xl xl:text-4xl text-neutral-600">
 							Высокое качество <br/>по&nbsp;доступной цене
-						</p>
+						</p> -->
 					</div>
 					<div class="relative px-[5%] md:px-0 md:max-w-[70%] z-0 min-h-[40svh] md:h-auto order-1 md:order-2 -bottom-16">
 						<div class="absolute -top-[15%] left-1/2 hidden md:block">
@@ -63,7 +75,11 @@ console.log(pathname);
 						<div class="absolute -bottom-0 h-[120%] w-1/2 -z-10 right-0 sm:-left-8 bg-neutral-100 rounded-tl-[64px] rounded-tr-lg"></div>
 						<div class="absolute bottom-16 lg:bottom-24 h-0.5 w-[150%] -z-10 -left-[150%] bg-gradient-to-l from-neutral-50 via-neutral-50/0 to-neutral-50/0 "></div>
 						<div class="absolute z-10 w-32 h-32 border-2 rounded-full -right-16 -bottom-16 sm:-left-24 lg:h-48 lg:w-48 lg:-bottom-24 lg:-left-32 bg-neutral-50/30 backdrop-blur-sm border-neutral-50 scroll-scale-fade"></div>
-						<Image alt="" src={heater}/>
+						<div class="relative">
+							<div class="relative xl:w-auto">
+								<Image alt="" src={heater}/>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -79,11 +95,12 @@ console.log(pathname);
 				<div class="flex flex-col items-start py-8 md:py-24 px-6 sm:px-16 bg-neutral-200/40 rounded-br-3xl md:max-w-[calc(50%-6rem)] relative scroll_main_header_fromright transform-gpu ">
 					<h2 class="max-w-screen-sm mb-2 text-2xl font-bold tracking-widest sm:mb-8 sm:text-4xl md:text-4xl lg:text-5xl sm:whitespace-nowrap ">Высочайшее качество, <br/>подтвержденное <br/>сертификатом</h2>
 					<Button text="Сертификат соответствия" icon="Sertificate" type="download" size=20 link={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`}/>
-					<div class="w-52 absolute -bottom-8 rounded-xl hard-shadow before:bg-neutral-100">
+					<div class="w-52 absolute bottom-2 rounded-xl hard-shadow before:bg-neutral-100 hidden md:block lg:-bottom-16">
 						<Image alt="" src={cetrificate} class=""/>
 					</div>
 				</div>				
 				<div class="relative flex flex-col max-w-xl pt-8 sm:gap-4 sm:pl-12 sm:text-xl md:pt-48 md:pl-32 inview-block">
+				
 					{
 						[
 							["Произведены в Турции на заводе c богатейшим опытом","BI__factory",1],
@@ -91,23 +108,24 @@ console.log(pathname);
 							["Высококачественное сырье: холоднокатанная сталь 1,3 мм","BI__steel_width",3],
 						]
 						.map(([text,icon,index])=>(
-							<div class="flex items-center gap-4 p-2 my-2 sm:p-4 group scroll-stagger leading-snug sm:leading-normal" >
-								<div class="max-w-72 text-primary-700"><Icon name={icon} size={72}/></div>
+							<div class="flex items-center gap-4 p-2 my-2 group scroll-stagger leading-snug sm:leading-normal" >
+								<div class="max-w-72 text-primary-700"><Icon name={icon} class="size-16 md:size-20"/></div>
 								<h2 class="max-w-lg">{text}</h2>
 								{/* <div class="absolute top-0 flex items-center justify-center invisible w-full h-32 text-xs tracking-widest text-center transition-opacity rounded-md opacity-0 left-32 bg-neutral-50 text-neutral-300 group-hover:opacity-100 group-hover:visible">Изображение к «{text}»</div> */}
 							</div>
 						))
 					}
 				</div>
+				<!-- <LogoSmall class="absolute  -right-20 w-[400px] text-primary/10 -top-12 -z-0"/> -->
 			</div>
 
 			<!--  -->
-			<div class="container-center relative md:-ml-16 tracking-widest flex flex-col md:flex-row mb-[10svh] md:my-[10svh] scroll-control perspective-1000 items-center justify-center snap-center">
+			<div class="container-center relative md:-ml-16 tracking-widest flex flex-col md:flex-row mb-[10svh] md:my-[15svh] scroll-control perspective-1000 items-center justify-center snap-center">
 				<div class="relative flex justify-end md:w-1/2 scroll_main_header_fromright">
-					<div class="overflow-clip px-12 md:px-0 md:w-[32rem] md:mr-16">
-						<div class="md:w-[42rem] relative">
-							<Image alt="" src={heater}/>
-							<div class="absolute z-10 w-32 h-32 border-2 rounded-full -bottom-16 -left-24 lg:h-48 lg:w-48 lg:-bottom-24 lg:-left-32 bg-neutral-50/30 backdrop-blur-sm border-neutral-50 "></div>
+					<div class="px-12 md:px-0 md:w-[32rem] md:mr-16">
+						<div class="w-full relative">
+							<Image alt="" src={img_models}/>
+							<!-- <div class="absolute z-10 w-32 h-32 border-2 rounded-full -bottom-16 -left-24 lg:h-48 lg:w-48 lg:-bottom-24 lg:-left-32 bg-neutral-50/30 backdrop-blur-sm border-neutral-50 "></div> -->
 						</div>
 					</div>
 				</div>
@@ -123,8 +141,8 @@ console.log(pathname);
 								["Максимально быстрые сроки поставки","BI__delivery"],
 							]
 							.map(([text,icon])=>(
-								<div class="flex items-center gap-4 p-2 my-2 sm:p-4 group scroll-stagger" >
-									<div class="max-w-72 text-primary-700"><Icon name={icon} size={72}/></div>
+								<div class="flex items-center gap-4 p-2 my-2 group scroll-stagger" >
+									<div class="max-w-72 text-primary-700"><Icon name={icon} class="size-16 md:size-20"/></div>
 									<h2 class="max-w-lg">{text}</h2>
 									{/* <div class="absolute top-0 flex items-center justify-center invisible w-full h-32 text-xs tracking-widest text-center transition-opacity rounded-md opacity-0 left-32 bg-neutral-50 text-neutral-300 group-hover:opacity-100 group-hover:visible">Изображение к «{text}»</div> */}
 								</div>
@@ -135,24 +153,24 @@ console.log(pathname);
 			</div>
 
 			<!--  -->
-			<div class="container-center relative tracking-widest flex flex-col lg:flex-row items-center my-[10svh] min-h-[60svh] scroll-control perspective-1000 mx-auto snap-center ">
+			<div class="container-center relative tracking-widest flex flex-col lg:flex-row items-center my-[15svh] min-h-[60svh] scroll-control perspective-1000 mx-auto snap-center ">
 				<div class="order-2 lg:w-1/2 inview-scale will-change-transform lg:order-1">
 					<div class="relative flex flex-col items-start px-8 py-8 sm:px-16 " >
-						<h2 class="max-w-screen-sm mb-8 text-2xl font-bold tracking-widest md:text-4xl lg:text-5xl">Верхняя решетка крыловидной формы</h2>
-						<p class="leading-loose sm:text-xl">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
+						<h2 class="max-w-screen-sm mb-8 text-2xl font-extrabold tracking-widest md:text-4xl lg:text-5xl">Верхняя решетка крыловидной формы</h2>
+						<p class="leading-loose sm:leading-relaxed sm:text-xl">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
 					</div>
 				</div>
 				<div class="relative flex justify-end order-1 lg:w-1/2 lg:order-2">
 					<div class="mx-8 lg:ml-16">
-						<div class="relative">
-							<Image alt="" src={heater}/>
+						<div class="relative scale-125 rounded-l-3xl overflow-clip">
+							<Image alt="" src={top_panel}/>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<!--  -->
-			<div class="container-center relative  tracking-widest flex flex-col lg:flex-row items-center my-[10svh] min-h-[60svh] scroll-control perspective-1000 mx-auto snap-center ">
+			<div class="container-center relative  tracking-widest flex flex-col lg:flex-row items-center my-[15svh] min-h-[60svh] scroll-control perspective-1000 mx-auto snap-center">
 				<div class="relative flex justify-end lg:w-1/2">
 					<div class="mx-8 lg:mr-16">
 						<div class="relative">
@@ -280,8 +298,9 @@ document.addEventListener("searchInputEvent",(e)=>{
 }) 
 
 document.addEventListener('astro:page-load', () => {
+		console.log("astro:page-load main");
 		// initCalculator
-		document.dispatchEvent(new CustomEvent('initCalculator', {bubbles:true}));
+		// document.dispatchEvent(new CustomEvent('initCalculator', {bubbles:true}));
 
 		// animate("#motion-test",{ scale: [0.4, 1]});
 		inView(".inview-block", ({ target }) => {
@@ -299,26 +318,12 @@ document.addEventListener('astro:page-load', () => {
 			)
         	return () => animate(target, { opacity: 0, scale:[1.1], rotateY:[30]})
 		});
-		// document.querySelectorAll(".scroll-scale-fade").forEach((scaledElement) => {
-		// 	scroll(
-		// 		animate(
-		// 			scaledElement, { scale:[1,7],opacity:[1,0]}, { ease: "linear"}),
-		// 		{
-		// 			target: scaledElement,
-		// 			offset: ["end end", "end start"],
-		// 		}
-		// 	);
-		// });
+
 		document.querySelectorAll(".scroll-control").forEach((section ) => {
-			// const header = section.querySelector(".scroll_main_header") as HTMLDivElement;
+
 			const header_from_right = section.querySelector(".scroll_main_header_fromright") as HTMLDivElement;
 			const header_from_left = section.querySelector(".scroll_main_header_fromleft") as HTMLDivElement;
-			const staggers = section.querySelectorAll(".inview-block") as NodeList;
-			// const sequence = [
-			// 	[header, { opacity:[0,1],y:[400,0],rotateY:[45,0],rotateZ:[5,0]}, { ease: "linear" ,duration: .4}],
-			// 	[staggers, { opacity: [0,1], x: [300, 0], rotateY:[-45,0]},{ ease:  "easeInOut", at: .1, duration: .3 }],
-				
-			// ];
+
 			scroll(
 				animate(
 				section, 
@@ -347,30 +352,6 @@ document.addEventListener('astro:page-load', () => {
 					offset: ["start end", "end end"],
 				}
 			);
-
-
-			// scroll(
-			// 	animate(
-			// 		staggers, 
-			// 		{ opacity: [0,1], x: [300, 0]}, 
-			// 		{ ease:  "easeInOut"}), 
-			// 	{
-			// 		target: section,
-			// 		offset: ["start end", "end end"],
-
-			// 	}
-			// );
-			// scroll(
-			// 	animate(
-			// 		staggers, 
-			// 		{ opacity:[-1,1,1,1], x:[200,0,0,0] }, 
-			// 		{ ease:"linear"}), 
-					
-			// 	{
-			// 		target: header,
-			// 		offset: ["start end", "end end", "start start", "end start"],
-			// 	}
-			// );
 			});
 
 

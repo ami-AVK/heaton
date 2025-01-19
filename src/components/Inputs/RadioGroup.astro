@@ -32,12 +32,12 @@ const {header, name, values, class: className} = Astro.props;
         const radioGroup = document.querySelectorAll("input[type=radio]");
         radioGroup.forEach(input => {
 			input.addEventListener('change', (e:any)=>{
-                const radio_name = e.target.name as string;
-                const radio_value = e.target.value as string;
-                const event = new CustomEvent('calculatorFormEvent', {
-                    detail: {
-                     values:{name:radio_name,value:radio_value} // Элемент, который вы хотите передать
-                    },
+                // const radio_name = e.target.name as string;
+                // const radio_value = e.target.value as string;
+                const event = new CustomEvent('calculatorFormChange', {
+                    // detail: {
+                    //  values:{name:radio_name,value:radio_value} // Элемент, который вы хотите передать
+                    // },
                     bubbles:true
                 });
                 document.dispatchEvent(event);

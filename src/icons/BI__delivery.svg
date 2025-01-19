@@ -1,38 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.2 337.2">
-  <defs>
-    <style>
-      .cls-1 {
-        stroke-width: 12px;
-      }
-
-      .cls-1, .cls-2 {
-        fill: none;
-        stroke: #000;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-
-      .cls-2 {
-        stroke-width: 8px;
-      }
-    </style>
-  </defs>
-  <g id="gXxdQW">
-    <g>
-      <path class="cls-1" d="M191.26,182.47s-89.16.01-136.24.01c-.61,0-1.21-.03-1.82,0-4.5.28-5.75,1.58-5.76,6.06-.01,8.08-.08,16.17.02,24.25.06,5.27.96,6.63,6.64,6.65,17.28.06,44.9-.03,62.18.07"/>
-      <path class="cls-2" d="M163.83,154.9H45.02"/>
-      <path class="cls-2" d="M137.55,126.29H22.59"/>
-      <line class="cls-1" x1="153.59" y1="221.97" x2="225.61" y2="221.97"/>
-      <line class="cls-2" x1="213" y1="75.13" x2="68.05" y2="75.28"/>
-      <path class="cls-2" d="M117.76,100.89H22.62"/>
-      <path class="cls-1" d="M220.35,221.97v-98.31h22.23c28.21,0,52.31,20.35,57.03,48.17l3.76,22.17v35.76h-36.3"/>
+<svg id="uuid-f62abea1-bef8-41f0-b8e9-c403563a6080" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.2 337.2">
+  <g>
+    <rect width="337.2" height="337.2" fill="none"/>
+    <g id="uuid-86cfef13-88e8-4351-9866-6539850c0d4a" data-name="gXxdQW">
+      <g>
+        <path d="M191.26,182.47s-89.16.01-136.24.01c-.61,0-1.21-.03-1.82,0-4.5.28-5.75,1.58-5.76,6.06-.01,8.08-.08,16.17.02,24.25.06,5.27.96,6.63,6.64,6.65,17.28.06,44.9-.03,62.18.07" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+        <path d="M163.83,154.9H45.02" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <path d="M137.55,126.29H22.59" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="153.59" y1="221.97" x2="225.61" y2="221.97" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+        <line x1="213" y1="75.13" x2="68.05" y2="75.28" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <path d="M117.76,100.89H22.62" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <path d="M220.35,221.97v-98.31h22.23c28.21,0,52.31,20.35,57.03,48.17l3.76,22.17v35.76h-36.3" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+      </g>
     </g>
+    <circle cx="134.91" cy="230.98" r="20.73" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+    <circle cx="246.34" cy="230.98" r="20.73" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+    <line x1="72.42" y1="275.86" x2="136.6" y2="275.86" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+    <line x1="182.25" y1="275.86" x2="246.43" y2="275.86" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+    <line x1="50.13" y1="299.47" x2="277.43" y2="299.47" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
   </g>
-  <circle class="cls-1" cx="134.91" cy="230.98" r="20.73"/>
-  <circle class="cls-1" cx="246.34" cy="230.98" r="20.73"/>
-  <line class="cls-2" x1="72.42" y1="275.86" x2="136.6" y2="275.86"/>
-  <line class="cls-2" x1="182.25" y1="275.86" x2="246.43" y2="275.86"/>
-  <line class="cls-2" x1="50.13" y1="299.47" x2="277.43" y2="299.47"/>
-  <line class="cls-1" x1="242.81" y1="142.52" x2="242.81" y2="182.47"/>
+  <line x1="242.81" y1="142.52" x2="242.81" y2="182.47" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
 </svg>

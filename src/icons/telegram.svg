@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="uuid-e1719227-ab35-471f-9183-d054fdbda12b">
+      <rect x="1122.62" y="-1065.55" width="1641.18" height="1009.47" fill="none"/>
+    </clipPath>
+    <radialGradient id="uuid-d1b1190e-c7bb-4b94-a5c7-79907a5b00ff" cx="2426.86" cy="-709.92" fx="2426.86" fy="-709.92" r="1373.34" gradientTransform="translate(-3989.12 43.82) scale(2.56 .27)" gradientUnits="userSpaceOnUse">
+      <stop offset=".43" stop-color="#000"/>
+      <stop offset=".43" stop-color="#090909"/>
+      <stop offset=".44" stop-color="#363737"/>
+      <stop offset=".46" stop-color="#616262"/>
+      <stop offset=".47" stop-color="#878787"/>
+      <stop offset=".49" stop-color="#a7a8a8"/>
+      <stop offset=".51" stop-color="#c2c3c3"/>
+      <stop offset=".53" stop-color="#d8d9d9"/>
+      <stop offset=".56" stop-color="#e9eaea"/>
+      <stop offset=".59" stop-color="#f5f6f6"/>
+      <stop offset=".63" stop-color="#fcfdfd"/>
+      <stop offset=".76" stop-color="#feffff"/>
+      <stop offset="1" stop-color="#feffff"/>
+    </radialGradient>
+  </defs>
+  <g isolation="isolate">
+    <g id="uuid-b3630fe2-a61e-41a4-b297-9fd01c9b0861" data-name="Layer 1">
+      <path d="M12,3.15c4.89,0,8.85,3.96,8.85,8.85s-3.96,8.85-8.85,8.85S3.15,16.89,3.15,12,7.11,3.15,12,3.15ZM15.05,15.61c.16-.5.93-5.48,1.02-6.46.03-.3-.07-.49-.25-.58-.22-.11-.55-.05-.93.08-.52.19-7.23,3.03-7.61,3.2-.37.16-.71.33-.71.57,0,.17.1.27.39.37.29.11,1.04.33,1.48.45.42.12.9.02,1.17-.15.29-.18,3.58-2.38,3.82-2.58.24-.19.42.05.23.25-.19.19-2.46,2.39-2.75,2.69-.36.37-.11.75.14.91.28.17,2.27,1.51,2.57,1.73s.61.31.88.31.43-.37.57-.79Z"/>
+      <g clip-path="url(#uuid-e1719227-ab35-471f-9183-d054fdbda12b)">
+        <ellipse cx="2215" cy="-150.99" rx="3510.85" ry="376.85" fill="url(#uuid-d1b1190e-c7bb-4b94-a5c7-79907a5b00ff)" mix-blend-mode="screen"/>
+      </g>
+    </g>
+  </g>
+</svg>
