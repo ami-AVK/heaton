@@ -272,7 +272,9 @@ document.addEventListener("searchInputEvent",(e)=>{
 }) 
 
 document.addEventListener('astro:page-load', () => {
-		// 
+		// initCalculator
+		document.dispatchEvent(new CustomEvent('initCalculator', {bubbles:true}));
+
 		// animate("#motion-test",{ scale: [0.4, 1]});
 		inView(".inview-block", ({ target }) => {
 			const staggers = target.querySelectorAll(".scroll-stagger");

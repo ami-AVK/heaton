@@ -287,8 +287,8 @@ function initCalculator(form: HTMLFormElement) {
     //   `${Math.ceil(heatLoss / parseInt(windows.value))} Вт на каждый радиатор`
     // );
   }
-document.addEventListener("astro:page-load", () => {
-  console.log("astro:page-load");
+document.addEventListener("initCalculator", () => {
+  console.log("initCalculator");
     const extraFilterInputs = document.querySelectorAll('#calculatorExtra select');
     extraFilterInputs.forEach(input => {
 			  input.addEventListener('change', (e:any)=>{
