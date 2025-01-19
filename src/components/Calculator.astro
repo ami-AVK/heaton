@@ -134,7 +134,7 @@ const { class: className } = Astro.props;
         </form>
       </div>
 
-      <div class="self-stretch max-h-full p-4 lg:flex-auto sm:p-8 sm:w-auto bg-secondary_/30 bg-neutral-300/50 rounded-b-3xl lg:rounded-none lg:rounded-r-3xl">
+      <div class="self-stretch max-h-full p-4 lg:flex-auto sm:p-8 sm:w-auto bg-secondary_/30 bg-neutral-300/30 rounded-b-3xl lg:rounded-none lg:rounded-r-3xl">
         <div class="flex flex-col flex-wrap px-2 font-black sm:gap-2 sm:flex-row sm:items-center"><span class="block mb-1 text-xs font-black leading-none text-gray-700 sm:mb-0 sm:text-lg">Рекомендуемая общая мощность: </span><span id="totalPower" class="block px-2 text-lg rounded-full will-change-contents bg-secondary">1800 кВт</span></div>
         <form action="" id="calculatorExtra" name="calculatorExtra" class="grid grid-cols-2 sm:flex sm:flex-wrap  gap-6 px-2 py-4 -mx-2.5 text-neutral-600">
             <div class="">
@@ -186,7 +186,7 @@ const { class: className } = Astro.props;
 
         <!-- Heaters list -->
         <ul class="overflow-y-scroll text-xl max-h-[420px] will-change-contents" id="outputField">
-          <li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100 a-delay-0 a-delay-1 a-delay-2 a-delay-3 a-delay-4 a-delay-5 a-delay-6">
+          <!-- <li class="flex items-center gap-2 p-2 cursor-pointer sm:gap-8 rounded-xl hover:bg-neutral-100 a-delay-0 a-delay-1 a-delay-2 a-delay-3 a-delay-4 a-delay-5 a-delay-6">
             <div class="flex flex-col items-start grow">
               <div class="font-black">C 33 300x400</div>
               <ul class="flex items-center gap-1">
@@ -203,7 +203,7 @@ const { class: className } = Astro.props;
                 <span class="text-4xl">2</span><span>&nbsp;шт</span>
               </div>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -309,6 +309,7 @@ document.addEventListener("initCalculator", () => {
     document.addEventListener("heatersSearchComplete",(e: any) => {
       const outputField = document.getElementById("outputField") as HTMLUListElement;
       const heatersArray = e.detail.heaters;
+      const heaters_count = e.detail.heaters_count;
       let totalInner = "";
       heatersArray.slice(0, 6).forEach((element:any,index:number)=>{
         // console.log(element);
@@ -317,7 +318,7 @@ document.addEventListener("initCalculator", () => {
                     <a href="/heaton/${element.url}" class="flex flex-col items-start grow">
                       <div class="font-black">${element.name}</div>
                       <ul class="flex items-center gap-1">
-                        <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary/30 power whitespace-nowrap">${element.power} Вт</li>
+                        <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary power whitespace-nowrap">${element.power} Вт</li>
                         <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">${element.side?"Боковое":"Нижнее"}</li>
                         <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden">${element.hygiene?"Гигиенический":""}</li>
                       </ul>
@@ -327,7 +328,7 @@ document.addEventListener("initCalculator", () => {
                         <span class="text-xl">x</span>
                       </div>
                       <div class="font-black ">
-                        <span class="text-4xl">2</span><span>&nbsp;шт</span>
+                        <span class="text-4xl">${heaters_count}</span><span>&nbsp;шт</span>
                       </div>
                     </a>
           </li>`
@@ -348,7 +349,7 @@ document.addEventListener("initCalculator", () => {
       totalPower.textContent = `${totalPowerValue} Вт`;
 
       // Запрашиваем поиск радиатора по списку, в первом параметре искомая теплоотдача на один радиатор, во втором дополнительная фильтрация
-      searchHeaters(Math.ceil(totalPowerValue/heatersCount),e.detail.extra);
+      searchHeaters(Math.ceil(totalPowerValue/heatersCount),e.detail.extra, heatersCount);
     });
 
     const rangeInputs = document.querySelectorAll('input[type="range"]');
@@ -482,13 +483,13 @@ function findClosestRadiators(radiators: any, minPower: number, extraFilters?: a
   return result;
 }
 
-async function searchHeaters(power:number, extraFilters:any) {
+async function searchHeaters(power: number, extraFilters: any, heatersCount?: number) {
   try {
     const minPower = power;
     const closestRadiators = findClosestRadiators(await radiators, minPower, extraFilters);
     const event = new CustomEvent("heatersSearchComplete", {
           detail: {
-            heaters: closestRadiators // Элемент, который вы хотите передать
+            heaters: closestRadiators, heaters_count:heatersCount // Элемент, который вы хотите передать
           },
           bubbles: true,
         });

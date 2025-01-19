@@ -152,4 +152,7 @@
   .separator {
     @apply z-0 before:-z-10  before:content-['/'] before:block before:absolute relative text-base before:text-neutral-300 before:-right-2;
   }
+  .hard-shadow{
+    @apply z-0 before:-z-10  before:content-[''] before:block before:bg-primary-700/30 before:absolute before:w-full before:h-full before:translate-x-4 before:translate-y-4;
+  }
 }
