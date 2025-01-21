@@ -14,9 +14,10 @@ const paths = collection.map((file) => ({
 const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths[0].props.model}/${paths[0].props.type}`
 
 const mainLinks = [
-                    {text:"Продукция",href:pathname},
+                    // {text:"Продукция",href:pathname},
                     {text:"Документация",href:`${import.meta.env.BASE_URL}/Документация`},
                     {text:"Контакты",href:`${import.meta.env.BASE_URL}/Контакты`},
+                    {text:"Где купить",href:`${import.meta.env.BASE_URL}/Где купить`},
                   ]
 ---
 
@@ -27,70 +28,97 @@ const mainLinks = [
             <Logo class="hidden w-20 md:w-32 lg:w-40 md:block text-primary"/>
             <LogoSmall class="w-16 md:hidden text-primary"/>
           </a>
-          <div class="flex flex-col gap-2">
-              <div class="flex items-center gap-2 text-neutral-700">
-                  <Icon name="Phone call" />
-                  <div class="relative text-base font-semibold leading-5 tracking-wider">8 499 645-00-00</div>
-              </div>
-              <div class="flex items-center gap-2 text-neutral-700">
-                  <Icon name="At sign" />
-                  <div class="relative text-base font-semibold leading-5 tracking-wider">retail@heaton.ru</div>
-              </div>
+          <div class="gap-4 mx-4 lg:mx-auto lg:flex-col lg:gap-2 flex">
+              <a class="flex items-center gap-2 text-neutral-700" href="tel:+74996450000">
+                  <Icon name="Phone call" class="size-8 lg:size-6"/>
+                  <div  class="relative text-base font-semibold leading-5 tracking-wider hidden lg:block">8 499 645-00-00</div>
+              </a>
+              <a class="flex items-center gap-2 text-neutral-700" href="mailto:retail@heaton.ru?subject=Вопрос с сайта">
+                  <Icon name="At sign" class="size-8 lg:size-6" />
+                  <div class="relative text-base font-semibold leading-5 tracking-wider hidden lg:block">retail@heaton.ru</div>
+              </a>
           </div>
       </div>
     
-      <div class="relative">
-        <div
-          class="bg-neutral-50 text-neutral-700 rounded-full pt-1 pr-1 pb-1 pl-4 flex flex-row gap-4 items-center justify-start shrink-0 relative data-[active]:bg-primary data-[active]:text-primary  overflow-clip group/container data-[active]:shadow-2xl"
-          id="search-container"
-        >
-          <div
-            class="p-2.5 flex flex-row gap-2.5 items-center justify-center shrink-0 relative"
-          >
-            <ul
-              class="relative flex flex-row items-center justify-start gap-6 shrink-0"
-            >
+      <div class="flex items-center gap-8">
+        <div class="relative group after:content-[''] after:w-full after:right-0 after:h-[200%] after:bottom-0 after:-z-20 after:text-xs after:absolute "> 
+            <button class="hover:underline_ text-md font-bold leading-5 text-left flex items-center gap-2 text-neutral-700 hover:bg-neutral-50 p-3 pr-8 rounded-3xl">
+              <Icon name="catalog" class="size-8 relative rotate-0 group-hover:-rotate-90 transition-transform ease-in-out"/>
+              <div class="relative text-base font-black leading-5 tracking-wider
+              after:content-['▼'] after:text-xs after:absolute after:-right-4 after:bottom-0.5
+              ">Каталог</div>
+            </button>
+
+            <ul class="absolute min-w-full bg-neutral-50 rounded-3xl right-0 top-0 -z-10 p-4 pt-16 opacity-0 invisible_ group-hover:opacity-100 group-hover:visible_ transition-transform ease-in-out shadow-xl -translate-y-32  group-hover:translate-y-0   will-change-transform">
               {
-                mainLinks.map((link)=>(
-                  <li
-                  class="relative text-sm font-medium leading-5 text-left"
-                  >
-                    <a href={link.href} class="hover:underline">{link.text}</a>
-                  </li>
-              ))}
-              
+                [
+                  {name:"Стальные панельные радиаторы"},
+                  {name:"Внутрипольные конвекторы"},
+                  {name:"Напольные конвекторы"},
+                  {name:"Комплектующие"}].map((element)=>(
+                    <li class="">
+                      <a href='./' class="p-2 flex gap-2 flex-row hover:bg-neutral-100 pointer-events-auto cursor-pointer rounded-lg">
+                        <Icon name="At sign" class="size-6"/>
+                        <span class="whitespace-nowrap block">{element.name}</span>
+                      </a>
+                    </li>
+                  ))
+              }
             </ul>
-          </div>
-          <button
-            class="rounded-full bg-primary flex flex-row items-center justify-end shrink-0 right-0 transition-all text-neutral-50 p-3 cursor-pointer  relative data-[active]:right-[calc(100%-40px)] group/btn hover:bg-primary/80"
-            id="search-btn"
-          >   
-              <Icon name="Search" height="24" width="24" class="text-neutral-50 "/>
-              <div class="flex flex-row  w-0 transition-all group-data-[active]/btn:w-80 overflow-clip absolute left-12 gap-4">
-                <input type="search" name="main-search" id="main-search-input" class=" focus:outline-none bg-primary opacity-0 text-neutral-50 transition-colors group-data-[active]/btn:shadow-2xl  group-data-[active]/btn:opacity-100 w-[17rem] appearance-none accent-neutral-50 focus:ring-0  focus:border-l-0 focus:border-t-0 focus:border-r-0 focus:border-b-[1px] focus:border-neutral-50">
-              </div>
-          </button>
-          <button class="text-primary p-1 bg-neutral-50 transition-all scale-50 rounded-full absolute invisible opacity-0 right-3 group-data-[active]/container:opacity-100 group-data-[active]/container:scale-100 group-data-[active]/container:visible flex items-center hover:bg-secondary" id="main-search-close"><Icon name="X" height="24" width="24" /></button>
         </div>
-
-        <div id="search-result" class="absolute w-full group/result h-fit top-1/2 -z-10 overflow-clip will-change-auto">
-          <div class="-translate-y-full relative left-0 w-full -z-10 bg-neutral-50 px-16 pt-12 pb-6 rounded-b-3xl invisible transition-all opacity-0 will-change-contents text-neutral-50
-          group-data-[search-active]/result:translate-y-0  
-          group-data-[search-active]/result:bg-primary/80  
-          group-data-[search-active]/result:opacity-100
-          group-data-[search-active]/result:visible 
-           backdrop-blur-sm
-          ">
-            <ul class="w-full ">
-              <li><span>1212</span></li>
-              <li><a href=`${import.meta.env.BASE_URL}/Документация`>1212</a></li>
-              <li>1212</li>
-              <li>1212</li>
-              <li>1212</li>
-            </ul>
+        <div class="relative hidden md:block">
+          <div
+            class="bg-neutral-50 text-neutral-700 rounded-full pt-1 pr-1 pb-1 pl-4 flex flex-row gap-4 items-center justify-start shrink-0 relative data-[active]:bg-primary data-[active]:text-primary  overflow-clip group/container data-[active]:shadow-2xl"
+            id="search-container"
+          >
+            <div
+              class="p-2.5 flex flex-row gap-2.5 items-center justify-center shrink-0 relative"
+            >
+              <ul
+                class="relative flex flex-row items-center justify-start gap-6 shrink-0"
+              >
+                {
+                  mainLinks.map((link)=>(
+                    <li
+                    class="relative text-md font-bold leading-5 text-left"
+                    >
+                      <a href={link.href} class="hover:underline">{link.text}</a>
+                    </li>
+                ))}
+                
+              </ul>
+            </div>
+            <button
+              class="rounded-full bg-primary flex flex-row items-center justify-end shrink-0 right-0 transition-all text-neutral-50 p-3 cursor-pointer  relative data-[active]:right-[calc(100%-40px)] group/btn hover:bg-primary/80"
+              id="search-btn"
+            >   
+                <Icon name="Search" height="24" width="24" class="text-neutral-50 "/>
+                <div class="flex flex-row  w-0 transition-all group-data-[active]/btn:w-80 overflow-clip absolute left-12 gap-4">
+                  <input type="search" name="main-search" id="main-search-input" class=" focus:outline-none bg-primary opacity-0 text-neutral-50 transition-colors group-data-[active]/btn:shadow-2xl  group-data-[active]/btn:opacity-100 w-[17rem] appearance-none accent-neutral-50 focus:ring-0  focus:border-l-0 focus:border-t-0 focus:border-r-0 focus:border-b-[1px] focus:border-neutral-50">
+                </div>
+            </button>
+            <button class="text-primary p-1 bg-neutral-50 transition-all scale-50 rounded-full absolute invisible opacity-0 right-3 group-data-[active]/container:opacity-100 group-data-[active]/container:scale-100 group-data-[active]/container:visible flex items-center hover:bg-secondary" id="main-search-close"><Icon name="X" height="24" width="24" /></button>
           </div>
+  
+          <div id="search-result" class="absolute w-full group/result h-fit top-1/2 -z-10 overflow-clip will-change-auto">
+            <div class="-translate-y-full relative left-0 w-full -z-10 bg-neutral-50 px-16 pt-12 pb-6 rounded-b-3xl invisible transition-all opacity-0 will-change-contents text-neutral-50
+            group-data-[search-active]/result:translate-y-0  
+            group-data-[search-active]/result:bg-primary/80  
+            group-data-[search-active]/result:opacity-100
+            group-data-[search-active]/result:visible 
+             backdrop-blur-sm
+            ">
+              <ul class="w-full ">
+                <li><span>1212</span></li>
+                <li><a href=`${import.meta.env.BASE_URL}/Документация`>1212</a></li>
+                <li>1212</li>
+                <li>1212</li>
+                <li>1212</li>
+              </ul>
+            </div>
+          </div>
+  
         </div>
-
       </div>
     </div>
   </div>
@@ -128,7 +156,17 @@ const mainLinks = [
 
 		// 	});
     // });
-
+    let radiators = await fetchRadiators();
+    async function fetchRadiators() {
+      console.log(`Fetched start`);
+      const response = await fetch('/heaton/search_map_radiator_power.json'); // Замените на ваш URL
+      if (!response.ok) {
+        throw new Error('Fail to fetch heaters powers');
+      }
+      const data = await response.json();
+      console.log(`Fetched ${data.length}`);
+      return data;
+    }
 
     document.addEventListener('astro:page-load', () => {
       

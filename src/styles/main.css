@@ -29,15 +29,16 @@
     /* transform: scale(.9); */
     /* filter: blur(5px); */
     opacity: 0;
-    animation: ani 1s forwards;
-    animation-delay: 1s;
-    animation-timing-function: ease-in-out;
+    animation: ani 200ms forwards;
+    animation-delay: 0;
+    animation-timing-function: ease-out;
   }
     
   @keyframes ani {
-    0% { opacity: 0;}
-    100% {opacity: 1;}
+    0% { opacity: 0; }
+    100% {opacity: 1; }
   }
+
   
 
 

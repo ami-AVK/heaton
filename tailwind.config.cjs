@@ -1,5 +1,15 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	safelist: [
+		"slide-from-top",
+		"a-delay-0",
+		"a-delay-1",
+		"a-delay-2",
+		"a-delay-3",
+		"a-delay-4",
+		"a-delay-5",
+		"a-delay-6",
+	],
 	theme: {
 		fontFamily: {
 			'sans': ['Ubuntu Sans','ui-sans-serif', 'system-ui'],
