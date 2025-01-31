@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
 /* The integration's default injected base.css file */
 @tailwind base;
 @tailwind components;
@@ -13,7 +14,7 @@
 }
 @layer base {
   /* variable fonts Ubuntu mono - for table, and simple */
-  @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+  
   /* @font-face {
     font-family: "Exo 2";
     src: url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
@@ -168,8 +169,6 @@
   .drop-shadow-primary-hard-double{
     filter:drop-shadow(-16px 35px 0px var(--primary,#D43B18)) drop-shadow(8px -16px 0px #282828);
   }
-
-
 
   .swiper-wrapper {
     width: 100%;

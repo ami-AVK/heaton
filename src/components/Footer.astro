@@ -22,14 +22,14 @@ const mainLinks = [
                   ]
 ---
 
-<footer class="bg-neutral-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-gr-dark" class:list={className}>
+<footer class="bg-neutral-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-primary" class:list={className}>
   <div class="w-full container-center  min-h-[20svh] mx-auto p-4 md:py-8 text-neutral-500 flex flex-col">
     <div class="pt-16 sm:flex sm:items-center sm:justify-between">
       
-        <div class="flex items-center gap-4">
-            <a href={`${import.meta.env.BASE_URL}/`} class=`cursor-pointer text-secondary ${mainpage?"pointer-events-none":""}`>
-              <Logo class="hidden w-20 md:w-32 lg:w-40 md:block text-primary"/>
-              <LogoSmall class="w-16 md:hidden text-primary"/>
+        <div class="flex items-center gap-4 text-neutral-50/60">
+            <a href={`${import.meta.env.BASE_URL}/`} class="cursor-pointer " class:list={[{"pointer-events-none":mainpage}]}>
+              <Logo class="hidden w-20 md:w-32 lg:w-40 md:block "/>
+              <LogoSmall class="w-16 md:hidden "/>
             </a>
             <div class="flex flex-col gap-2">
                 <div class="flex items-center gap-2 ">
@@ -44,7 +44,7 @@ const mainLinks = [
         </div>
         
  
-      <ul class="flex flex-wrap items-center mb-6 text-sm font-medium sm:mb-0 ">
+      <ul class="flex flex-wrap items-center mb-6 text-sm font-medium sm:mb-0 text-neutral-50/60">
         {mainLinks.map((name) => (
           <li>
             <a href={name.href} class="hover:underline me-4 md:me-6">{name.text}</a>
@@ -53,9 +53,9 @@ const mainLinks = [
       </ul>
     </div>
   </div>
-  <div class="mt-auto">
+  <div class="mt-auto text-neutral-50/60">
     <hr class=" sm:mx-auto border-neutral-300" />
-    <span class="block py-8 text-sm sm:text-center text-neutral-400">
+    <span class="block py-8 text-sm sm:text-center">
       {copyrightText} <a href={copyrightLink.href} class="hover:underline">{copyrightLink.text}</a>
     </span>
   </div>

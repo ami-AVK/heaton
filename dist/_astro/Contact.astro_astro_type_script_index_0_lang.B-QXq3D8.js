@@ -1,1 +1,0 @@
-import{b as t,g as i}from"./index.BuR30kLv.js";document.addEventListener("astro:page-load",()=>{t(".inview-bottom",({target:e})=>{const a=e.querySelector(".inview-target");i(a,{opacity:[0,1],scale:[.9,1],y:[300,0]},{ease:"easeOut",duration:.4})})});
