@@ -3,6 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root{
+  --primary-rgb: 212, 59, 24;
+  --primary: rgba(var(--primary-rgb),1);
+  --primary-20: rgba(var(--primary-rgb), 0.2);
+  --primary-80: rgba(var(--primary-rgb), 0.8);
+  --primary-shadow: rgba(var(--primary-rgb), 0.8);
+}
 @layer base {
   /* variable fonts Ubuntu mono - for table, and simple */
   @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
@@ -21,7 +29,7 @@
   } */
 
   body{
-    @apply bg-neutral-400 overscroll-none overflow-x-clip text-neutral-700;
+    @apply bg-neutral-100 overscroll-none overflow-x-clip text-neutral-700;
   }
   .slide-from-top {
     will-change: transform;
@@ -45,9 +53,10 @@
 
 }
 @layer utilities {
+
   /* input range styling */
   input[type="range"] {
-    accent-color: coral;
+    accent-color: var(--primary);
   }
   input[type="range"] {
     appearance: none;
@@ -55,7 +64,7 @@
     height: 8px;
     background: rgba(255, 255, 255, 0.6);
     border-radius: 5px;
-    background-image: linear-gradient(#ffe7b4, #ffe7b4);
+    background-image: linear-gradient(90deg, var(--primary), var(--primary-20));
     background-size: 70% 100%;
     background-repeat: no-repeat;
   }
@@ -65,9 +74,9 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background: #FCD47F;
+    background: var(--primary);
     cursor: ew-resize;
-    box-shadow: 0 0 15px 0 #FCD47F;
+    /* box-shadow: 0 0 15px 0 var(--primary); */
     transition: background .3s ease-in-out;
   }
   
@@ -139,7 +148,7 @@
     @apply px-4 mx-auto max-w-screen-2xl sm:px-8 md:px-16;
   }
   .header-before-shape{
-    @apply z-0 before:-z-10  before:content-[''] before:block before:rounded-full before:bg-secondary before:absolute relative;
+    @apply z-0  before:content-[''] before:block before:rounded-full before:bg-primary before:opacity-30  before:absolute relative before:-z-10;
   }
   .header-circle-xl {
     @apply  header-before-shape before:-left-6 before:-top-3 before:w-20 before:h-20;
@@ -151,9 +160,26 @@
     @apply  header-before-shape before:-left-3 before:-top-0.5 before:w-10 before:h-10;
   }
   .separator {
-    @apply z-0 before:-z-10  before:content-['/'] before:block before:absolute relative text-base before:text-neutral-300 before:-right-2;
+    @apply z-0 before:-z-10  before:content-['/'] before:block before:absolute relative text-base before:text-primary before:-right-2;
   }
   .hard-shadow{
-    @apply z-0 before:-z-10  before:content-[''] before:block before:bg-primary-700/30 before:absolute before:w-full before:h-full before:translate-x-4 before:translate-y-4;
+    @apply z-0 before:-z-10  before:content-[''] before:block before:bg-primary opacity-30 before:absolute before:w-full before:h-full before:translate-x-4 before:translate-y-4;
   }
+  .drop-shadow-primary-hard-double{
+    filter:drop-shadow(-16px 35px 0px var(--primary,#D43B18)) drop-shadow(8px -16px 0px #282828);
+  }
+
+
+
+  .swiper-wrapper {
+    width: 100%;
+    height: max-content !important;
+    /* padding-bottom: 64px !important; */
+    -webkit-transition-timing-function: linear !important;
+    transition-timing-function: linear !important;
+    position: relative;
+    }
+    .swiper-pagination-bullet {
+    background: var(--primary);
+    }
 }

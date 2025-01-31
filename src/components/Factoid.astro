@@ -1,0 +1,18 @@
+---
+ interface Link {
+    url: string;
+    text: string;
+    links?: Link[]
+}
+ interface Props{
+    header?: Link[],
+    class?: string,
+    slot?: string
+}
+
+const {header, class:className, ...attr} = Astro.props
+
+---
+<Fragment>
+    <slot/>
+</Fragment>

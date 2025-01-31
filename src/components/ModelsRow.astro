@@ -1,0 +1,25 @@
+---
+interface Link {
+    url: string;
+    text: string;
+    links?: Link[]
+}
+interface Links {
+    links: Link[]
+}
+const {links, class:className} = Astro.props
+// console.log(links)
+---
+{   
+    links
+    ?
+    <ul class="flex text-sm gap-2 py-2 flex-col" class:list={className}>
+        {links.map((link__:Link)=>(
+        <li>
+        <a href={link__.url} class="px-2 py-2 whitespace-nowrap hover:bg-neutral-200 rounded-lg">{link__.text}</a>
+        </li>
+        ))}
+    </ul>
+    :
+    ""
+}

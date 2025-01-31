@@ -1,0 +1,183 @@
+---
+import sitemapJSON from '../../data/site.json'
+import DynamicImage from '../../components/ImageDynamic.astro'
+import Layout from '../../layouts/main.astro'
+import BreadCrumbs from '../../components/BreadCrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import Table from '../../components/Table_.astro';
+import ProductData from '../../components/ProductData.astro';
+
+
+interface Product {
+    'Наименование': string;
+    url:string
+    [key: string]: any;
+}
+interface Category {
+    ['Заголовок на главную']:string;
+    ['Описание на главную']:string;
+    ['Заголовок в карточку']:string;
+    ['Описание в карточку']:string;
+    [key: string]: any;
+    products: Product[];
+}
+interface Sitemap {
+    [key: string]: Category;
+}
+export async function getStaticPaths() {
+    let paths=[] as any[]
+    const sitemap = sitemapJSON as any as Sitemap
+    for (const key in sitemap as any) {
+        const category = sitemap[key] as Category
+        if (sitemap.hasOwnProperty(key)) {
+            const products = category.products as Product[]
+
+            // выделяем список моделей
+            let models = [...new Set(products.map(product => product['Модель']))];
+
+
+            // const URL_main = `${import.meta.env.BASE_URL}/`
+            const URL_category = `${key}/`
+            
+            // создаем страницы для моделей
+            models.forEach(model => {
+                let path_ = {
+                            params:{
+                                model: `${URL_category}${model}`
+                            },
+                            props:{
+                                model: model,
+                                category: key,
+                                // url:product.url,
+                                // title: category['Заголовок в карточку'] as string,
+                                // description: category['Описание в карточку'],
+                                // rowdata: product as Product,
+                            }};
+                console.log(path_)
+                paths.push(structuredClone(path_));
+            });
+            
+        }
+    }
+    return paths
+}
+const {category, model} = Astro.props
+const URL_main = `${import.meta.env.BASE_URL}/`
+const URL_category = `${URL_main}Каталог/${category}/`
+const URL_model = `${URL_category}${model}`
+const sitemap_ = sitemapJSON as any as Sitemap;
+let products = sitemap_[category].products.filter((product)=>{
+    // console.log(`${product['Модель']} === ${model}  => ${product['Модель'] === model}`);
+    return product['Модель'] === model
+})
+
+// Заголовки для парсинга таблицы, на разные категории разные заголовки бывают
+let TABLE_HEADERS =  ['Номенклатурный номер','Наименование'];
+switch (category){
+ case 'Стальные панельные радиаторы':
+    TABLE_HEADERS = ['Номенклатурный номер','Наименование','Высота, мм','Длина, мм','Глубина, мм','Теплоотдача, Вт','Масса НЕТТО, кг','Объем, л','Тип']
+    break
+ case 'Напольные конвекторы':
+    TABLE_HEADERS = ['Номенклатурный номер','Наименование','Высота, мм','Длина, мм','Глубина, мм','Теплоотдача, Вт','Масса НЕТТО, кг']
+    break
+ case 'Внутрипольные конвекторы':
+    TABLE_HEADERS = ['Номенклатурный номер','Наименование','Высота, мм','Длина, мм','Глубина, мм','Теплоотдача, Вт','Масса НЕТТО, кг']
+    break
+}
+
+---
+<!-- <div class=""></div> -->
+<Layout title={model} description="Качественные панельные радиаторы от российского бренда" class="">
+    <section class="container-center">
+        <NavBar slot="navbar" class=" py-8"/>
+        <BreadCrumbs slot="breadcrumbs" class='z-50' list={[{url:URL_main, text:"Главная"},{url:URL_category, text:category},{url:URL_model, text:model}]}/> 
+    </section>
+
+    <div class="container-center py-16 flex gap-16">
+        <div class="filter  flex flex-col shrink-0 basis-64 ">
+            <div class="bg-neutral-100 rounded-2xl p-4">
+                <div class="py-2">
+                    <h3>
+                        Модель:
+                    </h3>
+                    <ul class="">
+                        <li class="bg-primary text-neutral-50 p-2" data-current>Compact</li>
+                        <li class="p-2">Ventil Compact</li>
+                        <li class="p-2">Hyigine Compact</li>
+                        <li class="p-2">Hyigine Ventil Compact</li>
+                    </ul>
+                </div>
+                <div class="py-2">
+                    <h3>
+                        Высота
+                    </h3>
+                    <ul class="">
+                        <li class="bg-primary text-neutral-50 p-2" data-current>400</li>
+                        <li class="p-2">500</li>
+                        <li class="p-2">600</li>
+                        <li class="p-2">700</li>
+                    </ul>
+                </div>
+                <div class="py-2">
+                    <h3>
+                        Длина
+                    </h3>
+                    <ul class="">
+                        <li class="bg-primary text-neutral-50 p-2" data-current>400</li>
+                        <li class="p-2">500</li>
+                        <li class="p-2">600</li>
+                        <li class="p-2">700</li>
+                    </ul>
+                </div>
+            </div> 
+
+        </div>
+
+        <div class="grow">
+            <ProductData excelFilePath="./src/data/Стальные панельные радиаторы/Compact (C)/11.xlsx"/>
+            <Table products={products} headers={TABLE_HEADERS}/>
+        </div>
+        
+    </div>
+    <Footer class="mt-auto snap-center"/>
+    
+</Layout>
+
+
+
+<!-- 
+<Layout title={model} description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
+    <NavBar slot="navbar" class="mx-auto container-center py-8"/>
+    <NavBar slot="navbar" class="mx-auto container-center py-8"/>
+    <BreadCrumbs slot="breadcrumbs" class='z-50' list={
+        [{url:URL_main, text:"Главная"},{url:URL_category, text:category},{url:URL_model, text:model}]
+        }
+    />
+
+    <Hero class="min-h-svh snap-center">
+        <NavBar slot="navbar" class="mx-auto container-center py-8"/>
+        <BreadCrumbs slot="breadcrumbs" class='z-50' list={
+            [{url:URL_main, text:"Главная"},{url:URL_category, text:category},{url:URL_model, text:model}]
+            }/>
+        <DynamicImage imagePath={`${model}.webp`} altText={`${category} ${model}`} slot="image" model={model}/>
+
+        <Fragment slot="header">
+            <h1 class="text-6xl font-black uppercase">{model}</h1>
+
+        </Fragment>
+
+        <Fragment slot="extralinks">
+            <ul class="flex gap-8">
+                <li><a href="/#models" class="px-16 py-8 border border-primary rounded-2xl block">Аналоги</a></li>
+                <li><a href="/#calculator" class="px-16 py-8 border border-primary rounded-2xl block">Калькулятор</a></li>
+            </ul>
+        </Fragment>
+    </Hero>
+    <div class="snap-start mx-auto container-center py-16">
+        <Table products={products} headers={TABLE_HEADERS}/>
+    </div>
+    <Footer class="mt-auto snap-center"/>
+    
+</Layout> -->

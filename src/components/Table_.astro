@@ -1,0 +1,44 @@
+---
+import pkg from "papaparse";
+import Row from "./SmartTable/Row.astro"
+const { parse } = pkg;
+
+interface Product {
+    'Наименование': string;
+    url:string
+    [key: string]: any;
+}
+interface Props {
+  products: Product[];
+  headers: string[]
+}
+
+const { products,headers, ...attr } = Astro.props;
+
+// const parsedData = parse(csvData, {
+//   header: true,
+//   dynamicTyping: true,
+//   skipEmptyLines: true,
+// }).data as Record<string, any>[];
+if(!headers){
+  let headers = products.length > 0 ? Object.keys(products[0]) : [];
+}
+
+---
+
+<div class="overflow-x-auto">
+  <table class="min-w-full">
+    <thead class="sticky top-0 z-50">
+        <Row values={headers} headers={headers} isHeader={true} class="sticky top-0 z-50"/>
+    </thead>
+    <tbody class="">
+      {
+        products.map((row:Product) => (
+          <Row values={row} headers={headers} id={row["Номенклатурный номер"]}/>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+

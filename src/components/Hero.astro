@@ -1,0 +1,41 @@
+---
+const {header, subheader, class:className} = Astro.props
+---
+<!-- before:absolute before:w-full before:h-[50vh] before:min-h-[300px] before:-z-50 before:bg-[#F0F0F0] -->
+<section class="min-h-svh  relative isolate" class:list={className}>
+    <slot name="navbar"/>
+    <div class="mx-auto container-center -translate-x-2 z-40 relative">
+        <slot name="breadcrumbs"/>
+    </div>
+    <div class="flex flex-col md:flex-row container-center mx-auto justify-between md:items-center min-h-[70svh]">
+        <div class="info w-1/2 z-10 order-2 md:order-1">
+            <slot name="header"/>
+        </div>
+        <div class="relative w-full min-w-96 lg:scale-125 md:translate-x-32 order-1 md:order-2 p-8 md:p-0 drop-shadow-primary-hard">
+            <slot name="image"/>
+            <!-- <div class="absolute inset-0  top-0 left-0 blur-2xl -z-10">
+                <div class="drop-shadow-primary-d -translate-x-8 translate-y-4 -hue-rotate-60">
+                    <div class="sepia brightness-[5]">
+                        <slot name="image"/>
+                    </div>
+                </div>
+                <div class="inset-24 -translate-x-4 translate-y-4 bg-primary absolute rounded-full"></div>
+                <div class="inset-24 translate-x-4 -translate-y-4  bg-neutral-200/60 absolute rounded-full"></div>
+            </div> -->
+        </div>
+    </div>
+<!--     
+    <div class="w-full p-16 md:max-w-[1100px] mx-auto relative -translate-y-12 z-10">
+       
+    </div>
+    <div class="relative container-center mx-auto z-10">
+        <div class="flex bottom-0 left-0 container-center mx-auto gap-16 items-end absolute ">
+            <div class="px-16 py-8 relative basis-1 z-20 grow min-h-96 justify-start flex flex-col -translate-x-16">
+                <slot name="header"/>
+            </div>
+            <div class="basis-1">
+                <slot name="extralinks"/>
+            </div>
+        </div>
+    </div> -->
+</section>

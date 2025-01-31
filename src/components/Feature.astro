@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components"
+import Button from "./Button.astro"
+import DynamicImage from "./ImageDynamic.astro"
+
+interface Button{
+    text: string,
+    icon: string,
+    url:string
+}
+interface Props {
+    header:string,
+    text:string,
+    icon:string,
+    buttons?: Button[],
+    class?:string,
+    image?:string,
+}
+const {header, text, buttons,icon,image, class:className, ...attr} = Astro.props
+---
+<div class="flex flex-col justify-stretch items-end m-4" class:list={className}>
+    <!-- <div class="">
+        <Icon name={icon} class="size-24 text-neutral-300 ml-2"/>
+    </div> -->
+    <div class="mt-auto relative z-10 flex flex-col">
+        {
+            image?<div class="absolute w-full left-0 bottom-full pointer-events-none -z-10"><DynamicImage imagePath="" altText=""/></div>:""
+        }
+        <h3 class="pb-8 text-2xl uppercase tracking-wider font-black text-balance pl-4 whitespace-pre-line">{header}</h3>
+        <p class="text-balance  tracking-wider leading-relaxed pl-4 text-lg">{text}</p>
+        <ul class="flex flex-wrap gap-4 pt-4 empty:hidden">
+            {buttons?.map((button)=>(
+                <li>
+                    <Button text={button.text} icon={button.icon} type="download" size={20} link={button.url} class=" text-sm box-border transition-colors rounded-lg bg-neutral-50 hover:bg-primary hover:border-neutral-50/0 hover:text-white uppercase"/>
+                </li>
+            ))}
+
+        </ul>
+    </div>
+    
+</div>

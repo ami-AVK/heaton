@@ -1,378 +1,249 @@
 ---
-// Component Imports
+
+import Layout from '../layouts/main.astro'
+import Hero from '../components/Hero.astro';
 import NavBar from '../components/NavBar.astro';
-import ModelCard from '../components/_ModelCard.astro';
-import TSlider from '../components/Inputs/TemperatureSlider.astro';
+import BreadCrumbs from '../components/BreadCrumbs.astro';
 import LogoSmall from '../svg/logo_small.svg';
-import Logo from '../svg/logo_big.svg';
 import { Image } from "astro:assets"
-import heater from "../img/heater_main.webp"
-import top_panel from "../img/top_panel.webp"
-import img_models from "../img/models.webp"
-import img_models_2 from "../img/models_2.webp"
-import cetrificate from "../img/sertificate.webp"
+import heater from "../img/main_heaters_.webp"
+import step from "../img/step.webp"
+import HF_Comfort from "../img/HF_Comfort.webp"
+import factoid_images_models from "../img/models.webp"
+import factoid_images_toppanel from "../img/top_panel.webp"
+import Factoid from '../components/Factoid.astro';
 import { Icon } from 'astro-icon/components';
-import '../styles/main.css';
-import { glob, globSync, globStream, globStreamSync, Glob } from 'glob'
-import { ClientRouter } from 'astro:transitions';
-import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import ModelCard from '../components/_ModelCard.astro';
 import Calculator from '../components/Calculator.astro';
-import Button from '../components/ButtonFile.astro';
+import Socials from '../components/Socials.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+import Logo from '../svg/logo_big.svg';
+import Feature from '../components/Feature.astro';
 
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
-const collection = await glob([ "./src/data/**/**/*.csv"]);
-const paths = collection.map((file) => ({
-    props:{filePath:file.toString(),category: file.split('/')[2],model: file.split('/')[3],type: file.split('/')[4].replace(".csv","")},
-  }));
-const pathname = `/${paths[0].props.category}/${paths[0].props.model}/${paths[0].props.type}`
-console.log(pathname);
----
-
-<html lang="ru" class="scroll-smooth snap-y snap-mandatory">
-	<head>
-		<meta charset="utf-8" />
-		<!-- <meta name="viewport" content="width=device-width" /> -->
-		<meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href=`${import.meta.env.BASE_URL}/favicon.svg` />
-		<!-- <meta name="generator" content={Astro.generator} /> -->
-		<title>Heaton</title>
-		<ClientRouter/>
-	</head>
-
-	<body class="bg-neutral-100">
-
-
-
-		<!-- hero -->
-		<section class="relative w-full bg-gr-metallic min-h-svh overflow-x-clip snap-center">
-			<div class="z-0 py-8 pb-16 container-center">
-				<NavBar/>
-				<div class="flex flex-col justify-center sm:mt-[15%] ml-4 md:flex-row md:justify-start md:mt-32 md:ml-auto">
-					<div class="flex flex-col sm:items-center md:items-start sm:flex-row md:flex-col z-10 px-[10%] mt-6 sm:mt-24 md:mt-auto md:px-0 relative md:max-w-[40%] gap-4 sm:gap-12 md:my-auto sm:mr-[10%] order-2 md:order-1 lg:ml-16">
-						<Logo class="w-56 md:w-72 lg:w-96 md:block text-primary"/>
-						<h1 class="text-[22px] md:text-3xl lg:text-4xl font-medium leading-tight -mt-6 sm:mt-0 md:-mt-6 lg:-mt-16 tracking-widest uppercase text-neutral-700">
-							Стальные<br/>панельные<br/>радиаторы</h1>
-						<div class="socials flex gap-4 relative md:translate-y-24 lg:translate-y-36 sm:translate-y-24 sm:absolute md:relative">
-							<Icon name="whatsup" class="size-8 md:size-12 text-primary"/>
-							<Icon name="telegram" class="size-8 md:size-12 text-primary"/>
-							<Icon name="vk" class="size-8 md:size-12 text-primary"/>
-							<Icon name="wechat" class="size-8 md:size-12 text-primary"/>
-						</div>
-						<!-- <h1 class="text-2xl font-black leading-none tracking-widest uppercase text-neutral-700 sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl sm:header-circle-lg lg:header-circle-xl">
-							Стальные панельные радиаторы</h1>
-						<p class="w-full text-xl font-light leading-none sm:text-2xl md:text-3xl xl:text-4xl text-neutral-600">
-							Высокое качество <br/>по&nbsp;доступной цене
-						</p> -->
-					</div>
-					<div class="relative px-[5%] md:px-0 _md:max-w-[70%] z-0 min-h-[40svh] md:h-auto order-1 md:order-2 -bottom-16 md:w-1/2 xl:w-auto">
-						<div class="absolute -top-[15%] right-6 sm:right-auto sm:left-1/2  md:block z-50">
-							<div class="flex flex-col items-start justify-start md:gap-1">
-								<div class="self-stretch text-[10px] sm:text-base font-normal leading-none text-neutral-700 lg:text-lg lg:leading-none">СООТВЕТСВИЕ</div>
-								<div class="self-stretch text-xs sm:text-lg font-bold leading-none text-neutral-700 lg:text-xl lg:leading-none">ГОСТ 31311-2005</div>
-							</div>
-						</div>
-						<div class="absolute -bottom-0 h-[120%] w-1/2 -z-10 right-0 sm:-left-8 bg-neutral-100 rounded-tl-[64px] rounded-tr-lg"></div>
-						<div class="absolute bottom-16 lg:bottom-24 h-0.5 w-[150%] -z-10 -left-[150%] bg-gradient-to-l from-neutral-50 via-neutral-50/0 to-neutral-50/0 "></div>
-						<div class="absolute -top-16 sm:top-auto z-10 w-32 h-32 border-2 rounded-full -right-16 -bottom-16 sm:-left-24 lg:h-48 lg:w-48 lg:-bottom-24 lg:-left-32 bg-neutral-50/30 backdrop-blur-sm border-neutral-50 scroll-scale-fade"></div>
-						<div class="relative md:overflow-clip">
-							<div class="relative w-full md:w-[600px] xl:w-auto">
-								<Image alt="" src={heater} width={800}/>
-								 <!-- <img src="../img/heater_main.webp" alt=""> -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-
-
-		<!-- features -->
-		<!-- <section class="pb-32 text-left container-center text-neutral-700 snap-start snap-always scroll-mt-32"> -->
-
-			<!--  -->
-			<div class="container-center my-16 tracking-widest flex flex-col md:flex-row pb-[10svh] pt-8  scroll-control perspective-1000 snap-center ">
-				<div class="flex flex-col items-start py-8 md:py-24 px-6 sm:px-16 bg-neutral-200/40 rounded-br-3xl md:max-w-[calc(50%-6rem)] relative scroll_main_header_fromright transform-gpu ">
-					<h2 class="max-w-screen-sm mb-2 text-2xl font-bold tracking-widest sm:mb-8 sm:text-4xl md:text-4xl lg:text-5xl sm:whitespace-nowrap ">Высочайшее качество, <br/>подтвержденное <br/>сертификатом</h2>
-					<Button text="Сертификат соответствия" icon="Sertificate" type="download" size=20 link={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`}/>
-					<div class="w-52 absolute bottom-2 rounded-xl hard-shadow before:bg-neutral-100 hidden md:block lg:-bottom-16">
-						<Image alt="" src={cetrificate} class=""/>
-					</div>
-				</div>				
-				<div class="relative flex flex-col max-w-xl pt-8 sm:gap-4 sm:pl-12 sm:text-xl md:pt-48 md:pl-32 inview-block">
-				
-					{
-						[
-							["Произведены в Турции на заводе c богатейшим опытом","BI__factory",1],
-							["Продукция имеет гигиенический сертификат","BI__certificate",2],
-							["Высококачественное сырье: холоднокатанная сталь 1,3 мм","BI__steel_width",3],
-						]
-						.map(([text,icon,index])=>(
-							<div class="flex items-center gap-4 p-2 my-2 group scroll-stagger leading-snug sm:leading-normal" >
-								<div class="max-w-72 text-primary-700"><Icon name={icon} class="size-16 md:size-20"/></div>
-								<h2 class="max-w-lg">{text}</h2>
-								{/* <div class="absolute top-0 flex items-center justify-center invisible w-full h-32 text-xs tracking-widest text-center transition-opacity rounded-md opacity-0 left-32 bg-neutral-50 text-neutral-300 group-hover:opacity-100 group-hover:visible">Изображение к «{text}»</div> */}
-							</div>
-						))
-					}
-				</div>
-				<!-- <LogoSmall class="absolute  -right-20 w-[400px] text-primary/10 -top-12 -z-0"/> -->
-			</div>
-
-			<!--  -->
-			<div class="container-center relative md:-ml-16 tracking-widest flex flex-col md:flex-row mb-[10svh] md:my-[15svh] scroll-control perspective-1000 items-center justify-center snap-center">
-				<div class="relative flex justify-end md:w-1/2 inview-slide-from-left will-change-transform">
-					<div class="px-12 md:px-0 md:w-[32rem] md:mr-16 ">
-						<div class="w-full relative">
-							<Image alt="" src={img_models_2}/>
-							<!-- <div class="absolute z-10 w-32 h-32 border-2 rounded-full -bottom-16 -left-24 lg:h-48 lg:w-48 lg:-bottom-24 lg:-left-32 bg-neutral-50/30 backdrop-blur-sm border-neutral-50 "></div> -->
-						</div>
-					</div>
-				</div>
-				<div class="">
-					<div class="relative flex flex-col items-start px-16 py-4 sm:py-8 scroll_main_header_fromleft transform-gpu will-change-transform">
-						<h2 class="max-w-screen-sm mb-2 text-2xl font-bold tracking-widest sm:mb-8 sm:text-4xl md:text-4xl lg:text-5xl whitespace-nowrap">Широкий <br/>типоразмерный ряд</h2>
-						<Button text="Каталог продукции" icon="Sertificate" type="link" size=20 link={`${import.meta.env.BASE_URL}/Стальные панельные радиаторы`}/>
-					</div>
-					<div class="relative flex flex-col px-8 pt-4 sm:gap-4 sm:text-xl sm:pl-12 inview-block sm:px-0">
-						{
-							[
-								["В комплектацию входит все необходимое для монтажа радиатора на стену","BI__complect"],
-								["Максимально быстрые сроки поставки","BI__delivery"],
-							]
-							.map(([text,icon])=>(
-								<div class="flex items-center gap-4 p-2 my-2 group scroll-stagger" >
-									<div class="max-w-72 text-primary-700"><Icon name={icon} class="size-16 md:size-20"/></div>
-									<h2 class="max-w-lg">{text}</h2>
-									{/* <div class="absolute top-0 flex items-center justify-center invisible w-full h-32 text-xs tracking-widest text-center transition-opacity rounded-md opacity-0 left-32 bg-neutral-50 text-neutral-300 group-hover:opacity-100 group-hover:visible">Изображение к «{text}»</div> */}
-								</div>
-							))
-						}
-					</div>
-				</div>
-			</div>
-
-			<!--  -->
-			<div class="container-center relative tracking-widest flex flex-col lg:flex-row items-center my-[15svh] min-h-[60svh] scroll-control perspective-1000 mx-auto snap-center ">
-				<div class="order-2 lg:w-1/2 will-change-transform inview-scale lg:order-1">
-					<div class="relative flex flex-col items-start px-8 py-8 sm:px-16 " >
-						<h2 class="max-w-screen-sm mb-8 text-2xl font-extrabold tracking-widest md:text-4xl lg:text-5xl">Верхняя решетка крыловидной формы</h2>
-						<p class="leading-loose sm:leading-relaxed sm:text-xl">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
-					</div>
-				</div>
-				<div class="relative flex justify-end order-1 lg:w-1/2 lg:order-2 inview-slide-from-right will-change-transform">
-					<div class="mx-8 lg:ml-16">
-						<div class="relative sm:scale-125 rounded-l-3xl overflow-clip">
-							<Image alt="" src={top_panel}/>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!--  -->
-			<div class="container-center relative  tracking-widest flex flex-col lg:flex-row items-center my-[15svh] min-h-[60svh] scroll-control perspective-1000 mx-auto snap-center">
-				<div class="relative flex justify-end lg:w-1/2 inview-slide-from-left will-change-transform">
-					<div class="mx-8 lg:mr-16">
-						<div class="relative">
-							<Image alt="" src={heater}/>
-						</div>
-					</div>
-				</div>
-				<div class="inview-scale will-change-transform lg:w-1/2 ">
-					<div class="relative flex flex-col items-start px-8 py-8 sm:px-16">
-						<h2 class="mb-8 text-2xl font-bold tracking-widest md:text-4xl lg:text-5xl lg:max-w-screen-sm">«Технология усечённого канала»</h2>
-						<p class="leading-loose sm:text-xl"> Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
-					</div>
-				</div>
-			</div>
-		<!-- </section> -->
-
-
-
-
-
-		<!-- models -->
-		<section class="bg-secondary_/30 bg-neutral-300 min-h-svh snap-center overflow-clip relative" id="models">
-			
-			<div class="flex flex-col items-center gap-16 py-16 md:py-32 container-center text-neutral-600 z-10">
-				<h2 class="text-3xl font-semibold md:text-6xl header-circle-lg md:header-circle-xl ">Модели радиаторов</h2>
-				<div class="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4 sm:px-0">
-					{
-						[
-							{
-								shortName: "C",
-								longName: "Compact",
-								sub:null,
-								url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Compact (C)/11`,
-								characteristics: [
-									{ name: "Панели", icon: true },
-									{ name: "Рассеиватели", icon: true },
-									{ name: "Решетка сверху", icon: true },
-									{ name: "Боковое подключение", icon: true }
-								]
-							},
-							{
-								shortName: "VC",
-								longName: "Ventil Compact",
-								sub:null,
-								url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Ventil Compact (VC)/11`,
-								characteristics: [
-									{ name: "Панели", icon: true },
-									{ name: "Рассеиватели", icon: true },
-									{ name: "Решетка сверху", icon: true },
-									{ name: "Нижнее подключение", icon: true }
-								]
-							},
-							{
-								shortName: "HC",
-								longName: "Compact",
-								sub:"Hygiene",
-								url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Compact (HC)/10`,
-								characteristics: [
-									{ name: "Панели", icon: true },
-									{ name: "Рассеиватели", icon: false },
-									{ name: "Решетка сверху", icon: false },
-									{ name: "Боковое подключение", icon: true }
-								]
-							},
-							{
-								shortName: "HVC",
-								longName: "Ventil Compact",
-								sub:"Hygiene",
-								url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы/Hygiene Ventil Compact (HVC)/10`,
-								characteristics: [
-									{ name: "Панели", icon: true },
-									{ name: "Рассеиватели", icon: false },
-									{ name: "Решетка сверху", icon: false },
-									{ name: "Нижнее подключение", icon: true }
-								]
-							}
-						].map((element)=>(
-							<ModelCard name={element.longName} shortname={element.shortName} characteristics={element.characteristics} subname={element.sub} url={element.url}/>
-						))
-					}
-				</div>
-
-			</div>
-			<LogoSmall class="absolute  -right-10 w-[500px] text-neutral-100/50 -bottom-12 -z-0 -rotate-12"/>
-		</section>
-		<!-- calculator -->
-		 	<Calculator class="snap-center"/>
-		
-		<Footer class="snap-end"/>
-	</body>
-</html>
-
-<script >
-	import { animate,scroll,stagger, inView } from "motion";
-	import Fuse from 'fuse.js'
-	let gloabal_fuse;
-
-	async function getHeatersForSearch() {
-		const options = {
-			includeScore: true,
-			minMatchCharLength:3,
-			threshold: 0.3,
-			// Search in `author` and in `tags` array
-			keys: ['Наименование', 'Категория']
-		}
-
-		// const fuse = new Fuse(list, options)
-		// search_map.json
-		const response = await fetch('/heaton/search_map.json') ;
-        const data = await response.json();
-		gloabal_fuse = new Fuse(data, options);
-
-		let result = gloabal_fuse.search('1200')
-		console.log(result);
-		result = gloabal_fuse.search('1200 400')
-		console.log(result);
-		result = gloabal_fuse.search('1200 400 C')
-		console.log(result);
-		result = gloabal_fuse.search('12C')
-		console.log(result);
+interface Button{
+    text: string,
+    icon: string,
+    url:string
 }
 
-document.addEventListener("searchInputEvent",(e)=>{
-	console.log("searchInputEvent");
-}) 
+const URL_main = `${import.meta.env.BASE_URL}/`
+const URL_category = `${URL_main}Каталог/Стальные панельные радиаторы/`
+const URL_model = `${URL_category}Compact/`
 
-document.addEventListener('astro:page-load', () => {
-		console.log("astro:page-load main");
-		// initCalculator
-		// document.dispatchEvent(new CustomEvent('initCalculator', {bubbles:true}));
 
-		// animate("#motion-test",{ scale: [0.4, 1]});
-		inView(".inview-block", ({ target }) => {
-			const staggers = target.querySelectorAll(".scroll-stagger");
-			animate(
-				staggers,{ opacity: [0,1], scale:[1.1,1] }, { delay: stagger(0.3, {startDelay: 0.2}) , ease:"easeIn", duration:.6}
-			)
-        	return () => animate(staggers, { opacity: 0, scale:[1.1]})
-    	},
-		{ margin: "0px 0px 0px 0px"}
-		);
-		inView(".inview-scale", ({ target }) => {
-			animate(
-			target,{ opacity: [0,1], scale:[1.1,1], rotateY:[10,0] }, {ease:"easeOut", duration:.4}
-			)
-        	return () => animate(target, { opacity: 0, scale:[1.1], rotateY:[30]})
-		});
-		inView(".inview-slide-from-left", ({ target }) => {
-			animate(
-				target,{ opacity: [0,1], x:[-200,0], scale:[1.1,1] }, { ease:"easeOut", duration:.4}
-			)
-			return () => animate(target, { opacity: 0, scale:[1.1], x:[-200]})
-        	// return () => animate(target, { opacity: 0, scale:[1.1], rotateY:[30]})
-		});
-		inView(".inview-slide-from-right", ({ target }) => {
-			animate(
-				target,{ opacity: [0,1], x:[200,0], scale:[1.1,1] }, { ease:"easeOut", duration:.4}
-			)
-        	return () => animate(target, { opacity: 0, scale:[1.1], x:[200]})
-        	// return () => animate(target, { opacity: 0, scale:[1.1], rotateY:[30]})
-		});
+const mainImageDescription = "Стальной панельный радиатор Heaton в разрезе"
+---
+<Layout title="Стальные панельные радиаторы Heaton" description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
+    <section class="min-h-svh snap-center">
 
-		document.querySelectorAll(".scroll-control").forEach((section ) => {
+        <NavBar slot="navbar" class="mx-auto container-center py-8 absolute top-0 w-full right-0 left-0"/>
 
-			const header_from_right = section.querySelector(".scroll_main_header_fromright") as HTMLDivElement;
-			const header_from_left = section.querySelector(".scroll_main_header_fromleft") as HTMLDivElement;
-
-			scroll(
-				animate(
-				section, 
-					{ opacity: [0,1]}, 
-					{ ease:  "linear"}), 
-				{
-					target: section,
-					offset: ["start end", "end end"],
-
-				}
-			);
-
-			scroll(
-				animate(
-				header_from_right, { opacity:[0,1],x:[200,0]}, { ease: "linear"}),
-				{
-					target: section,
-					offset: ["start end", "end end"],
-				}
-			);
-			scroll(
-				animate(
-				header_from_left, { opacity:[0,1],x:[-200,0]}, { ease: "linear"}),
-				{
-					target: section,
-					offset: ["start end", "end end"],
-				}
-			);
-			});
+		<div class="w-full relative">
+			<div class="swiper default-carousel swiper-container">
+			<div class="swiper-wrapper flex">
+			 <div class="swiper-slide">
+			   <div class="bg-primary opacity-10 w-screen min-h-screen flex justify-center items-center">
+				 <span class="text-3xl font-semibold text-neutral-600">Баннер 1 </span>
+			   </div>
+			 </div>
+			 <div class="swiper-slide">
+			   <div class="bg-neutral-50 w-screen min-h-screen flex justify-center items-center">
+				 <span class="text-3xl font-semibold text-neutral-600">Баннер 2 </span>
+			   </div>
+			 </div>
+			 <div class="swiper-slide">
+			   <div class="bg-neutral-100 w-screen min-h-screen flex justify-center items-center">
+				 <span class="text-3xl font-semibold text-neutral-600">Баннер 3 </span>
+			   </div>
+			 </div>
+			</div>
+			<div class="absolute w-full top-1/2 ">
+				<button id="slider-button-left" class="swiper-button-prev group p-2 flex justify-center items-center size-12 bg-neutral-50 shadow-lg transition-colors rounded-full  hover:bg-primary left-8 absolute" data-carousel-prev>
+				<svg class="h-5 w-5 text-neutral-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+					<path d="M10.0002 11.9999L6 7.99971L10.0025 3.99719" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+				</button>
+				<button id="slider-button-right" class="swiper-button-next group p-2 flex justify-center items-center size-12 bg-neutral-50 shadow-lg transition-colors rounded-full hover:bg-primary right-8 absolute" data-carousel-next>
+				<svg class="h-5 w-5 text-neutral-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+					<path d="M5.99984 4.00012L10 8.00029L5.99748 12.0028" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+				</button>
+			</div>
+				<div class="swiper-pagination absolute z-50"></div>
+			</div>
+			</div>
 
 
 
+        <div class="mx-auto flex flex-col items-center">
+            <!-- <Socials class="mb-6 md:mb-12 text-primary"/> -->
+            <!-- <Image alt={mainImageDescription} src={heater} slot="image" class="w-1/2"/> -->
+        </div>
+    </section>
+    <!-- <Hero class="min-h-svh snap-center">
+       
+        <BreadCrumbs slot="breadcrumbs" list={
+            [{url:URL_main, text:"Главная"},{url:URL_category, text:"Стальные панельные радиаторы"}]
+            }/>
 
-	},{once:true});
+        
+
+        <Fragment slot="header">
+            <Socials class="mb-6 md:mb-12 text-primary"/>
+            <h1 class="text-3xl md:text-6xl font-bold uppercase leading-tight tracking-wide">Стальные панельные радиаторы</h1>
+            <div class="mt-12 flex items-stretch gap-4 tracking-wider uppercase">
+                <a class="px-4 py-1 text-xl rounded-lg text-neutral-50 bg-primary pt-8" href={URL_model}>Каталог</a>
+                <div class="flex text-base font-medium  gap-4 items-end text-neutral-700">
+                    <a href="#Models" class="px-4 py-1  rounded-lg  bg-neutral-50">Модели</a>
+                    <a href="#Calculator" class="px-4 py-1 rounded-lg  bg-neutral-50">Калькулятор</a>
+                </div>
+            </div>
+        </Fragment> -->
+
+    </Hero>
+	<section class="snap-start container-center py-16 mx-auto ">
+		<ul class="grid grid-cols-3 grid-rows-3 gap-4 py-16">
+			<li class="col-span-2 row-span-2  rounded-xl p-8 flex flex-col">
+				<div class="w-1/3 mb-16 text-primary">
+					<Logo/>
+				</div>
+				<div class="mt-auto text-2xl tracking-wider leading-relaxed">
+					Бренд Heaton - это отопительное оборудование высочайшего качества по доступной цене
+				</div>
+			</li>
+			<li class="col-start-1 row-start-3 bg-neutral-50 rounded-xl p-8">Большой фактоид</li>
+			<li class="row-span-3 col-start-3 row-start-1 bg-neutral-50 rounded-xl p-8">Фактоид</li>
+			<li class="row-start-3 bg-neutral-50 rounded-xl p-8">Фактоид</li>
+		</ul>
+		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">
+			<!-- {
+				[
+
+					{
+						header:"Большой типоразмерный ряд", 
+						text:"Широкий ассортимент стандартных моделей, что позволяет подобрать оптимальное решение для любого объекта. 90% от заявки в наличии на складе", 
+						icon:"BI__delivery",
+						image:'heaters.webp',
+						buttons:[
+
+						]
+					},
+					{
+						header:"Безопасность продукции, \nподтвержденная сертификатами", 
+						text:"Радиаторы Heaton прошли обязательную сертификацию, что гарантирует их соответствие стандартам ГОСТ, безопасность для потребителей и исключает риски использования контрафактной продукции", 
+						icon:"BI__certificate",
+						buttons:[
+							{url:`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`, icon:"Sertificate", text:"Сертификат соответствия"} as Button,
+							{url:`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`, icon:"Sertificate", text:"Гигиенический сертификат"} as Button,
+						]
+					},
+					{
+						header:"Высокое качество\n за лучшую цену", 
+						text:"Продукция Heaton сочетает в себе надежность и доступную стоимость", 
+						icon:"BI__complect",
+						buttons:[
+							{url:URL_model, icon:"Sertificate", text:"Перейти в каталог"} as Button
+						]
+					},
+					{
+						header:"10 лет\n гарантии", 
+						text:"Долговечность и надежность радиаторов подтверждены длительной гарантией", 
+						icon:"BI__factory",
+						buttons:[
 	
+						]
+					},
+
+
+					
+				].map((element)=>(
+					<li class="flex grow shrink basis-1/3 p-4 text-lg rounded-3xl relative bg-neutral-50 overflow-clip">
+						<Feature header={element.header} text={element.text} buttons={element.buttons} icon={element.icon} image={element.image}/>
+					</li>
+				))
+			} -->
+			
+			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
+				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
+					<Image alt={mainImageDescription} src={heater} slot="image"/>
+				</div>
+				<div class="basis-1/2 order-2 md:order-1">
+					<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4">Стальные панельные радиаторы</h3>
+					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
+				</div>
+
+			</li>
+			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 flex-col md:flex-row bg-neutral-50">
+				<div class="basis-1/2 drop-shadow-primary-hard order-1 origin-right scale-105">
+					<Image alt={mainImageDescription} src={HF_Comfort} slot="image"/>
+				</div>
+				<div class="basis-1/2 order-2">
+					<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4">Внутрипольные конвекторы</h3>
+					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
+				</div>
+			</li>
+			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
+				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
+					<Image alt={mainImageDescription} src={step} slot="image"/>
+				</div>
+				<div class="basis-1/2 order-2 md:order-1">
+					<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4">Напольные конвекторы</h3>
+					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
+				</div>
+
+			</li>
+		</ul>
+	</section>
+	<section class="snap-center container-center mx-auto">
+		<Contact/>
+	</section>
+
+	<section class="snap-center container-center mx-auto min-h-screen py-16 flex flex-col">
+		<h2 class="text-3xl font-semibold md:text-6xl uppercase mx-auto">Референт лист</h2>
+	</section>
+
+	
+	
+
+	
+
+	<!-- <Contact/> -->
+	<!-- calculator -->
+	 
+	<Footer class="mt-auto snap-center bg-neutral-300"/>
+</Layout>
+
+<script>
+	import Swiper from 'swiper/bundle'
+	
+	let swiper = initSwiper();
+	function initSwiper(){
+		var swiper = new Swiper(".default-carousel", {
+			loop: true,
+			pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+			},
+			navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
+		});
+		return swiper
+	}
+	
+	document.addEventListener('astro:before-swap', () => {
+		swiper.destroy();
+		console.log("before")
+	});
+
+	document.addEventListener('astro:page-load', () => {
+		// console.log(swiper)
+		swiper = initSwiper();
+		// swiper.enable;
+		// if(!swiper)
+	});
+	// console.log(swiper)
 </script>

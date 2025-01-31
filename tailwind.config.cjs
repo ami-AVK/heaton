@@ -17,20 +17,43 @@ module.exports = {
 			'mono': ['Ubuntu Sans Mono','ui-monospace', 'SFMono-Regular'],
 		},
 		extend: {
+			blur:{
+				"4xl": "128px",
+			},
 			colors: {
 				'primary':{
-					DEFAULT:"#600610",
-					100:"#DDD7D1",
-					200:"#CEC2B8",
-					300:"#B8A89E",
-					400:"#A48D83",
-					500:"#7D5856",
-					600:"#6D3A3C",
-					700:"#581114",
-					800:"#47070A",
-					900:"#330406",
+					DEFAULT:"var(--primary,#D43B18)",
+					// 100:"#DDD7D1",
+					// 200:"#CEC2B8",
+					// 300:"#B8A89E",
+					// 400:"#A48D83",
+					// 500:"#7D5856",
+					// 600:"#6D3A3C",
+					// 700:"#581114",
+					// 800:"#47070A",
+					// 900:"#330406",
 				},
-				'secondary':"#FCD47F",
+				'secondary':"#D43B18",
+				'neutral': {
+					50: '#F9FAF9',
+					100: '#F4F5F4',
+					200: '#E5E6E5',
+					300: '#D3D4D4',
+					400: '#A0A1A1',
+					500: '#727373',
+					600: '#515252',
+					700: '#3F4040',
+					800: '#232424',
+					900: '#161717',
+					950: '#0A0A0A',
+				  },
+			},
+			dropShadow:{
+				"primary-l": "0 35px 35px var(--primary-20,#D43B18)",
+				"primary-m": "0 35px 35px var(--primary-80,#D43B18)",
+				"primary-d": "0 35px 35px var(--primary,#D43B18)",
+				"primary-hard": "-16px 35px 0px var(--primary,#D43B18)",
+				
 			},
 			boxShadow: {
 				'active': '0px 0px 16px rgba(252, 212, 127, 0.6)',
@@ -61,25 +84,10 @@ module.exports = {
 							},
 						},
 			}
-		},
-		colors:{
-			'neutral': {
-				50: '#F9FAF9',
-				100: '#F4F5F4',
-				200: '#E5E6E5',
-				300: '#D3D4D4',
-				400: '#A0A1A1',
-				500: '#727373',
-				600: '#515252',
-				700: '#3F4040',
-				800: '#232424',
-				900: '#161717',
-				950: '#0A0A0A',
-			  },
 		}
 	},
 	plugins: [
-		require('tailwindcss-3d'),
+		// require('tailwindcss-3d'),
 		require('@tailwindcss/forms'),
 		// ...
 	  ]

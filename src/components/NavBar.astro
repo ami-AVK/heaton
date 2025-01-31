@@ -3,25 +3,64 @@ import Logo from '../svg/logo_big.svg';
 import LogoSmall from '../svg/logo_small.svg';
 import { Icon } from 'astro-icon/components';
 import { glob, globSync, globStream, globStreamSync, Glob } from 'glob'
+import sitemap from '../data/site.json'
+import ModelsRow from './ModelsRow.astro';
 
+interface Link {
+    url: string;
+    text: string;
+    links?: Link[]
+}
+interface Product {
+    'Наименование': string;
+    url:string
+    [key: string]: any;
+}
+interface Category {
+    ['Заголовок на главную']:string;
+    ['Описание на главную']:string;
+    ['Заголовок в карточку']:string;
+    ['Описание в карточку']:string;
+    [key: string]: any;
+    products: Product[];
+}
+interface Sitemap {
+    [key: string]: Category;
+}
+let catalogLinks = []
+for (const key in sitemap as any) {
+        const category = sitemap[key] as Category
+        if (sitemap.hasOwnProperty(key)) {
+            const products = category.products as Product[];
+            const url = `${import.meta.env.BASE_URL}/Каталог/${key}`
+
+            let models = [...new Set(products.map(product => product['Модель']))];
+            
+            const models_ = models.map((model)=>{
+              return {url:`${url}/${model}`,text:model} as any as Link
+            })
+            const link = {url:`${url}`,text:key, links:models_} as any as Link;
+            catalogLinks.push(link);
+        }
+}
 const currentURL = new URL(Astro.request.url).pathname;
 const mainpage = currentURL==="/";
 // console.log(currentURL==="/");
-const collection = await glob([ "./src/data/**/**/*.csv"]);
-const paths = collection.map((file) => ({
-    props:{filePath:file.toString(),category: file.split('/')[2],model: file.split('/')[3],type: file.split('/')[4].replace(".csv","")},
-  }));
-const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths[0].props.model}/${paths[0].props.type}`
-
+// const collection = await glob([ "./src/data/**/**/*.csv"]);
+// const paths = collection.map((file) => ({
+//     props:{filePath:file.toString(),category: file.split('/')[2],model: file.split('/')[3],type: file.split('/')[4].replace(".csv","")},
+//   }));
+// const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths[0].props.model}/${paths[0].props.type}`
+const {class:className,...attr} = Astro.props;
 const mainLinks = [
-                    // {text:"Продукция",href:pathname},
                     {text:"Документация",href:`${import.meta.env.BASE_URL}/Документация`},
                     {text:"Контакты",href:`${import.meta.env.BASE_URL}/Контакты`},
                     {text:"Где купить",href:`${import.meta.env.BASE_URL}/Где купить`},
                   ]
+
 ---
 
-<div class="z-50 nav-scroll">
+<div class="z-50 nav-scroll" class:list={className} {...attr}>
     <div class="relative z-50 flex flex-row items-center justify-between ">
       <div class="flex items-center gap-4 nav-left-block">
           <a href=`${import.meta.env.BASE_URL}/` class=`cursor-pointer text-secondary ${mainpage?"pointer-events-none":""}`>
@@ -49,18 +88,15 @@ const mainLinks = [
               ">Каталог</div>
             </button>
 
-            <ul class="absolute min-w-full bg-neutral-50 rounded-3xl right-0 top-0 -z-10 p-4 pt-16 opacity-0 invisible_ group-hover:opacity-100 group-hover:visible_ transition-transform ease-in-out shadow-xl -translate-y-32  group-hover:translate-y-0   will-change-transform">
+            <ul class="absolute min-w-full bg-neutral-50 rounded-3xl right-0 top-0 -z-10 p-4 pt-16 opacity-0 invisible_ group-hover:opacity-100 group-hover:visible_ transition-transform ease-in-out shadow-xl -translate-y-full  group-hover:translate-y-0   will-change-transform">
               {
-                [
-                  {name:"Стальные панельные радиаторы"},
-                  {name:"Внутрипольные конвекторы"},
-                  {name:"Напольные конвекторы"},
-                  {name:"Комплектующие"}].map((element)=>(
-                    <li class="">
-                      <a href='./' class="p-2 flex gap-2 flex-row hover:bg-neutral-100 pointer-events-auto cursor-pointer rounded-lg">
+                catalogLinks.map((element:Link)=>(
+                    <li class="py-2">
+                      <a href={element.url} class="p-2 flex gap-2 flex-row hover:bg-neutral-100 pointer-events-auto cursor-pointer rounded-lg">
                         <Icon name="At sign" class="size-6"/>
-                        <span class="whitespace-nowrap block">{element.name}</span>
+                        <span class="whitespace-nowrap block">{element.text}</span>
                       </a>
+                      <ModelsRow links={element.links} class="pl-8"/>
                     </li>
                   ))
               }

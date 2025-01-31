@@ -1,0 +1,27 @@
+---
+ interface Link {
+    url: string;
+    text: string;
+    links?: Link[]
+}
+ interface Props{
+    list: Link[],
+    class?: string,
+    slot?: string
+}
+
+const {list, class:className, ...attr} = Astro.props
+
+---
+<ul class="flex gap-3" class:list={className} {...attr}>
+    {
+        list.map(
+                    (link,index) => 
+                    (
+                    <li class="font-regular last:font-black last:pointer-events-none separator last:before:hidden ">
+                        <a href={link.url } class="p-2 rounded-lg cursor-pointer min-h-min min-w-min hover:bg-neutral-50" >{link.text}</a>
+                    </li>
+                    )
+                )
+    }
+</ul>

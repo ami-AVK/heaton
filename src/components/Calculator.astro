@@ -28,7 +28,7 @@ const glazing = [
 const { class: className } = Astro.props;
 ---
 
-<section class="tracking-wide" class:list={className}>
+<section class="tracking-wide" class:list={className} id="Calculator">
   <div
     class="flex flex-col items-center w-full gap-10 py-10 sm:gap-16 sm:py-32 container-center text-neutral-600 min-h-svh"
   >
@@ -37,7 +37,7 @@ const { class: className } = Astro.props;
       class="flex flex-col items-center w-full gap-0 justify-stretch lg:flex-row md:items-start lg:gap-0 sm:px-0"
     >
     <!-- Меню -->
-      <div class="w-full min-w-full p-4 lg:w-72 sm:px-8 sm:self-stretch md:p-8 sm:min-w-fit bg-secondary_ bg-neutral-300/80 rounded-t-3xl lg:rounded-none lg:rounded-l-3xl text-neutral-700">
+      <div class="w-full min-w-full p-4 lg:w-72 sm:px-8 sm:self-stretch md:p-8 sm:min-w-fit bg-primary_ bg-neutral-300/80 rounded-t-3xl lg:rounded-none lg:rounded-l-3xl text-neutral-700">
         <form class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1 sm:gap-8" id="calculator">
           <div class="relative ">
             <label for="area" class="block mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm"
@@ -134,8 +134,8 @@ const { class: className } = Astro.props;
         </form>
       </div>
 
-      <div class="self-stretch max-h-full p-4 lg:flex-auto sm:p-8 sm:w-auto bg-secondary_/30 bg-neutral-300/30 rounded-b-3xl lg:rounded-none lg:rounded-r-3xl">
-        <div class="flex flex-col flex-wrap px-2 font-black sm:gap-2 sm:flex-row sm:items-center"><span class="block mb-1 text-xs font-black leading-none text-gray-700 sm:mb-0 sm:text-lg">Рекомендуемая общая мощность: </span><span id="totalPower" class="block px-2 text-lg rounded-full will-change-contents bg-secondary">1800 Вт</span></div>
+      <div class="self-stretch max-h-full p-4 lg:flex-auto sm:p-8 sm:w-auto bg-primary_/30 bg-neutral-300/30 rounded-b-3xl lg:rounded-none lg:rounded-r-3xl">
+        <div class="flex flex-col flex-wrap px-2 font-black sm:gap-2 sm:flex-row sm:items-center"><span class="block mb-1 text-xs font-black leading-none text-gray-700 sm:mb-0 sm:text-lg">Рекомендуемая общая мощность: </span><span id="totalPower" class="block px-2 text-lg rounded-full will-change-contents bg-primary text-neutral-50">1800 Вт</span></div>
         <form action="" id="calculatorExtra" name="calculatorExtra" class="grid grid-cols-2 sm:flex sm:flex-wrap  gap-6 px-2 py-4 -mx-2.5 text-neutral-600 peer" data-overload>
             <div class="">
               <label class="block pl-2.5 mr-2.5 mb-1 text-xs font-bold text-gray-700 sm:mb-2 sm:text-sm">Длина радиатора</label
@@ -284,7 +284,7 @@ function updateOutputBox(heatersArray: any, heatersCount: any){
                     <a href="/heaton/${element.url}" class="flex flex-col items-start grow">
                       <div class="font-black">${element.name}</div>
                       <ul class="flex items-center gap-1">
-                        <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-secondary power whitespace-nowrap">${element.power} Вт</li>
+                        <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-primary text-neutral-50 power whitespace-nowrap">${element.power} Вт</li>
                         <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 connection">${element.side?"Боковое":"Нижнее"}</li>
                         <li class="px-1 sm:px-2 py-0.5 text-xs rounded-full output_power_badge bg-neutral-50/30 border border-neutral-300 type empty:hidden">${element.hygiene?"Гигиенический":""}</li>
                       </ul>

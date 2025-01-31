@@ -8,30 +8,30 @@
   <rect width="337.2" height="337.2" fill="none"/>
   <g>
     <g>
-      <polygon points="218.59 299.47 218.59 44.5 120.8 44.5 120.8 297.61 218.59 299.47" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
-      <line x1="27.99" y1="177" x2="92.38" y2="177" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
-      <polyline points="65.62 150.24 92.38 177 65.62 203.76" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+      <polygon points="218.59 299.47 218.59 44.5 120.8 44.5 120.8 297.61 218.59 299.47" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+      <line x1="27.99" y1="177" x2="92.38" y2="177" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+      <polyline points="65.62 150.24 92.38 177 65.62 203.76" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
       <g>
-        <line x1="309.21" y1="177" x2="244.82" y2="177" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
-        <polyline points="271.58 203.76 244.82 177 271.58 150.24" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+        <line x1="309.21" y1="177" x2="244.82" y2="177" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+        <polyline points="271.58 203.76 244.82 177 271.58 150.24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
       </g>
     </g>
     <g clip-path="url(#uuid-a34c0050-a473-4f4a-937e-1f4839c09a67)">
       <g>
-        <line x1="51.3" y1="120.2" x2="274.3" y2="-102.81" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="147.51" x2="274.3" y2="-75.49" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="174.83" x2="274.3" y2="-48.17" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="202.15" x2="274.3" y2="-20.86" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="229.47" x2="274.3" y2="6.46" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="256.79" x2="274.3" y2="33.78" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="284.1" x2="274.3" y2="61.1" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="311.42" x2="274.3" y2="88.41" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="338.74" x2="274.3" y2="115.73" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="366.06" x2="274.3" y2="143.05" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="393.37" x2="274.3" y2="170.37" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="420.69" x2="274.3" y2="197.69" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="448.01" x2="274.3" y2="225" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-        <line x1="51.3" y1="475.33" x2="274.3" y2="252.32" fill="none" stroke="#636363" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="120.2" x2="274.3" y2="-102.81" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="147.51" x2="274.3" y2="-75.49" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="174.83" x2="274.3" y2="-48.17" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="202.15" x2="274.3" y2="-20.86" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="229.47" x2="274.3" y2="6.46" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="256.79" x2="274.3" y2="33.78" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="284.1" x2="274.3" y2="61.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="311.42" x2="274.3" y2="88.41" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="338.74" x2="274.3" y2="115.73" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="366.06" x2="274.3" y2="143.05" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="393.37" x2="274.3" y2="170.37" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="420.69" x2="274.3" y2="197.69" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="448.01" x2="274.3" y2="225" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="51.3" y1="475.33" x2="274.3" y2="252.32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
       </g>
     </g>
   </g>

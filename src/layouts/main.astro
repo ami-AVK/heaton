@@ -1,22 +1,65 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import { SEO } from "astro-seo";
+import '../styles/main.css';
 
-const { content } = Astro.props;
+const { content, title="Heaton", description="Отопительное оборудование", class: className } = Astro.props;
 
 ---
 
-<html lang="ru" class="scroll-smooth">
+<html lang="ru" class="scroll-smooth" class:list={className}>
 	<head>
 		<meta charset="utf-8" />
 		<!-- <meta name="viewport" content="width=device-width" /> -->
 		<meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href=`${import.meta.env.BASE_URL}/favicon.svg` />
+		<link rel="icon" type="image/svg+xml" href=`${import.meta.env.BASE_URL}/favicon.svg`/>
 		<!-- <meta name="generator" content={Astro.generator} /> -->
-		<title>Heaton</title>
+
+		<SEO
+			title={title}
+			description={description}
+			noindex={true}
+			openGraph={{
+				basic: {
+				  title: title,
+				  type: "website",
+				  image: `${import.meta.env.BASE_URL}/favicon.svg`,
+				}
+			  }}
+			extend={{
+				// extending the default link tags
+				link: [{ rel: "icon", href: `${import.meta.env.BASE_URL}/favicon.svg`}],
+				}}
+		/>
 		<ClientRouter />
 	</head>
-
-	<body class="bg-neutral-100">
+	<body class="bg-[#F9F9F9]_ bg-gr-metallic  mx-8 xl:mx-auto">
+		<div class=" fixed left-4 bottom-4 z-50 flex flex-col items-center opacity-15 blur-xl hover:blur-0 transition-all hover:opacity-100">
+			<label for="Основной цвет" class="text-xs uppercase">Основной цвет</label>
+			<input type="color" name="Основной цвет" class="m-2 w-full" id="colorPicker" oninput="changeColor()" onchange="changeColor()"/>
+		</div>
 		<slot />
 	</body>
+	<script is:inline>
+		function changeColor(){
+			const input = document.getElementById("colorPicker");
+			const hexColor = input.value;
+      		const rgbColor = hexToRgb(hexColor);
+			// console.log(input.value)
+			document.documentElement.style.setProperty('--primary-rgb', rgbColor);
+		}
+		function hexToRgb(hex) {
+      		// Удаляем символ #, если он присутствует
+			hex = hex.replace(/^#/, '');
+
+			// Преобразуем HEX в RGB
+			let bigint = parseInt(hex, 16);
+			let r = (bigint >> 16) & 255;
+			let g = (bigint >> 8) & 255;
+			let b = bigint & 255;
+
+			return `${r}, ${g}, ${b}`;
+			}
+
+	</script>
 </html>

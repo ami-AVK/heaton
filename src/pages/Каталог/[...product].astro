@@ -1,0 +1,111 @@
+---
+import sitemapJSON from '../../data/site.json'
+import DynamicImage from '../../components/ImageDynamic.astro'
+import Layout from '../../layouts/main.astro'
+import BreadCrumbs from '../../components/BreadCrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import Drawing from '../../components/Drawing.astro';
+
+
+interface Product {
+    'Наименование': string;
+    url:string
+    [key: string]: any;
+}
+interface Category {
+    ['Заголовок на главную']:string;
+    ['Описание на главную']:string;
+    ['Заголовок в карточку']:string;
+    ['Описание в карточку']:string;
+    [key: string]: any;
+    products: Product[];
+}
+interface Sitemap {
+    [key: string]: Category;
+}
+export async function getStaticPaths() {
+    let paths=[] as any[]
+    const sitemap = sitemapJSON as any as Sitemap;
+    for (const key in sitemap as any) {
+        const category = sitemap[key] as Category
+        if (sitemap.hasOwnProperty(key)) {
+            const products = category.products as Product[]
+            products.forEach(product => {
+                let path_ = {
+                            params:{
+                                product: product.url
+                            },
+                            props:{
+                                category: key,
+                                url:product.url,
+                                model:product['Модель'],
+                                title: category['Заголовок в карточку'] as string,
+                                description: category['Описание в карточку'],
+                                rowdata: product as Product,
+                            }};
+                paths.push(structuredClone(path_));
+            });
+            
+        }
+    }
+    return paths
+}
+
+const {rowdata,category,title,description,url,model} = Astro.props
+const imagePath = `/src/images/products/${rowdata['Изображение']}`
+const imageAlt = `${category} Heaton ${rowdata['Наименование']}`
+const productName = rowdata['Наименование']
+
+const URL_main = `${import.meta.env.BASE_URL}/`
+const URL_category = `${URL_main}Каталог/${category}/`
+const URL_product = `${URL_category}${productName}`
+
+const height = rowdata['Высота, мм'];
+const width = rowdata['Длина, мм'];
+const depth = rowdata['Глубина, мм'];
+const power = rowdata['Теплоотдача, Вт'];
+const weight = rowdata['Масса НЕТТО, кг'];
+---
+<Layout title={title.replace("{Наименование}",productName)} description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
+    <Hero class="min-h-svh snap-center">
+        <NavBar slot="navbar" class="mx-auto container-center py-8"/>
+        <BreadCrumbs slot="breadcrumbs" class='z-50' list={
+            [{url:URL_main, text:"Главная"},{url:URL_category, text:category},{url:URL_product, text:productName}]
+            }/>
+        <DynamicImage imagePath={imagePath} altText={imageAlt} slot="image" model={model}/>
+        <Fragment slot="header">
+            <h1 class="text-6xl font-black uppercase">{productName}</h1>
+
+            <ul class="text-xl flex flex-col gap-2 py-16">
+                <li>
+                    {height} мм
+                </li>
+                <li>
+                    {depth} мм
+                </li>
+                <li>
+                    {width} мм
+                </li>
+                <li>
+                    {power} Вт
+                </li>
+                <li>
+                    {weight} кг
+                </li>
+            </ul>
+            <!-- <a class="px-4 py-2 text-2xl rounded-lg text-neutral-50 bg-primary mt-auto self-start">Каталог</a> -->
+        </Fragment>
+
+        <Fragment slot="extralinks">
+            <ul class="flex gap-8">
+                <li><a href="/#models" class="px-16 py-8 border border-primary rounded-2xl block">Аналоги</a></li>
+                <li><a href="/#calculator" class="px-16 py-8 border border-primary rounded-2xl block">Калькулятор</a></li>
+            </ul>
+        </Fragment>
+    </Hero>
+    <Drawing width={200} height={100}/>
+    <Footer class="mt-auto snap-center"/>
+    
+</Layout>

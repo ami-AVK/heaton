@@ -5,7 +5,7 @@ const {name, subname, shortname, characteristics, url} = Astro.props;
 import heater from "../img/heater_main.webp"
 import Button from "./Button.astro";
 ---
-<div class="w-full p-8 transition-all border shadow-lg bg-[#f1f2f1] border-neutral-50/50 rounded-3xl group/modelcard hover:bg-neutral-50 hover:scale-105 will-change-auto hover:shadow-2xl group/modelCard z-10">
+<div class="w-full p-8 transition-all border drop-shadow-none bg-neutral-50 border-neutral-50/50 rounded-3xl group/modelcard hover:bg-white hover:scale-105 will-change-auto hover:drop-shadow-primary-hard group/modelCard z-10">
     <div class="relative transition-transform will-change-transform group-hover/modelcard:scale-105 perspective-1000">
         <div class="transition-transform group-hover/modelcard:rotate-y-12 will-change-transform">
             <Image alt=`Изображение радиатора ${name}` src={heater} class=""/>
@@ -33,5 +33,5 @@ import Button from "./Button.astro";
 
     }
     </ul>
-    <Button class="w-full rounded-lg bg-neutral-50 group-hover/modelCard:bg-secondary" text="Перейти в каталог" link={url} type="download" />
+    <Button class=" box-border transition-colors w-full rounded-lg bg-neutral-50 group-hover/modelCard:bg-primary group-hover/modelCard:border-neutral-50/0 group-hover/modelCard:text-white uppercase" text="Перейти в каталог" link={url} type="download" />
 </div>
