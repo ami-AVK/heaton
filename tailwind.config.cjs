@@ -23,6 +23,8 @@ module.exports = {
 			colors: {
 				'primary':{
 					DEFAULT:"var(--primary,#D43B18)",
+					10:"var(--primary-10,#D43B18)",
+					20:"var(--primary-20,#D43B18)",
 					// 100:"#DDD7D1",
 					// 200:"#CEC2B8",
 					// 300:"#B8A89E",

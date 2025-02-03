@@ -98,30 +98,30 @@ const mainImageDescription = "Стальной панельный радиато
 
     </Hero>
 	<section class="snap-start container-center py-16 mx-auto ">
-		<ul class="grid grid-cols-3 gap-16 py-16 tracking-wider leading-relaxed text-lg">
-			<li class="col-span-2 row-span-2 rounded-xl p-8 flex flex-col ">
-				<div class="w-1/3 mb-16 text-primary">
+		<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 py-16 tracking-wider leading-relaxed text-lg">
+			<li class="sm:col-span-2 sm:row-span-2 rounded-xl p-8 flex flex-col ">
+				<div class="w-3/4 sm:w-1/2 lg:w-1/3 mb-16 text-primary">
 					<Logo/>
 				</div>
-				<p class="mt-auto text-xl tracking-wider leading-loose my-8">
+				<p class="mt-auto text-xl tracking-wider leading-loose my-4 sm:my-8">
 					Бренд Heaton — это современный бренд, предлагающий широкий ассортимент отопительного оборудования, включая стальные панельные радиаторы, внутрипольные и напольные конвекторы 
 					<!-- <br>Продукция Heaton производится на нескольких заводах, включая известный турецкий завод ELBA с более чем 50-летним опытом, что гарантирует высочайшее качество и надежность. 
 					<br>Бренд сочетает в себе инновационные технологии, доступные цены и строгое соответствие международным стандартам, таким как ГОСТ 31311. -->
 				</p>
 			</li>
-			<li class="col-start-1 row-start-3 bg-neutral-50/40 rounded-xl p-8 flex flex-col">
-				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Гарантия</h3>
-				<p class="mt-auto">
-					Heaton предлагает гарантию до 10 лет на свою продукцию, что подтверждает долговечность и надежность оборудования
-				</p>
-			</li>
-			<li class="row-span-3 col-start-3 row-start-1 bg-primary rounded-xl p-8 flex flex-col text-neutral-50 drop-shadow-primary-m">
+			<li class="col-span-1 row-span-3 bg-primary rounded-xl p-8 flex flex-col text-neutral-50 drop-shadow-primary-m">
 				<h3 class="font-black uppercase pb-4 text-2xl text-neutral-50">Техническая поддержка</h3>
 				<p class="mt-auto">
 					Бренд предоставляет полную предпродажную и послепродажную поддержку, включая консультации, помощь в подборе оборудования и гарантийное обслуживание
 				</p>
 			</li>
-			<li class="row-start-3 bg-neutral-50/40 rounded-xl p-8">
+			<li class="col-span-1 bg-neutral-50/40 rounded-xl p-8 flex flex-col">
+				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Гарантия</h3>
+				<p class="mt-auto">
+					Heaton предлагает гарантию до 10 лет на свою продукцию, что подтверждает долговечность и надежность оборудования
+				</p>
+			</li>
+			<li class="col-span-1 bg-neutral-50/40 rounded-xl p-8">
 				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Выбор</h3>
 				<p class="mt-auto">
 					Heaton предлагает широкий типоразмерный ряд радиаторов и конвекторов, что позволяет подобрать оборудование для помещений любого типа и площади
@@ -129,54 +129,7 @@ const mainImageDescription = "Стальной панельный радиато
 				
 			</li>
 		</ul>
-		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">
-			<!-- {
-				[
-
-					{
-						header:"Большой типоразмерный ряд", 
-						text:"Широкий ассортимент стандартных моделей, что позволяет подобрать оптимальное решение для любого объекта. 90% от заявки в наличии на складе", 
-						icon:"BI__delivery",
-						image:'heaters.webp',
-						buttons:[
-
-						]
-					},
-					{
-						header:"Безопасность продукции, \nподтвержденная сертификатами", 
-						text:"Радиаторы Heaton прошли обязательную сертификацию, что гарантирует их соответствие стандартам ГОСТ, безопасность для потребителей и исключает риски использования контрафактной продукции", 
-						icon:"BI__certificate",
-						buttons:[
-							{url:`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`, icon:"Sertificate", text:"Сертификат соответствия"} as Button,
-							{url:`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`, icon:"Sertificate", text:"Гигиенический сертификат"} as Button,
-						]
-					},
-					{
-						header:"Высокое качество\n за лучшую цену", 
-						text:"Продукция Heaton сочетает в себе надежность и доступную стоимость", 
-						icon:"BI__complect",
-						buttons:[
-							{url:URL_model, icon:"Sertificate", text:"Перейти в каталог"} as Button
-						]
-					},
-					{
-						header:"10 лет\n гарантии", 
-						text:"Долговечность и надежность радиаторов подтверждены длительной гарантией", 
-						icon:"BI__factory",
-						buttons:[
-	
-						]
-					},
-
-
-					
-				].map((element)=>(
-					<li class="flex grow shrink basis-1/3 p-4 text-lg rounded-3xl relative bg-neutral-50 overflow-clip">
-						<Feature header={element.header} text={element.text} buttons={element.buttons} icon={element.icon} image={element.image}/>
-					</li>
-				))
-			} -->
-			
+		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">			
 			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
 				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
 					<Image alt={mainImageDescription} src={heater} slot="image"/>

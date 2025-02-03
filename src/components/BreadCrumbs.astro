@@ -12,14 +12,18 @@
 
 const {list, class:className, ...attr} = Astro.props
 
+
 ---
-<ul class="flex gap-3" class:list={className} {...attr}>
+<ul class="flex gap-5" class:list={className} {...attr}>
     {
         list.map(
                     (link,index) => 
                     (
-                    <li class="font-regular last:font-black last:pointer-events-none separator last:before:hidden ">
-                        <a href={link.url } class="p-2 rounded-lg cursor-pointer min-h-min min-w-min hover:bg-neutral-50" >{link.text}</a>
+                    <li class="font-regular last:font-black separator last:before:hidden relative group z-40 last:z-50">
+                        <a href={link.url } class="p-2 rounded-lg cursor-pointer min-h-min min-w-min hover:bg-neutral-50/20">{link.text}</a>
+                        <ul class=" font-normal empty:hidden opacity-0 w-0 h-0 overflow-clip absolute group-hover:-top-2 -z-10 pt-10 bg-neutral-100 shadow-xl p-2 px-1 rounded-lg group-hover:w-full group-hover:h-auto group-hover:opacity-100 min-w-max">{link.links?.map(element => (
+                                <li class="py-1 mt-2 hover:bg-neutral-200 rounded-md"><a href={element.url} class="block px-1">{element.text}</a></li>
+                            ))}</ul>
                     </li>
                     )
                 )

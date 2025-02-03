@@ -1,27 +1,23 @@
 ---
 import Socials from './Socials.astro';
 ---
-<section class="mx-auto flex inview-bottom w-full">
-    <div class="bg-primary p-16 drop-shadow-primary-d rounded-2xl w-full my-32 inview-target">
-        <div class="flex justify-between">
-            <h2 class="text-2xl font-black md:text-4xl mb-16 text-neutral-50 uppercase w-1/2 shrink">Получить комерческое предложение</h2>
-            <Socials class="z-50 text-neutral-50"/>
+<section class="mx-auto flex inview-bottom w-full @container">
+    <div class="bg-primary p-8 sm:p-16 drop-shadow-primary-d rounded-2xl w-full my-32 inview-target ">
+        <div class="flex flex-col sm:flex-row justify-between mb-8 sm:mb-auto">
+            <h2 class="text-2xl font-black sm:text-4xl mb-4 sm:mb-16 text-neutral-50 uppercase w-1/2 shrink">Получить комерческое предложение</h2>
+            <Socials class="z-50 text-neutral-50 scale-75 sm:scale-100 origin-left"/>
         </div>
-        
         <div class="">
             <form action="#" method="post" class="flex flex-col gap-4 ">
-                <div class=" flex gap-6 items-center">
-                    <input type="tel" required placeholder="Телефон" class="grow rounded-xl inset-0 border-t-0 border-l-0 border-r-0   border-b-neutral-50 bg-neutral-50/5 text-neutral-50 focus:ring-neutral-50 focus:border-b-neutral-50 focus:outline-none placeholder:text-neutral-50/50"/>
+                <div class=" flex gap-6 items-center flex-col sm:flex-row">
+                    <input type="tel" required placeholder="Телефон" class="grow rounded-xl w-full sm:w-auto inset-0 border-t-0 border-l-0 border-r-0   border-b-neutral-50 bg-neutral-50/5 text-neutral-50 focus:ring-neutral-50 focus:border-b-neutral-50 focus:outline-none placeholder:text-neutral-50/50"/>
                     <div class="p-2 rounded-full bg-neutral-50/10 text-neutral-50">или</div>
-                    <input type="email" required placeholder="Почта" class="grow rounded-xl inset-0 border-t-0 border-l-0 border-r-0   border-b-neutral-50 bg-neutral-50/5 text-neutral-50 focus:ring-neutral-50 focus:border-b-neutral-50 focus:outline-none placeholder:text-neutral-50/50"/>
-                    <input type="submit" value="Отправить" class="p-2 px-4 rounded-xl inset-0   border-b-neutral-50 bg-neutral-50 text-neutral-700 focus:ring-neutral-700 focus:border-b-neutral-50 focus:outline-none" />
+                    <input type="email" required placeholder="Почта" class="grow rounded-xl w-full sm:w-auto inset-0 border-t-0 border-l-0 border-r-0   border-b-neutral-50 bg-neutral-50/5 text-neutral-50 focus:ring-neutral-50 focus:border-b-neutral-50 focus:outline-none placeholder:text-neutral-50/50"/>
+                    <input type="submit" value="Отправить" class="p-2 px-4 rounded-xl inset-0 w-full sm:w-auto border-b-neutral-50 bg-neutral-50 text-neutral-700 focus:ring-neutral-700 focus:border-b-neutral-50 focus:outline-none" />
                 </div>
             </form>
         </div>
     </div>
-    <!-- <div class="min-h-[40svh] bg-neutral-50/10 backdrop-blur-2xl">
-
-    </div> -->
 </section>
 <script>
     import { animate,scroll,stagger, inView } from "motion";

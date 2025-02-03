@@ -8,7 +8,13 @@ import NavBar from '../../components/NavBar.astro';
 import Footer from '../../components/Footer.astro';
 import Table from '../../components/Table_.astro';
 import ProductData from '../../components/ProductData.astro';
+// import RussianNouns from 'russian-nouns-js';
 
+interface Link {
+    url: string;
+    text: string;
+    links?: Link[]
+}
 
 interface Product {
     'Наименование': string;
@@ -28,19 +34,33 @@ interface Sitemap {
 }
 export async function getStaticPaths() {
     let paths=[] as any[]
-    const sitemap = sitemapJSON as any as Sitemap
+    const sitemap = sitemapJSON as any as Sitemap;
+    var uniqueCategories = Object.keys(sitemap);
+
     for (const key in sitemap as any) {
         const category = sitemap[key] as Category
         if (sitemap.hasOwnProperty(key)) {
             const products = category.products as Product[]
 
+            
             // выделяем список моделей
             let models = [...new Set(products.map(product => product['Модель']))];
 
 
             // const URL_main = `${import.meta.env.BASE_URL}/`
             const URL_category = `${key}/`
-            
+
+            let path_ = {
+                            params:{
+                                model: `${URL_category}`
+                            },
+                            props:{
+                                category: key,
+                                otherCategories: uniqueCategories.filter(cat => cat !== key) as String[],
+                                allModels: models as String[],
+                            }};
+                // console.log(path_)
+                paths.push(structuredClone(path_));
             // создаем страницы для моделей
             models.forEach(model => {
                 let path_ = {
@@ -50,12 +70,10 @@ export async function getStaticPaths() {
                             props:{
                                 model: model,
                                 category: key,
-                                // url:product.url,
-                                // title: category['Заголовок в карточку'] as string,
-                                // description: category['Описание в карточку'],
-                                // rowdata: product as Product,
+                                otherCategories: uniqueCategories.filter(cat => cat !== key) as String[],
+                                allModels: models as String[],
                             }};
-                console.log(path_)
+                // console.log(path_)
                 paths.push(structuredClone(path_));
             });
             
@@ -63,15 +81,46 @@ export async function getStaticPaths() {
     }
     return paths
 }
-const {category, model} = Astro.props
-const URL_main = `${import.meta.env.BASE_URL}/`
-const URL_category = `${URL_main}Каталог/${category}/`
-const URL_model = `${URL_category}${model}`
+const {category, model,otherCategories, allModels} = Astro.props;
+const URL_main = `${import.meta.env.BASE_URL}/`;
+const URL_category = `${URL_main}Каталог/${category}/`;
+// const URL_model = `${URL_category}${model}`;
+const URL_filterSetiing = ``;
 const sitemap_ = sitemapJSON as any as Sitemap;
-let products = sitemap_[category].products.filter((product)=>{
-    // console.log(`${product['Модель']} === ${model}  => ${product['Модель'] === model}`);
-    return product['Модель'] === model
-})
+
+const categories = otherCategories.map((element:String) => (
+    {
+        url:`${URL_main}Каталог/${element}/`,
+        text:element
+    }
+)) as Link[];
+
+let models_all = allModels.map((element:String) => (
+    {
+        url:`${URL_category}${element}/`,
+        text:element
+    }
+    )) as Link[];
+
+let models = [] as Link[];
+
+let products = [] as any[];
+
+if(model){
+    
+    models = models_all.filter(mdl => mdl.text !== model);
+    products = sitemap_[category].products.filter((product)=>{
+        return product['Модель'] === model
+    })
+}
+else{
+    // const nouns = new RussianNouns.Engine();
+    // const L = RussianNouns.createLemma;
+    // const Gender = RussianNouns.Gender;
+    // console.log(L({text: 'Радиатор', gender: Gender.MASCULINE}));
+    // console.log(nouns.pluralize(category.split(' ')[0]))
+    products = sitemap_[category].products;
+}
 
 // Заголовки для парсинга таблицы, на разные категории разные заголовки бывают
 let TABLE_HEADERS =  ['Номенклатурный номер','Наименование'];
@@ -87,26 +136,35 @@ switch (category){
     break
 }
 
+const breadCrumbs = [{url:URL_main, text:"Главная"},{url:URL_category, text:category, links:categories}];
+if(model){
+    breadCrumbs.push({url:`${URL_category}${model}`, text:model, links:models});
+}
+const title = model? model:category;
+
+
 ---
-<!-- <div class=""></div> -->
-<Layout title={model} description="Качественные панельные радиаторы от российского бренда" class="">
+<Layout title={title} description="Качественные панельные радиаторы от российского бренда" class="">
     <section class="container-center">
         <NavBar slot="navbar" class=" py-8"/>
-        <BreadCrumbs slot="breadcrumbs" class='z-50' list={[{url:URL_main, text:"Главная"},{url:URL_category, text:category},{url:URL_model, text:model}]}/> 
+        <BreadCrumbs slot="breadcrumbs" class='z-50' list={breadCrumbs}/> 
     </section>
 
     <div class="container-center py-16 flex gap-16">
         <div class="filter  flex flex-col shrink-0 basis-64 ">
-            <div class="bg-neutral-100 rounded-2xl p-4">
+            <div class="bg-neutral-200 rounded-2xl p-4">
                 <div class="py-2">
-                    <h3>
+                    <h3 class="font-extrabold">
                         Модель:
                     </h3>
                     <ul class="">
-                        <li class="bg-primary text-neutral-50 p-2" data-current>Compact</li>
-                        <li class="p-2">Ventil Compact</li>
-                        <li class="p-2">Hyigine Compact</li>
-                        <li class="p-2">Hyigine Ventil Compact</li>
+                        {
+                            models_all.map((model)=>(
+                                <li class="data-[current]:bg-primary text-neutral-700 px-2 py-1 my-1 hover:bg-primary hover:text-neutral-50 rounded-lg">
+                                    <a href={model.url} class="block">{model.text}</a>
+                                </li>
+                                ))
+                        }
                     </ul>
                 </div>
                 <div class="py-2">
@@ -144,40 +202,3 @@ switch (category){
     <Footer class="mt-auto snap-center"/>
     
 </Layout>
-
-
-
-<!-- 
-<Layout title={model} description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
-    <NavBar slot="navbar" class="mx-auto container-center py-8"/>
-    <NavBar slot="navbar" class="mx-auto container-center py-8"/>
-    <BreadCrumbs slot="breadcrumbs" class='z-50' list={
-        [{url:URL_main, text:"Главная"},{url:URL_category, text:category},{url:URL_model, text:model}]
-        }
-    />
-
-    <Hero class="min-h-svh snap-center">
-        <NavBar slot="navbar" class="mx-auto container-center py-8"/>
-        <BreadCrumbs slot="breadcrumbs" class='z-50' list={
-            [{url:URL_main, text:"Главная"},{url:URL_category, text:category},{url:URL_model, text:model}]
-            }/>
-        <DynamicImage imagePath={`${model}.webp`} altText={`${category} ${model}`} slot="image" model={model}/>
-
-        <Fragment slot="header">
-            <h1 class="text-6xl font-black uppercase">{model}</h1>
-
-        </Fragment>
-
-        <Fragment slot="extralinks">
-            <ul class="flex gap-8">
-                <li><a href="/#models" class="px-16 py-8 border border-primary rounded-2xl block">Аналоги</a></li>
-                <li><a href="/#calculator" class="px-16 py-8 border border-primary rounded-2xl block">Калькулятор</a></li>
-            </ul>
-        </Fragment>
-    </Hero>
-    <div class="snap-start mx-auto container-center py-16">
-        <Table products={products} headers={TABLE_HEADERS}/>
-    </div>
-    <Footer class="mt-auto snap-center"/>
-    
-</Layout> -->

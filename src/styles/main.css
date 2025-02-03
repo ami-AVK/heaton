@@ -9,6 +9,7 @@
   --primary-rgb: 212, 59, 24;
   --primary: rgba(var(--primary-rgb),1);
   --primary-20: rgba(var(--primary-rgb), 0.2);
+  --primary-10: rgba(var(--primary-rgb), 0.1);
   --primary-80: rgba(var(--primary-rgb), 0.8);
   --primary-shadow: rgba(var(--primary-rgb), 0.8);
 }
@@ -30,7 +31,7 @@
   } */
 
   body{
-    @apply bg-neutral-100 overscroll-none overflow-x-clip text-neutral-700;
+    @apply bg-neutral-100 overscroll-none overflow-x-clip  text-neutral-700;
   }
   .slide-from-top {
     will-change: transform;
@@ -161,7 +162,7 @@
     @apply  header-before-shape before:-left-3 before:-top-0.5 before:w-10 before:h-10;
   }
   .separator {
-    @apply z-0 before:-z-10  before:content-['/'] before:block before:absolute relative text-base before:text-primary before:-right-2;
+    @apply z-0 before:-z-10  before:content-['/'] before:block before:absolute relative text-base before:text-primary before:-right-3.5;
   }
   .hard-shadow{
     @apply z-0 before:-z-10  before:content-[''] before:block before:bg-primary opacity-30 before:absolute before:w-full before:h-full before:translate-x-4 before:translate-y-4;

@@ -53,9 +53,9 @@ isNameNumeric = false;
     </Tag>
     :
     // data row
-    <Tag class="px-4 py-1 whitespace-nowrap text-sm leading-6 font-normal text-neutral-700 first-of-type:pl-3" class:list={{"text-right":isNameNumeric}}>
+    <Tag class="px-4 py-0.5 whitespace-nowrap text-sm leading-6 font-normal text-neutral-700 first-of-type:pl-3" class:list={{"text-right":isNameNumeric}}>
       {hasURL?
-        <a href={url} class="border-b-[1px] border-neutral-300 hover:bg-secondary relative group">
+        <a href={url} class="border-b-[1px]_ block font-bold border-neutral-300_ rounded-md relative group">
           {name}
           {/* <span class="group-hover:before:content-['Перейти'] group-hover:before:block before:-right-16 before:rounded-full before:text-neutral-400 before:absolute">{name}</span> */}
         </a>

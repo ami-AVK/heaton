@@ -3,7 +3,7 @@ import Logo from '../svg/logo_big.svg';
 import LogoSmall from '../svg/logo_small.svg';
 import { Icon } from 'astro-icon/components';
 import { glob, globSync, globStream, globStreamSync, Glob } from 'glob'
-import sitemap from '../data/site.json'
+import sitemapJSON from '../data/site.json'
 import ModelsRow from './ModelsRow.astro';
 
 interface Link {
@@ -28,16 +28,18 @@ interface Sitemap {
     [key: string]: Category;
 }
 let catalogLinks = []
-for (const key in sitemap as any) {
+const sitemap = sitemapJSON as any as Sitemap;
+
+for (const key in sitemap as any as Sitemap) {
         const category = sitemap[key] as Category
         if (sitemap.hasOwnProperty(key)) {
             const products = category.products as Product[];
-            const url = `${import.meta.env.BASE_URL}/Каталог/${key}`
+            const url = `${import.meta.env.BASE_URL}/${key}`
 
             let models = [...new Set(products.map(product => product['Модель']))];
             
             const models_ = models.map((model)=>{
-              return {url:`${url}/${model}`,text:model} as any as Link
+              return {url:`${import.meta.env.BASE_URL}/Каталог/${key}/${model}`,text:model} as any as Link
             })
             const link = {url:`${url}`,text:key, links:models_} as any as Link;
             catalogLinks.push(link);
@@ -64,20 +66,20 @@ const mainLinks = [
     <div class="relative z-50 flex flex-row items-center justify-between ">
       <div class="flex items-center gap-4 nav-left-block">
           <a href=`${import.meta.env.BASE_URL}/` class=`cursor-pointer text-secondary ${mainpage?"pointer-events-none":""}`>
-            <Logo class="hidden w-20 md:w-32 lg:w-40 md:block text-primary"/>
-            <LogoSmall class="w-16 md:hidden text-primary"/>
+            <Logo class="hidden w-20 md:w-32 lg:w-40 lg:block text-primary"/>
+            <LogoSmall class="w-16 lg:hidden text-primary"/>
           </a>
-          <div class="gap-4 mx-4 lg:mx-auto lg:flex-col lg:gap-2 flex">
+          <div class="gap-4 mx-4 md:mx-auto md:flex-col md:gap-2 flex">
               <a class="flex items-center gap-2 text-neutral-700" href="tel:+74996450000">
-                  <Icon name="Phone call" class="size-8 lg:size-6"/>
-                  <div  class="relative text-base font-semibold leading-5 tracking-wider hidden lg:block group">
+                  <Icon name="Phone call" class="size-8 md:size-6"/>
+                  <div  class="relative text-base font-semibold leading-5 tracking-wider hidden md:block group">
                     <div>8 499 645-00-00</div>
                     <!-- <div class="absolute -top-64 group-hover:-right-full whitespace-nowrap group-hover:top-0 px-4 py-2 bg-primary">Заказать звонок?</div> -->
                 </div>
               </a>
               <a class="flex items-center gap-2 text-neutral-700" href="mailto:retail@heaton.ru?subject=Вопрос с сайта">
-                  <Icon name="At sign" class="size-8 lg:size-6" />
-                  <div class="relative text-base font-semibold leading-5 tracking-wider hidden lg:block">retail@heaton.ru</div>
+                  <Icon name="At sign" class="size-8 md:size-6" />
+                  <div class="relative text-base font-semibold leading-5 tracking-wider hidden md:block">retail@heaton.ru</div>
               </a>
           </div>
       </div>
@@ -105,7 +107,7 @@ const mainLinks = [
               }
             </ul>
         </div>
-        <div class="relative hidden md:block">
+        <div class="relative hidden lg:block">
           <div
             class="bg-neutral-50 text-neutral-700 rounded-full pt-1 pr-1 pb-1 pl-4 flex flex-row gap-4 items-center justify-start shrink-0 relative data-[active]:bg-primary data-[active]:text-primary  overflow-clip group/container data-[active]:shadow-2xl"
             id="search-container"
