@@ -7,6 +7,7 @@ import Hero from '../../components/Hero.astro';
 import NavBar from '../../components/NavBar.astro';
 import Footer from '../../components/Footer.astro';
 import Drawing from '../../components/Drawing.astro';
+import Contact from '../../components/Contact.astro';
 
 
 interface Product {
@@ -69,43 +70,87 @@ const power = rowdata['Теплоотдача, Вт'];
 const weight = rowdata['Масса НЕТТО, кг'];
 ---
 <Layout title={title.replace("{Наименование}",productName)} description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
-    <Hero class="min-h-svh snap-center">
-        <NavBar slot="navbar" class="mx-auto container-center py-8"/>
-        <BreadCrumbs slot="breadcrumbs" class='z-50' list={
-            [{url:URL_main, text:"Главная"},{url:URL_category, text:category},{url:URL_product, text:productName}]
-            }/>
-        <DynamicImage imagePath={imagePath} altText={imageAlt} slot="image" model={model}/>
-        <Fragment slot="header">
-            <h1 class="text-6xl font-black uppercase">{productName}</h1>
+    <div class="snap-center">
+        <Hero class="min-h-svh">
+            <NavBar slot="navbar" class="mx-auto container-center py-8"/>
+            <BreadCrumbs slot="breadcrumbs" class='z-50' list={
+                [{url:URL_main, text:"Главная"},{url:URL_category, text:category},{url:URL_product, text:productName}]
+                }/>
+            <DynamicImage imagePath={imagePath} altText={imageAlt} slot="image" model={model}/>
+            <Fragment slot="header">
+                <h1 class="text-6xl font-black uppercase">{productName}</h1>
+                <ul class="text-xl flex flex-col gap-2 py-16">
+                    <li>
+                        {height} мм
+                    </li>
+                    <li>
+                        {depth} мм
+                    </li>
+                    <li>
+                        {width} мм
+                    </li>
+                    <li>
+                        {power} Вт
+                    </li>
+                    <li>
+                        {weight} кг
+                    </li>
+                </ul>
+            </Fragment>
+    
+            <Fragment slot="extralinks">
+                <ul class="flex gap-8">
+                    <li><a href="/#models" class="px-16 py-8 border border-primary rounded-2xl block">Аналоги</a></li>
+                    <li><a href="/#calculator" class="px-16 py-8 border border-primary rounded-2xl block">Калькулятор</a></li>
+                </ul>
+            </Fragment>
+        </Hero>
+        <section class="text-4xl font-black uppercase container-center">
+            <h2>Технические характеристики</h2>
+            <Drawing width={200} height={100}/>
+        </section>
+    </div>
+    
+    
+   
+    <section class="snap-center container-center mx-auto">
+		<Contact/>
+	</section>
+    <section class="container-center snap-center min-h-[40vh] my-32">
+            <div class="flex justify-between">
+                <h2 class="text-4xl font-black uppercase">Аналоги</h2>
+                <ul class="flex gap-8">
+                    <li>Похожая мощность</li>
+                    <li>Похожая высота</li>
+                    <li>Похожая длина</li>
+                </ul>
+            </div>
+            <ul class="flex flex-wrap gap-16 mt-16">
+                {
+                    [
+                        'Карточка товара',
+                        'Карточка товара',
+                        'Карточка товара',
+                        'Карточка товара',
+                        'Карточка товара',
 
-            <ul class="text-xl flex flex-col gap-2 py-16">
-                <li>
-                    {height} мм
-                </li>
-                <li>
-                    {depth} мм
-                </li>
-                <li>
-                    {width} мм
-                </li>
-                <li>
-                    {power} Вт
-                </li>
-                <li>
-                    {weight} кг
-                </li>
-            </ul>
-            <!-- <a class="px-4 py-2 text-2xl rounded-lg text-neutral-50 bg-primary mt-auto self-start">Каталог</a> -->
-        </Fragment>
+                    ].map((card) => (
+                        <li class="size-64 grow bg-neutral-200 rounded-xl p-8">
+                            {card}
+                        </li>
+                    ))
+                }
 
-        <Fragment slot="extralinks">
-            <ul class="flex gap-8">
-                <li><a href="/#models" class="px-16 py-8 border border-primary rounded-2xl block">Аналоги</a></li>
-                <li><a href="/#calculator" class="px-16 py-8 border border-primary rounded-2xl block">Калькулятор</a></li>
             </ul>
-        </Fragment>
-    </Hero>
-    <Drawing width={200} height={100}/>
+        
+    </section>
+    <section class="container-center snap-center  min-h-[40vh]">
+        <h2 class="text-4xl font-black uppercase">Другие виды отопительного оборудования</h2>
+        <ul>
+            <li>Внутрипольные конвекторы</li>
+            <li>Напольные конвекторы</li>
+        </ul>
+    </section>
     <Footer class="mt-auto snap-center"/>
     
 </Layout>
