@@ -26,12 +26,12 @@ if(!headers){
 
 ---
 
-<div class="overflow-x-auto">
-  <table class="min-w-full">
-    <thead class="sticky top-0 z-50">
-        <Row values={headers} headers={headers} isHeader={true} class="sticky top-0 z-50"/>
+<div class="overflow-x-auto_">
+  <table class="">
+    <thead class="z-10">
+        <Row values={headers} headers={headers} isHeader={true} class="bg-neutral-50"/>
     </thead>
-    <tbody class="">
+    <tbody>
       {
         products.map((row:Product) => (
           <Row values={row} headers={headers} id={row["Номенклатурный номер"]}/>

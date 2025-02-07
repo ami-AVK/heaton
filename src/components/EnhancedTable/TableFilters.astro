@@ -1,0 +1,78 @@
+---
+import { getUniqueFieldValues } from '../../utils/productUtils';
+import type { TableColumn } from '../../types/table';
+
+interface Props {
+    category: string;
+    filterableColumns: TableColumn[];
+}
+
+const { category, filterableColumns } = Astro.props;
+
+// Get unique values for each filterable column
+const filterValues = filterableColumns.reduce((acc, column) => {
+    acc[column.value] = getUniqueFieldValues(category, column.value);
+    return acc;
+}, {} as Record<string, (string | number)[]>);
+---
+
+<div class="bg-neutral-200 rounded-2xl p-4">
+    <slot/>
+    {filterableColumns.map(column => (
+        <div class="py-2">
+            <h3 class="font-extrabold text-base tracking-wider">{column.value.split(",")[0]}:</h3>
+            <ul class="max-h-64 overflow-y-auto flex flex-wrap text-sm leading-none">
+                {filterValues[column.value].map((value) => (
+                    <li class="px-1 py-0.5 my-0.5 hover:bg-primary hover:text-neutral-50 rounded-lg cursor-pointer">
+                        <label class="block w-full cursor-pointer">
+                            <input 
+                                type="checkbox" 
+                                class="hidden peer" 
+                                name={column.value}
+                                value={value}
+                                data-column={column.value}
+                            />
+                            <span class="peer-checked:bg-primary peer-checked:text-neutral-50 block p-1">
+                                {value} 
+                                {/* {column.unit} */}
+                            </span>
+                        </label>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    ))}
+</div>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const filterInputs = document.querySelectorAll('input[type="checkbox"]');
+        
+        // Listen for filter:update events to sync checkboxes
+        document.addEventListener('filter:update', ((e: CustomEvent) => {
+            const { column, value, action } = e.detail;
+            const checkbox = document.querySelector(`input[data-column="${column}"][value="${value}"]`) as HTMLInputElement;
+            if (checkbox) {
+                checkbox.checked = action === 'add';
+            }
+        }) as EventListener);
+
+        filterInputs.forEach(input => {
+            input.addEventListener('change', (e) => {
+                const target = e.target as HTMLInputElement;
+                const column = target.getAttribute('data-column');
+                const value = target.value;
+                
+                if (!column) return;
+
+                document.dispatchEvent(new CustomEvent('table:filter', {
+                    detail: {
+                        column,
+                        value,
+                        action: target.checked ? 'add' : 'remove'
+                    }
+                }));
+            });
+        });
+    });
+</script>

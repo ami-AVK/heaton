@@ -5,28 +5,8 @@ import { Icon } from 'astro-icon/components';
 import { glob, globSync, globStream, globStreamSync, Glob } from 'glob'
 import sitemapJSON from '../data/site.json'
 import ModelsRow from './ModelsRow.astro';
+import type { Link, Product, Category, Sitemap } from '../types/common';
 
-interface Link {
-    url: string;
-    text: string;
-    links?: Link[]
-}
-interface Product {
-    'Наименование': string;
-    url:string
-    [key: string]: any;
-}
-interface Category {
-    ['Заголовок на главную']:string;
-    ['Описание на главную']:string;
-    ['Заголовок в карточку']:string;
-    ['Описание в карточку']:string;
-    [key: string]: any;
-    products: Product[];
-}
-interface Sitemap {
-    [key: string]: Category;
-}
 let catalogLinks = []
 const sitemap = sitemapJSON as any as Sitemap;
 
@@ -141,13 +121,13 @@ const mainLinks = [
             <button class="text-primary p-1 bg-neutral-50 transition-all scale-50 rounded-full absolute invisible opacity-0 right-3 group-data-[active]/container:opacity-100 group-data-[active]/container:scale-100 group-data-[active]/container:visible flex items-center hover:bg-secondary" id="main-search-close"><Icon name="X" height="24" width="24" /></button>
           </div>
   
-          <div id="search-result" class="absolute w-full group/result h-fit top-1/2 -z-10 overflow-clip will-change-auto">
+          <div id="search-result" class="absolute w-full group/result h-0 data-[search-active]:h-fit top-1/2 -z-10 overflow-clip will-change-auto">
             <div class="-translate-y-full relative left-0 w-full -z-10 bg-neutral-50 px-16 pt-12 pb-6 rounded-b-3xl invisible transition-all opacity-0 will-change-contents text-neutral-50
             group-data-[search-active]/result:translate-y-0  
             group-data-[search-active]/result:bg-primary/80  
             group-data-[search-active]/result:opacity-100
             group-data-[search-active]/result:visible 
-             backdrop-blur-sm
+            backdrop-blur-sm
             ">
               <ul class="w-full ">
                 <li><span>1212</span></li>

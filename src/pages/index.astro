@@ -24,6 +24,8 @@ import Contact from '../components/Contact.astro';
 import Logo from '../svg/logo_big.svg';
 import Feature from '../components/Feature.astro';
 import FullScreenBanner from '../components/FullScreenBanner.astro';
+import objectsData from '../data/objects.json';
+import ColumnList from '../components/ColumnList.astro';
 
 interface Button{
     text: string,
@@ -129,18 +131,43 @@ const mainImageDescription = "Стальной панельный радиато
 				
 			</li>
 		</ul>
-		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">			
-			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
-				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
-					<Image alt={mainImageDescription} src={heater} slot="image"/>
-				</div>
-				<div class="basis-1/2 order-2 md:order-1">
-					<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4">Стальные панельные радиаторы</h3>
-					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
-				</div>
+		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">
+			{
+				[
+					{
+						"header": "Стальные панельные радиаторы",
+						"image": heater,
+						"text": "Обеспечьте свой дом равномерным и комфортным теплом с нашими стальными панельными радиаторами Heaton. Современный дизайн и высокая эффективность делают их идеальным выбором для любого интерьера. Наслаждайтесь уютом и экономией на отоплении!",
+						"url": `${URL_main}Стальные панельные радиаторы`
+					},
+					{
+						"header": "Напольные конвекторы",
+						"image": step,
+						"text": "Напольные конвекторы Heaton — это сочетание стиля и функциональности. Быстрое нагревание и мощная циркуляция воздуха обеспечат вам тепло даже в самых холодных условиях. Идеально подходят для офисов и жилых помещений.",
+						"reverse":true,
+						"url": `${URL_main}Напольные конвекторы`
+					},
+					{
+						"header": "Внутрипольные конвекторы",
+						"image": HF_Comfort,
+						"text": "Внутрипольные конвекторы Heaton — это незаметное и эффективное решение для отопления. Они сохраняют пространство и обеспечивают равномерное распределение тепла по всей комнате. Поддерживайте комфортный микроклимат без лишних элементов в интерьере.",
+						"url": `${URL_main}Внутрипольные конвекторы`
+					}
+				].map((element) => (
+					<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50 group hover:bg-primary-10">
+						<div class="basis-1/2 drop-shadow-primary-hard order-1 relative scale-105" class:list={[{"md:order-2":element.reverse}]}>
+							<Image alt={element.header} src={element.image} slot="image"/>
+						</div>
+						<div class="basis-1/2 order-2 px-8" class:list={[{"md:order-1":element.reverse}]}>
+							<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4">{element.header}</h3>
+							<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4 pb-8">{element.text}</p>
+							<a class="px-4 py-2 text-xl rounded-lg text-neutral-50 bg-primary" href={element.url}>Перейти в раздел</a>
+						</div>
+					</li>
+				))
+			}		
 
-			</li>
-			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 flex-col md:flex-row bg-neutral-50">
+			<!-- <li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 flex-col md:flex-row bg-neutral-50">
 				<div class="basis-1/2 drop-shadow-primary-hard order-1 origin-right scale-105">
 					<Image alt={mainImageDescription} src={HF_Comfort} slot="image"/>
 				</div>
@@ -157,8 +184,7 @@ const mainImageDescription = "Стальной панельный радиато
 					<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4">Напольные конвекторы</h3>
 					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
 				</div>
-
-			</li>
+			</li> -->
 		</ul>
 	</section>
 	<section class="snap-center container-center mx-auto">
@@ -166,8 +192,8 @@ const mainImageDescription = "Стальной панельный радиато
 	</section>
 
 	<section class="snap-center container-center mx-auto min-h-screen py-16 flex flex-col">
-		<h2 class="text-3xl font-semibold md:text-6xl uppercase mx-auto">Объекты комплектации</h2>
-
+		<h2 class="text-3xl font-semibold md:text-6xl uppercase mx-auto mb-8">Объекты комплектации</h2>
+		<ColumnList data={objectsData} class="mt-16" />
 	</section>
 
 	

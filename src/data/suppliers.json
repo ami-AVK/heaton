@@ -1,0 +1,62 @@
+[
+    {
+        "location": "Москва и область",
+        "objects": [
+            {"info": "ООО «ТеплоСнаб» - Официальный дистрибьютор, +7 (495) 123-45-67, info@teplosnab.ru"},
+            {"info": "Группа компаний «ТермоТрейд», +7 (495) 234-56-78, sales@termotrade.ru"},
+            {"info": "Компания «ОтопПром», +7 (495) 345-67-89, zakaz@otopprom.ru"},
+            {"info": "ООО «ТеплоМастер», +7 (495) 456-78-90, service@teplomaster.ru"},
+            {"info": "Компания «ЭнергоСнаб», +7 (495) 567-89-01, info@energosnab.ru"}
+        ]
+    },
+    {
+        "location": "Санкт-Петербург",
+        "objects": [
+            {"info": "«ТепоСервис СПб», +7 (812) 123-45-67, spb@teploservice.ru"},
+            {"info": "ООО «Северная Компания», +7 (812) 234-56-78, info@northcom.ru"},
+            {"info": "ООО «ТеплоСевер», +7 (812) 345-67-89, office@teplosever.ru"},
+            {"info": "Компания «ПетербургТепло», +7 (812) 456-78-90, support@peterburgteplo.ru"}
+        ]
+    },
+    {
+        "location": "Краснодарский край",
+        "objects": [
+            {"info": "«ЮгТепло», +7 (861) 123-45-67, info@yugteplo.ru"},
+            {"info": "ООО «КубаньОтопление», +7 (861) 234-56-78, sales@kubheat.ru"},
+            {"info": "ООО «ТеплоЮг», +7 (861) 345-67-89, contact@teployug.ru"},
+            {"info": "Компания «КраснодарТеплоСнаб», +7 (861) 456-78-90, info@krasnodarteplo.ru"}
+        ]
+    },
+    {
+        "location": "Новосибирск",
+        "objects": [
+            {"info": "ООО «СибТепло», +7 (383) 123-45-67, info@sibteplo.ru"},
+            {"info": "Компания «НовосибОтопление», +7 (383) 234-56-78, sales@novosibheat.ru"},
+            {"info": "ООО «ТеплоСиб», +7 (383) 345-67-89, support@teplosib.ru"}
+        ]
+    },
+    {
+        "location": "Екатеринбург",
+        "objects": [
+            {"info": "ООО «УралТепло», +7 (343) 123-45-67, info@uralteplo.ru"},
+            {"info": "Компания «ЕкатеринбургТепло», +7 (343) 234-56-78, service@ekbteplo.ru"},
+            {"info": "ООО «ТеплоУрал», +7 (343) 345-67-89, contact@teploural.ru"}
+        ]
+    },
+    {
+        "location": "Казань",
+        "objects": [
+            {"info": "ООО «ВолгаТепло», +7 (843) 123-45-67, info@volgateplo.ru"},
+            {"info": "Компания «КазаньОтопление», +7 (843) 234-56-78, support@kazanheat.ru"},
+            {"info": "ООО «ТеплоВолга», +7 (843) 345-67-89, sales@teplovolga.ru"}
+        ]
+    },
+    {
+        "location": "Нижний Новгород",
+        "objects": [
+            {"info": "ООО «ННТепло», +7 (831) 123-45-67, info@nnteplo.ru"},
+            {"info": "Компания «НижегородскийТеплоСнаб», +7 (831) 234-56-78, service@nizhnyteplo.ru"},
+            {"info": "ООО «ТеплоНН», +7 (831) 345-67-89, contact@teplonn.ru"}
+        ]
+    }
+]

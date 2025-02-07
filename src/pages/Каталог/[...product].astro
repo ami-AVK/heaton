@@ -1,5 +1,6 @@
 ---
 import sitemapJSON from '../../data/site.json'
+import type { Product, Category, Sitemap } from '../../types/common';
 import DynamicImage from '../../components/ImageDynamic.astro'
 import Layout from '../../layouts/main.astro'
 import BreadCrumbs from '../../components/BreadCrumbs.astro';
@@ -8,24 +9,30 @@ import NavBar from '../../components/NavBar.astro';
 import Footer from '../../components/Footer.astro';
 import Drawing from '../../components/Drawing.astro';
 import Contact from '../../components/Contact.astro';
+import { findSimilarProducts } from '../../utils/productUtils';
+import ProductCard from '../../components/ProductCard.astro';
+import { Image } from "astro:assets"
+import heater from "../../img/main_heaters_.webp"
+import step from "../../img/step.webp"
+import HF_Comfort from "../../img/HF_Comfort.webp"
 
 
-interface Product {
-    'Наименование': string;
-    url:string
-    [key: string]: any;
-}
-interface Category {
-    ['Заголовок на главную']:string;
-    ['Описание на главную']:string;
-    ['Заголовок в карточку']:string;
-    ['Описание в карточку']:string;
-    [key: string]: any;
-    products: Product[];
-}
-interface Sitemap {
-    [key: string]: Category;
-}
+// interface Product {
+//     'Наименование': string;
+//     url:string
+//     [key: string]: any;
+// }
+// interface Category {
+//     ['Заголовок на главную']:string;
+//     ['Описание на главную']:string;
+//     ['Заголовок в карточку']:string;
+//     ['Описание в карточку']:string;
+//     [key: string]: any;
+//     products: Product[];
+// }
+// interface Sitemap {
+//     [key: string]: Category;
+// }
 export async function getStaticPaths() {
     let paths=[] as any[]
     const sitemap = sitemapJSON as any as Sitemap;
@@ -44,7 +51,7 @@ export async function getStaticPaths() {
                                 model:product['Модель'],
                                 title: category['Заголовок в карточку'] as string,
                                 description: category['Описание в карточку'],
-                                rowdata: product as Product,
+                                product: product as Product,
                             }};
                 paths.push(structuredClone(path_));
             });
@@ -54,20 +61,65 @@ export async function getStaticPaths() {
     return paths
 }
 
-const {rowdata,category,title,description,url,model} = Astro.props
-const imagePath = `/src/images/products/${rowdata['Изображение']}`
-const imageAlt = `${category} Heaton ${rowdata['Наименование']}`
-const productName = rowdata['Наименование']
+const {product,category,title,description,url,model} = Astro.props
+const imagePath = `/src/images/products/${product['Изображение']}`
+const imageAlt = `${category} Heaton ${product['Наименование']}`
+const productName = product['Наименование']
 
 const URL_main = `${import.meta.env.BASE_URL}/`
 const URL_category = `${URL_main}Каталог/${category}/`
 const URL_product = `${URL_category}${productName}`
 
-const height = rowdata['Высота, мм'];
-const width = rowdata['Длина, мм'];
-const depth = rowdata['Глубина, мм'];
-const power = rowdata['Теплоотдача, Вт'];
-const weight = rowdata['Масса НЕТТО, кг'];
+const height = product['Высота, мм'];
+const lenght = product['Длина, мм'];
+const depth = product['Глубина, мм'];
+const power = product['Теплоотдача, Вт'];
+const weight = product['Масса НЕТТО, кг']?product['Масса НЕТТО, кг']:false;
+const type = product['Тип']?product['Тип']:false;
+
+const characteristics = [   
+                            {header:"Высота:", value:`${height} мм`},
+                            {header:"Длина:", value:`${lenght} мм`},
+                            {header:"Глубина:", value:`${depth} мм`},
+                            {header:"Мощность:", value:`${power} мм`},
+                        ]
+weight&&characteristics.push({header:"Вес:", value:`${weight} кг`},)
+// type&&characteristics.unshift({header:"Тип:", value:`${type}`},)
+
+let extraCharacteristics = [{header:"Тип:", value:`${type} мм`}];
+
+
+switch (category){
+ case 'Стальные панельные радиаторы':
+    extraCharacteristics = [
+            {header:"Тип:", value:`${type}`},
+            {header:"Подключение:", value:`${product['Подключение']}`},
+            {header:"Исполнение:", value:`${product['Исполнение']}`},
+        ];
+    break
+ case 'Напольные конвекторы':
+    extraCharacteristics = [
+            // {header:"Тип:", value:`${type}`},
+            // {header:"Подключение:", value:`${product['Подключение']}`},
+            // {header:"Исполнение:", value:`${product['Исполнение']}`},
+        ];
+    break
+ case 'Внутрипольные конвекторы':
+    extraCharacteristics = [
+            {header:"Вентилятор:", value:`${product['Вентилятор']==="Есть"?"ЕС-двигатель":"Отсутствует"}`},
+        ];
+    break
+}
+
+
+
+
+const similarHeight= findSimilarProducts(category,product,'Высота, мм') as Product[];
+const similarLenght = findSimilarProducts(category,product,'Длина, мм') as Product[];
+const similarDepth = findSimilarProducts(category,product,'Глубина, мм') as Product[];
+const similarPower = findSimilarProducts(category,product,'Теплоотдача, Вт') as Product[];
+
+console.log(findSimilarProducts(category,product,'Длина, мм'));
 ---
 <Layout title={title.replace("{Наименование}",productName)} description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
     <div class="snap-center">
@@ -78,24 +130,32 @@ const weight = rowdata['Масса НЕТТО, кг'];
                 }/>
             <DynamicImage imagePath={imagePath} altText={imageAlt} slot="image" model={model}/>
             <Fragment slot="header">
-                <h1 class="text-6xl font-black uppercase">{productName}</h1>
-                <ul class="text-xl flex flex-col gap-2 py-16">
-                    <li>
-                        {height} мм
-                    </li>
-                    <li>
-                        {depth} мм
-                    </li>
-                    <li>
-                        {width} мм
-                    </li>
-                    <li>
-                        {power} Вт
-                    </li>
-                    <li>
-                        {weight} кг
-                    </li>
-                </ul>
+                <h1 class="text-5xl font-black uppercase tracking-wider mt-16">
+                    <div class="text-xl whitespace-nowrap leading-none mb-2">{title.replace("{Наименование}","")}</div>
+                    <div class="whitespace-nowrap leading-none">{productName}</div>
+                </h1>
+                <div class="flex md:flex-col items-center md:items-start justify-between">
+                    <ul class="text-2xl tracking-wider flex flex-col gap-4 py-16 font-medium flex-1">
+                        {
+                            characteristics.map((element) =>(
+                                <li class="">
+                                    <span class="text-sm block">{element.header}</span>
+                                    <span class="block font-black whitespace-nowrap">{element.value}</span>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <ul class="text-2xl tracking-wider flex flex-col md:flex-row gap-8 font-medium">
+                        {
+                            extraCharacteristics.map((element) =>(
+                                <li class=" bg-primary text-neutral-50 p-2 rounded-lg">
+                                    <span class="text-sm block">{element.header}</span>
+                                    <span class="block">{element.value}</span>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </Fragment>
     
             <Fragment slot="extralinks">
@@ -106,8 +166,8 @@ const weight = rowdata['Масса НЕТТО, кг'];
             </Fragment>
         </Hero>
         <section class="text-4xl font-black uppercase container-center">
-            <h2>Технические характеристики</h2>
-            <Drawing width={200} height={100}/>
+            <!-- <h2>Технические характеристики</h2> -->
+            <Drawing width={lenght} height={height} depth={depth}/>
         </section>
     </div>
     
@@ -117,40 +177,92 @@ const weight = rowdata['Масса НЕТТО, кг'];
 		<Contact/>
 	</section>
     <section class="container-center snap-center min-h-[40vh] my-32">
+        <div class="group" data-type="power">
             <div class="flex justify-between">
                 <h2 class="text-4xl font-black uppercase">Аналоги</h2>
                 <ul class="flex gap-8">
-                    <li>Похожая мощность</li>
-                    <li>Похожая высота</li>
-                    <li>Похожая длина</li>
+                    <li><button class="hover:bg-primary rounded-lg p-2 hover:text-neutral-50 bg-neutral-50" value="power">Похожая мощность</button></li>
+                    <li><button class="hover:bg-primary rounded-lg p-2 hover:text-neutral-50 bg-neutral-50" value="height">Похожая высота</button></li>
+                    <li><button class="hover:bg-primary rounded-lg p-2 hover:text-neutral-50 bg-neutral-50" value="lenght">Похожая длина</button></li>
                 </ul>
             </div>
-            <ul class="flex flex-wrap gap-16 mt-16">
+            <ul class="hidden group-data-[type='power']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-16">
                 {
-                    [
-                        'Карточка товара',
-                        'Карточка товара',
-                        'Карточка товара',
-                        'Карточка товара',
-                        'Карточка товара',
-
-                    ].map((card) => (
-                        <li class="size-64 grow bg-neutral-200 rounded-xl p-8">
-                            {card}
+                    similarPower.map((card) => (
+                        <li>
+                            <ProductCard product={card} category={category} />
                         </li>
                     ))
                 }
-
             </ul>
-        
+            <ul class="hidden group-data-[type='lenght']:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-16">
+                {
+                    similarLenght.map((card) => (
+                        <li>
+                            <ProductCard product={card} category={category} />
+                        </li>
+                    ))
+                }
+            </ul>
+            <ul class="hidden group-data-[type='height']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-16">
+                {
+                    similarHeight.map((card) => (
+                        <li>
+                            <ProductCard product={card} category={category} />
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
     </section>
-    <section class="container-center snap-center  min-h-[40vh]">
-        <h2 class="text-4xl font-black uppercase">Другие виды отопительного оборудования</h2>
-        <ul>
-            <li>Внутрипольные конвекторы</li>
-            <li>Напольные конвекторы</li>
-        </ul>
+    <section class="container-center snap-center  min-h-[40vh] my-32">
+        <h2 class="text-4xl font-black uppercase mb-16">Другие виды отопительного оборудования</h2>
+        <ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">			
+			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
+				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
+					<Image alt="Стальной панельный радиатор отопления Heaton" src={heater} slot="image"/>
+				</div>
+				<div class="basis-1/2 order-2 md:order-1">
+					<h3 class="pb-8 min-w-96 text-2xl uppercase tracking-wider font-black text-balance pl-4">Стальные панельные радиаторы</h3>
+					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
+				</div>
+			</li>
+			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 flex-col md:flex-row bg-neutral-50">
+				<div class="basis-1/2 drop-shadow-primary-hard order-1 origin-right scale-105">
+					<Image alt="Внутрипольные конвекторы" src={HF_Comfort} slot="image"/>
+				</div>
+				<div class="basis-1/2 order-2">
+					<h3 class="pb-8 min-w-96 text-2xl uppercase tracking-wider font-black text-balance pl-4">Внутрипольные конвекторы</h3>
+					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
+				</div>
+			</li>
+			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
+				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
+					<Image alt="Напольные конвекторы Heaton" src={step} slot="image"/>
+				</div>
+				<div class="basis-1/2 order-2 md:order-1">
+					<h3 class="pb-8 min-w-96 text-2xl uppercase tracking-wider font-black text-balance pl-4">Напольные конвекторы</h3>
+					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
+				</div>
+			</li>
+		</ul>
     </section>
     <Footer class="mt-auto snap-center"/>
     
 </Layout>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const buttons = document.querySelectorAll('button[value]');
+        const container = document.querySelector('.group[data-type]');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.getAttribute('value');
+                if (container && value) {
+                    container.setAttribute('data-type', value);
+                }
+            });
+        });
+    });
+</script>

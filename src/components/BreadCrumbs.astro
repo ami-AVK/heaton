@@ -1,16 +1,13 @@
 ---
- interface Link {
-    url: string;
-    text: string;
-    links?: Link[]
-}
- interface Props{
-    list: Link[],
-    class?: string,
-    slot?: string
+import type { Link } from '../types/common';
+
+interface Props {
+    list: Link[];
+    class?: string;
+    slot?: string;
 }
 
-const {list, class:className, ...attr} = Astro.props
+const { list, class:className, ...attr } = Astro.props;
 
 
 ---

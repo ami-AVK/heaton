@@ -8,30 +8,12 @@ import NavBar from '../../components/NavBar.astro';
 import Footer from '../../components/Footer.astro';
 import Table from '../../components/Table_.astro';
 import ProductData from '../../components/ProductData.astro';
+import type { Link, Product, Category, Sitemap } from '../../types/common';
 // import RussianNouns from 'russian-nouns-js';
+import { getUniqueValues } from '../../utils/productUtils';
+import EnhancedTable from '../../components/EnhancedTable/EnhancedTable.astro';
+import TableFilters from '../../components/EnhancedTable/TableFilters.astro';
 
-interface Link {
-    url: string;
-    text: string;
-    links?: Link[]
-}
-
-interface Product {
-    'Наименование': string;
-    url:string
-    [key: string]: any;
-}
-interface Category {
-    ['Заголовок на главную']:string;
-    ['Описание на главную']:string;
-    ['Заголовок в карточку']:string;
-    ['Описание в карточку']:string;
-    [key: string]: any;
-    products: Product[];
-}
-interface Sitemap {
-    [key: string]: Category;
-}
 export async function getStaticPaths() {
     let paths=[] as any[]
     const sitemap = sitemapJSON as any as Sitemap;
@@ -83,6 +65,7 @@ export async function getStaticPaths() {
 }
 const {category, model,otherCategories, allModels} = Astro.props;
 const URL_main = `${import.meta.env.BASE_URL}/`;
+const URL_main_catalog = `${import.meta.env.BASE_URL}/Каталог/`;
 const URL_category = `${URL_main}Каталог/${category}/`;
 // const URL_model = `${URL_category}${model}`;
 const URL_filterSetiing = ``;
@@ -121,18 +104,52 @@ else{
     // console.log(nouns.pluralize(category.split(' ')[0]))
     products = sitemap_[category].products;
 }
-
 // Заголовки для парсинга таблицы, на разные категории разные заголовки бывают
 let TABLE_HEADERS =  ['Номенклатурный номер','Наименование'];
+// "Масса НЕТТО, кг": "3,1",
+let tableColumns = [
+    { value: 'Номенклатурный номер', sortable: false, filterable: false },
+    { value: 'Наименование', sortable: false, filterable: false },
+    { value: 'Высота, мм', sortable: true, filterable: true, unit: 'мм' },
+    { value: 'Длина, мм', sortable: true, filterable: true, unit: 'мм' },
+    { value: 'Теплоотдача, Вт', sortable: true, filterable: false, unit: 'Вт' }
+    ];
 switch (category){
  case 'Стальные панельные радиаторы':
-    TABLE_HEADERS = ['Номенклатурный номер','Наименование','Высота, мм','Длина, мм','Глубина, мм','Теплоотдача, Вт','Масса НЕТТО, кг','Объем, л','Тип']
+    tableColumns = [
+        // { value: 'Номенклатурный номер', sortable: false, filterable: false },
+        { value: 'Наименование', sortable: false, filterable: false },
+        { value: 'Тип', sortable: true, filterable: true},
+        { value: 'Высота, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Длина, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Глубина, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Теплоотдача, Вт', sortable: true, filterable: false, unit: 'Вт' },
+        { value: 'Объем, л', sortable: true, filterable: false, unit: 'л' },
+        { value: 'Масса НЕТТО, кг', sortable: true, filterable: false, unit: 'кг' },
+        { value: 'Подключение', sortable: true, filterable: true },
+        { value: 'Исполнение', sortable: true, filterable: true },
+        ];
     break
  case 'Напольные конвекторы':
-    TABLE_HEADERS = ['Номенклатурный номер','Наименование','Высота, мм','Длина, мм','Глубина, мм','Теплоотдача, Вт','Масса НЕТТО, кг']
+    tableColumns = [
+        { value: 'Наименование', sortable: false, filterable: false },
+        { value: 'Высота, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Длина, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Глубина, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Теплоотдача, Вт', sortable: true, filterable: false, unit: 'Вт' },
+        { value: 'Масса НЕТТО, кг', sortable: true, filterable: false, unit: 'кг' },
+        ];
     break
  case 'Внутрипольные конвекторы':
-    TABLE_HEADERS = ['Номенклатурный номер','Наименование','Высота, мм','Длина, мм','Глубина, мм','Теплоотдача, Вт','Масса НЕТТО, кг']
+    
+    tableColumns = [
+        { value: 'Наименование', sortable: false, filterable: false },
+        { value: 'Высота, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Длина, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Глубина, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Теплоотдача, Вт', sortable: true, filterable: false, unit: 'Вт' },
+        { value: 'Вентилятор', sortable: true, filterable: true },
+        ];
     break
 }
 
@@ -142,63 +159,49 @@ if(model){
 }
 const title = model? model:category;
 
+// Get unique values for filters
+    const heights = getUniqueValues(products, 'Высота, мм');
+    const lengths = getUniqueValues(products, 'Длина, мм');
+    const powers = getUniqueValues(products, 'Теплоотдача, Вт');
+
 
 ---
-<Layout title={title} description="Качественные панельные радиаторы от российского бренда" class="">
+<Layout title={title} description="Качественные панельные радиаторы от российского бренда" class="min-h-screen ">
     <section class="container-center">
-        <NavBar slot="navbar" class=" py-8"/>
+        <NavBar slot="navbar" class="py-8"/>
         <BreadCrumbs slot="breadcrumbs" class='z-50' list={breadCrumbs}/> 
     </section>
 
-    <div class="container-center py-16 flex gap-16">
-        <div class="filter  flex flex-col shrink-0 basis-64 ">
-            <div class="bg-neutral-200 rounded-2xl p-4">
-                <div class="py-2">
-                    <h3 class="font-extrabold">
-                        Модель:
-                    </h3>
-                    <ul class="">
-                        {
-                            models_all.map((model)=>(
-                                <li class="data-[current]:bg-primary text-neutral-700 px-2 py-1 my-1 hover:bg-primary hover:text-neutral-50 rounded-lg">
-                                    <a href={model.url} class="block">{model.text}</a>
-                                </li>
-                                ))
-                        }
-                    </ul>
-                </div>
-                <div class="py-2">
-                    <h3>
-                        Высота
-                    </h3>
-                    <ul class="">
-                        <li class="bg-primary text-neutral-50 p-2" data-current>400</li>
-                        <li class="p-2">500</li>
-                        <li class="p-2">600</li>
-                        <li class="p-2">700</li>
-                    </ul>
-                </div>
-                <div class="py-2">
-                    <h3>
-                        Длина
-                    </h3>
-                    <ul class="">
-                        <li class="bg-primary text-neutral-50 p-2" data-current>400</li>
-                        <li class="p-2">500</li>
-                        <li class="p-2">600</li>
-                        <li class="p-2">700</li>
-                    </ul>
-                </div>
-            </div> 
-
+    <div class="max-w-screen-2xl px-8 mx-auto py-16 flex gap-16 flex-1 overflow-x-auto lg:overflow-visible">
+        <div class="filter flex-none w-64 self-start sticky_ top-4 hidden lg:block">
+            <TableFilters 
+                category={category}
+                filterableColumns={tableColumns.filter(col => col.filterable)}
+            >
+                    <div class="py-2">
+                        <h3 class="font-extrabold">Модель:</h3>
+                        <ul class="">
+                            {
+                                models_all.map((model)=>(
+                                    <li class="data-[current]:bg-primary text-neutral-700 px-2 py-1 my-1 hover:bg-primary hover:text-neutral-50 rounded-lg">
+                                        <a href={model.url} class="block">{model.text}</a>
+                                    </li>
+                                    ))
+                            }
+                        </ul>
+                    </div>
+            </TableFilters>
         </div>
 
-        <div class="grow">
-            <ProductData excelFilePath="./src/data/Стальные панельные радиаторы/Compact (C)/11.xlsx"/>
-            <Table products={products} headers={TABLE_HEADERS}/>
+        <div class="flex-1">
+            <EnhancedTable 
+                products={products} 
+                columns={tableColumns} 
+                class="w-full"
+                category={category}
+                url={URL_main_catalog}
+            />
         </div>
-        
     </div>
-    <Footer class="mt-auto snap-center"/>
-    
+    <Footer class="mt-auto"/>
 </Layout>

@@ -1,0 +1,146 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { TableColumn } from '../../types/table';
+import { getUniqueFieldValues, getCategoryProducts, getCategoryModels } from '../../utils/productUtils';
+
+interface Props {
+    column: TableColumn;
+    category:string
+}
+
+const { column, category } = Astro.props;
+
+const variants = getUniqueFieldValues(category, column.value);
+variants.unshift("Выбрать вариант");
+---
+
+<th 
+    class="table-header px-2 py-3 text-left text-sm font-semibold whitespace-nowrap relative group pt-6 pb-6"
+    data-column={column.value}
+    data-sortable={column.sortable.toString()}
+    data-filterable={column.filterable.toString()}
+>
+    <div class="flex flex-col relative z-10 border-b border-b-neutral-400 mr-4">
+        <span class="font-bold text-xs z-20 mb-2">{column.value}</span>
+        <div class="tags absolute -bottom-4 flex gap-1 w-full flex-nowrap" data-tags-container>
+            <!-- <div class="text-[10px] tracking-widest p-0.5 py-[1px] rounded-sm my-0 leading-none bg-primary text-white">500</div> -->
+            <!-- Tags will be added here dynamically -->
+        </div>
+        {column.sortable && (
+            <button class="-mt-1 rounded-lg sort-button -right-5 absolute group-hover:bg-white top-1/2 -translate-y-1/2 z-20 data-[sort=asc]:rotate-180 p-1">
+                <Icon name="Alt Arrow Down" class="size-5 text-neutral-400 hover:text-primary hover:scale-125"/>
+            </button>
+        )}
+        {column.filterable && (
+        <div class="absolute overflow-clip group-hover:overflow-auto h-0 w-auto group-hover:h-auto opacity-0 group-hover:opacity-100 bottom-0 group-hover:block translate-y-6 transition-all group-hover:translate-y-12 -mx-2 group-hover:bg-primary p-2 rounded-lg z-10">
+            <select name="column-filter" class="text-ellipsis text-neutral-50 text-xs px-0 mx-0 block py-0 mt-0.5 border-transparent rounded-lg border-none bg-primary focus:border-gray-50 focus:bg-primary ring-0 focus:ring-0 appearance-none accent-orange-300">
+                {variants.map((value:number|string)=>
+                    <option class="first:text-neutral-300 first:text-xs" value={value}>{value}</option>
+                )}
+            </select>
+        </div>
+        )}
+    </div>
+</th>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const headers = document.querySelectorAll('.table-header');
+        
+        // Listen for filter events from checkboxes
+        document.addEventListener('table:filter', ((e: CustomEvent) => {
+            const { column, value, action } = e.detail;
+            const header = document.querySelector(`.table-header[data-column="${column}"]`);
+            const tagsContainer = header?.querySelector('[data-tags-container]');
+            
+            if (!tagsContainer) return;
+
+            if (action === 'add') {
+                // Check if tag already exists
+                const existingTag = tagsContainer.querySelector(`[data-filter-value="${value}"]`);
+                if (!existingTag) {
+                    createTag(tagsContainer, column, value, false); // false to prevent dispatching events
+                }
+            } else {
+                const tag = tagsContainer.querySelector(`[data-filter-value="${value}"]`);
+                if (tag) {
+                    tag.remove();
+                }
+            }
+        }) as EventListener);
+
+        headers.forEach(header => {
+            const select = header.querySelector('select');
+            const tagsContainer = header.querySelector('[data-tags-container]');
+            const column = header.getAttribute('data-column');
+            
+            if (!select || !tagsContainer || !column) return;
+
+            select.addEventListener('change', (e) => {
+                const target = e.target as HTMLSelectElement;
+                const value = target.value;
+                
+                if (value === "Выбрать вариант") return;
+
+                // Check if tag already exists
+                const existingTag = tagsContainer.querySelector(`[data-filter-value="${value}"]`);
+                if (!existingTag) {
+                    createTag(tagsContainer, column, value, true); // true to dispatch events
+                }
+                target.value = "Выбрать вариант";
+            });
+        });
+
+        function createTag(container: Element, column: string, value: string, dispatchEvents: boolean) {
+            const tag = document.createElement('div');
+            tag.className = 'text-[10px] tracking-widest p-0.5 py-[1px] rounded-sm my-0 leading-none bg-primary text-white flex items-center gap-1';
+            tag.setAttribute('data-filter-value', value);
+            tag.innerHTML = `
+                ${value}
+                <button class="remove-tag hover:text-red-300 ml-1" data-value="${value}">×</button>
+            `;
+
+            // Add click handler for remove button
+            tag.querySelector('.remove-tag')?.addEventListener('click', () => {
+                tag.remove();
+                
+                document.dispatchEvent(new CustomEvent('filter:update', {
+                    detail: {
+                        column,
+                        value,
+                        action: 'remove'
+                    }
+                }));
+
+                document.dispatchEvent(new CustomEvent('table:filter', {
+                    detail: {
+                        column,
+                        value,
+                        action: 'remove'
+                    }
+                }));
+            });
+
+            container.appendChild(tag);
+
+            if (dispatchEvents) {
+                // Only dispatch events if specified (from select change)
+                document.dispatchEvent(new CustomEvent('filter:update', {
+                    detail: {
+                        column,
+                        value,
+                        action: 'add'
+                    }
+                }));
+
+                document.dispatchEvent(new CustomEvent('table:filter', {
+                    detail: {
+                        column,
+                        value,
+                        action: 'add'
+                    }
+                }));
+            }
+        }
+    });
+</script>

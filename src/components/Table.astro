@@ -20,7 +20,7 @@ const headers = parsedData.length > 0 ? Object.keys(parsedData[0]) : [];
 
 <div class="px-4 py-4 -mx-4 rounded-2xl bg-neutral-50">
 <div class="overflow-x-auto">
-  <table class="min-w-full">
+  <table class="min-w-full sortable" >
     <thead class="sticky top-0 z-50">
         <Row values={headers} headers={headers} isHeader={true} class="sticky top-0 z-50"/>
     </thead>

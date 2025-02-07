@@ -1,0 +1,60 @@
+---
+interface ObjectInfo {
+    info: string;
+}
+
+interface LocationGroup {
+    location: string;
+    objects: ObjectInfo[];
+}
+
+interface Props {
+    data: LocationGroup[];
+    class?: string;
+}
+
+const { data, class: className } = Astro.props;
+---
+
+<div class:list={["grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-4", className]}>
+    {
+        data.map(({ location, objects }) => (
+            <div class="break-inside-avoid">
+                <button class="w-full flex items-center justify-between gap-4 group hover:bg-primary p-2 rounded-xl" data-toggle>
+                    <h3 class="text-lg font-bold text-primary text-left group-hover:text-neutral-50">{location}</h3>
+                    <span class="size-6 rounded-full bg-neutral-100 flex items-center justify-center text-xs text-primary shrink-0">
+                        {objects.length}
+                    </span>
+                </button>
+                <ul class="space-y-3 px-2 text-neutral-600 text-sm mt-2 hidden" data-content>
+                    {objects.map(({ info }) => (
+                        <li class="leading-tight">{info}</li>
+                    ))}
+                </ul>
+            </div>
+        ))
+    }
+</div>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const toggles = document.querySelectorAll('[data-toggle]');
+        
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const allContents = document.querySelectorAll('[data-content]');
+                
+                // Hide all other lists
+                allContents.forEach(item => {
+                    if (item !== content && !item.classList.contains('hidden')) {
+                        item.classList.add('hidden');
+                    }
+                });
+
+                // Toggle current list
+                content?.classList.toggle('hidden');
+            });
+        });
+    });
+</script>

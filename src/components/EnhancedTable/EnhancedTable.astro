@@ -1,0 +1,174 @@
+---
+import type { TableProps } from '../../types/table';
+import TableHeader from './TableHeader.astro';
+import TableRow from './TableRow.astro';
+
+const { products, columns, category,url, class: className } = Astro.props as TableProps;
+const link = url?url:"/";
+---
+
+<div class="relative">
+    <table class="" class:list={[className]} >
+        <thead class="sticky top-0 z-10 bg-neutral-50/5 backdrop-blur-xl">
+            <tr>
+                {columns.map(column => (
+                    <TableHeader column={column} category={category}/>
+                ))}
+            </tr>
+        </thead>
+        <tbody>
+            {products.map(product => (
+                <TableRow product={product} columns={columns} link={link}/>
+            ))}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    interface FilterEvent extends CustomEvent {
+        detail: {
+            column: string;
+            value: string;
+            action: 'add' | 'remove';
+        }
+    }
+
+    document.addEventListener('astro:page-load', () => {
+        setupTableInteractions();
+        
+        // Listen for filter events
+        document.addEventListener('table:filter', ((e: FilterEvent) => {
+            const { column, value, action } = e.detail;
+            if (action === 'add') {
+                filterTable(column, value);
+            } else {
+                removeFilter(column, value);
+            }
+        }) as EventListener);
+    });
+
+    function setupTableInteractions() {
+        const headers = document.querySelectorAll('.table-header');
+        
+        headers.forEach(header => {
+            const sortButton = header.querySelector('.sort-button');
+            const filterSelect = header.querySelector('select');
+            const column = header.getAttribute('data-column');
+            
+            if (!column) return;
+
+            if (sortButton) {
+                sortButton.addEventListener('click', () => {
+                    const currentDirection = sortButton.getAttribute('data-sort');
+                    const newDirection = !currentDirection || currentDirection === 'desc' ? 'asc' : 'desc';
+                    
+                    // Reset all other headers
+                    document.querySelectorAll('.sort-button').forEach(btn => {
+                        btn.removeAttribute('data-sort');
+                    });
+                    
+                    sortButton.setAttribute('data-sort', newDirection);
+                    sortTable(column, newDirection);
+                });
+            }
+
+            if (filterSelect) {
+                filterSelect.addEventListener('change', (e) => {
+                    const target = e.target as HTMLSelectElement;
+                    filterTable(column, target.value);
+                });
+            }
+        });
+    }
+
+    function sortTable(column: string, direction: 'asc' | 'desc') {
+        const tbody = document.querySelector('tbody');
+        if (!tbody) return;
+
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        const isNumeric = !isNaN(Number(rows[0]?.querySelector(`td[data-column="${column}"]`)?.textContent));
+
+        rows.sort((a, b) => {
+            const aVal = a.querySelector(`td[data-column="${column}"]`)?.textContent || '';
+            const bVal = b.querySelector(`td[data-column="${column}"]`)?.textContent || '';
+            
+            if (isNumeric) {
+                return direction === 'asc' 
+                    ? Number(aVal) - Number(bVal)
+                    : Number(bVal) - Number(aVal);
+            }
+            
+            return direction === 'asc'
+                ? aVal.localeCompare(bVal)
+                : bVal.localeCompare(aVal);
+        });
+
+        tbody.innerHTML = '';
+        rows.forEach(row => tbody.appendChild(row));
+    }
+
+    function filterTable(column: string, value: string) {
+        if (value === "Выбрать вариант") return;
+
+        const rows = document.querySelectorAll('tbody tr') as NodeListOf<HTMLTableRowElement>;
+        const activeFilters = getActiveFilters();
+        
+        // Add new filter value
+        if (!activeFilters[column]) {
+            activeFilters[column] = new Set();
+        }
+        activeFilters[column].add(value);
+        
+        // Apply all filters
+        applyFilters(activeFilters);
+    }
+
+    function removeFilter(column: string, value: string) {
+        const activeFilters = getActiveFilters();
+        activeFilters[column]?.delete(value);
+        
+        if (activeFilters[column]?.size === 0) {
+            delete activeFilters[column];
+        }
+        
+        applyFilters(activeFilters);
+    }
+
+    function getActiveFilters(): Record<string, Set<string>> {
+        const filters: Record<string, Set<string>> = {};
+        document.querySelectorAll('.table-header').forEach(header => {
+            const column = header.getAttribute('data-column');
+            if (!column) return;
+
+            const tags = header.querySelectorAll('[data-filter-value]');
+            if (tags.length > 0) {
+                filters[column] = new Set(
+                    Array.from(tags).map(tag => tag.getAttribute('data-filter-value') || '')
+                );
+            }
+        });
+        return filters;
+    }
+
+    function applyFilters(activeFilters: Record<string, Set<string>>) {
+        const rows = document.querySelectorAll('tbody tr') as NodeListOf<HTMLTableRowElement>;
+        
+        rows.forEach(row => {
+            let showRow = true;
+            
+            for (const [column, values] of Object.entries(activeFilters)) {
+                if (values.size === 0) continue;
+                
+                const cell = row.querySelector(`td[data-column="${column}"]`);
+                const cellValue = cell?.textContent?.trim() || '';
+                
+                if (!values.has(cellValue)) {
+                    showRow = false;
+                    break;
+                }
+            }
+            
+            row.style.display = showRow ? '' : 'none';
+        });
+    }
+</script>

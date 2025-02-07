@@ -1,7 +1,11 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import { Icon } from 'astro-icon/components';
 import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
+import Contact from "../components/Contact.astro";
+import ColumnList from "../components/ColumnList.astro";
+import suppliersData from '../data/suppliers.json';
 import '../styles/main.css';
 import LogoSmall from '../svg/logo_small.svg';
 ---
@@ -27,23 +31,31 @@ import LogoSmall from '../svg/logo_small.svg';
     <!-- hero -->
 
     <div class="bg-gr-metallic">
-      <div class="relative px-4 py-8 mx-auto container-center md:px-8 lg:px-16">
+      <div class="relative py-8 mx-auto container-center ">
         <NavBar />
       </div>
       <div class="relative container-center ">
-        <h1 class="text-3xl lg:text-4xl xl:text-5xl header-circle-lg my-[10svh] font-black uppercase">Где купить</h1>
+        <h1 class="text-3xl lg:text-4xl xl:text-5xl my-[10svh] font-black uppercase">Где купить</h1>
         <LogoSmall class="absolute z-10 right-10 w-96 text-neutral-100 -bottom-52"/>
       </div>
     </div>
     <div class="w-full min-h-screen container-center">
-     
       <div class="py-8">
         <h2 class="my-8 text-2xl font-black">Центральный офис</h2>
         <div class="relative flex flex-col w-full py-4">
           <ul class="text-lg tracking-wide font text-neutral-700">
-            <li class="py-1">Белокаменное шоссе 1</li>
-            <li class="py-1">8 499 645-00-00</li>
-            <li class="py-1">retail@heaton.ru</li>
+            <li class="py-1 flex items-center gap-2">
+              <Icon name="Map Point" class="size-6 text-primary"/>
+              Белокаменное шоссе 1
+            </li>
+            <li class="py-1 flex items-center gap-2">
+              <Icon name="Phone Calling" class="size-6 text-primary"/>
+              8 499 645-00-00
+            </li>
+            <li class="py-1 flex items-center gap-2">
+              <Icon name="Mention Circle" class="size-6 text-primary"/>
+              retail@heaton.ru
+            </li>
           </ul>
         </div>
       </div>
@@ -54,8 +66,13 @@ import LogoSmall from '../svg/logo_small.svg';
           <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A831fffd317d1464537c6b37a7c499d5f0de5482e8680fa2fb2da1c313e12c7b9&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
         </div>
       </div>
-  
-      
+
+      <div class="py-16">
+        <h2 class="my-8 text-2xl font-black">Официальные поставщики</h2>
+        <ColumnList data={suppliersData} />
+      </div>
+
+      <Contact />
     </div>
     <Footer class="mt-auto"/>
   </body>

@@ -1,0 +1,28 @@
+---
+import type { TableColumn } from '../../types/table';
+
+interface Props {
+    product: any;
+    columns: TableColumn[];
+    link:string;
+}
+
+const { product, columns, link } = Astro.props;
+const name_ = product['Наименование'];
+const model = product['Модель'];
+const url = `${link}${product.url}`;
+---
+
+<tr class="border-b border-neutral-200 hover:bg-neutral-50 min-w-max">
+    {columns.map(column => (
+        <td 
+            class=" text-nowrap"
+            data-column={column.value}
+            data-value={product[column.value]?.toString()}
+        >
+            <a href={url} class="px-2 py-2 text-sm w-full">
+                {product[column.value]}
+            </a>
+        </td>
+    ))}
+</tr>

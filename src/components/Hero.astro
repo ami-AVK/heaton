@@ -8,7 +8,7 @@ const {header, subheader, class:className} = Astro.props
         <slot name="breadcrumbs"/>
     </div>
     <div class="flex flex-col md:flex-row container-center mx-auto justify-between md:items-center min-h-[70svh]">
-        <div class="info w-1/2 z-10 order-2 md:order-1">
+        <div class="info md:w-1/2 z-10 order-2 md:order-1">
             <slot name="header"/>
         </div>
         <div class="relative w-full min-w-96 lg:scale-125 md:translate-x-32 order-1 md:order-2 p-8 md:p-0 drop-shadow-primary-hard">
@@ -24,18 +24,4 @@ const {header, subheader, class:className} = Astro.props
             </div> -->
         </div>
     </div>
-<!--     
-    <div class="w-full p-16 md:max-w-[1100px] mx-auto relative -translate-y-12 z-10">
-       
-    </div>
-    <div class="relative container-center mx-auto z-10">
-        <div class="flex bottom-0 left-0 container-center mx-auto gap-16 items-end absolute ">
-            <div class="px-16 py-8 relative basis-1 z-20 grow min-h-96 justify-start flex flex-col -translate-x-16">
-                <slot name="header"/>
-            </div>
-            <div class="basis-1">
-                <slot name="extralinks"/>
-            </div>
-        </div>
-    </div> -->
 </section>
