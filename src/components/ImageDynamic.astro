@@ -1,70 +1,16 @@
 ---
 import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
+import { resolveImagePath } from '../utils/imageResolver';
 
 interface Props {
    imagePath: string;
    altText: string;
    slot?: string;
    class?: string;
-   model?: string
+   model?: string;
 }
 
-// Функция для замены последнего участка пути на model + ".webp"
-function getFallbackImagePath(imagePath: string, model: string): string {
-    const pathParts = imagePath.split('/');
-    pathParts[pathParts.length - 1] = `${model}.webp`;
-    return pathParts.join('/');
-}
-
-
-const { imagePath, altText, class:className, model,...attr} = Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/products/*.{jpeg,jpg,png,gif,webp}')
-
-const fullfallbackImagePath = "/src/images/products/fullfallback.webp";
-const fallback = `/src/images/products/${imagePath}`;
-let img;
-if (!images[imagePath])
-{   
-    if(model){
-        const fallbackImagePath = getFallbackImagePath(imagePath, model);
-        if (!images[fallbackImagePath]) {
-            if(!images[fullfallbackImagePath]){
-            // console.log(fullfallbackImagePath)
-            throw new Error(`${fullfallbackImagePath} fallback image does not exist in glob: "/src/images/products/*.{jpeg,jpg,png,gif,webp}"`);
-            }
-            else{
-                img = images[fullfallbackImagePath]()
-            }
-            // throw new Error(`"${imagePath}" and fallback "${fallbackImagePath}" do not exist in glob: "/src/images/products/*.{jpeg,jpg,png,gif,webp}"`);
-        }
-        else{
-            img = images[fallbackImagePath]()
-        }
-    }
-    else{
-        if(images[fallback]){
-            img = images[fallback]()
-        }
-        else{
-        // throw new Error(`"${imagePath}" does not exist in glob: "/src/images/products/*.{jpeg,jpg,png,gif,webp}"`);
-            if(!images[fullfallbackImagePath]){
-                // console.log(fullfallbackImagePath)
-                throw new Error(`${fullfallbackImagePath} fallback image does not exist in glob: "/src/images/products/*.{jpeg,jpg,png,gif,webp}"`);
-            }
-            else{
-                img = images[fullfallbackImagePath]()
-            }
-        }
-    }
-
-}
-else{
-    img = images[imagePath]()
-}
-
+const { imagePath, altText, class: className, model, ...attr } = Astro.props;
+const img = await resolveImagePath(imagePath, model);
 ---
-<Fragment>
-    <Image src={img} alt={altText} class:list={className} {...attr}/>
-    <!-- <Image src={img} alt={altText} class:list={className} {...attr}/> -->
-</Fragment>
+<Image src={img} alt={altText} class:list={className} {...attr}/>

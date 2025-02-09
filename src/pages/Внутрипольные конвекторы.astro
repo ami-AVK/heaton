@@ -15,6 +15,8 @@ import Calculator from '../components/Calculator.astro';
 import Socials from '../components/Socials.astro';
 import LogoSmall from '../svg/logo_small.svg';
 import Contact from '../components/Contact.astro';
+import ImageDynamic from '../components/ImageDynamic.astro';
+import ImageSwitcher from '../components/ImageSwitcher.astro';
 
 const URL_main = `${import.meta.env.BASE_URL}/`
 const URL_category = `${URL_main}Каталог/Внутрипольные конвекторы/`
@@ -79,10 +81,16 @@ const mainImageDescription = "Внутрипольный конвектор Heat
 				
 			</li>
 		</ul>
-		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">			
+		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between snap-center">			
 			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
-				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
-					<Image alt={mainImageDescription} src={heater} slot="image"/>
+				<div class="basis-1/2 order-1 md:order-2 relative">
+					<ImageSwitcher 
+						images={[
+							{ img: "floor_heater_Chrome.png", colorize: false, tabname: "Chrome" },
+							{ img: "floor_heater_Gold.png", colorize: false, tabname: "Gold" },
+							{ img: "floor_heater_RAL.png", colorize: true, tabname: "RAL" }
+						]} 
+					/>
 				</div>
 				<div class="basis-1/2 order-2 md:order-1">
 					<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4 text-primary">Разнообразие цветов и отделок</h3>
@@ -134,3 +142,5 @@ const mainImageDescription = "Внутрипольный конвектор Heat
         </div>
         <Calculator class="snap-center"/>
 </Layout>
+
+
