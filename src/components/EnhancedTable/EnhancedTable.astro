@@ -32,7 +32,7 @@ const link = url?url:"/";
             action: 'add' | 'remove';
         }
     }
-
+    setupTableInteractions();
     document.addEventListener('astro:page-load', () => {
         setupTableInteractions();
         

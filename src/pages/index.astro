@@ -26,6 +26,7 @@ import Feature from '../components/Feature.astro';
 import FullScreenBanner from '../components/FullScreenBanner.astro';
 import objectsData from '../data/objects.json';
 import ColumnList from '../components/ColumnList.astro';
+import ImageDynamic from '../components/ImageDynamic.astro';
 
 interface Button{
     text: string,
@@ -78,34 +79,13 @@ const mainImageDescription = "Стальной панельный радиато
             <!-- <Image alt={mainImageDescription} src={heater} slot="image" class="w-1/2"/> -->
         </div>
     </section>
-    <!-- <Hero class="min-h-svh snap-center">
-       
-        <BreadCrumbs slot="breadcrumbs" list={
-            [{url:URL_main, text:"Главная"},{url:URL_category, text:"Стальные панельные радиаторы"}]
-            }/>
-
-        
-
-        <Fragment slot="header">
-            <Socials class="mb-6 md:mb-12 text-primary"/>
-            <h1 class="text-3xl md:text-6xl font-bold uppercase leading-tight tracking-wide">Стальные панельные радиаторы</h1>
-            <div class="mt-12 flex items-stretch gap-4 tracking-wider uppercase">
-                <a class="px-4 py-1 text-xl rounded-lg text-neutral-50 bg-primary pt-8" href={URL_model}>Каталог</a>
-                <div class="flex text-base font-medium  gap-4 items-end text-neutral-700">
-                    <a href="#Models" class="px-4 py-1  rounded-lg  bg-neutral-50">Модели</a>
-                    <a href="#Calculator" class="px-4 py-1 rounded-lg  bg-neutral-50">Калькулятор</a>
-                </div>
-            </div>
-        </Fragment> -->
-
-    </Hero>
 	<section class="snap-start container-center py-16 mx-auto ">
 		<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 py-16 tracking-wider leading-relaxed text-lg">
 			<li class="sm:col-span-2 sm:row-span-2 rounded-xl p-8 flex flex-col ">
 				<div class="w-3/4 sm:w-1/2 lg:w-1/3 mb-16 text-primary">
 					<Logo/>
 				</div>
-				<p class="mt-auto text-xl tracking-wider leading-loose my-4 sm:my-8">
+				<p class="mt-auto text-lg md:text-xl tracking-wider leading-loose my-4 sm:my-8">
 					Бренд Heaton — это современный бренд, предлагающий широкий ассортимент отопительного оборудования, включая стальные панельные радиаторы, внутрипольные и напольные конвекторы 
 					<!-- <br>Продукция Heaton производится на нескольких заводах, включая известный турецкий завод ELBA с более чем 50-летним опытом, что гарантирует высочайшее качество и надежность. 
 					<br>Бренд сочетает в себе инновационные технологии, доступные цены и строгое соответствие международным стандартам, таким как ГОСТ 31311. -->
@@ -113,78 +93,60 @@ const mainImageDescription = "Стальной панельный радиато
 			</li>
 			<li class="col-span-1 row-span-3 bg-primary rounded-xl p-8 flex flex-col text-neutral-50 drop-shadow-primary-m">
 				<h3 class="font-black uppercase pb-4 text-2xl text-neutral-50">Техническая поддержка</h3>
-				<p class="mt-auto">
+				<p class="mt-auto text-lg md:text-xl">
 					Бренд предоставляет полную предпродажную и послепродажную поддержку, включая консультации, помощь в подборе оборудования и гарантийное обслуживание
 				</p>
 			</li>
 			<li class="col-span-1 bg-neutral-50/40 rounded-xl p-8 flex flex-col">
 				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Гарантия</h3>
-				<p class="mt-auto">
+				<p class="mt-auto text-lg md:text-xl">
 					Heaton предлагает гарантию до 10 лет на свою продукцию, что подтверждает долговечность и надежность оборудования
 				</p>
 			</li>
 			<li class="col-span-1 bg-neutral-50/40 rounded-xl p-8">
 				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Выбор</h3>
-				<p class="mt-auto">
+				<p class="mt-auto text-lg md:text-xl">
 					Heaton предлагает широкий типоразмерный ряд радиаторов и конвекторов, что позволяет подобрать оборудование для помещений любого типа и площади
 				</p>
 				
 			</li>
 		</ul>
-		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">
+		<!-- <h2 class="text-3xl font-semibold md:text-4xl uppercase mx-auto mb-2 md:mb-8">Наша продукция:</h2> -->
+		<ul class="flex flex-col gap-8 lg:gap-16 my-16">
 			{
 				[
 					{
 						"header": "Стальные панельные радиаторы",
-						"image": heater,
+						"image": "Стальные панельные радиаторы.webp",
 						"text": "Обеспечьте свой дом равномерным и комфортным теплом с нашими стальными панельными радиаторами Heaton. Современный дизайн и высокая эффективность делают их идеальным выбором для любого интерьера. Наслаждайтесь уютом и экономией на отоплении!",
-						"url": `${URL_main}Стальные панельные радиаторы`
+						"url": `${import.meta.env.BASE_URL}/Стальные панельные радиаторы`
 					},
 					{
 						"header": "Напольные конвекторы",
-						"image": step,
+						"image": "Напольные конвекторы.webp",
 						"text": "Напольные конвекторы Heaton — это сочетание стиля и функциональности. Быстрое нагревание и мощная циркуляция воздуха обеспечат вам тепло даже в самых холодных условиях. Идеально подходят для офисов и жилых помещений.",
 						"reverse":true,
-						"url": `${URL_main}Напольные конвекторы`
+						"url": `${import.meta.env.BASE_URL}/Напольные конвекторы`
 					},
 					{
 						"header": "Внутрипольные конвекторы",
-						"image": HF_Comfort,
+						"image": "Внутрипольные конвекторы.webp",
 						"text": "Внутрипольные конвекторы Heaton — это незаметное и эффективное решение для отопления. Они сохраняют пространство и обеспечивают равномерное распределение тепла по всей комнате. Поддерживайте комфортный микроклимат без лишних элементов в интерьере.",
-						"url": `${URL_main}Внутрипольные конвекторы`
+						"url": `${import.meta.env.BASE_URL}/Внутрипольные конвекторы`
 					}
 				].map((element) => (
-					<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50 group hover:bg-primary-10">
-						<div class="basis-1/2 drop-shadow-primary-hard order-1 relative scale-105" class:list={[{"md:order-2":element.reverse}]}>
-							<Image alt={element.header} src={element.image} slot="image"/>
+					<li class="p-2 md:text-lg rounded-3xl relative flex flex-col md:flex-row items-center gap-4 md:gap-16 bg-neutral-50/50 group hover:bg-primary-10">
+						<div class=" drop-shadow-primary-hard-sm md:drop-shadow-primary-hard-lg lg:drop-shadow-primary-hard drop order-1 relative scale-105" class:list={[{"md:order-2":element.reverse}]}>
+							<ImageDynamic imagePath={element.image} altText='element.header' />
 						</div>
-						<div class="basis-1/2 order-2 px-8" class:list={[{"md:order-1":element.reverse}]}>
-							<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4">{element.header}</h3>
-							<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4 pb-8">{element.text}</p>
-							<a class="px-4 py-2 text-xl rounded-lg text-neutral-50 bg-primary" href={element.url}>Перейти в раздел</a>
+						<div class="order-2 p-4 md:p-8" class:list={[{"md:order-1":element.reverse}]}>
+							<h3 class="text-xl mb-6 md:mb-12 md:text-3xl uppercase tracking-wider font-black text-balance md:pl-4">{element.header}</h3>
+							<p class="text-balance mb-6 md:mb-14 tracking-widest leading-normal md:leading-relaxed md:pl-4 ">{element.text}</p>
+							<a class="px-4 my-2 py-2 text-lg md:text-xl rounded-lg text-neutral-50 bg-primary block text-center md:text-left md:inline-block" href={element.url}>Перейти в раздел</a>
 						</div>
 					</li>
 				))
 			}		
-
-			<!-- <li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 flex-col md:flex-row bg-neutral-50">
-				<div class="basis-1/2 drop-shadow-primary-hard order-1 origin-right scale-105">
-					<Image alt={mainImageDescription} src={HF_Comfort} slot="image"/>
-				</div>
-				<div class="basis-1/2 order-2">
-					<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4">Внутрипольные конвекторы</h3>
-					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
-				</div>
-			</li>
-			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
-				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
-					<Image alt={mainImageDescription} src={step} slot="image"/>
-				</div>
-				<div class="basis-1/2 order-2 md:order-1">
-					<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4">Напольные конвекторы</h3>
-					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
-				</div>
-			</li> -->
 		</ul>
 	</section>
 	<section class="snap-center container-center mx-auto">
@@ -192,7 +154,7 @@ const mainImageDescription = "Стальной панельный радиато
 	</section>
 
 	<section class="snap-center container-center mx-auto min-h-screen py-16 flex flex-col">
-		<h2 class="text-3xl font-semibold md:text-6xl uppercase mx-auto mb-8">Объекты комплектации</h2>
+		<!-- <h2 class="text-3xl font-semibold md:text-4xl uppercase mx-auto mb-2 md:mb-8">Объекты комплектации</h2> -->
 		<ColumnList data={objectsData} class="mt-16" />
 	</section>
 
@@ -228,7 +190,7 @@ const mainImageDescription = "Стальной панельный радиато
 	
 	document.addEventListener('astro:before-swap', () => {
 		swiper.destroy();
-		console.log("before")
+		// console.log("before")
 	});
 
 	document.addEventListener('astro:page-load', () => {

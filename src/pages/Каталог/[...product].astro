@@ -9,30 +9,14 @@ import NavBar from '../../components/NavBar.astro';
 import Footer from '../../components/Footer.astro';
 import Drawing from '../../components/Drawing.astro';
 import Contact from '../../components/Contact.astro';
-import { findSimilarProducts } from '../../utils/productUtils';
+import { findSimilarProducts, getNavigationLinks } from '../../utils/productUtils';
 import ProductCard from '../../components/ProductCard.astro';
 import { Image } from "astro:assets"
 import heater from "../../img/main_heaters_.webp"
 import step from "../../img/step.webp"
 import HF_Comfort from "../../img/HF_Comfort.webp"
+import ImageDynamic from '../../components/ImageDynamic.astro';
 
-
-// interface Product {
-//     'Наименование': string;
-//     url:string
-//     [key: string]: any;
-// }
-// interface Category {
-//     ['Заголовок на главную']:string;
-//     ['Описание на главную']:string;
-//     ['Заголовок в карточку']:string;
-//     ['Описание в карточку']:string;
-//     [key: string]: any;
-//     products: Product[];
-// }
-// interface Sitemap {
-//     [key: string]: Category;
-// }
 export async function getStaticPaths() {
     let paths=[] as any[]
     const sitemap = sitemapJSON as any as Sitemap;
@@ -83,7 +67,7 @@ const characteristics = [
                             {header:"Глубина:", value:`${depth} мм`},
                             {header:"Мощность:", value:`${power} мм`},
                         ]
-weight&&characteristics.push({header:"Вес:", value:`${weight} кг`},)
+weight&&characteristics.push({header:"Вес:", value:`${weight} кг`},);
 // type&&characteristics.unshift({header:"Тип:", value:`${type}`},)
 
 let extraCharacteristics = [{header:"Тип:", value:`${type} мм`}];
@@ -118,52 +102,59 @@ const similarHeight= findSimilarProducts(category,product,'Высота, мм') 
 const similarLenght = findSimilarProducts(category,product,'Длина, мм') as Product[];
 const similarDepth = findSimilarProducts(category,product,'Глубина, мм') as Product[];
 const similarPower = findSimilarProducts(category,product,'Теплоотдача, Вт') as Product[];
+let otherCategorys = getNavigationLinks().map((category)=>{
+    category.url = `${import.meta.env.BASE_URL}${category.url}`
+    return category
+});
+otherCategorys = otherCategorys.filter(elem => (
+    elem.text != category
+    ))
+console.log(otherCategorys);
 
-console.log(findSimilarProducts(category,product,'Длина, мм'));
 ---
 <Layout title={title.replace("{Наименование}",productName)} description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
     <div class="snap-center">
         <Hero class="min-h-svh">
             <NavBar slot="navbar" class="mx-auto container-center py-8"/>
             <BreadCrumbs slot="breadcrumbs" class='z-50' list={
-                [{url:URL_main, text:"Главная"},{url:URL_category, text:category},{url:URL_product, text:productName}]
+                [{url:URL_main, text:"Главная"},{url:URL_category, text:category, links:otherCategorys},{url:URL_product, text:productName}]
                 }/>
-            <DynamicImage imagePath={imagePath} altText={imageAlt} slot="image" model={model}/>
+
+                <DynamicImage imagePath={imagePath} altText={imageAlt} slot="image" model={model} class='mx-auto w-auto h-auto max-h-[30vh] md:max-h-[70vh]'/>
+
+            
             <Fragment slot="header">
-                <h1 class="text-5xl font-black uppercase tracking-wider mt-16">
-                    <div class="text-xl whitespace-nowrap leading-none mb-2">{title.replace("{Наименование}","")}</div>
-                    <div class="whitespace-nowrap leading-none">{productName}</div>
+                <h1 class="text-2xl md:text-5xl font-black uppercase tracking-wider mt-4 md:mt-16 px-2">
+                    <div class="text-sm md:text-xl whitespace-nowrap leading-none font-normal">{title.replace("{Наименование}","")}</div>
+                    <div class="leading-none">{productName}</div>
                 </h1>
-                <div class="flex md:flex-col items-center md:items-start justify-between">
-                    <ul class="text-2xl tracking-wider flex flex-col gap-4 py-16 font-medium flex-1">
+                <div class="flex flex-col md:items-start justify-between">
+                    <ul class="text-base md:text-2xl tracking-wider grid grid-cols-1 md:grid-cols-1 md:gap-2 py-4 md:py-16 font-medium flex-1">
                         {
                             characteristics.map((element) =>(
-                                <li class="">
-                                    <span class="text-sm block">{element.header}</span>
-                                    <span class="block font-black whitespace-nowrap">{element.value}</span>
+                                <li class="px-2 py-0.5 md:py-1 rounded-lg overflow-clip">
+                                    <span class="md:block text-xs md:text-sm  text-neutral-500 font-normal">{element.header}</span>
+                                    <span class="md:block font-black whitespace-nowrap leading-none md:leading-tight text-ellipsis">{element.value}</span>
                                 </li>
                             ))
                         }
                     </ul>
-                    <ul class="text-2xl tracking-wider flex flex-col md:flex-row gap-8 font-medium">
-                        {
-                            extraCharacteristics.map((element) =>(
-                                <li class=" bg-primary text-neutral-50 p-2 rounded-lg">
-                                    <span class="text-sm block">{element.header}</span>
-                                    <span class="block">{element.value}</span>
-                                </li>
-                            ))
-                        }
-                    </ul>
+                    <div class="overflow-x-scroll ">
+                        <ul class="text-base md:text-2xl tracking-wider flex flex-nowrap md:flex-row gap-2 md:gap-4 font-medium ">
+                            {
+                                extraCharacteristics.map((element) =>(
+                                    <li class="bg-primary text-neutral-50 px-2 md:px-3 py-1 rounded-lg overflow-clip">
+                                        <span class="text-xs md:text-sm block font-normal">{element.header}</span>
+                                        <span class="block font-black whitespace-nowrap leading-none md:leading-none text-ellipsis">{element.value}</span>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+
                 </div>
             </Fragment>
     
-            <Fragment slot="extralinks">
-                <ul class="flex gap-8">
-                    <li><a href="/#models" class="px-16 py-8 border border-primary rounded-2xl block">Аналоги</a></li>
-                    <li><a href="/#calculator" class="px-16 py-8 border border-primary rounded-2xl block">Калькулятор</a></li>
-                </ul>
-            </Fragment>
         </Hero>
         <section class="text-4xl font-black uppercase container-center">
             <!-- <h2>Технические характеристики</h2> -->
@@ -178,15 +169,15 @@ console.log(findSimilarProducts(category,product,'Длина, мм'));
 	</section>
     <section class="container-center snap-center min-h-[40vh] my-32">
         <div class="group" data-type="power">
-            <div class="flex justify-between">
-                <h2 class="text-4xl font-black uppercase">Аналоги</h2>
-                <ul class="flex gap-8">
-                    <li><button class="hover:bg-primary rounded-lg p-2 hover:text-neutral-50 bg-neutral-50" value="power">Похожая мощность</button></li>
-                    <li><button class="hover:bg-primary rounded-lg p-2 hover:text-neutral-50 bg-neutral-50" value="height">Похожая высота</button></li>
-                    <li><button class="hover:bg-primary rounded-lg p-2 hover:text-neutral-50 bg-neutral-50" value="lenght">Похожая длина</button></li>
+            <div class="flex flex-col md:flex-row justify-between mb-4 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-black uppercase mb-2">Аналоги</h2>
+                <ul class="flex gap-8 text-sm">
+                    <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="power">Похожая мощность</button></li>
+                    <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="height">Похожая высота</button></li>
+                    <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="lenght">Похожая длина</button></li>
                 </ul>
             </div>
-            <ul class="hidden group-data-[type='power']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-16">
+            <ul class="hidden group-data-[type='power']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 ">
                 {
                     similarPower.map((card) => (
                         <li>
@@ -195,7 +186,7 @@ console.log(findSimilarProducts(category,product,'Длина, мм'));
                     ))
                 }
             </ul>
-            <ul class="hidden group-data-[type='lenght']:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-16">
+            <ul class="hidden group-data-[type='lenght']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 ">
                 {
                     similarLenght.map((card) => (
                         <li>
@@ -204,7 +195,7 @@ console.log(findSimilarProducts(category,product,'Длина, мм'));
                     ))
                 }
             </ul>
-            <ul class="hidden group-data-[type='height']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-16">
+            <ul class="hidden group-data-[type='height']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 ">
                 {
                     similarHeight.map((card) => (
                         <li>
@@ -217,34 +208,41 @@ console.log(findSimilarProducts(category,product,'Длина, мм'));
     </section>
     <section class="container-center snap-center  min-h-[40vh] my-32">
         <h2 class="text-4xl font-black uppercase mb-16">Другие виды отопительного оборудования</h2>
-        <ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">			
-			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
-				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
-					<Image alt="Стальной панельный радиатор отопления Heaton" src={heater} slot="image"/>
-				</div>
-				<div class="basis-1/2 order-2 md:order-1">
-					<h3 class="pb-8 min-w-96 text-2xl uppercase tracking-wider font-black text-balance pl-4">Стальные панельные радиаторы</h3>
-					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
-				</div>
-			</li>
-			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 flex-col md:flex-row bg-neutral-50">
-				<div class="basis-1/2 drop-shadow-primary-hard order-1 origin-right scale-105">
-					<Image alt="Внутрипольные конвекторы" src={HF_Comfort} slot="image"/>
-				</div>
-				<div class="basis-1/2 order-2">
-					<h3 class="pb-8 min-w-96 text-2xl uppercase tracking-wider font-black text-balance pl-4">Внутрипольные конвекторы</h3>
-					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу</p>
-				</div>
-			</li>
-			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
-				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
-					<Image alt="Напольные конвекторы Heaton" src={step} slot="image"/>
-				</div>
-				<div class="basis-1/2 order-2 md:order-1">
-					<h3 class="pb-8 min-w-96 text-2xl uppercase tracking-wider font-black text-balance pl-4">Напольные конвекторы</h3>
-					<p class="text-balance mb-4 tracking-widest leading-relaxed pl-4">Частичное уменьшение сечения первых двух каналов панели радиатора, что способствует равномерному распределению потока теплоносителя по всей длине прибора</p>
-				</div>
-			</li>
+        <ul class="flex flex-col gap-8 lg:gap-16 ">
+			{
+				[
+					{
+						"header": "Стальные панельные радиаторы",
+						"image": "Стальные панельные радиаторы.webp",
+						"text": "Обеспечьте свой дом равномерным и комфортным теплом с нашими стальными панельными радиаторами Heaton. Современный дизайн и высокая эффективность делают их идеальным выбором для любого интерьера. Наслаждайтесь уютом и экономией на отоплении!",
+						"url": `${import.meta.env.BASE_URL}/Стальные панельные радиаторы`
+					},
+					{
+						"header": "Напольные конвекторы",
+						"image": "Напольные конвекторы.webp",
+						"text": "Напольные конвекторы Heaton — это сочетание стиля и функциональности. Быстрое нагревание и мощная циркуляция воздуха обеспечат вам тепло даже в самых холодных условиях. Идеально подходят для офисов и жилых помещений.",
+						"reverse":true,
+						"url": `${import.meta.env.BASE_URL}/Напольные конвекторы`
+					},
+					{
+						"header": "Внутрипольные конвекторы",
+						"image": "Внутрипольные конвекторы.webp",
+						"text": "Внутрипольные конвекторы Heaton — это незаметное и эффективное решение для отопления. Они сохраняют пространство и обеспечивают равномерное распределение тепла по всей комнате. Поддерживайте комфортный микроклимат без лишних элементов в интерьере.",
+						"url": `${import.meta.env.BASE_URL}/Внутрипольные конвекторы`
+					}
+				].filter((e)=>e.header!=category).map((element) => (
+					<li class="p-2 md:text-lg rounded-3xl relative flex flex-col md:flex-row items-center gap-4 md:gap-16 bg-neutral-50 group hover:bg-primary-10">
+						<div class=" drop-shadow-primary-hard-sm md:drop-shadow-primary-hard-lg lg:drop-shadow-primary-hard drop order-1 relative scale-105" class:list={[{"md:order-2":element.reverse}]}>
+							<ImageDynamic imagePath={element.image} altText='element.header' />
+						</div>
+						<div class="order-2 p-4 md:p-8" class:list={[{"md:order-1":element.reverse}]}>
+							<h3 class="text-xl mb-6 md:mb-12 md:text-3xl uppercase tracking-wider font-black text-balance md:pl-4">{element.header}</h3>
+							<p class="text-balance mb-6 md:mb-14 tracking-widest leading-normal md:leading-relaxed md:pl-4 ">{element.text}</p>
+							<a class="px-4 my-2 py-2 text-lg md:text-xl rounded-lg text-neutral-50 bg-primary block text-center md:text-left md:inline-block" href={element.url}>Перейти в раздел</a>
+						</div>
+					</li>
+				))
+			}		
 		</ul>
     </section>
     <Footer class="mt-auto snap-center"/>

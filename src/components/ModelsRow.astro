@@ -7,16 +7,16 @@ interface Link {
 interface Links {
     links: Link[]
 }
-const {links, class:className} = Astro.props
+const {links, class:className, ...attr} = Astro.props
 // console.log(links)
 ---
 {   
     links
     ?
-    <ul class="flex text-sm gap-2 py-2 flex-col" class:list={className}>
+    <ul class="flex text-sm gap-2 py-2 flex-col group data-[small]:gap-1 data-[small]:py-1" class:list={className} {...attr}>
         {links.map((link__:Link)=>(
-        <li>
-        <a href={link__.url} class="px-2 py-2 whitespace-nowrap hover:bg-neutral-200 rounded-lg">{link__.text}</a>
+        <li class=" list-disc">
+        <a href={link__.url} class="px-2 py-2 group-data-[small]:py-1 whitespace-nowrap hover:underline rounded-lg group-data-[small]:rounded-none group-data-[small]:px-0 group-data-[simple]:hover:bg-none">{link__.text}</a>
         </li>
         ))}
     </ul>

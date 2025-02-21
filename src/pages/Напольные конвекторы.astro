@@ -19,37 +19,50 @@ import Contact from '../components/Contact.astro';
 
 const URL_main = `${import.meta.env.BASE_URL}/`
 const URL_category = `${URL_main}Каталог/Напольные конвекторы/`
+const URL_model = `${URL_category}Step/`
 
 const mainImageDescription = "Стальной панельный радиатор Heaton в разрезе"
 ---
 <Layout title="Напольные конвекторы Heaton" description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
     
     <Hero class="min-h-svh snap-center">
-        <NavBar slot="navbar" class="mx-auto container-center py-8"/>
+        <NavBar slot="navbar" class="mx-auto container-center py-4 md:py-8"/>
         <BreadCrumbs slot="breadcrumbs" list={
             [{url:URL_main, text:"Главная"},{url:URL_category, text:"Напольные конвекторы"}]
             }/>
 
         <Image alt={mainImageDescription} src={heater} slot="image"/>
 
-        <Fragment slot="header">
+        <!-- <Fragment slot="header">
             <Socials class="mb-6 md:mb-12 text-primary"/>
-            <h1 class="text-6xl font-black uppercase">Напольные конвекторы</h1>
-            <div class="mt-12 flex items-stretch gap-4 tracking-wider uppercase">
-                <a class="px-8 py-2 text-xl rounded-lg text-neutral-50 bg-primary pt-8">Каталог</a>
+            <h1 class="text-3xl md:text-6xl font-black uppercase leading-tight tracking-wide">Напольные конвекторы</h1>
+            <div class="mt-4 md:mt-12 flex items-stretch gap-4 tracking-wider uppercase">
+                <a class="px-4 py-1 text-xl rounded-lg text-neutral-50 bg-primary pt-8">Каталог</a>
                 <div class="flex text-base font-medium  gap-4 items-end text-neutral-700">
-                    <!-- <a href="#Models" class="px-4 py-2  rounded-lg  bg-neutral-100">Модели</a> -->
-                    <a href="#Calculator" class="px-4 py-2 rounded-lg  bg-neutral-100">Калькулятор</a>
+                    <a href="#Calculator" class="px-4 py-1 rounded-lg  bg-neutral-100">Калькулятор</a>
+                </div>
+            </div>
+        </Fragment> -->
+        <Fragment slot="header">
+            <Socials class="mb-4 md:mb-12 text-primary" data-response/>
+            <h1 class="text-3xl md:text-6xl font-black uppercase leading-tight tracking-wide">Напольные конвекторы</h1>
+            <div class="mt-4 md:mt-12 flex items-stretch gap-4 tracking-wider uppercase">
+                <a class="px-4 grow py-1 md:text-xl rounded-lg text-neutral-50 bg-primary pt-8" href={URL_model}>Каталог</a>
+                <div class="flex text-sm md:text-base font-medium flex-col md:flex-row gap-2  md:gap-4 md:items-end text-neutral-700">
+                    <!-- <a href="#Models" class="px-4 py-1  rounded-lg  bg-neutral-50">Модели</a> -->
+                    <a href="#Calculator" class="px-4 py-1 rounded-lg  bg-neutral-50">Калькулятор</a>
                 </div>
             </div>
         </Fragment>
+        <!-- <Socials class="mb-4 md:mb-12 text-primary"/> -->
 
-        <Fragment slot="extralinks">
+
+        <!-- <Fragment slot="extralinks">
             <ul class="flex gap-8">
                 <li><a href="/#models" class="px-16 py-8 border border-primary rounded-2xl block">Модели</a></li>
                 <li><a href="/#calculator" class="px-16 py-8 border border-primary rounded-2xl block">Калькулятор</a></li>
             </ul>
-        </Fragment>
+        </Fragment> -->
 
     </Hero>
 

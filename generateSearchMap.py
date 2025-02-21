@@ -1,12 +1,21 @@
 import os
 import csv
 import json
+import re
 
 import pandas as pd
 
 # ВАЖНО из файла astro.config.mjs
 site = 'https://q-li.ru/'
 base = '/heaton'
+
+
+def clean_string(input_string):
+    # Регулярное выражение для поиска "( число)" или "(числочисло)"
+    pattern = r" \(.{1,3}\)"
+    # Удаление всех вхождений найденного шаблона
+    cleaned_string = re.sub(pattern, "", input_string)
+    return cleaned_string
 
 def create_json_from_directory(root_dir):
     data = []
@@ -34,7 +43,7 @@ def create_json_from_directory(root_dir):
                             
                             try:
                                 # link = os.path.join(f"{base}/",category, model, type_name, item_name)
-                                link = os.path.join(category, model, type_name, item_name)
+                                link = os.path.join("Каталог",category, model, type_name, item_name)
                             except:
                                 print(row)
                                 continue
@@ -50,7 +59,6 @@ def create_json_from_directory(root_dir):
     return data
 def create_json_from_directory_powerSearch(root_dir):
     data = []
-
     for category in os.listdir(root_dir):
         if category.startswith('.'):
             continue
@@ -72,7 +80,8 @@ def create_json_from_directory_powerSearch(root_dir):
                             item_name = row['Модель']
 
                             try:
-                                link = os.path.join(category, model, type_name, item_name)
+                                link = os.path.join("Каталог",category, clean_string(model), type_name, item_name)
+                                print(link)
                             except:
                                 print(row)
                                 continue
@@ -106,8 +115,7 @@ def save_json_to_file(data, output_file):
 if __name__ == "__main__":
     root_directory = 'src/data'  # Укажите путь к корневой директории
     output_file = 'public/search_map_radiator_power.json'  # Укажите имя выходного JSON-файла
-
-    data = create_json_from_directory(root_directory)
+    # data = create_json_from_directory(root_directory)
     data = create_json_from_directory_powerSearch(root_directory)
     save_json_to_file(data, output_file)
     print(f"JSON-файл сохранен в {output_file}")

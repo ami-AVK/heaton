@@ -6,33 +6,31 @@ import { glob, globSync, globStream, globStreamSync, Glob } from 'glob'
 import sitemapJSON from '../data/site.json'
 import ModelsRow from './ModelsRow.astro';
 import type { Link, Product, Category, Sitemap } from '../types/common';
+import Drawer from './Drawer.astro';
+import { getCatalogLinks } from '../utils/productUtils';
 
-let catalogLinks = []
-const sitemap = sitemapJSON as any as Sitemap;
+// let catalogLinks = []
+const catalogLinks = await getCatalogLinks();
+// const sitemap = sitemapJSON as any as Sitemap;
 
-for (const key in sitemap as any as Sitemap) {
-        const category = sitemap[key] as Category
-        if (sitemap.hasOwnProperty(key)) {
-            const products = category.products as Product[];
-            const url = `${import.meta.env.BASE_URL}/${key}`
+// for (const key in sitemap as any as Sitemap) {
+//         const category = sitemap[key] as Category
+//         if (sitemap.hasOwnProperty(key)) {
+//             const products = category.products as Product[];
+//             const url = `${import.meta.env.BASE_URL}/${key}`
 
-            let models = [...new Set(products.map(product => product['Модель']))];
+//             let models = [...new Set(products.map(product => product['Модель']))];
             
-            const models_ = models.map((model)=>{
-              return {url:`${import.meta.env.BASE_URL}/Каталог/${key}/${model}`,text:model} as any as Link
-            })
-            const link = {url:`${url}`,text:key, links:models_} as any as Link;
-            catalogLinks.push(link);
-        }
-}
+//             const models_ = models.map((model)=>{
+//               return {url:`${import.meta.env.BASE_URL}/Каталог/${key}/${model}`,text:model} as any as Link
+//             })
+//             const link = {url:`${url}`,text:key, links:models_} as any as Link;
+//             catalogLinks.push(link);
+//         }
+// }
 const currentURL = new URL(Astro.request.url).pathname;
 const mainpage = currentURL==="/";
-// console.log(currentURL==="/");
-// const collection = await glob([ "./src/data/**/**/*.csv"]);
-// const paths = collection.map((file) => ({
-//     props:{filePath:file.toString(),category: file.split('/')[2],model: file.split('/')[3],type: file.split('/')[4].replace(".csv","")},
-//   }));
-// const pathname = `${import.meta.env.BASE_URL}/${paths[0].props.category}/${paths[0].props.model}/${paths[0].props.type}`
+
 const {class:className,...attr} = Astro.props;
 const mainLinks = [
                     {text:"Документация",href:`${import.meta.env.BASE_URL}/Документация`},
@@ -43,10 +41,10 @@ const mainLinks = [
 ---
 
 <div class="z-50 nav-scroll" class:list={className} {...attr}>
-    <div class="relative z-50 flex flex-row items-center justify-between ">
+    <div class="relative z-50 flex flex-row items-center justify-between">
       <div class="flex items-center gap-4 nav-left-block">
           <a href=`${import.meta.env.BASE_URL}/` class=`cursor-pointer text-secondary ${mainpage?"pointer-events-none":""}`>
-            <Logo class="hidden w-20 md:w-32 lg:w-40 lg:block text-primary"/>
+            <Logo class="hidden md:w-32 lg:w-40 lg:block text-primary"/>
             <LogoSmall class="w-16 lg:hidden text-primary"/>
           </a>
           <div class="gap-4 mx-4 md:mx-auto md:flex-col md:gap-2 flex">
@@ -65,7 +63,7 @@ const mainLinks = [
       </div>
     
       <div class="flex items-center gap-8">
-        <div class="relative group after:content-[''] after:w-full after:right-0 after:h-[200%] after:bottom-0 after:-z-20 after:text-xs after:absolute "> 
+        <div class="relative group after:content-[''] after:w-full after:right-0 after:h-[200%] after:bottom-0 after:-z-20 after:text-xs after:absolute hidden lg:block"> 
             <button class="hover:underline_ text-md font-bold leading-5 text-left flex items-center gap-2 text-neutral-700 hover:bg-neutral-50 p-3 pr-8 rounded-3xl">
               <Icon name="catalog" class="size-8 relative rotate-0 group-hover:-rotate-90 transition-transform ease-in-out"/>
               <div class="relative text-base font-black leading-5 tracking-wider
@@ -87,9 +85,10 @@ const mainLinks = [
               }
             </ul>
         </div>
-        <div class="relative hidden lg:block">
+        <div class="relative flex items-center ">
+          <Drawer/>
           <div
-            class="bg-neutral-50 text-neutral-700 rounded-full pt-1 pr-1 pb-1 pl-4 flex flex-row gap-4 items-center justify-start shrink-0 relative data-[active]:bg-primary data-[active]:text-primary  overflow-clip group/container data-[active]:shadow-2xl"
+            class="hidden lg:flex bg-neutral-50 text-neutral-700 rounded-full pt-1 pr-1 pb-1 pl-4  flex-row gap-4 items-center justify-start shrink-0 relative data-[active]:bg-primary data-[active]:text-primary  group/container data-[active]:shadow-2xl overflow-hidden"
             id="search-container"
           >
             <div

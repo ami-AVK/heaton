@@ -12,28 +12,40 @@ const URL_main = `${import.meta.env.BASE_URL}/`
 const imagePath = `/src/images/products/${product['Изображение']}`;
 const imageAlt = `${category} Heaton ${product['Наименование']}`;
 const productUrl = `${URL_main}Каталог/${product.url}`;
+// "Подключение": "Нижнее",
+// "Исполнение": "Стандартный",
 ---
 
-<a href={productUrl} class="block p-4 transition-all bg-neutral-200 rounded-xl hover:bg-neutral-100 hover:scale-105 hover:shadow-lg">
-    <div class="aspect-square overflow-hidden rounded-lg mb-4">
+<a href={productUrl} class="flex gap-2 md:flex-col p-2 md:p-4 transition-all bg-neutral-200 rounded-xl hover:bg-neutral-100 hover:scale-105 hover:shadow-lg">
+    <div class=" overflow-hidden rounded-lg mb-4 p-1 md:p-0 md:aspect-square w-1/4 md:w-auto">
         <DynamicImage 
             imagePath={imagePath} 
             altText={imageAlt} 
             model={product['Модель']}
-            class="w-full h-full object-contain"
+            class="md:w-full md:h-full object-contain object-center"
         />
     </div>
     <div class="space-y-2">
         <h3 class="font-bold">{product['Наименование']}</h3>
         <ul class="text-sm text-neutral-600">
+
             {product['Высота, мм'] && (
-                <li>Высота: {product['Высота, мм']} мм</li>
+                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Высота: </span><span class="font-bold">{product['Высота, мм']} мм</span></li>
             )}
             {product['Длина, мм'] && (
-                <li>Длина: {product['Длина, мм']} мм</li>
+                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Длина: </span><span class="font-bold">{product['Длина, мм']} мм</span></li>
+            )}
+            {product['Глубина, мм'] && (
+                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Глубина: </span><span class="font-bold">{product['Глубина, мм']} мм</span></li>
             )}
             {product['Теплоотдача, Вт'] && (
-                <li>Мощность: {product['Теплоотдача, Вт']} Вт</li>
+                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Теплоотдача: </span><span class="font-bold">{product['Теплоотдача, Вт']} Вт</span></li>
+            )}
+            {product['Подключение'] && (
+                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Подключение: </span><span class="font-bold">{product['Подключение']}</span></li>
+            )}
+            {product['Исполнение'] && (
+                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Исполнение: </span><span class="font-bold">{product['Исполнение']}</span></li>
             )}
         </ul>
     </div>

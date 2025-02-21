@@ -2,16 +2,16 @@
 const {header, subheader, class:className} = Astro.props
 ---
 <!-- before:absolute before:w-full before:h-[50vh] before:min-h-[300px] before:-z-50 before:bg-[#F0F0F0] -->
-<section class="min-h-svh  relative isolate" class:list={className}>
+<section class="min-h-svh relative isolate" class:list={className}>
     <slot name="navbar"/>
     <div class="mx-auto container-center -translate-x-2 z-40 relative">
         <slot name="breadcrumbs"/>
     </div>
-    <div class="flex flex-col md:flex-row container-center mx-auto justify-between md:items-center min-h-[70svh]">
-        <div class="info md:w-1/2 z-10 order-2 md:order-1">
+    <div class="flex  md:mt-0 flex-col md:flex-row container-center mx-auto justify-between items-center min-h-[70svh]">
+        <div class="info md:w-1/2 z-10 order-2 md:order-1 grow">
             <slot name="header"/>
         </div>
-        <div class="relative w-full min-w-96 lg:scale-125 md:translate-x-32 order-1 md:order-2 p-8 md:p-0 drop-shadow-primary-hard">
+        <div class="relative grow object-right min-w-96 lg:scale-110 md:translate-x-32 order-1 md:order-2 p-4 md:p-0 drop-shadow-primary-hard-sm md:drop-shadow-primary-hard-lg lg:drop-shadow-primary-hard-xl">
             <slot name="image"/>
             <!-- <div class="absolute inset-0  top-0 left-0 blur-2xl -z-10">
                 <div class="drop-shadow-primary-d -translate-x-8 translate-y-4 -hue-rotate-60">

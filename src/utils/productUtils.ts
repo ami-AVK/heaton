@@ -3,12 +3,46 @@ import type { Product, Category, Sitemap, Link } from '../types/common';
 
 const sitemap = sitemapJSON as any as Sitemap;
 
+export async function getCatalogLinks(): Promise<Link[]> {
+    const catalogLinks: Link[] = [];
+    // const sitemap = sitemapJSON as Sitemap;
+
+    for (const key in sitemap) {
+        const category = sitemap[key] as Category;
+        if (sitemap.hasOwnProperty(key)) {
+            const products = category.products as Product[];
+            const url = `${import.meta.env.BASE_URL}/${key}`;
+
+            let models = [...new Set(products.map(product => product['Модель']))];
+            
+            const models_ = models.map((model) => {
+                return {
+                    url: `${import.meta.env.BASE_URL}/Каталог/${key}/${model}`,
+                    text: model
+                } as Link;
+            });
+
+            const link = {
+                url: url,
+                text: key,
+                links: models_
+            } as Link;
+
+            catalogLinks.push(link);
+        }
+    }
+
+    return catalogLinks;
+}
 export function getUniqueValues(products: Product[], field: string): (string | number)[] {
     return [...new Set(products.map(product => product[field]))].sort((a, b) => Number(a) - Number(b));
 }
 
-export function getUniqueFieldValues(category: string, field: string): (string | number)[] {
-    const products = getCategoryProducts(category);
+export function getUniqueFieldValues(category: string, field: string, model?: string): (string | number)[] {
+    console.log(model);
+    const products = model 
+        ? getModelProducts(category, model)
+        : getCategoryProducts(category);
     return getUniqueValues(products, field);
 }
 
@@ -18,6 +52,13 @@ export function getCategoryProducts(category: string): Product[] {
 
 export function getModelProducts(category: string, model: string): Product[] {
     return getCategoryProducts(category).filter(product => product['Модель'] === model);
+}
+export function getModelProducts_(category: string, model: string): Product[] {
+    console.log('Filtering for model:', model); // Debug log
+    const products = getCategoryProducts(category);
+    const filtered = products.filter(product => product['Модель'].trim() === model.trim());
+    console.log('Found products:', filtered.length); // Debug log
+    return filtered;
 }
 
 export function getAllCategories(): string[] {

@@ -1,0 +1,113 @@
+---
+import { Icon } from "astro-icon/components";
+import { getCatalogLinks } from "../utils/productUtils";
+import type { Link } from "../types/common";
+import ModelsRow from "./ModelsRow.astro";
+import Socials from "./Socials.astro";
+
+const catalogLinks = await getCatalogLinks();
+const mainLinks = [
+                    {text:"Документация",href:`${import.meta.env.BASE_URL}/Документация`},
+                    {text:"Контакты",href:`${import.meta.env.BASE_URL}/Контакты`},
+                    {text:"Где купить",href:`${import.meta.env.BASE_URL}/Где купить`},
+                  ]
+
+---
+
+<!-- drawer init and show -->
+
+<button
+class="p-4 bg-primary rounded-full hover:opacity-80 lg:hidden "
+data-drawer-target="drawer-navigation"
+data-drawer-show="drawer-navigation"
+aria-controls="drawer-navigation"
+>   
+  <Icon name="Hamburger Menu"  class="text-neutral-50 size-8"/>
+</button>
+<!-- drawer component -->
+
+<div
+  id="drawer-navigation"
+  class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-neutral-200 w-80 will-change-transform"
+  tabindex="-1"
+  aria-labelledby="drawer-navigation-label"
+>
+  <button
+    type="button"
+    data-drawer-hide="drawer-navigation"
+    aria-controls="drawer-navigation"
+    class="text-neutral-400 bg-transparent hover:bg-neutral-200 hover:text-neutral-700 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center "
+  >
+ 
+    <span class="sr-only">Close menu</span>
+  </button>
+  <div class="py-4 overflow-y-auto">
+    <ul class="space-y-2 font-medium">
+      <li>
+        <h5 class="flex items-center p-2 text-neutral-700 rounded-lg font-black">Каталог:</h5>
+        <ul class="min-w-full text-neutral-700">
+            {
+              catalogLinks.map((element:Link)=>(
+                  <li class="pl-2">
+                    <a href={element.url} class="p-2 flex gap-2 flex-row hover:bg-neutral-100 pointer-events-auto cursor-pointer rounded-lg font-black">
+                      {/* <Icon name="At sign" class="size-6"/> */}
+                      <span class="whitespace-nowrap block">{element.text}</span>
+                    </a>
+                    <ModelsRow links={element.links} class="pl-2" data-small/>
+                  </li>
+                ))
+            }
+          </ul>
+      </li>
+      {
+        mainLinks.map((link) =>(
+        <li>
+            <a
+            href={link.href}
+            class="flex items-center p-2 text-neutral-700 rounded-lg group"
+            >
+
+            <span class="flex-1  whitespace-nowrap font-black">{link.text}</span>
+            {/* <span
+                class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-neutral-800 bg-neutral-100 rounded-full "
+                >Pro
+            </span> */}
+            </a>
+        </li>
+        ))
+      }
+      <li class="pt-12">
+        <Socials data-small/>
+      </li>
+    </ul>
+  </div>
+</div>
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const drawerButton = document.querySelector('[data-drawer-target]');
+        const drawer = document.getElementById('drawer-navigation');
+        const closeButton = document.querySelector('[data-drawer-hide]');
+
+        function toggleDrawer() {
+            drawer?.classList.toggle('-translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        drawerButton?.addEventListener('click', toggleDrawer);
+        closeButton?.addEventListener('click', toggleDrawer);
+
+        // Close drawer when clicking outside
+        drawer?.addEventListener('click', (e) => {
+            if (e.target === drawer) {
+                toggleDrawer();
+            }
+        });
+
+        // Close drawer on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !drawer?.classList.contains('-translate-x-full')) {
+                toggleDrawer();
+            }
+        });
+    });
+</script>

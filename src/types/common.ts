@@ -1,4 +1,5 @@
 export interface Link {
+[x: string]: any;
     url: string;
     text: string;
     links?: Link[];
