@@ -196,7 +196,7 @@ const mainImageDescription = "Стальной панельный радиато
 		<ul class="grid grid-cols-12 gap-8 py-8 tracking-wider leading-relaxed text-lg">
 			<li class="my-2 md:my-0 col-span-full md:col-span-6 p-8 bg-neutral-50/5 rounded-xl flex gap-8 items-center flex-col lg:flex-row">
 				<div class=" aspect-square w-full lg:w-[600px] overflow-clip rounded-3xl bg-neutral-300">
-					<ImageDynamic imagePath="Технология усечённого канала.webp" altText='Технология усечённого канала' class="w-auto h-auto"/>
+					<ImageDynamic imagePath="heater-feature_channel.webp" altText='Технология усечённого канала' class="w-auto h-auto"/>
 				</div>
 				<div class="">
 					<div class="text-base md:text-lg font-black  text-primary uppercase  pb-4 text-balance">
@@ -211,7 +211,7 @@ const mainImageDescription = "Стальной панельный радиато
 			</li>
 			<li class="my-2 md:my-0 col-span-full md:col-span-6 p-8 bg-neutral-50/5 rounded-xl flex gap-8 items-center flex-col lg:flex-row">
 				<div class=" aspect-square w-full lg:w-[600px] overflow-clip rounded-3xl bg-neutral-300">
-					<ImageDynamic imagePath="Верхняя-решетка-крыловидной-формы.webp" altText='Верхняя решетка крыловидной формы' class="w-auto h-auto"/>
+					<ImageDynamic imagePath="heater-feature_toppanel.webp" altText='Верхняя решетка крыловидной формы' class="w-auto h-auto"/>
 				</div>
 				<div class="">
 					<div class="text-base md:text-lg font-black  text-primary uppercase  pb-4 text-balance">
@@ -249,9 +249,9 @@ const mainImageDescription = "Стальной панельный радиато
 	<!-- models -->
 	<section class="bg-secondary_/30 min-h-svh snap-center  relative" id="models">
 		
-		<div class="flex flex-col items-center gap-16 py-16 md:py-32 max-w-screen-2xl mx-auto text-neutral-600 z-10">
-			<h2 class="text-3xl font-semibold md:text-6xl">Модели радиаторов</h2>
-			<div class="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4 sm:px-0">
+		<div class="flex flex-col items-center lg:gap-8 xl:gap-16 py-16 md:px-8 xl:px-8 md:py-32 max-w-screen-2xl mx-auto text-neutral-600 z-10">
+			<h2 class="text-3xl font-semibold md:text-6xl mb-16">Модели радиаторов</h2>
+			<div class="grid grid-cols-1 gap-16 sm:gap-8 px-8 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4 sm:px-0">
 				{
 					[
 						{
@@ -325,29 +325,31 @@ const mainImageDescription = "Стальной панельный радиато
 	</section>
 
 	<!-- decoding -->
-    <section class="snap-center min-h-svh flex flex-col container-center mx-auto ">
-		<h2 class="text-3xl font-semibold md:text-6xl  mx-auto mt-16 md:mt-32 header-circle-lg md:header-circle-xl ">Расшифровка обозначения</h2>
+	<section class="snap-center min-h-svh flex flex-col container-center mx-auto ">
+		<h2 class="text-3xl font-semibold md:text-6xl mb-16 mt-16 md:mt-32 text-center">Расшифровка обозначения</h2>
 		<div class="my-auto mx-auto relative">
-			<ul class="flex text-2xl gap-2 md:text-6xl font-black md:gap-8 p-16 py-24">
+			<ul class="flex gap-1 sm:gap-4 md:gap-0 font-black 2xl:gap-8 py-24">
 				{
 					[
 						{value:"C",expand:"Модель",orientation:"data-bottom"},
 						{value:"22",expand:"Тип",orientation:"data-top"},
 						{value:"500",expand:"Высота",orientation:"data-bottom"},
-						{value:"1000",expand:"Длина",orientation:"data-top"}].map((element)=>(
-						<li class="relative hover:bg-neutral-50 p-2 md:p-4 rounded-xl group" data-top> 
-                                {element.value}
-                                <span class="absolute block text-lg md:text-2xl font-medium left-1/2 -translate-x-1/2 transition-transform
+						{value:"1000",expand:"Длина",orientation:"data-top"}
+						].map((element)=>(
+                            <li class="relative hover:bg-neutral-50 p-1 md:p-4 rounded-xl group"> 
+                                <span class="text-lg sm:text-xl md:text-3xl lg:text-5xl 2xl:text-6xl">{element.value}</span>
+                                
+                                <span class="absolute block text-xs leading-none md:text-sm lg:text-base xl:text-xl font-medium left-1/2 -translate-x-1/2 transition-transform
                                 group-even:-bottom-24 
                                 group-odd:-top-24 
                                 group-even:before:bottom-10
                                 group-odd:before:top-10
                                 before:content-[''] before:border-l before:h-12 before:block before:absolute before:border-neutral-400 before:left-1/2">{element.expand}</span>
                             </li>
-					))
+                        ))
 
 
-				}
+                    }
 				
 			</ul>
 			<div class="absolute inset-0  top-0 left-0 blur-4xl -z-10">

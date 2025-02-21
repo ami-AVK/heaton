@@ -94,6 +94,56 @@ const mainImageDescription = "Стальной панельный радиато
 				
 			</li>
 		</ul>
+        <ul class="grid grid-cols-12 gap-4 my-16 tracking-wider leading-relaxed text-lg bg-neutral-50/40 rounded-2xl p-8">
+			{
+				[
+					{
+						"icon": "Like",
+						"header": "Высочайшее качество",
+						"explain": "Качество подтверждено в аккредитованной лаборатории."
+					},
+					{
+						"icon": "Delivery",
+						"header": "Быстрые сроки поставки",
+						"explain": "Максимально быстрые сроки поставки в случае отсутствия товара на складах."
+					},
+					{
+						"icon": "Widget 5",
+						"header": "Широкий типоразмерный ряд",
+						"explain": "Широкий выбор напольных конвекторов"
+					},
+					{
+						"icon": "Shield Check",
+						"header": "Гарантия 10 лет",
+						"explain": "Гарантия на продукцию составляет 10 лет."
+					},
+					{
+						"icon": "Document",
+						"header": "Сертифицированная продукция",
+						"explain": "Продукция сертифицирована и имеет гигиенический сертификат."
+					},
+					{
+						"icon": "Info Circle",
+						"header": "Удовлетворение потребностей клиента",
+						"explain": "Закрываем любую потребность клиента по теплоотдаче и габаритам прибора."
+					}
+					]
+						.map((feature)=>(
+							<li class="my-2 md:my-0 col-span-full sm:col-span-6 md:col-span-4 sm:p-4   _bg-neutral-50/40 _rounded-xl">
+								<div class="text-base  leading-none pb-2 sm:pb-4 text-balance flex items-center">
+									<Icon name={feature.icon} class=" size-10 sm:size-12 mr-3 shrink-0 text-primary"/>
+									<div class=" leading-relaxed">
+										{feature.explain}
+									</div>
+								</div>
+								{/* <div class="text-xs md:text-sm font-normal ml-8 text-balance">
+									{feature.explain}
+								</div> */}
+							</li>
+						  )
+						)
+			}
+		</ul>
 		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">			
 			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
 				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
@@ -110,24 +160,25 @@ const mainImageDescription = "Стальной панельный радиато
         
         <!-- decoding -->
         <section class="snap-center min-h-svh flex flex-col container-center mx-auto ">
-            <h2 class="text-3xl font-semibold md:text-6xl  mx-auto mt-16 md:mt-32 header-circle-lg md:header-circle-xl ">Расшифровка обозначения</h2>
-            <div class="my-auto mx-auto relative ">
-                <ul class="flex text-2xl gap-2 md:text-6xl font-black md:gap-4 p-16 py-24">
+            <h2 class="text-3xl font-semibold md:text-6xl mb-16 mt-16 md:mt-32 text-center">Расшифровка обозначения</h2>
+            <div class="my-auto mx-auto relative">
+                <ul class="flex gap-1 sm:gap-4 md:gap-0 font-black 2xl:gap-8 py-24">
                     {
                         [
-                            {value:"STEP",expand:"Модель",orientation:"data-bottom"},
-                            {value:"130",expand:"Высота",orientation:"data-top"},
-                            {value:"130",expand:"Глубина",orientation:"data-bottom"},
-                            {value:"1500",expand:"Длина",orientation:"data-top"},
-                            {value:"1",expand:"Количество рядов труб",orientation:"data-bottom"},
-                            {value:"N",expand:"Наличие вент. вставки",orientation:"data-top"},
-                            {value:"WT",expand:"Цвет корпуса",orientation:"data-bottom"},
-                            {value:"LG",expand:"Тип решетки",orientation:"data-top"},
-                            {value:"NA",expand:"Цвет решетки",orientation:"data-bottom"},
+                            {value:"STEP",expand:"Модель"},
+                            {value:"130",expand:"Высота"},
+                            {value:"130",expand:"Глубина"},
+                            {value:"1500",expand:"Длина"},
+                            {value:"1",expand:"Количество рядов труб"},
+                            {value:"N",expand:"Наличие вент. вставки"},
+                            {value:"WT",expand:"Цвет корпуса"},
+                            {value:"LG",expand:"Тип решетки"},
+                            {value:"NA",expand:"Цвет решетки"},
                         ].map((element)=>(
-                            <li class="relative hover:bg-neutral-50 p-2 md:p-4 rounded-xl group" data-top> 
-                                {element.value}
-                                <span class="absolute block text-lg md:text-2xl font-medium left-1/2 -translate-x-1/2 transition-transform
+                            <li class="relative hover:bg-neutral-50 p-1 md:p-4 rounded-xl group"> 
+                                <span class="text-lg sm:text-xl md:text-3xl lg:text-5xl 2xl:text-6xl">{element.value}</span>
+                                
+                                <span class="absolute block text-xs leading-none md:text-sm lg:text-base xl:text-xl font-medium left-1/2 -translate-x-1/2 transition-transform
                                 group-even:-bottom-24 
                                 group-odd:-top-24 
                                 group-even:before:bottom-10
