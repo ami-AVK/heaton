@@ -2,6 +2,8 @@
 import { ClientRouter } from 'astro:transitions';
 import { SEO } from "astro-seo";
 import '../styles/main.css';
+import Logo from '../svg/logo_small_.svg';
+import { Icon } from 'astro-icon/components';
 
 const { content, title="Heaton", description="Отопительное оборудование", class: className } = Astro.props;
 
@@ -34,13 +36,19 @@ const { content, title="Heaton", description="Отопительное обор�
 		<ClientRouter />
 	</head>
 	<body class="bg-[#F9F9F9]_ bg-gr-metallic   xl:mx-auto">
+		<div class="fixed inset-auto data-[active]:inset-0  z-[1000] group" id="splashScreen">
+			<div class="hidden group-data-[active]:block group-data-[active]:animate-spin text-neutral-300 absolute size-16 bottom-8 right-6 sm:size-24 sm:bottom-16 sm:right-12 z-[1000] will-change-transform">
+				<Logo/>
+			</div>
+			<!-- <Icon name="logo_small" class="hidden group-data-[active]:block group-data-[active]:animate-spin text-neutral-300 absolute size-16 bottom-8 right-6 sm:size-24 sm:bottom-16 sm:right-12 z-[1000]"/> -->
+		</div>
 		<div class=" fixed left-4 bottom-4 z-50 flex flex-col items-center opacity-15 blur-xl hover:blur-0 transition-all hover:opacity-100">
 			<label for="Основной цвет" class="text-xs uppercase">Основной цвет</label>
 			<input type="color" name="Основной цвет" class="m-2 w-full" id="colorPicker" oninput="changeColor()" onchange="changeColor()"/>
 		</div>
 		<slot />
 	</body>
-	<script is:inline>
+<script is:inline>
 		function changeColor(){
 			const input = document.getElementById("colorPicker");
 			const hexColor = input.value;
@@ -63,3 +71,10 @@ const { content, title="Heaton", description="Отопительное обор�
 
 	</script>
 </html>
+<script>
+	document.addEventListener('astro:before-preparation', event => {
+		const spinner = document.getElementById("splashScreen") as HTMLDivElement;
+		spinner.dataset.active = "";
+		console.log("astro:before-preparation");
+  });
+</script>

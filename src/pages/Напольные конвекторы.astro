@@ -16,6 +16,7 @@ import Calculator from '../components/Calculator.astro';
 import Socials from '../components/Socials.astro';
 import LogoSmall from '../svg/logo_small.svg';
 import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 
 const URL_main = `${import.meta.env.BASE_URL}/`
 const URL_category = `${URL_main}Каталог/Напольные конвекторы/`
@@ -69,10 +70,52 @@ const mainImageDescription = "Стальной панельный радиато
     <section class="snap-start container-center py-16 mx-auto ">
 		<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 py-16 tracking-wider leading-relaxed text-lg">
 			<li class="sm:col-span-2 sm:row-span-2 rounded-xl p-8 flex flex-col ">
-				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Напольные конвекторы Heaton —</h3>
+				<h2 class="font-black uppercase pb-4 text-4xl text-primary">Напольные конвекторы Heaton —</h2>
 				<p class="mt-auto">
 					это современное и стильное решение для обогрева помещений с панорамными окнами или нестандартной планировкой. Благодаря компактному дизайну и высокой эффективности, они идеально вписываются в интерьер, обеспечивая комфортный микроклимат без ущерба для эстетики
 				</p>
+				<div class="my-8">
+					<h3 class="font-black uppercase pb-4 text-2xl text-primary">Характеристики</h3>
+					<ul>
+						{[
+							{
+							  "name": "Максимальное рабочее давление",
+							  "value": "10 Бар"
+							},
+							{
+							  "name": "Анодирование",
+							  "value": "Натуральный алюминий, чёрный, золото, светлая бронза, темная бронза и любой цвет по RAL"
+							},
+							{
+							  "name": "Доступная глубина",
+							  "value": "80, 130, 180"
+							},
+							{
+							  "name": "Доступная ширина",
+							  "value": "130, 180"
+							},
+							{
+							  "name": "Доступная длина",
+							  "value": "500—3000 (шаг 100 мм)"
+							},
+							{
+							  "name": "Гарантия",
+							  "value": "10 лет"
+							}
+						  ].map((characterisic)=>(
+							<li class="my-2 md:my-0">
+								<span class="text-xs md:text-base md:font-bold block md:inline">
+									{characterisic.name}:
+								</span>
+								<span class="text-base font-bold md:font-normal block md:inline">
+									{characterisic.value}
+								</span>
+							</li>
+						  )
+						  )}
+
+					</ul>
+				</div>
 			</li>
 			<li class="col-span-1 row-span-3 bg-primary rounded-xl p-8 flex flex-col text-neutral-50 drop-shadow-primary-m">
 				<h3 class="font-black uppercase pb-4 text-2xl text-neutral-50">Техническая поддержка</h3>
@@ -203,4 +246,5 @@ const mainImageDescription = "Стальной панельный радиато
             <Contact/>
         </div>
         <Calculator class="snap-center"/>
+		<Footer class="mt-auto snap-center bg-neutral-300"/>
 </Layout>
