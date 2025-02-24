@@ -4,90 +4,88 @@ import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
 import '../styles/main.css';
 import LogoSmall from '../svg/logo_small.svg';
+import Layout from '../layouts/main.astro'
+import { Icon } from "astro-icon/components";
+
 ---
-
-<html lang="ru" class="bg-neutral-100">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href=`${import.meta.env.BASE_URL}/favicon.svg`
-    />
-    <!-- <meta name="generator" content={Astro.generator} /> -->
-    <title>Heaton</title>
-  </head>
-
-  <body class="flex flex-col min-h-screen bg-neutral-100">
-    <ClientRouter />
-    <!-- hero -->
-
-    <div class="bg-gr-metallic">
-      <div class="relative py-8 mx-auto container-center ">
-        <NavBar />
-      </div>
-      <div class="relative container-center">
-        <h1 class="text-3xl lg:text-4xl xl:text-5xl my-[10svh] font-black uppercase z-20">Документация</h1>
-        <LogoSmall class="absolute z-10 right-10 w-96 text-neutral-100 -bottom-52"/>
-      </div>
-      
+<Layout title="Документация к продукции Heaton" description="Паспорта, сертификаты и рекламные материалы бренда Heaton" class="snap-y snap-mandatory">
+  <div class="">
+    <div class="relative py-8 mx-auto container-center ">
+      <NavBar />
     </div>
-    <div class="w-full min-h-screen container-center">
-      
-      
-      <!--  -->
-      <div class="py-8">
-        <h2 class="my-8 text-2xl font-black">Паспорта</h2>
-        <ul class="grid grid-cols-3 gap-16 text-xl text-neutral-700">
-          {
-            [
-              {name:"Стальные панельные радиаторы",link:"",capture:""},
-              {name:"Внутрипольные конвекторы",link:"",capture:""},
-              {name:"Внутрипольные конвекторы Turbo",link:"",capture:""},
-            ].map((element)=>(
-              <li class="p-8 text-lg min-w-64 rounded-2xl bg-neutral-50">{element.name}</li>
-              ))
-          }
-        </ul>
-      </div>
-
-      <!--  -->
-      <div class="py-8">
-        <h2 class="my-8 text-2xl font-black">Сертификаты</h2>
-        <ul class="grid grid-cols-3 gap-16 text-xl text-neutral-700">
-          {
-            [
-              {name:"Гигиенический сертификат",link:"",capture:""},
-              {name:"Сертификат соответсвия",link:"",capture:""},
-            ].map((element)=>(
-              <li class="p-8 text-lg min-w-64 rounded-2xl bg-neutral-50">{element.name}</li>
-              ))
-          }
-        </ul>
-      </div>
-  
-      
-      <!--  -->
-      <div class="py-8">
-        <h2 class="my-8 text-2xl font-black">Графические материалы</h2>
-        <ul class="grid grid-cols-3 gap-16 text-xl text-neutral-700">
-          {
-            [
-              {name:"Каталог",link:"",capture:""},
-              {name:"Логотип",link:"",capture:""},
-            ].map((element)=>(
-              <li class="p-8 text-lg min-w-64 rounded-2xl bg-neutral-50">{element.name}</li>
-              ))
-          }
-        </ul>
-      </div>
-  
-      
+    <div class="relative container-center">
+      <h1 class="text-3xl lg:text-4xl xl:text-5xl my-[10svh] font-black uppercase z-20">Документация</h1>
+      <LogoSmall class="absolute -z-10 right-4 md:right-10 w-48 md:w-64 lg:w-96 text-neutral-100 -top-16 lg:-top-32"/>
     </div>
-    <Footer class="mt-auto"/>
-  </body>
-</html>
+    
+  </div>
+  <div class="w-full min-h-screen container-center mb-32">
+    
+    
+    <!--  -->
+    <div class="py-8">
+      <h2 class="my-8 text-2xl font-black">Паспорта</h2>
+      <ul class="flex flex-wrap gap-4 lg:gap-12 text-xl text-neutral-700">
+        {
+          [
+            {name:"Стальные панельные радиаторы",file:"pasport.pdf",capture:""},
+            {name:"Внутрипольные конвекторы Comfort",file:"pasport_comfort.pdf",capture:""},
+            {name:"Внутрипольные конвекторы Comfort Turbo",file:"pasport_comfort_turbo.pdf",capture:""},
+            {name:"Напольные конвекторы Step",file:"pasport_step.pdf",capture:""},
+          ].map((element)=>(
+            <li class="text-sm shrink lg:text-lg rounded-2xl bg-neutral-50 hover:bg-primary-10">
+              <a href={`${import.meta.env.BASE_URL}/pasports/${element.file}`} class="p-3 lg:p-6 flex items-center gap-4" download>
+                <span class="text-balance ">{element.name}</span>
+                <Icon name="File" class="size-4 lg:size-6 text-primary"/>
+              </a>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+
+    <!--  -->
+    <div class="py-8">
+      <h2 class="my-8 text-2xl font-black">Сертификаты</h2>
+      <ul class="flex flex-wrap gap-4 lg:gap-12 text-xl text-neutral-700">
+        {
+          [
+            {name:"Гигиенический сертификат",file:"sanitary.pdf",capture:""},
+            {name:"Сертификат соответсвия",file:"sertificate.pdf",capture:""},
+            ].map((element)=>(
+            <li class="text-sm shrink lg:text-lg rounded-2xl bg-neutral-50 hover:bg-primary-10">
+              <a href={`${import.meta.env.BASE_URL}/pasports/${element.file}`} class="p-3 lg:p-6 flex items-center gap-4" download>
+                <span class="text-balance ">{element.name}</span>
+                <Icon name="File" class="size-4 lg:size-6 text-primary"/>
+              </a>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+
+    
+    <!--  -->
+    <div class="py-8">
+      <h2 class="my-8 text-2xl font-black">Графические материалы</h2>
+      <ul class="flex flex-wrap gap-4 lg:gap-12 text-xl text-neutral-700">
+        {
+          [
+            {name:"Каталог",file:"heaton_2025.pdf",capture:"", icon:"File"},
+            {name:"Логотип",file:"Logo.zip",capture:"", icon:"ZIP File"},
+            ].map((element)=>(
+            <li class="text-sm shrink lg:text-lg rounded-2xl bg-neutral-50 hover:bg-primary-10">
+              <a href={`${import.meta.env.BASE_URL}/${element.file}`} class="p-3 lg:p-6 flex items-center gap-4" download>
+                <span class="text-balance ">{element.name}</span>
+                <Icon name={element.icon} class="size-4 lg:size-6 text-primary"/>
+              </a>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+
+    
+  </div>
+  <Footer class="mt-auto"/>
+</Layout>
