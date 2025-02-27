@@ -8,7 +8,7 @@ const {header, subheader, class:className} = Astro.props
         <slot name="breadcrumbs"/>
     </div>
     <div class="flex md:mt-0 flex-col md:flex-row container-center mx-auto justify-between items-center grow min-h-[70svh]">
-        <div class="info md:w-1/2 z-10 order-2 md:order-1 grow mt-auto md:mt-0">
+        <div class="info max-w-full md:w-1/2 z-10 order-2 md:order-1 grow mt-auto md:mt-0">
             <slot name="header"/>
         </div>
         <div class="relative grow object-right min-w-96 lg:scale-110 md:translate-x-32 order-1 md:order-2 p-4 md:p-0 drop-shadow-primary-hard-sm md:drop-shadow-primary-hard-lg lg:drop-shadow-primary-hard-xl">

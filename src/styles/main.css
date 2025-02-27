@@ -6,7 +6,8 @@
 
 
 :root{
-  --primary-rgb: 212, 59, 24;
+  /* --primary-rgb: 212, 59, 24; */
+  --primary-rgb: 128, 0, 10;
   --primary: rgba(var(--primary-rgb),1);
   --primary-20: rgba(var(--primary-rgb), 0.2);
   --primary-10: rgba(var(--primary-rgb), 0.1);

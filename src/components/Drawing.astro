@@ -1,16 +1,21 @@
 ---
 import { createRadiator } from '../utils/drawingUtils';
+import type { Product } from '../types/common';
+import ImageDynamic from './ImageDynamic.astro';
+import RadiatorDrawing from './drawings/RadiatorDrawing.astro';
+import FloorDrawing from './drawings/FloorDrawing.astro';
+import InFloorDrawing from './drawings/InFloorDrawing.astro';
 
-const { width = 200, height = 100, depth = 50, parameters } = Astro.props;
+interface Props {
+    product: Product;
+    category: string;
+}
 
-const drawing = createRadiator(width, height, depth);
+const { product, category } = Astro.props;
+// const category = product['Категория'];
+console.log(product);
 ---
 
-<svg 
-    viewBox={`-20 -40 ${width+150} ${height+80}`} 
-    xmlns='http://www.w3.org/2000/svg' 
-    height="300px"
-    style="max-width: 100%; height: auto"
->
-    <Fragment set:html={drawing} />
-</svg>
+{category === 'Стальные панельные радиаторы' && <RadiatorDrawing product={product}><slot/></RadiatorDrawing>}
+{category === 'Напольные конвекторы' && <FloorDrawing product={product}><slot/></FloorDrawing>}
+{category === 'Внутрипольные конвекторы' && <InFloorDrawing product={product}><slot/></InFloorDrawing>}

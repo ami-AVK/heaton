@@ -57,7 +57,7 @@ module.exports = {
 				"primary-hard": "-12px 24px 0px var(--primary,#D43B18)",
 				"primary-hard-xl": "-12px 24px 0px var(--primary,#D43B18)",
 				"primary-hard-lg": "-10px 20px 0px var(--primary,#D43B18)",
-				"primary-hard-sm": "-6px 16px 0px var(--primary,#D43B18)",
+				"primary-hard-sm": "-6px 12px 0px var(--primary,#D43B18)",
 				
 			},
 			boxShadow: {

@@ -1,0 +1,46 @@
+---
+import type { Product } from '../../types/common';
+import ImageDynamic from '../ImageDynamic.astro';
+
+interface Props {
+    product: Product;
+}
+
+const { product } = Astro.props;
+const { 'Модель': model, 'Длина, мм': length, 'Высота, мм': height, "Глубина, мм":depth, "Наименование": name } = product;
+
+const intro = "это готовый к монтажу напольный отопительный прибор, работающий по принципу естественной конвекции. Конвекторы напольные предназначены для эксплуатации в жилых, общественных и административных помещениях с панорамными окнами. Используются в однотрубных или двухтрубных закрытых насосных системах отопления"
+
+const baseImageName = `drw_${model}_${height}_${depth}`;
+const fullImageName = `drw_${model}_full_${height}_${depth}`;
+// const fullImageName = `drw_Step_full_WTF`;
+console.log(fullImageName);
+---
+
+<div class="md:p-8 bg-neutral-50/40 rounded-3xl">
+    <slot/>
+    <h2 class="mb-8 mx-8 mt-16 text-xl md:text-4xl pt-12 md:pt-0">Heaton {name} —</h2>
+    <p class="text-lg leading-loose tracking-wider mb-8 font-normal mx-8 normal-case">
+        {intro}
+    </p>
+    <div class="flex flex-col lg:flex-row gap-8">
+        <div class="p-8 sm:p-8 mix-blend-multiply">
+            <h3 class="text-xl uppercase sm:max-w-min  mb-4 ">Схема подключения</h3>
+            <ImageDynamic 
+            imagePath={`${baseImageName}.webp`} 
+            folder="drawings"
+            altText={`Чертеж ${model} ${length}x${height}`} 
+            class="w-full sm:w-auto max-h-96 sm:h-72 object-contain object-left opacity-60 hover:opacity-100"
+        />
+        </div>
+        <div class="p-8 sm:p-8 mix-blend-multiply">
+            <h3 class="text-xl uppercase sm:max-w-min mb-4 ">Габаритные размеры</h3>
+            <ImageDynamic 
+            imagePath={`${fullImageName}.webp`} 
+            folder="drawings"
+            altText={`Полный чертеж ${model} ${length}x${height}`} 
+            class="lg:-ml-10 h-64 object-contain object-left opacity-60 hover:opacity-100 hover:scale-125 transition-transform lg:hover:scale-100"
+        />
+        </div>
+    </div>
+</div>

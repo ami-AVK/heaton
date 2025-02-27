@@ -1,0 +1,56 @@
+---
+import type { Product } from '../../types/common';
+import ImageDynamic from '../ImageDynamic.astro';
+
+interface Props {
+    product: Product;
+}
+
+const { product } = Astro.props;
+const { 'Модель': model, 'Длина, мм': length, 'Высота, мм': height, "Глубина, мм":depth , "Тип": type, "Наименование": name } = product;
+
+let intro="";
+switch (model){
+    case 'Compact':
+        intro = `панельные радиатор с боковым подключением широкого применения с конвекционными пластинами, боковыми защитными панелями и защитной решеткой сверху. Имеют четыре боковых присоединительных отверстия в каждом углу радиатора с внутренней резьбой G1/2`;
+    case 'Ventil Compact':
+        intro = `нижним подключением широкого применения с конвекционными пластинами, боковыми защитными панелями и защитной решеткой сверху. Имеют четыре боковых присоединительных отверстия в каждом углу радиатора с внутренней резьбой G1/2 и 2 отверстия снизу G1/2 с внутренней резьбой`;
+    case 'Hygiene  Compact':
+        intro = `панельные радиатор с боковым подключением без конвекционных пластин и защитных элементов. Предназначены для использования в объектах службы здравоохранения, пищевой промышленности, а также в других объектах с повышенными гигиеническими требованиями. Имеют четыре боковых присоединительных отверстия в каждом углу радиатора с внутренней резьбой G1/2`;
+    case 'Hygiene Ventil Compact':
+        intro = `панельные радиатор с нижним подключением без конвекционных пластин и защитных элементов. Предназначены для использования в объектах службы здравоохранения, пищевой промышленности, а также в других объектах с повышенными гигиеническими требованиями. Имеют четыре боковых присоединительных отверстия в каждом углу радиатора с внутренней резьбой G1/2 и 2 отверстия снизу G1/2 с внутренней резьбой`;
+}
+let baseImageName = `drw_${model}${type}`;
+if(type==30 || type==33) {
+    baseImageName = `drw_${model}${type}_${height}`;
+};
+const fullImageName = `drw_heaters`;
+console.log(baseImageName);
+---
+<div class="md:p-8 bg-neutral-50/40 rounded-3xl">
+    <slot/>
+    <h2 class="mb-8 mx-8 mt-16 text-xl md:text-4xl pt-12 md:pt-0">Heaton {name} —</h2>
+    <p class="text-lg leading-loose tracking-wider mb-8 font-normal mx-8 normal-case">
+        {intro}
+    </p>
+    <div class="flex flex-col lg:flex-row gap-8">
+        <div class="p-8 sm:p-8 mix-blend-multiply">
+            <h3 class="text-xl uppercase sm:max-w-min  mb-4 ">Схема подключения</h3>
+            <ImageDynamic 
+            imagePath={`${baseImageName}.webp`} 
+            folder="drawings"
+            altText={`Чертеж ${model} ${length}x${height}`} 
+            class="w-full sm:w-auto max-h-96 sm:h-72 object-contain object-left opacity-60 hover:opacity-100"
+        />
+        </div>
+        <div class="p-8 sm:p-8 mix-blend-multiply">
+            <h3 class="text-xl uppercase sm:max-w-min mb-4 ">Габаритные размеры</h3>
+            <ImageDynamic 
+            imagePath={`${fullImageName}.webp`} 
+            folder="drawings"
+            altText={`Полный чертеж ${model} ${length}x${height}`} 
+            class="lg:-ml-10 h-64 object-contain object-left opacity-60 hover:opacity-100 hover:scale-125 transition-transform"
+        />
+        </div>
+    </div>
+</div>

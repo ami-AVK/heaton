@@ -5,12 +5,15 @@ import { resolveImagePath } from '../utils/imageResolver';
 interface Props {
    imagePath: string;
    altText: string;
+   folder?: string;
    slot?: string;
    class?: string;
    model?: string;
 }
 
-const { imagePath, altText, class: className, model, ...attr } = Astro.props;
-const img = await resolveImagePath(imagePath, model);
+const { imagePath, altText, class: className, model, folder, ...attr } = Astro.props;
+let img = await resolveImagePath(imagePath, model);
+img = folder?await resolveImagePath(imagePath, model,folder):await resolveImagePath(imagePath, model);
+
 ---
 <Image src={img} alt={altText} class:list={className} {...attr}/>

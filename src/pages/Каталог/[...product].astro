@@ -16,6 +16,7 @@ import heater from "../../img/main_heaters_.webp"
 import step from "../../img/step.webp"
 import HF_Comfort from "../../img/HF_Comfort.webp"
 import ImageDynamic from '../../components/ImageDynamic.astro';
+import { Icon } from 'astro-icon/components';
 
 export async function getStaticPaths() {
     let paths=[] as any[]
@@ -52,26 +53,33 @@ const productName = product['Наименование']
 
 const URL_main = `${import.meta.env.BASE_URL}/`
 const URL_category = `${URL_main}Каталог/${category}/`
-const URL_product = `${URL_category}${productName}`
+let URL_product = `${URL_category}${model}/${productName}`
+
 
 const height = product['Высота, мм'];
 const lenght = product['Длина, мм'];
 const depth = product['Глубина, мм'];
 const power = product['Теплоотдача, Вт'];
-const weight = product['Масса НЕТТО, кг']?product['Масса НЕТТО, кг']:false;
+
+let weight = product['Масса НЕТТО, кг']?product['Масса НЕТТО, кг']:false;
+weight = weight=="-"?false:weight;
+
 const type = product['Тип']?product['Тип']:false;
+URL_product = type?`${URL_category}${model}/${type}/${productName}`:URL_product;
 
 const characteristics = [   
                             {header:"Высота:", value:`${height} мм`},
                             {header:"Длина:", value:`${lenght} мм`},
                             {header:"Глубина:", value:`${depth} мм`},
-                            {header:"Мощность:", value:`${power} мм`},
+                            {header:"Мощность:", value:`${power} Вт`},
                         ]
+// console.log(weight=="-");
 weight&&characteristics.push({header:"Вес:", value:`${weight} кг`},);
 // type&&characteristics.unshift({header:"Тип:", value:`${type}`},)
 
 let extraCharacteristics = [{header:"Тип:", value:`${type} мм`}];
 
+let pasportFile=`${import.meta.env.BASE_URL}/pasports/pasport.pdf`;
 
 switch (category){
  case 'Стальные панельные радиаторы':
@@ -80,6 +88,7 @@ switch (category){
             {header:"Подключение:", value:`${product['Подключение']}`},
             {header:"Исполнение:", value:`${product['Исполнение']}`},
         ];
+    pasportFile=`${import.meta.env.BASE_URL}/pasports/pasport.pdf`;
     break
  case 'Напольные конвекторы':
     extraCharacteristics = [
@@ -87,15 +96,28 @@ switch (category){
             // {header:"Подключение:", value:`${product['Подключение']}`},
             // {header:"Исполнение:", value:`${product['Исполнение']}`},
         ];
+    pasportFile=`${import.meta.env.BASE_URL}/pasports/pasport_step.pdf`;
     break
  case 'Внутрипольные конвекторы':
     extraCharacteristics = [
             {header:"Вентилятор:", value:`${product['Вентилятор']==="Есть"?"ЕС-двигатель":"Отсутствует"}`},
         ];
+    switch (model){
+        case 'Comfort':
+            pasportFile=`${import.meta.env.BASE_URL}/pasports/pasport_comfort.pdf`;
+        case 'Comfort Turbo':
+            pasportFile=`${import.meta.env.BASE_URL}/pasports/pasport_comfort_turbo.pdf`;
+    }
     break
 }
 
-
+[{name:"Гигиенический сертификат",file:"sanitary.pdf",capture:""},
+{name:"Сертификат соответсвия",file:"sertificate.pdf",capture:""},
+{name:"Стальные панельные радиаторы",file:"pasport.pdf",capture:""},
+{name:"Внутрипольные конвекторы Comfort",file:"pasport_comfort.pdf",capture:""},
+{name:"Внутрипольные конвекторы Comfort Turbo",file:"pasport_comfort_turbo.pdf",capture:""},
+{name:"Напольные конвекторы Step",file:"pasport_step.pdf",capture:""},
+]
 
 
 const similarHeight= findSimilarProducts(category,product,'Высота, мм') as Product[];
@@ -124,41 +146,61 @@ console.log(otherCategorys);
 
             
             <Fragment slot="header">
-                <h1 class="text-2xl md:text-5xl font-black uppercase tracking-wider mt-4 md:mt-16 px-2">
-                    <div class="text-sm md:text-xl whitespace-nowrap leading-none font-normal">{title.replace("{Наименование}","")}</div>
+                <h1 class="text-2xl sm:text-5xl font-black uppercase tracking-wider mt-4 sm:mt-8 md:mt-16 px-2 ">
+                    <div class="text-sm sm:text-xl whitespace-nowrap leading-none font-normal">{title.replace("{Наименование}","")}</div>
                     <div class="leading-none">{productName}</div>
                 </h1>
-                <div class="flex flex-col md:items-start justify-between">
-                    <ul class="text-base md:text-2xl tracking-wider grid grid-cols-1 md:grid-cols-1 md:gap-2 py-4 md:py-16 font-medium flex-1">
+                <div class="flex flex-col md:items-start justify-between ">
+                    <ul class="text-base sm:text-2xl tracking-wider grid sm:grid-cols-2 md:grid-cols-1 md:gap-1 py-4 md:py-16 font-medium flex-1">
                         {
                             characteristics.map((element) =>(
-                                <li class="px-2 py-0.5 md:py-1 rounded-lg overflow-clip">
-                                    <span class="md:block text-xs md:text-sm  text-neutral-500 font-normal">{element.header}</span>
-                                    <span class="md:block font-black whitespace-nowrap leading-none md:leading-tight text-ellipsis">{element.value}</span>
+                                <li class="px-2 py-0.5 sm:py-1 rounded-lg overflow-clip">
+                                    <span class="sm:block text-xs sm:text-sm  text-neutral-500 font-normal">{element.header}</span>
+                                    <span class="sm:block font-black whitespace-nowrap leading-none sm:leading-tight text-ellipsis">{element.value}</span>
                                 </li>
                             ))
                         }
                     </ul>
                     <div class="overflow-x-scroll ">
-                        <ul class="text-base md:text-2xl tracking-wider flex flex-nowrap md:flex-row gap-2 md:gap-4 font-medium ">
+                        <ul class="text-base sm:text-2xl tracking-wider flex flex-nowrap sm:flex-row gap-2 md:gap-4 font-medium ">
                             {
                                 extraCharacteristics.map((element) =>(
                                     <li class="bg-primary text-neutral-50 px-2 md:px-3 py-1 rounded-lg overflow-clip">
-                                        <span class="text-xs md:text-sm block font-normal">{element.header}</span>
-                                        <span class="block font-black whitespace-nowrap leading-none md:leading-none text-ellipsis">{element.value}</span>
+                                        <span class="text-xs sm:text-sm block font-normal">{element.header}</span>
+                                        <span class="block font-black whitespace-nowrap leading-none sm:leading-none text-ellipsis">{element.value}</span>
                                     </li>
                                 ))
                             }
                         </ul>
                     </div>
-
+                    <div class=" overflow-x-auto my-6 md:my-6 text-sm">
+                        <ul class="flex gap-2 max-w-full flex-wrap">
+                            <li class="text-sm shrink max-w-max lg:text-lg rounded-2xl bg-neutral-700/10 hover:bg-primary-10">
+                                <a href={pasportFile} class="p-1 px-3 flex items-center gap-4" download>
+                                  <span class="text-balance whitespace-nowrap">Технический паспорт</span>
+                                  <Icon name="File" class="size-4 lg:size-6 text-primary"/>
+                                </a>
+                            </li>
+                            <li class="text-sm shrink max-w-max lg:text-lg rounded-2xl bg-neutral-700/10 hover:bg-primary-10">
+                                <a href={`${import.meta.env.BASE_URL}/pasports/sanitary.pdf`} class="p-1 px-3 flex items-center gap-4" download>
+                                  <span class="text-balance  whitespace-nowrap">Гигиенический сертификат</span>
+                                  <Icon name="File" class="size-4 lg:size-6 text-primary"/>
+                                </a>
+                            </li>
+                            <li class="text-sm shrink max-w-max lg:text-lg rounded-2xl bg-neutral-700/10 hover:bg-primary-10">
+                                <a href={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`} class="p-1 px-3 flex items-center gap-4" download>
+                                  <span class="text-balance  whitespace-nowrap">Сертификат соответсвия</span>
+                                  <Icon name="File" class="size-4 lg:size-6 text-primary"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </Fragment>
     
         </Hero>
         <section class="text-4xl font-black uppercase container-center">
-            <!-- <h2>Технические характеристики</h2> -->
-            <Drawing width={lenght} height={height} depth={depth}/>
+            <Drawing product={product} category={category}/>
         </section>
     </div>
     
@@ -170,7 +212,7 @@ console.log(otherCategorys);
     <section class="container-center snap-center min-h-[40vh] my-32">
         <div class="group" data-type="power">
             <div class="flex flex-col md:flex-row justify-between mb-4 md:mb-16">
-                <h2 class="text-2xl md:text-4xl font-black uppercase mb-2">Аналоги</h2>
+                <h2 class="text-2xl sm:text-4xl font-black uppercase mb-2 sm:mb-8">Аналоги</h2>
                 <ul class="flex gap-8 text-sm">
                     <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="power">Похожая мощность</button></li>
                     <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="height">Похожая высота</button></li>

@@ -16,16 +16,16 @@ const productUrl = `${URL_main}Каталог/${product.url}`;
 // "Исполнение": "Стандартный",
 ---
 
-<a href={productUrl} class="flex gap-2 md:flex-col p-2 md:p-4 transition-all bg-neutral-200 rounded-xl hover:bg-neutral-100 hover:scale-105 hover:shadow-lg">
-    <div class=" overflow-hidden rounded-lg mb-4 p-1 md:p-0 md:aspect-square w-1/4 md:w-auto">
+<a href={productUrl} class=" justify-between flex gap-2 lg:flex-col p-2 lg:p-4 transition-all bg-neutral-200 rounded-xl hover:bg-neutral-100 hover:scale-105 hover:shadow-lg">
+    <div class=" overflow-hidden rounded-lg lg:mb-4 p-1 lg:p-0 lg:aspect-square w-1/2 sm:w-1/2 lg:w-auto">
         <DynamicImage 
             imagePath={imagePath} 
             altText={imageAlt} 
             model={product['Модель']}
-            class="md:w-full md:h-full object-contain object-center"
+            class="w-full h-full object-contain object-center"
         />
     </div>
-    <div class="space-y-2">
+    <div class="space-y-2 mr-6 lg:mr-0">
         <h3 class="font-bold">{product['Наименование']}</h3>
         <ul class="text-sm text-neutral-600">
 

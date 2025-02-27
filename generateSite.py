@@ -48,6 +48,13 @@ def create_json_from_directory(root_dir):
                     continue
 
                 product = row.to_dict()
+                # Round weight if it's a float
+                if isinstance(product.get('Масса НЕТТО, кг'), float):
+                    product['Масса НЕТТО, кг'] = round(product['Масса НЕТТО, кг'], 1)
+                
+                # Convert power to integer
+                if product.get('Теплоотдача, Вт'):
+                    product['Теплоотдача, Вт'] = int(float(product['Теплоотдача, Вт']))
                 product['url'] = link
                 products.append(product)
 
