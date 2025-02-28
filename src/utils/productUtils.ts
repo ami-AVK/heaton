@@ -39,7 +39,7 @@ export function getUniqueValues(products: Product[], field: string): (string | n
 }
 
 export function getUniqueFieldValues(category: string, field: string, model?: string): (string | number)[] {
-    console.log(model);
+    // console.log(model);
     const products = model 
         ? getModelProducts(category, model)
         : getCategoryProducts(category);
@@ -54,10 +54,10 @@ export function getModelProducts(category: string, model: string): Product[] {
     return getCategoryProducts(category).filter(product => product['Модель'] === model);
 }
 export function getModelProducts_(category: string, model: string): Product[] {
-    console.log('Filtering for model:', model); // Debug log
+    // console.log('Filtering for model:', model); // Debug log
     const products = getCategoryProducts(category);
     const filtered = products.filter(product => product['Модель'].trim() === model.trim());
-    console.log('Found products:', filtered.length); // Debug log
+    // console.log('Found products:', filtered.length); // Debug log
     return filtered;
 }
 

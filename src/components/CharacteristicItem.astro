@@ -10,8 +10,8 @@ import { Icon } from "astro-icon/components";
 //     }>;
 // }
 const { header, value, variants } = Astro.props as Characteristic;
-console.log(`ВАРИАНТЫ: ${header}`); 
-console.log(variants); 
+// console.log(`ВАРИАНТЫ: ${header}`); 
+// console.log(variants); 
 // Remove units from value for comparison
 const cleanValue = value.replace(/[^\d.]/g, '');
 ---
@@ -49,8 +49,7 @@ const cleanValue = value.replace(/[^\d.]/g, '');
             select.addEventListener('change', async (e) => {
                 const target = e.target as HTMLSelectElement;
                 const selectedOption = target.selectedOptions[0];
-                const url = `${selectedOption.getAttribute('data-url')}`;
-                const type = `${selectedOption.getAttribute('data-type')}`;
+                const url = `./${selectedOption.getAttribute('data-url')}`;
                 console.log(url);
                 if (url) {
                     // await navigate(url);
