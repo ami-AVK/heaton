@@ -25,6 +25,7 @@ module.exports = {
 					DEFAULT:"var(--primary,#D43B18)",
 					10:"var(--primary-10,#D43B18)",
 					20:"var(--primary-20,#D43B18)",
+					30:"var(--primary-30,#D43B18)",
 					// 100:"#DDD7D1",
 					// 200:"#CEC2B8",
 					// 300:"#B8A89E",
@@ -35,6 +36,7 @@ module.exports = {
 					// 800:"#47070A",
 					// 900:"#330406",
 				},
+				'accent':"var(--primary-light,#111)",
 				'secondary':"#D43B18",
 				'neutral': {
 					50: '#F9FAF9',

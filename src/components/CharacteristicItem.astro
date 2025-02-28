@@ -1,0 +1,63 @@
+---
+import type { Product, Category, Sitemap, Characteristic } from '../types/common';
+import { Icon } from "astro-icon/components";
+// interface Props {
+//     header: string;
+//     value: string;
+//     variants?: Array<{
+//         value: string | number;
+//         product: Product;
+//     }>;
+// }
+const { header, value, variants } = Astro.props as Characteristic;
+console.log(`ВАРИАНТЫ: ${header}`); 
+console.log(variants); 
+// Remove units from value for comparison
+const cleanValue = value.replace(/[^\d.]/g, '');
+---
+
+<li class="px-2 py-1 sm:py-1 rounded-lg group flex flex-row gap-2 sm:gap-0 sm:flex-col items-center sm:items-start">
+    <span class="block text-xs sm:text-sm text-neutral-500 font-normal">{header}</span>
+    {variants ? (
+        <div class="relative">
+            <select  class="options sm:w-full sm:block font-black whitespace-nowrap leading-none sm:leading-tight text-ellipsis  cursor-pointer appearance-none peer text-lg sm:text-xl rounded-xl py-1 sm:-translate-x-4 bg-neutral-50/40 hover:bg-neutral-50 ">
+                <option selected data-url={variants.find(v => v.value.toString() === cleanValue)?.product['Наименование']}>
+                    {value}
+                </option>
+                {variants.map((variant) => (
+                    variant.value.toString() !== cleanValue && 
+                    <option value={variant.value} data-url={variant.product['Наименование']}>
+                        {variant.value} {header.includes('Мощность') ? 'Вт' : 'мм'}
+                    </option>
+                ))}
+            </select>
+            <Icon name="Alt Arrow Down" class="absolute right-10 sm:right-8 top-1/2 -translate-y-1/2 size-6 opacity-50 group-hover:opacity-100 transition-opacity pointer-events-none"/>
+        </div>
+    ) : (
+        <span class="block font-black whitespace-nowrap leading-none sm:leading-tight text-ellipsis text-lg sm:text-xl">
+            {value}
+        </span>
+    )}
+</li>
+<script>
+    import {
+    navigate,
+  } from 'astro:transitions/client';
+    document.addEventListener('astro:page-load', () => {
+        const selects = document.querySelectorAll('select.options');
+        selects.forEach(select => {
+            select.addEventListener('change', async (e) => {
+                const target = e.target as HTMLSelectElement;
+                const selectedOption = target.selectedOptions[0];
+                const url = `${selectedOption.getAttribute('data-url')}`;
+                const type = `${selectedOption.getAttribute('data-type')}`;
+                console.log(url);
+                if (url) {
+                    // await navigate(url);
+                    await navigate(url);
+                    // window.location.href = url;
+                }
+            });
+        });
+    });
+</script>

@@ -123,3 +123,35 @@ export function findSimilarProducts(
         })
         .slice(0, limit);
 }
+// Add this new function
+export function findProductsByDimension(
+    category: string,
+    currentProduct: Product,
+    dimensionField: string,
+    dimensionValues: (string | number)[],
+    model?: string
+): Product[] {
+    const products = model 
+        ? getModelProducts(category, model)
+        : getCategoryProducts(category);
+
+    return products.filter(product => {
+        // Check if the product has one of the target dimension values
+        const matchesDimension = dimensionValues.includes(product[dimensionField]);
+        
+        // // For power variants, we only need to match the other dimensions
+        // if (dimensionField === 'Теплоотдача, Вт') {
+        //     return matchesDimension && product['Модель'] === currentProduct['Модель'];
+        // }
+        
+        // For height/length/depth variants, keep other dimensions the same
+        const sameOtherDimensions = ['Высота, мм', 'Длина, мм', 'Глубина, мм']
+            .filter(field => field !== dimensionField)
+            .every(field => product[field] === currentProduct[field]);
+
+        // Keep the same model
+        const sameModel = product['Модель'] === currentProduct['Модель'];
+
+        return matchesDimension && sameOtherDimensions && sameModel;
+    }).sort((a, b) => Number(a[dimensionField]) - Number(b[dimensionField]));
+}

@@ -1,0 +1,7247 @@
+[
+    {
+        "name": "Comfort Turbo 80-250-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-800",
+        "l": 800,
+        "h": 80,
+        "d": 250,
+        "p": 1210,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-900",
+        "l": 900,
+        "h": 80,
+        "d": 250,
+        "p": 1572,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-1000",
+        "l": 1000,
+        "h": 80,
+        "d": 250,
+        "p": 1934,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-1100",
+        "l": 1100,
+        "h": 80,
+        "d": 250,
+        "p": 2140,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-1200",
+        "l": 1200,
+        "h": 80,
+        "d": 250,
+        "p": 2346,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-1300",
+        "l": 1300,
+        "h": 80,
+        "d": 250,
+        "p": 2688,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-1400",
+        "l": 1400,
+        "h": 80,
+        "d": 250,
+        "p": 3029,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-1500",
+        "l": 1500,
+        "h": 80,
+        "d": 250,
+        "p": 3218,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-1600",
+        "l": 1600,
+        "h": 80,
+        "d": 250,
+        "p": 3406,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-1700",
+        "l": 1700,
+        "h": 80,
+        "d": 250,
+        "p": 3745,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-1800",
+        "l": 1800,
+        "h": 80,
+        "d": 250,
+        "p": 4084,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-1900",
+        "l": 1900,
+        "h": 80,
+        "d": 250,
+        "p": 4259,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-2000",
+        "l": 2000,
+        "h": 80,
+        "d": 250,
+        "p": 4435,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-2100",
+        "l": 2100,
+        "h": 80,
+        "d": 250,
+        "p": 4737,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-2200",
+        "l": 2200,
+        "h": 80,
+        "d": 250,
+        "p": 5039,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-2300",
+        "l": 2300,
+        "h": 80,
+        "d": 250,
+        "p": 5198,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-2400",
+        "l": 2400,
+        "h": 80,
+        "d": 250,
+        "p": 5357,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-2500",
+        "l": 2500,
+        "h": 80,
+        "d": 250,
+        "p": 5639,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-2600",
+        "l": 2600,
+        "h": 80,
+        "d": 250,
+        "p": 5920,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-2700",
+        "l": 2700,
+        "h": 80,
+        "d": 250,
+        "p": 6061,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-2800",
+        "l": 2800,
+        "h": 80,
+        "d": 250,
+        "p": 6202,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-2900",
+        "l": 2900,
+        "h": 80,
+        "d": 250,
+        "p": 6301,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-250-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-250-3000",
+        "l": 3000,
+        "h": 80,
+        "d": 250,
+        "p": 6402,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-800",
+        "l": 800,
+        "h": 80,
+        "d": 300,
+        "p": 1546,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-900",
+        "l": 900,
+        "h": 80,
+        "d": 300,
+        "p": 2043,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-1000",
+        "l": 1000,
+        "h": 80,
+        "d": 300,
+        "p": 2512,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-1100",
+        "l": 1100,
+        "h": 80,
+        "d": 300,
+        "p": 2779,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-1200",
+        "l": 1200,
+        "h": 80,
+        "d": 300,
+        "p": 3047,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-1300",
+        "l": 1300,
+        "h": 80,
+        "d": 300,
+        "p": 3489,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-1400",
+        "l": 1400,
+        "h": 80,
+        "d": 300,
+        "p": 3933,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-1500",
+        "l": 1500,
+        "h": 80,
+        "d": 300,
+        "p": 4177,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-1600",
+        "l": 1600,
+        "h": 80,
+        "d": 300,
+        "p": 4421,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-1700",
+        "l": 1700,
+        "h": 80,
+        "d": 300,
+        "p": 4861,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-1800",
+        "l": 1800,
+        "h": 80,
+        "d": 300,
+        "p": 5301,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-1900",
+        "l": 1900,
+        "h": 80,
+        "d": 300,
+        "p": 5527,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-2000",
+        "l": 2000,
+        "h": 80,
+        "d": 300,
+        "p": 5754,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-2100",
+        "l": 2100,
+        "h": 80,
+        "d": 300,
+        "p": 6144,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-2200",
+        "l": 2200,
+        "h": 80,
+        "d": 300,
+        "p": 6533,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-2300",
+        "l": 2300,
+        "h": 80,
+        "d": 300,
+        "p": 6739,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-2400",
+        "l": 2400,
+        "h": 80,
+        "d": 300,
+        "p": 6945,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-2500",
+        "l": 2500,
+        "h": 80,
+        "d": 300,
+        "p": 7309,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-2600",
+        "l": 2600,
+        "h": 80,
+        "d": 300,
+        "p": 7673,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-2700",
+        "l": 2700,
+        "h": 80,
+        "d": 300,
+        "p": 7852,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-2800",
+        "l": 2800,
+        "h": 80,
+        "d": 300,
+        "p": 8032,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-2900",
+        "l": 2900,
+        "h": 80,
+        "d": 300,
+        "p": 8180,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-300-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-300-3000",
+        "l": 3000,
+        "h": 80,
+        "d": 300,
+        "p": 8322,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-800",
+        "l": 800,
+        "h": 80,
+        "d": 400,
+        "p": 1895,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-900",
+        "l": 900,
+        "h": 80,
+        "d": 400,
+        "p": 2462,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-1000",
+        "l": 1000,
+        "h": 80,
+        "d": 400,
+        "p": 3027,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-1100",
+        "l": 1100,
+        "h": 80,
+        "d": 400,
+        "p": 3349,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-1200",
+        "l": 1200,
+        "h": 80,
+        "d": 400,
+        "p": 3671,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-1300",
+        "l": 1300,
+        "h": 80,
+        "d": 400,
+        "p": 4205,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-1400",
+        "l": 1400,
+        "h": 80,
+        "d": 400,
+        "p": 4739,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-1500",
+        "l": 1500,
+        "h": 80,
+        "d": 400,
+        "p": 5034,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-1600",
+        "l": 1600,
+        "h": 80,
+        "d": 400,
+        "p": 5328,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-1700",
+        "l": 1700,
+        "h": 80,
+        "d": 400,
+        "p": 5858,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-1800",
+        "l": 1800,
+        "h": 80,
+        "d": 400,
+        "p": 6388,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-1900",
+        "l": 1900,
+        "h": 80,
+        "d": 400,
+        "p": 6660,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-2000",
+        "l": 2000,
+        "h": 80,
+        "d": 400,
+        "p": 6933,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-2100",
+        "l": 2100,
+        "h": 80,
+        "d": 400,
+        "p": 7404,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-2200",
+        "l": 2200,
+        "h": 80,
+        "d": 400,
+        "p": 7873,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-2300",
+        "l": 2300,
+        "h": 80,
+        "d": 400,
+        "p": 8121,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-2400",
+        "l": 2400,
+        "h": 80,
+        "d": 400,
+        "p": 8369,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-2500",
+        "l": 2500,
+        "h": 80,
+        "d": 400,
+        "p": 8808,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-2600",
+        "l": 2600,
+        "h": 80,
+        "d": 400,
+        "p": 9247,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-2700",
+        "l": 2700,
+        "h": 80,
+        "d": 400,
+        "p": 9463,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-2800",
+        "l": 2800,
+        "h": 80,
+        "d": 400,
+        "p": 9680,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-2900",
+        "l": 2900,
+        "h": 80,
+        "d": 400,
+        "p": 9859,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 80-400-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 80-400-3000",
+        "l": 3000,
+        "h": 80,
+        "d": 400,
+        "p": 10030,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-800",
+        "l": 800,
+        "h": 90,
+        "d": 250,
+        "p": 1243,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-900",
+        "l": 900,
+        "h": 90,
+        "d": 250,
+        "p": 1615,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-1000",
+        "l": 1000,
+        "h": 90,
+        "d": 250,
+        "p": 1988,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-1100",
+        "l": 1100,
+        "h": 90,
+        "d": 250,
+        "p": 2204,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-1200",
+        "l": 1200,
+        "h": 90,
+        "d": 250,
+        "p": 2420,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-1300",
+        "l": 1300,
+        "h": 90,
+        "d": 250,
+        "p": 2775,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-1400",
+        "l": 1400,
+        "h": 90,
+        "d": 250,
+        "p": 3129,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-1500",
+        "l": 1500,
+        "h": 90,
+        "d": 250,
+        "p": 3328,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-1600",
+        "l": 1600,
+        "h": 90,
+        "d": 250,
+        "p": 3527,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-1700",
+        "l": 1700,
+        "h": 90,
+        "d": 250,
+        "p": 3862,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-1800",
+        "l": 1800,
+        "h": 90,
+        "d": 250,
+        "p": 4198,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-1900",
+        "l": 1900,
+        "h": 90,
+        "d": 250,
+        "p": 4384,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-2000",
+        "l": 2000,
+        "h": 90,
+        "d": 250,
+        "p": 4569,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-2100",
+        "l": 2100,
+        "h": 90,
+        "d": 250,
+        "p": 4885,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-2200",
+        "l": 2200,
+        "h": 90,
+        "d": 250,
+        "p": 5201,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-2300",
+        "l": 2300,
+        "h": 90,
+        "d": 250,
+        "p": 5371,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-2400",
+        "l": 2400,
+        "h": 90,
+        "d": 250,
+        "p": 5541,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-2500",
+        "l": 2500,
+        "h": 90,
+        "d": 250,
+        "p": 5840,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-2600",
+        "l": 2600,
+        "h": 90,
+        "d": 250,
+        "p": 6139,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-2700",
+        "l": 2700,
+        "h": 90,
+        "d": 250,
+        "p": 6291,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-2800",
+        "l": 2800,
+        "h": 90,
+        "d": 250,
+        "p": 6443,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-2900",
+        "l": 2900,
+        "h": 90,
+        "d": 250,
+        "p": 6590,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-250-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-250-3000",
+        "l": 3000,
+        "h": 90,
+        "d": 250,
+        "p": 6731,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-800",
+        "l": 800,
+        "h": 90,
+        "d": 300,
+        "p": 1565,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-900",
+        "l": 900,
+        "h": 90,
+        "d": 300,
+        "p": 2033,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-1000",
+        "l": 1000,
+        "h": 90,
+        "d": 300,
+        "p": 2502,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-1100",
+        "l": 1100,
+        "h": 90,
+        "d": 300,
+        "p": 2774,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-1200",
+        "l": 1200,
+        "h": 90,
+        "d": 300,
+        "p": 3046,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-1300",
+        "l": 1300,
+        "h": 90,
+        "d": 300,
+        "p": 3492,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-1400",
+        "l": 1400,
+        "h": 90,
+        "d": 300,
+        "p": 3938,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-1500",
+        "l": 1500,
+        "h": 90,
+        "d": 300,
+        "p": 4188,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-1600",
+        "l": 1600,
+        "h": 90,
+        "d": 300,
+        "p": 4439,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-1700",
+        "l": 1700,
+        "h": 90,
+        "d": 300,
+        "p": 4861,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-1800",
+        "l": 1800,
+        "h": 90,
+        "d": 300,
+        "p": 5283,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-1900",
+        "l": 1900,
+        "h": 90,
+        "d": 300,
+        "p": 5517,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-2000",
+        "l": 2000,
+        "h": 90,
+        "d": 300,
+        "p": 5751,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-2100",
+        "l": 2100,
+        "h": 90,
+        "d": 300,
+        "p": 6148,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-2200",
+        "l": 2200,
+        "h": 90,
+        "d": 300,
+        "p": 6546,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-2300",
+        "l": 2300,
+        "h": 90,
+        "d": 300,
+        "p": 6760,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-2400",
+        "l": 2400,
+        "h": 90,
+        "d": 300,
+        "p": 6974,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-2500",
+        "l": 2500,
+        "h": 90,
+        "d": 300,
+        "p": 7350,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-2600",
+        "l": 2600,
+        "h": 90,
+        "d": 300,
+        "p": 7726,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-2700",
+        "l": 2700,
+        "h": 90,
+        "d": 300,
+        "p": 7917,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-2800",
+        "l": 2800,
+        "h": 90,
+        "d": 300,
+        "p": 8108,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-2900",
+        "l": 2900,
+        "h": 90,
+        "d": 300,
+        "p": 8294,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-300-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-300-3000",
+        "l": 3000,
+        "h": 90,
+        "d": 300,
+        "p": 8471,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-800",
+        "l": 800,
+        "h": 90,
+        "d": 400,
+        "p": 1909,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-900",
+        "l": 900,
+        "h": 90,
+        "d": 400,
+        "p": 2480,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-1000",
+        "l": 1000,
+        "h": 90,
+        "d": 400,
+        "p": 3052,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-1100",
+        "l": 1100,
+        "h": 90,
+        "d": 400,
+        "p": 3384,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-1200",
+        "l": 1200,
+        "h": 90,
+        "d": 400,
+        "p": 3716,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-1300",
+        "l": 1300,
+        "h": 90,
+        "d": 400,
+        "p": 4260,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-1400",
+        "l": 1400,
+        "h": 90,
+        "d": 400,
+        "p": 4805,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-1500",
+        "l": 1500,
+        "h": 90,
+        "d": 400,
+        "p": 5110,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-1600",
+        "l": 1600,
+        "h": 90,
+        "d": 400,
+        "p": 5415,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-1700",
+        "l": 1700,
+        "h": 90,
+        "d": 400,
+        "p": 5930,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-1800",
+        "l": 1800,
+        "h": 90,
+        "d": 400,
+        "p": 6445,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-1900",
+        "l": 1900,
+        "h": 90,
+        "d": 400,
+        "p": 6731,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-2000",
+        "l": 2000,
+        "h": 90,
+        "d": 400,
+        "p": 7016,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-2100",
+        "l": 2100,
+        "h": 90,
+        "d": 400,
+        "p": 7501,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-2200",
+        "l": 2200,
+        "h": 90,
+        "d": 400,
+        "p": 7986,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-2300",
+        "l": 2300,
+        "h": 90,
+        "d": 400,
+        "p": 8247,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-2400",
+        "l": 2400,
+        "h": 90,
+        "d": 400,
+        "p": 8509,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-2500",
+        "l": 2500,
+        "h": 90,
+        "d": 400,
+        "p": 8967,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-2600",
+        "l": 2600,
+        "h": 90,
+        "d": 400,
+        "p": 9426,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-2700",
+        "l": 2700,
+        "h": 90,
+        "d": 400,
+        "p": 9659,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-2800",
+        "l": 2800,
+        "h": 90,
+        "d": 400,
+        "p": 9892,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-2900",
+        "l": 2900,
+        "h": 90,
+        "d": 400,
+        "p": 10118,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 90-400-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 90-400-3000",
+        "l": 3000,
+        "h": 90,
+        "d": 400,
+        "p": 10335,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-800",
+        "l": 800,
+        "h": 110,
+        "d": 250,
+        "p": 1330,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-900",
+        "l": 900,
+        "h": 110,
+        "d": 250,
+        "p": 1728,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-1000",
+        "l": 1000,
+        "h": 110,
+        "d": 250,
+        "p": 2127,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-1100",
+        "l": 1100,
+        "h": 110,
+        "d": 250,
+        "p": 2358,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-1200",
+        "l": 1200,
+        "h": 110,
+        "d": 250,
+        "p": 2590,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-1300",
+        "l": 1300,
+        "h": 110,
+        "d": 250,
+        "p": 2969,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-1400",
+        "l": 1400,
+        "h": 110,
+        "d": 250,
+        "p": 3348,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-1500",
+        "l": 1500,
+        "h": 110,
+        "d": 250,
+        "p": 3561,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-1600",
+        "l": 1600,
+        "h": 110,
+        "d": 250,
+        "p": 3774,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-1700",
+        "l": 1700,
+        "h": 110,
+        "d": 250,
+        "p": 4133,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-1800",
+        "l": 1800,
+        "h": 110,
+        "d": 250,
+        "p": 4492,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-1900",
+        "l": 1900,
+        "h": 110,
+        "d": 250,
+        "p": 4690,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-2000",
+        "l": 2000,
+        "h": 110,
+        "d": 250,
+        "p": 4889,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-2100",
+        "l": 2100,
+        "h": 110,
+        "d": 250,
+        "p": 5227,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-2200",
+        "l": 2200,
+        "h": 110,
+        "d": 250,
+        "p": 5565,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-2300",
+        "l": 2300,
+        "h": 110,
+        "d": 250,
+        "p": 5747,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-2400",
+        "l": 2400,
+        "h": 110,
+        "d": 250,
+        "p": 5929,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-2500",
+        "l": 2500,
+        "h": 110,
+        "d": 250,
+        "p": 6249,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-2600",
+        "l": 2600,
+        "h": 110,
+        "d": 250,
+        "p": 6569,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-2700",
+        "l": 2700,
+        "h": 110,
+        "d": 250,
+        "p": 6731,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-2800",
+        "l": 2800,
+        "h": 110,
+        "d": 250,
+        "p": 6894,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-2900",
+        "l": 2900,
+        "h": 110,
+        "d": 250,
+        "p": 7051,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-250-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-250-3000",
+        "l": 3000,
+        "h": 110,
+        "d": 250,
+        "p": 7202,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-800",
+        "l": 800,
+        "h": 110,
+        "d": 300,
+        "p": 1674,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-900",
+        "l": 900,
+        "h": 110,
+        "d": 300,
+        "p": 2175,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-1000",
+        "l": 1000,
+        "h": 110,
+        "d": 300,
+        "p": 2677,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-1100",
+        "l": 1100,
+        "h": 110,
+        "d": 300,
+        "p": 2968,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-1200",
+        "l": 1200,
+        "h": 110,
+        "d": 300,
+        "p": 3259,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-1300",
+        "l": 1300,
+        "h": 110,
+        "d": 300,
+        "p": 3737,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-1400",
+        "l": 1400,
+        "h": 110,
+        "d": 300,
+        "p": 4214,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-1500",
+        "l": 1500,
+        "h": 110,
+        "d": 300,
+        "p": 4482,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-1600",
+        "l": 1600,
+        "h": 110,
+        "d": 300,
+        "p": 4749,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-1700",
+        "l": 1700,
+        "h": 110,
+        "d": 300,
+        "p": 5201,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-1800",
+        "l": 1800,
+        "h": 110,
+        "d": 300,
+        "p": 5653,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-1900",
+        "l": 1900,
+        "h": 110,
+        "d": 300,
+        "p": 5903,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-2000",
+        "l": 2000,
+        "h": 110,
+        "d": 300,
+        "p": 6154,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-2100",
+        "l": 2100,
+        "h": 110,
+        "d": 300,
+        "p": 6579,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-2200",
+        "l": 2200,
+        "h": 110,
+        "d": 300,
+        "p": 7004,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-2300",
+        "l": 2300,
+        "h": 110,
+        "d": 300,
+        "p": 7233,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-2400",
+        "l": 2400,
+        "h": 110,
+        "d": 300,
+        "p": 7463,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-2500",
+        "l": 2500,
+        "h": 110,
+        "d": 300,
+        "p": 7865,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-2600",
+        "l": 2600,
+        "h": 110,
+        "d": 300,
+        "p": 8267,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-2700",
+        "l": 2700,
+        "h": 110,
+        "d": 300,
+        "p": 8471,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-2800",
+        "l": 2800,
+        "h": 110,
+        "d": 300,
+        "p": 8676,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-2900",
+        "l": 2900,
+        "h": 110,
+        "d": 300,
+        "p": 8874,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-300-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-300-3000",
+        "l": 3000,
+        "h": 110,
+        "d": 300,
+        "p": 9064,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-800",
+        "l": 800,
+        "h": 110,
+        "d": 400,
+        "p": 2042,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-900",
+        "l": 900,
+        "h": 110,
+        "d": 400,
+        "p": 2654,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-1000",
+        "l": 1000,
+        "h": 110,
+        "d": 400,
+        "p": 3266,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-1100",
+        "l": 1100,
+        "h": 110,
+        "d": 400,
+        "p": 3621,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-1200",
+        "l": 1200,
+        "h": 110,
+        "d": 400,
+        "p": 3977,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-1300",
+        "l": 1300,
+        "h": 110,
+        "d": 400,
+        "p": 4559,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-1400",
+        "l": 1400,
+        "h": 110,
+        "d": 400,
+        "p": 5141,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-1500",
+        "l": 1500,
+        "h": 110,
+        "d": 400,
+        "p": 5468,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-1600",
+        "l": 1600,
+        "h": 110,
+        "d": 400,
+        "p": 5794,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-1700",
+        "l": 1700,
+        "h": 110,
+        "d": 400,
+        "p": 6345,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-1800",
+        "l": 1800,
+        "h": 110,
+        "d": 400,
+        "p": 6897,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-1900",
+        "l": 1900,
+        "h": 110,
+        "d": 400,
+        "p": 7202,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-2000",
+        "l": 2000,
+        "h": 110,
+        "d": 400,
+        "p": 7508,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-2100",
+        "l": 2100,
+        "h": 110,
+        "d": 400,
+        "p": 8026,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-2200",
+        "l": 2200,
+        "h": 110,
+        "d": 400,
+        "p": 8545,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-2300",
+        "l": 2300,
+        "h": 110,
+        "d": 400,
+        "p": 8825,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-2400",
+        "l": 2400,
+        "h": 110,
+        "d": 400,
+        "p": 9104,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-2500",
+        "l": 2500,
+        "h": 110,
+        "d": 400,
+        "p": 9595,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-2600",
+        "l": 2600,
+        "h": 110,
+        "d": 400,
+        "p": 10086,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-2700",
+        "l": 2700,
+        "h": 110,
+        "d": 400,
+        "p": 10335,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-2800",
+        "l": 2800,
+        "h": 110,
+        "d": 400,
+        "p": 10585,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-2900",
+        "l": 2900,
+        "h": 110,
+        "d": 400,
+        "p": 10827,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 110-400-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 110-400-3000",
+        "l": 3000,
+        "h": 110,
+        "d": 400,
+        "p": 11058,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-800",
+        "l": 800,
+        "h": 150,
+        "d": 250,
+        "p": 1440,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-900",
+        "l": 900,
+        "h": 150,
+        "d": 250,
+        "p": 1872,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-1000",
+        "l": 1000,
+        "h": 150,
+        "d": 250,
+        "p": 2303,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-1100",
+        "l": 1100,
+        "h": 150,
+        "d": 250,
+        "p": 2554,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-1200",
+        "l": 1200,
+        "h": 150,
+        "d": 250,
+        "p": 2805,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-1300",
+        "l": 1300,
+        "h": 150,
+        "d": 250,
+        "p": 3215,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-1400",
+        "l": 1400,
+        "h": 150,
+        "d": 250,
+        "p": 3626,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-1500",
+        "l": 1500,
+        "h": 150,
+        "d": 250,
+        "p": 3856,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-1600",
+        "l": 1600,
+        "h": 150,
+        "d": 250,
+        "p": 4087,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-1700",
+        "l": 1700,
+        "h": 150,
+        "d": 250,
+        "p": 4476,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-1800",
+        "l": 1800,
+        "h": 150,
+        "d": 250,
+        "p": 4864,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-1900",
+        "l": 1900,
+        "h": 150,
+        "d": 250,
+        "p": 5080,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-2000",
+        "l": 2000,
+        "h": 150,
+        "d": 250,
+        "p": 5295,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-2100",
+        "l": 2100,
+        "h": 150,
+        "d": 250,
+        "p": 5661,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-2200",
+        "l": 2200,
+        "h": 150,
+        "d": 250,
+        "p": 6027,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-2300",
+        "l": 2300,
+        "h": 150,
+        "d": 250,
+        "p": 6224,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-2400",
+        "l": 2400,
+        "h": 150,
+        "d": 250,
+        "p": 6422,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-2500",
+        "l": 2500,
+        "h": 150,
+        "d": 250,
+        "p": 6768,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-2600",
+        "l": 2600,
+        "h": 150,
+        "d": 250,
+        "p": 7114,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-2700",
+        "l": 2700,
+        "h": 150,
+        "d": 250,
+        "p": 7290,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-2800",
+        "l": 2800,
+        "h": 150,
+        "d": 250,
+        "p": 7466,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-2900",
+        "l": 2900,
+        "h": 150,
+        "d": 250,
+        "p": 7636,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-250-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-250-3000",
+        "l": 3000,
+        "h": 150,
+        "d": 250,
+        "p": 7800,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-800",
+        "l": 800,
+        "h": 150,
+        "d": 300,
+        "p": 1816,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-900",
+        "l": 900,
+        "h": 150,
+        "d": 300,
+        "p": 2360,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-1000",
+        "l": 1000,
+        "h": 150,
+        "d": 300,
+        "p": 2904,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-1100",
+        "l": 1100,
+        "h": 150,
+        "d": 300,
+        "p": 3220,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-1200",
+        "l": 1200,
+        "h": 150,
+        "d": 300,
+        "p": 3536,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-1300",
+        "l": 1300,
+        "h": 150,
+        "d": 300,
+        "p": 4054,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-1400",
+        "l": 1400,
+        "h": 150,
+        "d": 300,
+        "p": 4572,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-1500",
+        "l": 1500,
+        "h": 150,
+        "d": 300,
+        "p": 4862,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-1600",
+        "l": 1600,
+        "h": 150,
+        "d": 300,
+        "p": 5153,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-1700",
+        "l": 1700,
+        "h": 150,
+        "d": 300,
+        "p": 5643,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-1800",
+        "l": 1800,
+        "h": 150,
+        "d": 300,
+        "p": 6133,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-1900",
+        "l": 1900,
+        "h": 150,
+        "d": 300,
+        "p": 6405,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-2000",
+        "l": 2000,
+        "h": 150,
+        "d": 300,
+        "p": 6677,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-2100",
+        "l": 2100,
+        "h": 150,
+        "d": 300,
+        "p": 7138,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-2200",
+        "l": 2200,
+        "h": 150,
+        "d": 300,
+        "p": 7599,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-2300",
+        "l": 2300,
+        "h": 150,
+        "d": 300,
+        "p": 7848,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-2400",
+        "l": 2400,
+        "h": 150,
+        "d": 300,
+        "p": 8097,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-2500",
+        "l": 2500,
+        "h": 150,
+        "d": 300,
+        "p": 8533,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-2600",
+        "l": 2600,
+        "h": 150,
+        "d": 300,
+        "p": 8970,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-2700",
+        "l": 2700,
+        "h": 150,
+        "d": 300,
+        "p": 9192,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-2800",
+        "l": 2800,
+        "h": 150,
+        "d": 300,
+        "p": 9413,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-2900",
+        "l": 2900,
+        "h": 150,
+        "d": 300,
+        "p": 9629,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-300-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-300-3000",
+        "l": 3000,
+        "h": 150,
+        "d": 300,
+        "p": 9834,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-800",
+        "l": 800,
+        "h": 150,
+        "d": 400,
+        "p": 2226,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-900",
+        "l": 900,
+        "h": 150,
+        "d": 400,
+        "p": 2893,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-1000",
+        "l": 1000,
+        "h": 150,
+        "d": 400,
+        "p": 3560,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-1100",
+        "l": 1100,
+        "h": 150,
+        "d": 400,
+        "p": 3947,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-1200",
+        "l": 1200,
+        "h": 150,
+        "d": 400,
+        "p": 4334,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-1300",
+        "l": 1300,
+        "h": 150,
+        "d": 400,
+        "p": 4969,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-1400",
+        "l": 1400,
+        "h": 150,
+        "d": 400,
+        "p": 5604,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-1500",
+        "l": 1500,
+        "h": 150,
+        "d": 400,
+        "p": 5960,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-1600",
+        "l": 1600,
+        "h": 150,
+        "d": 400,
+        "p": 6316,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-1700",
+        "l": 1700,
+        "h": 150,
+        "d": 400,
+        "p": 6917,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-1800",
+        "l": 1800,
+        "h": 150,
+        "d": 400,
+        "p": 7517,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-1900",
+        "l": 1900,
+        "h": 150,
+        "d": 400,
+        "p": 7850,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-2000",
+        "l": 2000,
+        "h": 150,
+        "d": 400,
+        "p": 8183,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-2100",
+        "l": 2100,
+        "h": 150,
+        "d": 400,
+        "p": 8749,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-2200",
+        "l": 2200,
+        "h": 150,
+        "d": 400,
+        "p": 9314,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-2300",
+        "l": 2300,
+        "h": 150,
+        "d": 400,
+        "p": 9619,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-2400",
+        "l": 2400,
+        "h": 150,
+        "d": 400,
+        "p": 9924,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-2500",
+        "l": 2500,
+        "h": 150,
+        "d": 400,
+        "p": 10459,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-2600",
+        "l": 2600,
+        "h": 150,
+        "d": 400,
+        "p": 10994,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-2700",
+        "l": 2700,
+        "h": 150,
+        "d": 400,
+        "p": 11266,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-2800",
+        "l": 2800,
+        "h": 150,
+        "d": 400,
+        "p": 11537,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-2900",
+        "l": 2900,
+        "h": 150,
+        "d": 400,
+        "p": 11801,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 150-400-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 150-400-3000",
+        "l": 3000,
+        "h": 150,
+        "d": 400,
+        "p": 12053,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-800",
+        "l": 800,
+        "h": 190,
+        "d": 250,
+        "p": 1546,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-900",
+        "l": 900,
+        "h": 190,
+        "d": 250,
+        "p": 2009,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-1000",
+        "l": 1000,
+        "h": 190,
+        "d": 250,
+        "p": 2472,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-1100",
+        "l": 1100,
+        "h": 190,
+        "d": 250,
+        "p": 2741,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-1200",
+        "l": 1200,
+        "h": 190,
+        "d": 250,
+        "p": 3009,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-1300",
+        "l": 1300,
+        "h": 190,
+        "d": 250,
+        "p": 3450,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-1400",
+        "l": 1400,
+        "h": 190,
+        "d": 250,
+        "p": 3891,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-1500",
+        "l": 1500,
+        "h": 190,
+        "d": 250,
+        "p": 4138,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-1600",
+        "l": 1600,
+        "h": 190,
+        "d": 250,
+        "p": 4385,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-1700",
+        "l": 1700,
+        "h": 190,
+        "d": 250,
+        "p": 4802,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-1800",
+        "l": 1800,
+        "h": 190,
+        "d": 250,
+        "p": 5219,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-1900",
+        "l": 1900,
+        "h": 190,
+        "d": 250,
+        "p": 5451,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-2000",
+        "l": 2000,
+        "h": 190,
+        "d": 250,
+        "p": 5682,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-2100",
+        "l": 2100,
+        "h": 190,
+        "d": 250,
+        "p": 6074,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-2200",
+        "l": 2200,
+        "h": 190,
+        "d": 250,
+        "p": 6467,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-2300",
+        "l": 2300,
+        "h": 190,
+        "d": 250,
+        "p": 6679,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-2400",
+        "l": 2400,
+        "h": 190,
+        "d": 250,
+        "p": 6890,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-2500",
+        "l": 2500,
+        "h": 190,
+        "d": 250,
+        "p": 7262,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-2600",
+        "l": 2600,
+        "h": 190,
+        "d": 250,
+        "p": 7633,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-2700",
+        "l": 2700,
+        "h": 190,
+        "d": 250,
+        "p": 7822,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-2800",
+        "l": 2800,
+        "h": 190,
+        "d": 250,
+        "p": 8011,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-2900",
+        "l": 2900,
+        "h": 190,
+        "d": 250,
+        "p": 8194,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-250-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-250-3000",
+        "l": 3000,
+        "h": 190,
+        "d": 250,
+        "p": 8369,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-800",
+        "l": 800,
+        "h": 190,
+        "d": 300,
+        "p": 1945,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-900",
+        "l": 900,
+        "h": 190,
+        "d": 300,
+        "p": 2528,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-1000",
+        "l": 1000,
+        "h": 190,
+        "d": 300,
+        "p": 3111,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-1100",
+        "l": 1100,
+        "h": 190,
+        "d": 300,
+        "p": 3449,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-1200",
+        "l": 1200,
+        "h": 190,
+        "d": 300,
+        "p": 3788,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-1300",
+        "l": 1300,
+        "h": 190,
+        "d": 300,
+        "p": 4342,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-1400",
+        "l": 1400,
+        "h": 190,
+        "d": 300,
+        "p": 4897,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-1500",
+        "l": 1500,
+        "h": 190,
+        "d": 300,
+        "p": 5208,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-1600",
+        "l": 1600,
+        "h": 190,
+        "d": 300,
+        "p": 5519,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-1700",
+        "l": 1700,
+        "h": 190,
+        "d": 300,
+        "p": 6044,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-1800",
+        "l": 1800,
+        "h": 190,
+        "d": 300,
+        "p": 6569,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-1900",
+        "l": 1900,
+        "h": 190,
+        "d": 300,
+        "p": 6860,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-2000",
+        "l": 2000,
+        "h": 190,
+        "d": 300,
+        "p": 7151,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-2100",
+        "l": 2100,
+        "h": 190,
+        "d": 300,
+        "p": 7645,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-2200",
+        "l": 2200,
+        "h": 190,
+        "d": 300,
+        "p": 8139,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-2300",
+        "l": 2300,
+        "h": 190,
+        "d": 300,
+        "p": 8405,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-2400",
+        "l": 2400,
+        "h": 190,
+        "d": 300,
+        "p": 8672,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-2500",
+        "l": 2500,
+        "h": 190,
+        "d": 300,
+        "p": 9139,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-2600",
+        "l": 2600,
+        "h": 190,
+        "d": 300,
+        "p": 9607,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-2700",
+        "l": 2700,
+        "h": 190,
+        "d": 300,
+        "p": 9844,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-2800",
+        "l": 2800,
+        "h": 190,
+        "d": 300,
+        "p": 10082,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-2900",
+        "l": 2900,
+        "h": 190,
+        "d": 300,
+        "p": 10312,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-300-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-300-3000",
+        "l": 3000,
+        "h": 190,
+        "d": 300,
+        "p": 10533,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-800",
+        "l": 800,
+        "h": 190,
+        "d": 400,
+        "p": 2383,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-900",
+        "l": 900,
+        "h": 190,
+        "d": 400,
+        "p": 3097,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-1000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-1000",
+        "l": 1000,
+        "h": 190,
+        "d": 400,
+        "p": 3811,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-1100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-1100",
+        "l": 1100,
+        "h": 190,
+        "d": 400,
+        "p": 4225,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-1200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-1200",
+        "l": 1200,
+        "h": 190,
+        "d": 400,
+        "p": 4640,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-1300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-1300",
+        "l": 1300,
+        "h": 190,
+        "d": 400,
+        "p": 5319,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-1400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-1400",
+        "l": 1400,
+        "h": 190,
+        "d": 400,
+        "p": 5999,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-1500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-1500",
+        "l": 1500,
+        "h": 190,
+        "d": 400,
+        "p": 6380,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-1600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-1600",
+        "l": 1600,
+        "h": 190,
+        "d": 400,
+        "p": 6761,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-1700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-1700",
+        "l": 1700,
+        "h": 190,
+        "d": 400,
+        "p": 7404,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-1800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-1800",
+        "l": 1800,
+        "h": 190,
+        "d": 400,
+        "p": 8047,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-1900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-1900",
+        "l": 1900,
+        "h": 190,
+        "d": 400,
+        "p": 8404,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-2000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-2000",
+        "l": 2000,
+        "h": 190,
+        "d": 400,
+        "p": 8760,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-2100",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-2100",
+        "l": 2100,
+        "h": 190,
+        "d": 400,
+        "p": 9365,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-2200",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-2200",
+        "l": 2200,
+        "h": 190,
+        "d": 400,
+        "p": 9971,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-2300",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-2300",
+        "l": 2300,
+        "h": 190,
+        "d": 400,
+        "p": 10297,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-2400",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-2400",
+        "l": 2400,
+        "h": 190,
+        "d": 400,
+        "p": 10623,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-2500",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-2500",
+        "l": 2500,
+        "h": 190,
+        "d": 400,
+        "p": 11196,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-2600",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-2600",
+        "l": 2600,
+        "h": 190,
+        "d": 400,
+        "p": 11769,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-2700",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-2700",
+        "l": 2700,
+        "h": 190,
+        "d": 400,
+        "p": 12060,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-2800",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-2800",
+        "l": 2800,
+        "h": 190,
+        "d": 400,
+        "p": 12351,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-2900",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-2900",
+        "l": 2900,
+        "h": 190,
+        "d": 400,
+        "p": 12633,
+        "fan": true
+    },
+    {
+        "name": "Comfort Turbo 190-400-3000",
+        "url": "Внутрипольные конвекторы/Comfort Turbo/Comfort Turbo 190-400-3000",
+        "l": 3000,
+        "h": 190,
+        "d": 400,
+        "p": 12903,
+        "fan": true
+    },
+    {
+        "name": "Comfort 75-200-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-800",
+        "l": 800,
+        "h": 75,
+        "d": 200,
+        "p": 174,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-900",
+        "l": 900,
+        "h": 75,
+        "d": 200,
+        "p": 206,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-1000",
+        "l": 1000,
+        "h": 75,
+        "d": 200,
+        "p": 237,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-1100",
+        "l": 1100,
+        "h": 75,
+        "d": 200,
+        "p": 268,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-1200",
+        "l": 1200,
+        "h": 75,
+        "d": 200,
+        "p": 299,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-1300",
+        "l": 1300,
+        "h": 75,
+        "d": 200,
+        "p": 331,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-1400",
+        "l": 1400,
+        "h": 75,
+        "d": 200,
+        "p": 361,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-1500",
+        "l": 1500,
+        "h": 75,
+        "d": 200,
+        "p": 393,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-1600",
+        "l": 1600,
+        "h": 75,
+        "d": 200,
+        "p": 424,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-1700",
+        "l": 1700,
+        "h": 75,
+        "d": 200,
+        "p": 456,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-1800",
+        "l": 1800,
+        "h": 75,
+        "d": 200,
+        "p": 487,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-1900",
+        "l": 1900,
+        "h": 75,
+        "d": 200,
+        "p": 519,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-2000",
+        "l": 2000,
+        "h": 75,
+        "d": 200,
+        "p": 550,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-2100",
+        "l": 2100,
+        "h": 75,
+        "d": 200,
+        "p": 581,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-2200",
+        "l": 2200,
+        "h": 75,
+        "d": 200,
+        "p": 612,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-2300",
+        "l": 2300,
+        "h": 75,
+        "d": 200,
+        "p": 645,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-2400",
+        "l": 2400,
+        "h": 75,
+        "d": 200,
+        "p": 677,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-2500",
+        "l": 2500,
+        "h": 75,
+        "d": 200,
+        "p": 709,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-2600",
+        "l": 2600,
+        "h": 75,
+        "d": 200,
+        "p": 740,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-2700",
+        "l": 2700,
+        "h": 75,
+        "d": 200,
+        "p": 772,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-2800",
+        "l": 2800,
+        "h": 75,
+        "d": 200,
+        "p": 803,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-2900",
+        "l": 2900,
+        "h": 75,
+        "d": 200,
+        "p": 834,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-200-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-200-3000",
+        "l": 3000,
+        "h": 75,
+        "d": 200,
+        "p": 865,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-800",
+        "l": 800,
+        "h": 75,
+        "d": 250,
+        "p": 215,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-900",
+        "l": 900,
+        "h": 75,
+        "d": 250,
+        "p": 254,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-1000",
+        "l": 1000,
+        "h": 75,
+        "d": 250,
+        "p": 292,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-1100",
+        "l": 1100,
+        "h": 75,
+        "d": 250,
+        "p": 331,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-1200",
+        "l": 1200,
+        "h": 75,
+        "d": 250,
+        "p": 369,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-1300",
+        "l": 1300,
+        "h": 75,
+        "d": 250,
+        "p": 409,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-1400",
+        "l": 1400,
+        "h": 75,
+        "d": 250,
+        "p": 447,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-1500",
+        "l": 1500,
+        "h": 75,
+        "d": 250,
+        "p": 486,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-1600",
+        "l": 1600,
+        "h": 75,
+        "d": 250,
+        "p": 524,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-1700",
+        "l": 1700,
+        "h": 75,
+        "d": 250,
+        "p": 563,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-1800",
+        "l": 1800,
+        "h": 75,
+        "d": 250,
+        "p": 601,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-1900",
+        "l": 1900,
+        "h": 75,
+        "d": 250,
+        "p": 641,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-2000",
+        "l": 2000,
+        "h": 75,
+        "d": 250,
+        "p": 679,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-2100",
+        "l": 2100,
+        "h": 75,
+        "d": 250,
+        "p": 718,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-2200",
+        "l": 2200,
+        "h": 75,
+        "d": 250,
+        "p": 756,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-2300",
+        "l": 2300,
+        "h": 75,
+        "d": 250,
+        "p": 796,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-2400",
+        "l": 2400,
+        "h": 75,
+        "d": 250,
+        "p": 836,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-2500",
+        "l": 2500,
+        "h": 75,
+        "d": 250,
+        "p": 875,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-2600",
+        "l": 2600,
+        "h": 75,
+        "d": 250,
+        "p": 914,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-2700",
+        "l": 2700,
+        "h": 75,
+        "d": 250,
+        "p": 953,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-2800",
+        "l": 2800,
+        "h": 75,
+        "d": 250,
+        "p": 991,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-2900",
+        "l": 2900,
+        "h": 75,
+        "d": 250,
+        "p": 1030,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-250-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-250-3000",
+        "l": 3000,
+        "h": 75,
+        "d": 250,
+        "p": 1068,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-800",
+        "l": 800,
+        "h": 75,
+        "d": 300,
+        "p": 258,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-900",
+        "l": 900,
+        "h": 75,
+        "d": 300,
+        "p": 305,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-1000",
+        "l": 1000,
+        "h": 75,
+        "d": 300,
+        "p": 350,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-1100",
+        "l": 1100,
+        "h": 75,
+        "d": 300,
+        "p": 398,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-1200",
+        "l": 1200,
+        "h": 75,
+        "d": 300,
+        "p": 444,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-1300",
+        "l": 1300,
+        "h": 75,
+        "d": 300,
+        "p": 491,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-1400",
+        "l": 1400,
+        "h": 75,
+        "d": 300,
+        "p": 536,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-1500",
+        "l": 1500,
+        "h": 75,
+        "d": 300,
+        "p": 583,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-1600",
+        "l": 1600,
+        "h": 75,
+        "d": 300,
+        "p": 629,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-1700",
+        "l": 1700,
+        "h": 75,
+        "d": 300,
+        "p": 676,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-1800",
+        "l": 1800,
+        "h": 75,
+        "d": 300,
+        "p": 722,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-1900",
+        "l": 1900,
+        "h": 75,
+        "d": 300,
+        "p": 769,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-2000",
+        "l": 2000,
+        "h": 75,
+        "d": 300,
+        "p": 815,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-2100",
+        "l": 2100,
+        "h": 75,
+        "d": 300,
+        "p": 861,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-2200",
+        "l": 2200,
+        "h": 75,
+        "d": 300,
+        "p": 907,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-2300",
+        "l": 2300,
+        "h": 75,
+        "d": 300,
+        "p": 955,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-2400",
+        "l": 2400,
+        "h": 75,
+        "d": 300,
+        "p": 1003,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-2500",
+        "l": 2500,
+        "h": 75,
+        "d": 300,
+        "p": 1050,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-2600",
+        "l": 2600,
+        "h": 75,
+        "d": 300,
+        "p": 1096,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-2700",
+        "l": 2700,
+        "h": 75,
+        "d": 300,
+        "p": 1143,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-2800",
+        "l": 2800,
+        "h": 75,
+        "d": 300,
+        "p": 1189,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-2900",
+        "l": 2900,
+        "h": 75,
+        "d": 300,
+        "p": 1235,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-300-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-300-3000",
+        "l": 3000,
+        "h": 75,
+        "d": 300,
+        "p": 1281,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-800",
+        "l": 800,
+        "h": 75,
+        "d": 400,
+        "p": 350,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-900",
+        "l": 900,
+        "h": 75,
+        "d": 400,
+        "p": 414,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-1000",
+        "l": 1000,
+        "h": 75,
+        "d": 400,
+        "p": 476,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-1100",
+        "l": 1100,
+        "h": 75,
+        "d": 400,
+        "p": 540,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-1200",
+        "l": 1200,
+        "h": 75,
+        "d": 400,
+        "p": 602,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-1300",
+        "l": 1300,
+        "h": 75,
+        "d": 400,
+        "p": 666,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-1400",
+        "l": 1400,
+        "h": 75,
+        "d": 400,
+        "p": 728,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-1500",
+        "l": 1500,
+        "h": 75,
+        "d": 400,
+        "p": 791,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-1600",
+        "l": 1600,
+        "h": 75,
+        "d": 400,
+        "p": 853,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-1700",
+        "l": 1700,
+        "h": 75,
+        "d": 400,
+        "p": 917,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-1800",
+        "l": 1800,
+        "h": 75,
+        "d": 400,
+        "p": 980,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-1900",
+        "l": 1900,
+        "h": 75,
+        "d": 400,
+        "p": 1043,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-2000",
+        "l": 2000,
+        "h": 75,
+        "d": 400,
+        "p": 1105,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-2100",
+        "l": 2100,
+        "h": 75,
+        "d": 400,
+        "p": 1169,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-2200",
+        "l": 2200,
+        "h": 75,
+        "d": 400,
+        "p": 1232,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-2300",
+        "l": 2300,
+        "h": 75,
+        "d": 400,
+        "p": 1297,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-2400",
+        "l": 2400,
+        "h": 75,
+        "d": 400,
+        "p": 1361,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-2500",
+        "l": 2500,
+        "h": 75,
+        "d": 400,
+        "p": 1425,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-2600",
+        "l": 2600,
+        "h": 75,
+        "d": 400,
+        "p": 1487,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-2700",
+        "l": 2700,
+        "h": 75,
+        "d": 400,
+        "p": 1550,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-2800",
+        "l": 2800,
+        "h": 75,
+        "d": 400,
+        "p": 1613,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-2900",
+        "l": 2900,
+        "h": 75,
+        "d": 400,
+        "p": 1676,
+        "fan": false
+    },
+    {
+        "name": "Comfort 75-400-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 75-400-3000",
+        "l": 3000,
+        "h": 75,
+        "d": 400,
+        "p": 1739,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-800",
+        "l": 800,
+        "h": 90,
+        "d": 200,
+        "p": 222,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-900",
+        "l": 900,
+        "h": 90,
+        "d": 200,
+        "p": 264,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-1000",
+        "l": 1000,
+        "h": 90,
+        "d": 200,
+        "p": 305,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-1100",
+        "l": 1100,
+        "h": 90,
+        "d": 200,
+        "p": 348,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-1200",
+        "l": 1200,
+        "h": 90,
+        "d": 200,
+        "p": 390,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-1300",
+        "l": 1300,
+        "h": 90,
+        "d": 200,
+        "p": 432,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-1400",
+        "l": 1400,
+        "h": 90,
+        "d": 200,
+        "p": 474,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-1500",
+        "l": 1500,
+        "h": 90,
+        "d": 200,
+        "p": 516,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-1600",
+        "l": 1600,
+        "h": 90,
+        "d": 200,
+        "p": 558,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-1700",
+        "l": 1700,
+        "h": 90,
+        "d": 200,
+        "p": 601,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-1800",
+        "l": 1800,
+        "h": 90,
+        "d": 200,
+        "p": 642,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-1900",
+        "l": 1900,
+        "h": 90,
+        "d": 200,
+        "p": 684,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-2000",
+        "l": 2000,
+        "h": 90,
+        "d": 200,
+        "p": 726,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-2100",
+        "l": 2100,
+        "h": 90,
+        "d": 200,
+        "p": 768,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-2200",
+        "l": 2200,
+        "h": 90,
+        "d": 200,
+        "p": 810,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-2300",
+        "l": 2300,
+        "h": 90,
+        "d": 200,
+        "p": 853,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-2400",
+        "l": 2400,
+        "h": 90,
+        "d": 200,
+        "p": 894,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-2500",
+        "l": 2500,
+        "h": 90,
+        "d": 200,
+        "p": 936,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-2600",
+        "l": 2600,
+        "h": 90,
+        "d": 200,
+        "p": 977,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-2700",
+        "l": 2700,
+        "h": 90,
+        "d": 200,
+        "p": 1020,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-2800",
+        "l": 2800,
+        "h": 90,
+        "d": 200,
+        "p": 1062,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-2900",
+        "l": 2900,
+        "h": 90,
+        "d": 200,
+        "p": 1104,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-200-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-200-3000",
+        "l": 3000,
+        "h": 90,
+        "d": 200,
+        "p": 1146,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-800",
+        "l": 800,
+        "h": 90,
+        "d": 250,
+        "p": 290,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-900",
+        "l": 900,
+        "h": 90,
+        "d": 250,
+        "p": 339,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-1000",
+        "l": 1000,
+        "h": 90,
+        "d": 250,
+        "p": 388,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-1100",
+        "l": 1100,
+        "h": 90,
+        "d": 250,
+        "p": 437,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-1200",
+        "l": 1200,
+        "h": 90,
+        "d": 250,
+        "p": 485,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-1300",
+        "l": 1300,
+        "h": 90,
+        "d": 250,
+        "p": 532,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-1400",
+        "l": 1400,
+        "h": 90,
+        "d": 250,
+        "p": 579,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-1500",
+        "l": 1500,
+        "h": 90,
+        "d": 250,
+        "p": 630,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-1600",
+        "l": 1600,
+        "h": 90,
+        "d": 250,
+        "p": 679,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-1700",
+        "l": 1700,
+        "h": 90,
+        "d": 250,
+        "p": 729,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-1800",
+        "l": 1800,
+        "h": 90,
+        "d": 250,
+        "p": 777,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-1900",
+        "l": 1900,
+        "h": 90,
+        "d": 250,
+        "p": 826,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-2000",
+        "l": 2000,
+        "h": 90,
+        "d": 250,
+        "p": 874,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-2100",
+        "l": 2100,
+        "h": 90,
+        "d": 250,
+        "p": 923,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-2200",
+        "l": 2200,
+        "h": 90,
+        "d": 250,
+        "p": 971,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-2300",
+        "l": 2300,
+        "h": 90,
+        "d": 250,
+        "p": 1031,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-2400",
+        "l": 2400,
+        "h": 90,
+        "d": 250,
+        "p": 1091,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-2500",
+        "l": 2500,
+        "h": 90,
+        "d": 250,
+        "p": 1148,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-2600",
+        "l": 2600,
+        "h": 90,
+        "d": 250,
+        "p": 1204,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-2700",
+        "l": 2700,
+        "h": 90,
+        "d": 250,
+        "p": 1245,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-2800",
+        "l": 2800,
+        "h": 90,
+        "d": 250,
+        "p": 1285,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-2900",
+        "l": 2900,
+        "h": 90,
+        "d": 250,
+        "p": 1334,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-250-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-250-3000",
+        "l": 3000,
+        "h": 90,
+        "d": 250,
+        "p": 1382,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-800",
+        "l": 800,
+        "h": 90,
+        "d": 300,
+        "p": 383,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-900",
+        "l": 900,
+        "h": 90,
+        "d": 300,
+        "p": 439,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-1000",
+        "l": 1000,
+        "h": 90,
+        "d": 300,
+        "p": 493,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-1100",
+        "l": 1100,
+        "h": 90,
+        "d": 300,
+        "p": 549,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-1200",
+        "l": 1200,
+        "h": 90,
+        "d": 300,
+        "p": 605,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-1300",
+        "l": 1300,
+        "h": 90,
+        "d": 300,
+        "p": 662,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-1400",
+        "l": 1400,
+        "h": 90,
+        "d": 300,
+        "p": 718,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-1500",
+        "l": 1500,
+        "h": 90,
+        "d": 300,
+        "p": 772,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-1600",
+        "l": 1600,
+        "h": 90,
+        "d": 300,
+        "p": 826,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-1700",
+        "l": 1700,
+        "h": 90,
+        "d": 300,
+        "p": 881,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-1800",
+        "l": 1800,
+        "h": 90,
+        "d": 300,
+        "p": 936,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-1900",
+        "l": 1900,
+        "h": 90,
+        "d": 300,
+        "p": 992,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-2000",
+        "l": 2000,
+        "h": 90,
+        "d": 300,
+        "p": 1047,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-2100",
+        "l": 2100,
+        "h": 90,
+        "d": 300,
+        "p": 1102,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-2200",
+        "l": 2200,
+        "h": 90,
+        "d": 300,
+        "p": 1157,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-2300",
+        "l": 2300,
+        "h": 90,
+        "d": 300,
+        "p": 1213,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-2400",
+        "l": 2400,
+        "h": 90,
+        "d": 300,
+        "p": 1268,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-2500",
+        "l": 2500,
+        "h": 90,
+        "d": 300,
+        "p": 1323,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-2600",
+        "l": 2600,
+        "h": 90,
+        "d": 300,
+        "p": 1378,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-2700",
+        "l": 2700,
+        "h": 90,
+        "d": 300,
+        "p": 1434,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-2800",
+        "l": 2800,
+        "h": 90,
+        "d": 300,
+        "p": 1489,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-2900",
+        "l": 2900,
+        "h": 90,
+        "d": 300,
+        "p": 1544,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-300-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-300-3000",
+        "l": 3000,
+        "h": 90,
+        "d": 300,
+        "p": 1599,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-800",
+        "l": 800,
+        "h": 90,
+        "d": 400,
+        "p": 515,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-900",
+        "l": 900,
+        "h": 90,
+        "d": 400,
+        "p": 593,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-1000",
+        "l": 1000,
+        "h": 90,
+        "d": 400,
+        "p": 671,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-1100",
+        "l": 1100,
+        "h": 90,
+        "d": 400,
+        "p": 749,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-1200",
+        "l": 1200,
+        "h": 90,
+        "d": 400,
+        "p": 826,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-1300",
+        "l": 1300,
+        "h": 90,
+        "d": 400,
+        "p": 901,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-1400",
+        "l": 1400,
+        "h": 90,
+        "d": 400,
+        "p": 976,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-1500",
+        "l": 1500,
+        "h": 90,
+        "d": 400,
+        "p": 1056,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-1600",
+        "l": 1600,
+        "h": 90,
+        "d": 400,
+        "p": 1135,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-1700",
+        "l": 1700,
+        "h": 90,
+        "d": 400,
+        "p": 1213,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-1800",
+        "l": 1800,
+        "h": 90,
+        "d": 400,
+        "p": 1290,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-1900",
+        "l": 1900,
+        "h": 90,
+        "d": 400,
+        "p": 1368,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-2000",
+        "l": 2000,
+        "h": 90,
+        "d": 400,
+        "p": 1445,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-2100",
+        "l": 2100,
+        "h": 90,
+        "d": 400,
+        "p": 1522,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-2200",
+        "l": 2200,
+        "h": 90,
+        "d": 400,
+        "p": 1599,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-2300",
+        "l": 2300,
+        "h": 90,
+        "d": 400,
+        "p": 1677,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-2400",
+        "l": 2400,
+        "h": 90,
+        "d": 400,
+        "p": 1754,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-2500",
+        "l": 2500,
+        "h": 90,
+        "d": 400,
+        "p": 1832,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-2600",
+        "l": 2600,
+        "h": 90,
+        "d": 400,
+        "p": 1909,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-2700",
+        "l": 2700,
+        "h": 90,
+        "d": 400,
+        "p": 1987,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-2800",
+        "l": 2800,
+        "h": 90,
+        "d": 400,
+        "p": 2063,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-2900",
+        "l": 2900,
+        "h": 90,
+        "d": 400,
+        "p": 2141,
+        "fan": false
+    },
+    {
+        "name": "Comfort 90-400-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 90-400-3000",
+        "l": 3000,
+        "h": 90,
+        "d": 400,
+        "p": 2218,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-800",
+        "l": 800,
+        "h": 110,
+        "d": 200,
+        "p": 279,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-900",
+        "l": 900,
+        "h": 110,
+        "d": 200,
+        "p": 332,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-1000",
+        "l": 1000,
+        "h": 110,
+        "d": 200,
+        "p": 383,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-1100",
+        "l": 1100,
+        "h": 110,
+        "d": 200,
+        "p": 437,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-1200",
+        "l": 1200,
+        "h": 110,
+        "d": 200,
+        "p": 489,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-1300",
+        "l": 1300,
+        "h": 110,
+        "d": 200,
+        "p": 542,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-1400",
+        "l": 1400,
+        "h": 110,
+        "d": 200,
+        "p": 595,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-1500",
+        "l": 1500,
+        "h": 110,
+        "d": 200,
+        "p": 648,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-1600",
+        "l": 1600,
+        "h": 110,
+        "d": 200,
+        "p": 700,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-1700",
+        "l": 1700,
+        "h": 110,
+        "d": 200,
+        "p": 754,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-1800",
+        "l": 1800,
+        "h": 110,
+        "d": 200,
+        "p": 806,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-1900",
+        "l": 1900,
+        "h": 110,
+        "d": 200,
+        "p": 859,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-2000",
+        "l": 2000,
+        "h": 110,
+        "d": 200,
+        "p": 911,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-2100",
+        "l": 2100,
+        "h": 110,
+        "d": 200,
+        "p": 965,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-2200",
+        "l": 2200,
+        "h": 110,
+        "d": 200,
+        "p": 1017,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-2300",
+        "l": 2300,
+        "h": 110,
+        "d": 200,
+        "p": 1070,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-2400",
+        "l": 2400,
+        "h": 110,
+        "d": 200,
+        "p": 1123,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-2500",
+        "l": 2500,
+        "h": 110,
+        "d": 200,
+        "p": 1176,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-2600",
+        "l": 2600,
+        "h": 110,
+        "d": 200,
+        "p": 1228,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-2700",
+        "l": 2700,
+        "h": 110,
+        "d": 200,
+        "p": 1282,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-2800",
+        "l": 2800,
+        "h": 110,
+        "d": 200,
+        "p": 1334,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-2900",
+        "l": 2900,
+        "h": 110,
+        "d": 200,
+        "p": 1387,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-200-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-200-3000",
+        "l": 3000,
+        "h": 110,
+        "d": 200,
+        "p": 1439,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-800",
+        "l": 800,
+        "h": 110,
+        "d": 250,
+        "p": 356,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-900",
+        "l": 900,
+        "h": 110,
+        "d": 250,
+        "p": 416,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-1000",
+        "l": 1000,
+        "h": 110,
+        "d": 250,
+        "p": 475,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-1100",
+        "l": 1100,
+        "h": 110,
+        "d": 250,
+        "p": 535,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-1200",
+        "l": 1200,
+        "h": 110,
+        "d": 250,
+        "p": 595,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-1300",
+        "l": 1300,
+        "h": 110,
+        "d": 250,
+        "p": 655,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-1400",
+        "l": 1400,
+        "h": 110,
+        "d": 250,
+        "p": 713,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-1500",
+        "l": 1500,
+        "h": 110,
+        "d": 250,
+        "p": 774,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-1600",
+        "l": 1600,
+        "h": 110,
+        "d": 250,
+        "p": 833,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-1700",
+        "l": 1700,
+        "h": 110,
+        "d": 250,
+        "p": 894,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-1800",
+        "l": 1800,
+        "h": 110,
+        "d": 250,
+        "p": 953,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-1900",
+        "l": 1900,
+        "h": 110,
+        "d": 250,
+        "p": 1013,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-2000",
+        "l": 2000,
+        "h": 110,
+        "d": 250,
+        "p": 1072,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-2100",
+        "l": 2100,
+        "h": 110,
+        "d": 250,
+        "p": 1132,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-2200",
+        "l": 2200,
+        "h": 110,
+        "d": 250,
+        "p": 1191,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-2300",
+        "l": 2300,
+        "h": 110,
+        "d": 250,
+        "p": 1264,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-2400",
+        "l": 2400,
+        "h": 110,
+        "d": 250,
+        "p": 1337,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-2500",
+        "l": 2500,
+        "h": 110,
+        "d": 250,
+        "p": 1398,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-2600",
+        "l": 2600,
+        "h": 110,
+        "d": 250,
+        "p": 1457,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-2700",
+        "l": 2700,
+        "h": 110,
+        "d": 250,
+        "p": 1517,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-2800",
+        "l": 2800,
+        "h": 110,
+        "d": 250,
+        "p": 1576,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-2900",
+        "l": 2900,
+        "h": 110,
+        "d": 250,
+        "p": 1636,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-250-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-250-3000",
+        "l": 3000,
+        "h": 110,
+        "d": 250,
+        "p": 1695,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-800",
+        "l": 800,
+        "h": 110,
+        "d": 300,
+        "p": 469,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-900",
+        "l": 900,
+        "h": 110,
+        "d": 300,
+        "p": 537,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-1000",
+        "l": 1000,
+        "h": 110,
+        "d": 300,
+        "p": 605,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-1100",
+        "l": 1100,
+        "h": 110,
+        "d": 300,
+        "p": 673,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-1200",
+        "l": 1200,
+        "h": 110,
+        "d": 300,
+        "p": 741,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-1300",
+        "l": 1300,
+        "h": 110,
+        "d": 300,
+        "p": 809,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-1400",
+        "l": 1400,
+        "h": 110,
+        "d": 300,
+        "p": 876,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-1500",
+        "l": 1500,
+        "h": 110,
+        "d": 300,
+        "p": 944,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-1600",
+        "l": 1600,
+        "h": 110,
+        "d": 300,
+        "p": 1012,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-1700",
+        "l": 1700,
+        "h": 110,
+        "d": 300,
+        "p": 1080,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-1800",
+        "l": 1800,
+        "h": 110,
+        "d": 300,
+        "p": 1147,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-1900",
+        "l": 1900,
+        "h": 110,
+        "d": 300,
+        "p": 1216,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-2000",
+        "l": 2000,
+        "h": 110,
+        "d": 300,
+        "p": 1283,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-2100",
+        "l": 2100,
+        "h": 110,
+        "d": 300,
+        "p": 1351,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-2200",
+        "l": 2200,
+        "h": 110,
+        "d": 300,
+        "p": 1419,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-2300",
+        "l": 2300,
+        "h": 110,
+        "d": 300,
+        "p": 1487,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-2400",
+        "l": 2400,
+        "h": 110,
+        "d": 300,
+        "p": 1554,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-2500",
+        "l": 2500,
+        "h": 110,
+        "d": 300,
+        "p": 1622,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-2600",
+        "l": 2600,
+        "h": 110,
+        "d": 300,
+        "p": 1689,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-2700",
+        "l": 2700,
+        "h": 110,
+        "d": 300,
+        "p": 1757,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-2800",
+        "l": 2800,
+        "h": 110,
+        "d": 300,
+        "p": 1824,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-2900",
+        "l": 2900,
+        "h": 110,
+        "d": 300,
+        "p": 1893,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-300-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-300-3000",
+        "l": 3000,
+        "h": 110,
+        "d": 300,
+        "p": 1961,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-800",
+        "l": 800,
+        "h": 110,
+        "d": 400,
+        "p": 658,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-900",
+        "l": 900,
+        "h": 110,
+        "d": 400,
+        "p": 758,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-1000",
+        "l": 1000,
+        "h": 110,
+        "d": 400,
+        "p": 856,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-1100",
+        "l": 1100,
+        "h": 110,
+        "d": 400,
+        "p": 955,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-1200",
+        "l": 1200,
+        "h": 110,
+        "d": 400,
+        "p": 1053,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-1300",
+        "l": 1300,
+        "h": 110,
+        "d": 400,
+        "p": 1152,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-1400",
+        "l": 1400,
+        "h": 110,
+        "d": 400,
+        "p": 1250,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-1500",
+        "l": 1500,
+        "h": 110,
+        "d": 400,
+        "p": 1350,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-1600",
+        "l": 1600,
+        "h": 110,
+        "d": 400,
+        "p": 1448,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-1700",
+        "l": 1700,
+        "h": 110,
+        "d": 400,
+        "p": 1548,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-1800",
+        "l": 1800,
+        "h": 110,
+        "d": 400,
+        "p": 1646,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-1900",
+        "l": 1900,
+        "h": 110,
+        "d": 400,
+        "p": 1746,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-2000",
+        "l": 2000,
+        "h": 110,
+        "d": 400,
+        "p": 1844,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-2100",
+        "l": 2100,
+        "h": 110,
+        "d": 400,
+        "p": 1943,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-2200",
+        "l": 2200,
+        "h": 110,
+        "d": 400,
+        "p": 2041,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-2300",
+        "l": 2300,
+        "h": 110,
+        "d": 400,
+        "p": 2140,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-2400",
+        "l": 2400,
+        "h": 110,
+        "d": 400,
+        "p": 2238,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-2500",
+        "l": 2500,
+        "h": 110,
+        "d": 400,
+        "p": 2338,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-2600",
+        "l": 2600,
+        "h": 110,
+        "d": 400,
+        "p": 2436,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-2700",
+        "l": 2700,
+        "h": 110,
+        "d": 400,
+        "p": 2536,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-2800",
+        "l": 2800,
+        "h": 110,
+        "d": 400,
+        "p": 2634,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-2900",
+        "l": 2900,
+        "h": 110,
+        "d": 400,
+        "p": 2733,
+        "fan": false
+    },
+    {
+        "name": "Comfort 110-400-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 110-400-3000",
+        "l": 3000,
+        "h": 110,
+        "d": 400,
+        "p": 2831,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-800",
+        "l": 800,
+        "h": 150,
+        "d": 200,
+        "p": 391,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-900",
+        "l": 900,
+        "h": 150,
+        "d": 200,
+        "p": 464,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-1000",
+        "l": 1000,
+        "h": 150,
+        "d": 200,
+        "p": 535,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-1100",
+        "l": 1100,
+        "h": 150,
+        "d": 200,
+        "p": 611,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-1200",
+        "l": 1200,
+        "h": 150,
+        "d": 200,
+        "p": 686,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-1300",
+        "l": 1300,
+        "h": 150,
+        "d": 200,
+        "p": 761,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-1400",
+        "l": 1400,
+        "h": 150,
+        "d": 200,
+        "p": 834,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-1500",
+        "l": 1500,
+        "h": 150,
+        "d": 200,
+        "p": 909,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-1600",
+        "l": 1600,
+        "h": 150,
+        "d": 200,
+        "p": 982,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-1700",
+        "l": 1700,
+        "h": 150,
+        "d": 200,
+        "p": 1056,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-1800",
+        "l": 1800,
+        "h": 150,
+        "d": 200,
+        "p": 1129,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-1900",
+        "l": 1900,
+        "h": 150,
+        "d": 200,
+        "p": 1204,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-2000",
+        "l": 2000,
+        "h": 150,
+        "d": 200,
+        "p": 1278,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-2100",
+        "l": 2100,
+        "h": 150,
+        "d": 200,
+        "p": 1352,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-2200",
+        "l": 2200,
+        "h": 150,
+        "d": 200,
+        "p": 1425,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-2300",
+        "l": 2300,
+        "h": 150,
+        "d": 200,
+        "p": 1499,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-2400",
+        "l": 2400,
+        "h": 150,
+        "d": 200,
+        "p": 1573,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-2500",
+        "l": 2500,
+        "h": 150,
+        "d": 200,
+        "p": 1647,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-2600",
+        "l": 2600,
+        "h": 150,
+        "d": 200,
+        "p": 1720,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-2700",
+        "l": 2700,
+        "h": 150,
+        "d": 200,
+        "p": 1795,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-2800",
+        "l": 2800,
+        "h": 150,
+        "d": 200,
+        "p": 1868,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-2900",
+        "l": 2900,
+        "h": 150,
+        "d": 200,
+        "p": 1943,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-200-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-200-3000",
+        "l": 3000,
+        "h": 150,
+        "d": 200,
+        "p": 2016,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-800",
+        "l": 800,
+        "h": 150,
+        "d": 250,
+        "p": 502,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-900",
+        "l": 900,
+        "h": 150,
+        "d": 250,
+        "p": 587,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-1000",
+        "l": 1000,
+        "h": 150,
+        "d": 250,
+        "p": 671,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-1100",
+        "l": 1100,
+        "h": 150,
+        "d": 250,
+        "p": 755,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-1200",
+        "l": 1200,
+        "h": 150,
+        "d": 250,
+        "p": 839,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-1300",
+        "l": 1300,
+        "h": 150,
+        "d": 250,
+        "p": 923,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-1400",
+        "l": 1400,
+        "h": 150,
+        "d": 250,
+        "p": 1007,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-1500",
+        "l": 1500,
+        "h": 150,
+        "d": 250,
+        "p": 1092,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-1600",
+        "l": 1600,
+        "h": 150,
+        "d": 250,
+        "p": 1175,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-1700",
+        "l": 1700,
+        "h": 150,
+        "d": 250,
+        "p": 1260,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-1800",
+        "l": 1800,
+        "h": 150,
+        "d": 250,
+        "p": 1343,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-1900",
+        "l": 1900,
+        "h": 150,
+        "d": 250,
+        "p": 1428,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-2000",
+        "l": 2000,
+        "h": 150,
+        "d": 250,
+        "p": 1512,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-2100",
+        "l": 2100,
+        "h": 150,
+        "d": 250,
+        "p": 1596,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-2200",
+        "l": 2200,
+        "h": 150,
+        "d": 250,
+        "p": 1679,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-2300",
+        "l": 2300,
+        "h": 150,
+        "d": 250,
+        "p": 1783,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-2400",
+        "l": 2400,
+        "h": 150,
+        "d": 250,
+        "p": 1886,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-2500",
+        "l": 2500,
+        "h": 150,
+        "d": 250,
+        "p": 1970,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-2600",
+        "l": 2600,
+        "h": 150,
+        "d": 250,
+        "p": 2053,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-2700",
+        "l": 2700,
+        "h": 150,
+        "d": 250,
+        "p": 2138,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-2800",
+        "l": 2800,
+        "h": 150,
+        "d": 250,
+        "p": 2223,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-2900",
+        "l": 2900,
+        "h": 150,
+        "d": 250,
+        "p": 2307,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-250-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-250-3000",
+        "l": 3000,
+        "h": 150,
+        "d": 250,
+        "p": 2391,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-800",
+        "l": 800,
+        "h": 150,
+        "d": 300,
+        "p": 630,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-900",
+        "l": 900,
+        "h": 150,
+        "d": 300,
+        "p": 721,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-1000",
+        "l": 1000,
+        "h": 150,
+        "d": 300,
+        "p": 811,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-1100",
+        "l": 1100,
+        "h": 150,
+        "d": 300,
+        "p": 903,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-1200",
+        "l": 1200,
+        "h": 150,
+        "d": 300,
+        "p": 993,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-1300",
+        "l": 1300,
+        "h": 150,
+        "d": 300,
+        "p": 1085,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-1400",
+        "l": 1400,
+        "h": 150,
+        "d": 300,
+        "p": 1175,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-1500",
+        "l": 1500,
+        "h": 150,
+        "d": 300,
+        "p": 1266,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-1600",
+        "l": 1600,
+        "h": 150,
+        "d": 300,
+        "p": 1356,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-1700",
+        "l": 1700,
+        "h": 150,
+        "d": 300,
+        "p": 1448,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-1800",
+        "l": 1800,
+        "h": 150,
+        "d": 300,
+        "p": 1538,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-1900",
+        "l": 1900,
+        "h": 150,
+        "d": 300,
+        "p": 1629,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-2000",
+        "l": 2000,
+        "h": 150,
+        "d": 300,
+        "p": 1719,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-2100",
+        "l": 2100,
+        "h": 150,
+        "d": 300,
+        "p": 1811,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-2200",
+        "l": 2200,
+        "h": 150,
+        "d": 300,
+        "p": 1901,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-2300",
+        "l": 2300,
+        "h": 150,
+        "d": 300,
+        "p": 1993,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-2400",
+        "l": 2400,
+        "h": 150,
+        "d": 300,
+        "p": 2083,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-2500",
+        "l": 2500,
+        "h": 150,
+        "d": 300,
+        "p": 2174,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-2600",
+        "l": 2600,
+        "h": 150,
+        "d": 300,
+        "p": 2264,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-2700",
+        "l": 2700,
+        "h": 150,
+        "d": 300,
+        "p": 2356,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-2800",
+        "l": 2800,
+        "h": 150,
+        "d": 300,
+        "p": 2446,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-2900",
+        "l": 2900,
+        "h": 150,
+        "d": 300,
+        "p": 2538,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-300-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-300-3000",
+        "l": 3000,
+        "h": 150,
+        "d": 300,
+        "p": 2629,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-800",
+        "l": 800,
+        "h": 150,
+        "d": 400,
+        "p": 850,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-900",
+        "l": 900,
+        "h": 150,
+        "d": 400,
+        "p": 977,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-1000",
+        "l": 1000,
+        "h": 150,
+        "d": 400,
+        "p": 1104,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-1100",
+        "l": 1100,
+        "h": 150,
+        "d": 400,
+        "p": 1232,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-1200",
+        "l": 1200,
+        "h": 150,
+        "d": 400,
+        "p": 1359,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-1300",
+        "l": 1300,
+        "h": 150,
+        "d": 400,
+        "p": 1487,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-1400",
+        "l": 1400,
+        "h": 150,
+        "d": 400,
+        "p": 1614,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-1500",
+        "l": 1500,
+        "h": 150,
+        "d": 400,
+        "p": 1742,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-1600",
+        "l": 1600,
+        "h": 150,
+        "d": 400,
+        "p": 1870,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-1700",
+        "l": 1700,
+        "h": 150,
+        "d": 400,
+        "p": 1997,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-1800",
+        "l": 1800,
+        "h": 150,
+        "d": 400,
+        "p": 2124,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-1900",
+        "l": 1900,
+        "h": 150,
+        "d": 400,
+        "p": 2251,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-2000",
+        "l": 2000,
+        "h": 150,
+        "d": 400,
+        "p": 2378,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-2100",
+        "l": 2100,
+        "h": 150,
+        "d": 400,
+        "p": 2506,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-2200",
+        "l": 2200,
+        "h": 150,
+        "d": 400,
+        "p": 2634,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-2300",
+        "l": 2300,
+        "h": 150,
+        "d": 400,
+        "p": 2762,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-2400",
+        "l": 2400,
+        "h": 150,
+        "d": 400,
+        "p": 2888,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-2500",
+        "l": 2500,
+        "h": 150,
+        "d": 400,
+        "p": 3016,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-2600",
+        "l": 2600,
+        "h": 150,
+        "d": 400,
+        "p": 3142,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-2700",
+        "l": 2700,
+        "h": 150,
+        "d": 400,
+        "p": 3271,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-2800",
+        "l": 2800,
+        "h": 150,
+        "d": 400,
+        "p": 3399,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-2900",
+        "l": 2900,
+        "h": 150,
+        "d": 400,
+        "p": 3526,
+        "fan": false
+    },
+    {
+        "name": "Comfort 150-400-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 150-400-3000",
+        "l": 3000,
+        "h": 150,
+        "d": 400,
+        "p": 3653,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-800",
+        "l": 800,
+        "h": 190,
+        "d": 200,
+        "p": 446,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-900",
+        "l": 900,
+        "h": 190,
+        "d": 200,
+        "p": 531,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-1000",
+        "l": 1000,
+        "h": 190,
+        "d": 200,
+        "p": 616,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-1100",
+        "l": 1100,
+        "h": 190,
+        "d": 200,
+        "p": 700,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-1200",
+        "l": 1200,
+        "h": 190,
+        "d": 200,
+        "p": 784,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-1300",
+        "l": 1300,
+        "h": 190,
+        "d": 200,
+        "p": 869,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-1400",
+        "l": 1400,
+        "h": 190,
+        "d": 200,
+        "p": 953,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-1500",
+        "l": 1500,
+        "h": 190,
+        "d": 200,
+        "p": 1038,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-1600",
+        "l": 1600,
+        "h": 190,
+        "d": 200,
+        "p": 1123,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-1700",
+        "l": 1700,
+        "h": 190,
+        "d": 200,
+        "p": 1208,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-1800",
+        "l": 1800,
+        "h": 190,
+        "d": 200,
+        "p": 1291,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-1900",
+        "l": 1900,
+        "h": 190,
+        "d": 200,
+        "p": 1376,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-2000",
+        "l": 2000,
+        "h": 190,
+        "d": 200,
+        "p": 1460,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-2100",
+        "l": 2100,
+        "h": 190,
+        "d": 200,
+        "p": 1546,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-2200",
+        "l": 2200,
+        "h": 190,
+        "d": 200,
+        "p": 1630,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-2300",
+        "l": 2300,
+        "h": 190,
+        "d": 200,
+        "p": 1715,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-2400",
+        "l": 2400,
+        "h": 190,
+        "d": 200,
+        "p": 1798,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-2500",
+        "l": 2500,
+        "h": 190,
+        "d": 200,
+        "p": 1883,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-2600",
+        "l": 2600,
+        "h": 190,
+        "d": 200,
+        "p": 1967,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-2700",
+        "l": 2700,
+        "h": 190,
+        "d": 200,
+        "p": 2052,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-2800",
+        "l": 2800,
+        "h": 190,
+        "d": 200,
+        "p": 2136,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-2900",
+        "l": 2900,
+        "h": 190,
+        "d": 200,
+        "p": 2221,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-200-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-200-3000",
+        "l": 3000,
+        "h": 190,
+        "d": 200,
+        "p": 2305,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-800",
+        "l": 800,
+        "h": 190,
+        "d": 250,
+        "p": 518,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-900",
+        "l": 900,
+        "h": 190,
+        "d": 250,
+        "p": 605,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-1000",
+        "l": 1000,
+        "h": 190,
+        "d": 250,
+        "p": 692,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-1100",
+        "l": 1100,
+        "h": 190,
+        "d": 250,
+        "p": 779,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-1200",
+        "l": 1200,
+        "h": 190,
+        "d": 250,
+        "p": 865,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-1300",
+        "l": 1300,
+        "h": 190,
+        "d": 250,
+        "p": 952,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-1400",
+        "l": 1400,
+        "h": 190,
+        "d": 250,
+        "p": 1038,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-1500",
+        "l": 1500,
+        "h": 190,
+        "d": 250,
+        "p": 1125,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-1600",
+        "l": 1600,
+        "h": 190,
+        "d": 250,
+        "p": 1212,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-1700",
+        "l": 1700,
+        "h": 190,
+        "d": 250,
+        "p": 1300,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-1800",
+        "l": 1800,
+        "h": 190,
+        "d": 250,
+        "p": 1386,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-1900",
+        "l": 1900,
+        "h": 190,
+        "d": 250,
+        "p": 1474,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-2000",
+        "l": 2000,
+        "h": 190,
+        "d": 250,
+        "p": 1560,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-2100",
+        "l": 2100,
+        "h": 190,
+        "d": 250,
+        "p": 1647,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-2200",
+        "l": 2200,
+        "h": 190,
+        "d": 250,
+        "p": 1734,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-2300",
+        "l": 2300,
+        "h": 190,
+        "d": 250,
+        "p": 1841,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-2400",
+        "l": 2400,
+        "h": 190,
+        "d": 250,
+        "p": 1946,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-2500",
+        "l": 2500,
+        "h": 190,
+        "d": 250,
+        "p": 2034,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-2600",
+        "l": 2600,
+        "h": 190,
+        "d": 250,
+        "p": 2120,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-2700",
+        "l": 2700,
+        "h": 190,
+        "d": 250,
+        "p": 2207,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-2800",
+        "l": 2800,
+        "h": 190,
+        "d": 250,
+        "p": 2294,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-2900",
+        "l": 2900,
+        "h": 190,
+        "d": 250,
+        "p": 2381,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-250-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-250-3000",
+        "l": 3000,
+        "h": 190,
+        "d": 250,
+        "p": 2467,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-800",
+        "l": 800,
+        "h": 190,
+        "d": 300,
+        "p": 816,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-900",
+        "l": 900,
+        "h": 190,
+        "d": 300,
+        "p": 934,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-1000",
+        "l": 1000,
+        "h": 190,
+        "d": 300,
+        "p": 1052,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-1100",
+        "l": 1100,
+        "h": 190,
+        "d": 300,
+        "p": 1170,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-1200",
+        "l": 1200,
+        "h": 190,
+        "d": 300,
+        "p": 1286,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-1300",
+        "l": 1300,
+        "h": 190,
+        "d": 300,
+        "p": 1404,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-1400",
+        "l": 1400,
+        "h": 190,
+        "d": 300,
+        "p": 1521,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-1500",
+        "l": 1500,
+        "h": 190,
+        "d": 300,
+        "p": 1640,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-1600",
+        "l": 1600,
+        "h": 190,
+        "d": 300,
+        "p": 1758,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-1700",
+        "l": 1700,
+        "h": 190,
+        "d": 300,
+        "p": 1876,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-1800",
+        "l": 1800,
+        "h": 190,
+        "d": 300,
+        "p": 1994,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-1900",
+        "l": 1900,
+        "h": 190,
+        "d": 300,
+        "p": 2111,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-2000",
+        "l": 2000,
+        "h": 190,
+        "d": 300,
+        "p": 2227,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-2100",
+        "l": 2100,
+        "h": 190,
+        "d": 300,
+        "p": 2345,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-2200",
+        "l": 2200,
+        "h": 190,
+        "d": 300,
+        "p": 2463,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-2300",
+        "l": 2300,
+        "h": 190,
+        "d": 300,
+        "p": 2581,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-2400",
+        "l": 2400,
+        "h": 190,
+        "d": 300,
+        "p": 2699,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-2500",
+        "l": 2500,
+        "h": 190,
+        "d": 300,
+        "p": 2817,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-2600",
+        "l": 2600,
+        "h": 190,
+        "d": 300,
+        "p": 2934,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-2700",
+        "l": 2700,
+        "h": 190,
+        "d": 300,
+        "p": 3052,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-2800",
+        "l": 2800,
+        "h": 190,
+        "d": 300,
+        "p": 3169,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-2900",
+        "l": 2900,
+        "h": 190,
+        "d": 300,
+        "p": 3287,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-300-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-300-3000",
+        "l": 3000,
+        "h": 190,
+        "d": 300,
+        "p": 3405,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-800",
+        "l": 800,
+        "h": 190,
+        "d": 400,
+        "p": 894,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-900",
+        "l": 900,
+        "h": 190,
+        "d": 400,
+        "p": 1029,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-1000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-1000",
+        "l": 1000,
+        "h": 190,
+        "d": 400,
+        "p": 1163,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-1100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-1100",
+        "l": 1100,
+        "h": 190,
+        "d": 400,
+        "p": 1298,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-1200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-1200",
+        "l": 1200,
+        "h": 190,
+        "d": 400,
+        "p": 1432,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-1300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-1300",
+        "l": 1300,
+        "h": 190,
+        "d": 400,
+        "p": 1566,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-1400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-1400",
+        "l": 1400,
+        "h": 190,
+        "d": 400,
+        "p": 1699,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-1500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-1500",
+        "l": 1500,
+        "h": 190,
+        "d": 400,
+        "p": 1834,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-1600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-1600",
+        "l": 1600,
+        "h": 190,
+        "d": 400,
+        "p": 1968,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-1700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-1700",
+        "l": 1700,
+        "h": 190,
+        "d": 400,
+        "p": 2103,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-1800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-1800",
+        "l": 1800,
+        "h": 190,
+        "d": 400,
+        "p": 2236,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-1900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-1900",
+        "l": 1900,
+        "h": 190,
+        "d": 400,
+        "p": 2371,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-2000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-2000",
+        "l": 2000,
+        "h": 190,
+        "d": 400,
+        "p": 2505,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-2100",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-2100",
+        "l": 2100,
+        "h": 190,
+        "d": 400,
+        "p": 2640,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-2200",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-2200",
+        "l": 2200,
+        "h": 190,
+        "d": 400,
+        "p": 2773,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-2300",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-2300",
+        "l": 2300,
+        "h": 190,
+        "d": 400,
+        "p": 2908,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-2400",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-2400",
+        "l": 2400,
+        "h": 190,
+        "d": 400,
+        "p": 3041,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-2500",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-2500",
+        "l": 2500,
+        "h": 190,
+        "d": 400,
+        "p": 3176,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-2600",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-2600",
+        "l": 2600,
+        "h": 190,
+        "d": 400,
+        "p": 3310,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-2700",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-2700",
+        "l": 2700,
+        "h": 190,
+        "d": 400,
+        "p": 3445,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-2800",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-2800",
+        "l": 2800,
+        "h": 190,
+        "d": 400,
+        "p": 3578,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-2900",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-2900",
+        "l": 2900,
+        "h": 190,
+        "d": 400,
+        "p": 3713,
+        "fan": false
+    },
+    {
+        "name": "Comfort 190-400-3000",
+        "url": "Внутрипольные конвекторы/Comfort/Comfort 190-400-3000",
+        "l": 3000,
+        "h": 190,
+        "d": 400,
+        "p": 3847,
+        "fan": false
+    }
+]

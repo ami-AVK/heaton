@@ -80,7 +80,7 @@ def create_json_from_directory_powerSearch(root_dir):
                             item_name = row['Модель']
 
                             try:
-                                link = os.path.join("Каталог",category, clean_string(model), type_name, item_name)
+                                link = os.path.join("Каталог",category, clean_string(model), item_name)
                                 print(link)
                             except:
                                 print(row)

@@ -5,9 +5,20 @@ import type { Product } from '../types/common';
 interface Props {
     product: Product;
     category: string;
+    compare?: Product;
 }
 
-const { product, category } = Astro.props;
+const { product, category, compare } = Astro.props;
+
+// Helper function to check if values are different
+function isDifferent(field: string): boolean|undefined {
+    return compare && product[field] !== compare[field];
+}
+
+function getCompareClass(field: string): string {
+    return isDifferent(field) ? "bg-accent " : "";
+}
+
 const URL_main = `${import.meta.env.BASE_URL}/`
 const imagePath = `/src/images/products/${product['Изображение']}`;
 const imageAlt = `${category} Heaton ${product['Наименование']}`;
@@ -16,8 +27,8 @@ const productUrl = `${URL_main}Каталог/${product.url}`;
 // "Исполнение": "Стандартный",
 ---
 
-<a href={productUrl} class=" justify-between flex gap-2 lg:flex-col p-2 lg:p-4 transition-all bg-neutral-200 rounded-xl hover:bg-neutral-100 hover:scale-105 hover:shadow-lg">
-    <div class=" overflow-hidden rounded-lg lg:mb-4 p-1 lg:p-0 lg:aspect-square w-1/2 sm:w-1/2 lg:w-auto">
+<a href={productUrl} class="justify-between flex gap-2 lg:flex-col p-2 lg:p-4 transition-all bg-neutral-200 rounded-xl hover:bg-neutral-100 hover:scale-105 hover:shadow-lg">
+    <div class="overflow-hidden rounded-lg lg:mb-4 p-1 lg:p-0 lg:aspect-square w-1/2 sm:w-1/2 lg:w-auto">
         <DynamicImage 
             imagePath={imagePath} 
             altText={imageAlt} 
@@ -28,24 +39,53 @@ const productUrl = `${URL_main}Каталог/${product.url}`;
     <div class="space-y-2 mr-6 lg:mr-0">
         <h3 class="font-bold">{product['Наименование']}</h3>
         <ul class="text-sm text-neutral-600">
-
             {product['Высота, мм'] && (
-                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Высота: </span><span class="font-bold">{product['Высота, мм']} мм</span></li>
+                <li class="border-b border-b-neutral-300 border-solid">
+                    <span class="text-xs">Высота: </span>
+                    <span class={`font-bold ${getCompareClass('Высота, мм')}`}>
+                        {product['Высота, мм']} мм
+                    </span>
+                </li>
             )}
             {product['Длина, мм'] && (
-                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Длина: </span><span class="font-bold">{product['Длина, мм']} мм</span></li>
+                <li class="border-b border-b-neutral-300 border-solid">
+                    <span class="text-xs">Длина: </span>
+                    <span class={`font-bold ${getCompareClass('Длина, мм')}`}>
+                        {product['Длина, мм']} мм
+                    </span>
+                </li>
             )}
             {product['Глубина, мм'] && (
-                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Глубина: </span><span class="font-bold">{product['Глубина, мм']} мм</span></li>
+                <li class="border-b border-b-neutral-300 border-solid">
+                    <span class="text-xs">Глубина: </span>
+                    <span class={`font-bold ${getCompareClass('Глубина, мм')}`}>
+                        {product['Глубина, мм']} мм
+                    </span>
+                </li>
             )}
             {product['Теплоотдача, Вт'] && (
-                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Теплоотдача: </span><span class="font-bold">{product['Теплоотдача, Вт']} Вт</span></li>
+                <li class="border-b border-b-neutral-300 border-solid">
+                    <span class="text-xs">Теплоотдача: </span>
+                    <span class={`font-bold ${getCompareClass('Теплоотдача, Вт')}`}>
+                        {product['Теплоотдача, Вт']} Вт
+                    </span>
+                </li>
             )}
             {product['Подключение'] && (
-                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Подключение: </span><span class="font-bold">{product['Подключение']}</span></li>
+                <li class="border-b border-b-neutral-300 border-solid">
+                    <span class="text-xs">Подключение: </span>
+                    <span class={`font-bold ${getCompareClass('Подключение')}`}>
+                        {product['Подключение']}
+                    </span>
+                </li>
             )}
             {product['Исполнение'] && (
-                <li class="border-b border-b-neutral-300 border-solid"><span class="text-xs">Исполнение: </span><span class="font-bold">{product['Исполнение']}</span></li>
+                <li class="border-b border-b-neutral-300 border-solid">
+                    <span class="text-xs">Исполнение: </span>
+                    <span class={`font-bold ${getCompareClass('Исполнение')}`}>
+                        {product['Исполнение']}
+                    </span>
+                </li>
             )}
         </ul>
     </div>

@@ -4,7 +4,14 @@ export interface Link {
     text: string;
     links?: Link[];
 }
-
+export interface Characteristic {
+    header: string;
+    value: string;
+    variants?: Array<{
+        value: string | number;
+        product: Product;
+    }>;
+}
 export interface Product {
     'Наименование': string;
     url: string;

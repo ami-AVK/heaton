@@ -9,9 +9,14 @@
   /* --primary-rgb: 212, 59, 24; */
   --primary-rgb: 128, 0, 10;
   --primary: rgba(var(--primary-rgb),1);
+  --primary-30: rgba(var(--primary-rgb), 0.3);
   --primary-20: rgba(var(--primary-rgb), 0.2);
   --primary-10: rgba(var(--primary-rgb), 0.1);
   --primary-80: rgba(var(--primary-rgb), 0.8);
+  /* --primary-light: color-mix(in oklch, rgba(var(--primary-rgb)), white 80%); */
+  --primary-light: oklch(from rgb(var(--primary-rgb)) calc(l + 30) calc(c - 0.05) calc(h + 5));
+  /* --primary-light: oklch(from var(--primary-light-oklch) calc(l + 10%) c h / 100% ); */
+  /* --primary-light: hsl(from var(--primary-rgb) h s calc(l + 10%)); */
   --primary-shadow: rgba(var(--primary-rgb), 0.8);
 }
 @layer base {

@@ -1,0 +1,1 @@
+import{n as s}from"./router.w0bOrQtx.js";document.addEventListener("astro:page-load",()=>{document.querySelectorAll("select.options").forEach(a=>{a.addEventListener("change",async o=>{const e=o.target.selectedOptions[0],t=`${e.getAttribute("data-url")}`;`${e.getAttribute("data-type")}`,console.log(t),t&&await s(t)})})});
