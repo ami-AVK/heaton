@@ -1,201 +1,279 @@
 ---
-import Layout from '../layouts/main.astro'
-import Hero from '../components/Hero.astro';
-import NavBar from '../components/NavBar.astro';
-import BreadCrumbs from '../components/BreadCrumbs.astro';
-import { Image } from "astro:assets"
-import heater from "../img/HF_Comfort.webp"
-import factoid_images_models from "../img/models.webp"
-import factoid_images_toppanel from "../img/top_panel.webp"
-import Factoid from '../components/Factoid.astro';
-import { Icon } from 'astro-icon/components';
-import Button from '../components/Button.astro';
-import ModelCard from '../components/_ModelCard.astro';
-import Calculator from '../components/Calculator.astro';
-import Socials from '../components/Socials.astro';
-import LogoSmall from '../svg/logo_small.svg';
-import Contact from '../components/Contact.astro';
-import ImageDynamic from '../components/ImageDynamic.astro';
-import ImageSwitcher from '../components/ImageSwitcher.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/main.astro";
+import Hero from "../components/Hero.astro";
+import NavBar from "../components/NavBar.astro";
+import BreadCrumbs from "../components/BreadCrumbs.astro";
+import { Image } from "astro:assets";
+import heater from "../img/HF_Comfort.webp";
+import factoid_images_models from "../img/models.webp";
+import factoid_images_toppanel from "../img/top_panel.webp";
+import Factoid from "../components/Factoid.astro";
+import { Icon } from "astro-icon/components";
+import Button from "../components/Button.astro";
+import ModelCard from "../components/_ModelCard.astro";
+import Calculator from "../components/Calculator.astro";
+import Socials from "../components/Socials.astro";
+import LogoSmall from "../svg/logo_small.svg";
+import Contact from "../components/Contact.astro";
+import ImageDynamic from "../components/ImageDynamic.astro";
+import ImageSwitcher from "../components/ImageSwitcher.astro";
+import Footer from "../components/Footer.astro";
 
-const URL_main = `${import.meta.env.BASE_URL}/`
-const URL_category = `${URL_main}Каталог/Внутрипольные конвекторы/`
-const URL_model = `${URL_category}Comfort/`
+const URL_main = `${import.meta.env.BASE_URL}/`;
+const URL_category = `${URL_main}Каталог/Внутрипольные конвекторы/`;
+const URL_model = `${URL_category}Comfort/`;
 
-const mainImageDescription = "Внутрипольный конвектор Heaton в разрезе"
+const mainImageDescription = "Внутрипольный конвектор Heaton в разрезе";
+
+const chars = [
+  { name: "Максимальное рабочее давление", value: "10 Бар" },
+  {
+    name: "Анодирование",
+    value:
+      "Натуральный алюминий, чёрный, золото, светлая бронза, темная бронза и любой цвет по RAL",
+  },
+  { name: "Доступная глубина", value: "75, 80, 90, 110, 150, 190" },
+  { name: "Доступная ширина", value: "200, 250, 300, 400" },
+  { name: "Доступная длина", value: "800—3000 (шаг 100 мм)" },
+  { name: "Гарантия", value: "10 лет" },
+];
+const features = [
+  {
+    icon: "Like",
+    header: "Высочайшее качество",
+    explain: "Качество подтверждено в аккредитованной лаборатории.",
+  },
+  {
+    icon: "Delivery",
+    header: "Быстрые сроки поставки",
+    explain:
+      "Максимально быстрые сроки поставки в случае отсутствия товара на складах.",
+  },
+  {
+    icon: "Widget 5",
+    header: "Широкий типоразмерный ряд",
+    explain: "Широкий выбор внутрипольных конвекторов",
+  },
+  {
+    icon: "Shield Check",
+    header: "Гарантия 10 лет",
+    explain: "Гарантия на продукцию составляет 10 лет.",
+  },
+  {
+    icon: "Document",
+    header: "Сертифицированная продукция",
+    explain: "Продукция сертифицирована и имеет гигиенический сертификат.",
+  },
+  {
+    icon: "Info Circle",
+    header: "Удовлетворение потребностей клиента",
+    explain:
+      "Закрываем любую потребность клиента по теплоотдаче и габаритам прибора.",
+  },
+];
+const coloring = [
+  {
+    title: "Черный",
+    image: "floor_black.webp",
+  },
+  {
+	title: "Алюминий",
+	image: "floor_alum.webp",
+  },
+  {
+    title: "Золотой",
+    image: "floor_gold.webp",
+  },
+  {
+    title: "Светлая бронза",
+    image: "floor_light_bronze.webp",
+  },
+  {
+    title: "Темная бронза",
+    image: "floor_dark_bronze.webp",
+  },
+
+];
+/*{
+    title: "RAL",
+    image: "floor_heater_RAL.png",
+    options: [
+      { color: "#DAA520", name: "RAL 1001" },
+      { color: "#800020", name: "RAL 3004" },
+      { color: "#000000", name: "RAL 9005" },
+      // Add more RAL colors as needed
+    ],
+  },*/
+const models = [
+  {
+    shortName: "",
+    longName: "Comfort",
+    sub: null,
+    url: `${URL_category}Comfort/`,
+    characteristics: [{ name: "Принудительная вентиляция", icon: false }],
+    image: "floorComfort.webp",
+  },
+  {
+    shortName: "",
+    longName: "Comfort Turbo",
+    sub: null,
+    url: `${URL_category}Comfort Turbo/`,
+    characteristics: [{ name: "Принудительная вентиляция", icon: true }],
+    image: "floorComfortTurbo.webp",
+  },
+];
 ---
-<Layout title="Внутрипольные конвекторы Heaton" description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
-    
-    <Hero class="min-h-svh snap-center">
-        <NavBar slot="navbar" class="mx-auto container-center py-8"/>
-        <BreadCrumbs slot="breadcrumbs" list={
-            [{url:URL_main, text:"Главная"},{url:URL_category, text:"Внутрипольные конвекторы"}]
-            }/>
 
-        <Image alt={mainImageDescription} src={heater} slot="image"/>
+<Layout
+  title="Внутрипольные конвекторы Heaton"
+  description="Качественные панельные радиаторы от российского бренда"
+  class="snap-y snap-mandatory"
+>
+  <Hero class="min-h-svh snap-center">
+    <NavBar slot="navbar" class="mx-auto container-center py-8" />
+    <BreadCrumbs
+      slot="breadcrumbs"
+      list={[
+        { url: URL_main, text: "Главная" },
+        { url: URL_category, text: "Внутрипольные конвекторы" },
+      ]}
+    />
 
-        <!-- <Fragment slot="header">
-            <Socials class="mb-6 md:mb-12 text-primary"/>
-            <h1 class="text-6xl font-black uppercase">Внутрипольные конвекторы</h1>
-            <div class="mt-12 flex items-stretch gap-4 tracking-wider uppercase">
-                <a class="px-8 py-2 text-xl rounded-lg text-neutral-50 bg-primary pt-8">Каталог</a>
-                <div class="flex text-base font-medium  gap-4 items-end text-neutral-700">
-                    <a href="#Models" class="px-4 py-2  rounded-lg  bg-neutral-100">Модели</a>
-                    <a href="#Calculator" class="px-4 py-2 rounded-lg  bg-neutral-100">Калькулятор</a>
-                </div>
+    <Image alt={mainImageDescription} src={heater} slot="image" />
+
+    <Fragment slot="header">
+      <Socials class="mb-4 md:mb-12 text-primary" data-response />
+      <h1
+        class="text-3xl md:text-6xl font-black uppercase leading-tight tracking-wide"
+      >
+        Внутрипольные конвекторы
+      </h1>
+      <div
+        class="mt-4 md:mt-12 flex items-stretch gap-4 tracking-wider uppercase"
+      >
+        <a
+          class="px-4 grow py-1 md:text-xl rounded-lg text-neutral-50 bg-primary pt-8"
+          href={URL_model}>Каталог</a
+        >
+        <div
+          class="flex text-sm md:text-base font-medium flex-col md:flex-row gap-2 md:gap-4 md:items-end text-neutral-700"
+        >
+          <a href="#Models" class="px-4 py-1 rounded-lg bg-neutral-50">Модели</a
+          >
+          <a href="#Calculator" class="px-4 py-1 rounded-lg bg-neutral-50"
+            >Калькулятор</a
+          >
+        </div>
+      </div>
+    </Fragment>
+
+    <Fragment slot="extralinks">
+      <ul class="flex gap-8">
+        <li>
+          <a
+            href="/#models"
+            class="px-16 py-8 border border-primary rounded-2xl block">Модели</a
+          >
+        </li>
+        <li>
+          <a
+            href="/#calculator"
+            class="px-16 py-8 border border-primary rounded-2xl block"
+            >Калькулятор</a
+          >
+        </li>
+      </ul>
+    </Fragment>
+  </Hero>
+  <section class="snap-start container-center py-16 mx-auto">
+    <ul
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 py-16 tracking-wider leading-relaxed text-lg"
+    >
+      <li class="sm:col-span-2 sm:row-span-2 rounded-xl p-8 flex flex-col">
+        <h3 class="font-black uppercase pb-4 text-2xl text-primary">
+          Внутрипольный конвекторы Heaton —
+        </h3>
+        <p class="mt-auto">
+          это современное и стильное решение для обогрева помещений с
+          панорамными окнами или нестандартной планировкой. Благодаря
+          компактному дизайну и высокой эффективности, они идеально вписываются
+          в интерьер, обеспечивая комфортный микроклимат без ущерба для эстетики
+        </p>
+        <div class="my-8">
+          <h3 class="font-black uppercase pb-4 text-2xl text-primary">
+            Характеристики
+          </h3>
+          <ul>
+            {
+              chars.map((characterisic) => (
+                <li class="my-2 md:my-0">
+                  <span class="text-xs md:text-base md:font-bold block md:inline">
+                    {characterisic.name}:
+                  </span>
+                  <span class="text-base font-bold md:font-normal block md:inline">
+                    {characterisic.value}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </li>
+      <li
+        class="col-span-1 row-span-3 bg-primary rounded-xl p-8 flex flex-col text-neutral-50 drop-shadow-primary-m"
+      >
+        <h3 class="font-black uppercase pb-4 text-2xl text-neutral-50">
+          Техническая поддержка
+        </h3>
+        <p class="mt-auto">
+          Бренд предоставляет полную предпродажную и послепродажную поддержку,
+          включая консультации, помощь в подборе оборудования и гарантийное
+          обслуживание
+        </p>
+      </li>
+      <li class="col-span-1 bg-neutral-50/40 rounded-xl p-8 flex flex-col">
+        <h3 class="font-black uppercase pb-4 text-2xl text-primary">
+          Широкий выбор размеров
+        </h3>
+        <p class="mt-auto">
+          Конвекторы доступны в различных длинах (от 500 до 3000 мм с шагом 100
+          мм), что позволяет подобрать модель для помещений любого размера
+        </p>
+      </li>
+      <li class="col-span-1 bg-neutral-50/40 rounded-xl p-8">
+        <h3 class="font-black uppercase pb-4 text-2xl text-primary">
+          Высокая теплоотдача
+        </h3>
+        <p class="mt-auto">
+          Медно-алюминиевый теплообменник обеспечивает эффективную передачу
+          тепла, а конструкция конвектора позволяет быстро прогревать помещение
+        </p>
+      </li>
+    </ul>
+    <ul
+      class="grid grid-cols-12 gap-4 my-16 tracking-wider leading-relaxed text-lg bg-neutral-50/40 rounded-2xl p-8"
+    >
+      {
+        features.map((feature) => (
+          <li class="my-2 md:my-0 col-span-full sm:col-span-6 md:col-span-4 sm:p-4   _bg-neutral-50/40 _rounded-xl">
+            <div class="text-base  leading-none pb-2 sm:pb-4 text-balance flex items-center">
+              <Icon
+                name={feature.icon}
+                class=" size-10 sm:size-12 mr-3 shrink-0 text-primary"
+              />
+              <div class=" leading-relaxed">{feature.explain}</div>
             </div>
-        </Fragment> -->
-        <Fragment slot="header">
-            <Socials class="mb-4 md:mb-12 text-primary" data-response/>
-            <h1 class="text-3xl md:text-6xl font-black uppercase leading-tight tracking-wide">Внутрипольные конвекторы</h1>
-            <div class="mt-4 md:mt-12 flex items-stretch gap-4 tracking-wider uppercase">
-                <a class="px-4 grow py-1 md:text-xl rounded-lg text-neutral-50 bg-primary pt-8" href={URL_model}>Каталог</a>
-                <div class="flex text-sm md:text-base font-medium flex-col md:flex-row gap-2  md:gap-4 md:items-end text-neutral-700">
-                    <a href="#Models" class="px-4 py-1  rounded-lg  bg-neutral-50">Модели</a>
-                    <a href="#Calculator" class="px-4 py-1 rounded-lg  bg-neutral-50">Калькулятор</a>
-                </div>
-            </div>
-        </Fragment>
-
-        <Fragment slot="extralinks">
-            <ul class="flex gap-8">
-                <li><a href="/#models" class="px-16 py-8 border border-primary rounded-2xl block">Модели</a></li>
-                <li><a href="/#calculator" class="px-16 py-8 border border-primary rounded-2xl block">Калькулятор</a></li>
-            </ul>
-        </Fragment>
-
-    </Hero>
-    <section class="snap-start container-center py-16 mx-auto ">
-		<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 py-16 tracking-wider leading-relaxed text-lg">
-			<li class="sm:col-span-2 sm:row-span-2 rounded-xl p-8 flex flex-col ">
-				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Внутрипольный конвекторы Heaton —</h3>
-				<p class="mt-auto">
-					это современное и стильное решение для обогрева помещений с панорамными окнами или нестандартной планировкой. Благодаря компактному дизайну и высокой эффективности, они идеально вписываются в интерьер, обеспечивая комфортный микроклимат без ущерба для эстетики
-				</p>
-				<div class="my-8">
-					<h3 class="font-black uppercase pb-4 text-2xl text-primary">Характеристики</h3>
-					<ul>
-						{[
-							{
-							  "name": "Максимальное рабочее давление",
-							  "value": "10 Бар"
-							},
-							{
-							  "name": "Анодирование",
-							  "value": "Натуральный алюминий, чёрный, золото, светлая бронза, темная бронза и любой цвет по RAL"
-							},
-							{
-							  "name": "Доступная глубина",
-							  "value": "75, 80, 90, 110, 150, 190"
-							},
-							{
-							  "name": "Доступная ширина",
-							  "value": "200, 250, 300, 400"
-							},
-							{
-							  "name": "Доступная длина",
-							  "value": "800—3000 (шаг 100 мм)"
-							},
-							{
-							  "name": "Гарантия",
-							  "value": "10 лет"
-							}
-						  ].map((characterisic)=>(
-							<li class="my-2 md:my-0">
-								<span class="text-xs md:text-base md:font-bold block md:inline">
-									{characterisic.name}:
-								</span>
-								<span class="text-base font-bold md:font-normal block md:inline">
-									{characterisic.value}
-								</span>
-							</li>
-						  )
-						  )}
-
-					</ul>
-				</div>
-			</li>
-			<li class="col-span-1 row-span-3 bg-primary rounded-xl p-8 flex flex-col text-neutral-50 drop-shadow-primary-m">
-				<h3 class="font-black uppercase pb-4 text-2xl text-neutral-50">Техническая поддержка</h3>
-				<p class="mt-auto">
-					Бренд предоставляет полную предпродажную и послепродажную поддержку, включая консультации, помощь в подборе оборудования и гарантийное обслуживание
-				</p>
-			</li>
-			<li class="col-span-1 bg-neutral-50/40 rounded-xl p-8 flex flex-col">
-				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Широкий выбор размеров</h3>
-				<p class="mt-auto">
-					Конвекторы доступны в различных длинах (от 500 до 3000 мм с шагом 100 мм), что позволяет подобрать модель для помещений любого размера
-				</p>
-			</li>
-			<li class="col-span-1 bg-neutral-50/40 rounded-xl p-8">
-				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Высокая теплоотдача</h3>
-				<p class="mt-auto">
-					Медно-алюминиевый теплообменник обеспечивает эффективную передачу тепла, а конструкция конвектора позволяет быстро прогревать помещение
-				</p>
-				
-			</li>
-		</ul>
-        <ul class="grid grid-cols-12 gap-4 my-16 tracking-wider leading-relaxed text-lg bg-neutral-50/40 rounded-2xl p-8">
-			{
-				[
-					{
-						"icon": "Like",
-						"header": "Высочайшее качество",
-						"explain": "Качество подтверждено в аккредитованной лаборатории."
-					},
-					{
-						"icon": "Delivery",
-						"header": "Быстрые сроки поставки",
-						"explain": "Максимально быстрые сроки поставки в случае отсутствия товара на складах."
-					},
-					{
-						"icon": "Widget 5",
-						"header": "Широкий типоразмерный ряд",
-						"explain": "Широкий выбор внутрипольных конвекторов"
-					},
-					{
-						"icon": "Shield Check",
-						"header": "Гарантия 10 лет",
-						"explain": "Гарантия на продукцию составляет 10 лет."
-					},
-					{
-						"icon": "Document",
-						"header": "Сертифицированная продукция",
-						"explain": "Продукция сертифицирована и имеет гигиенический сертификат."
-					},
-					{
-						"icon": "Info Circle",
-						"header": "Удовлетворение потребностей клиента",
-						"explain": "Закрываем любую потребность клиента по теплоотдаче и габаритам прибора."
-					}
-					]
-						.map((feature)=>(
-							<li class="my-2 md:my-0 col-span-full sm:col-span-6 md:col-span-4 sm:p-4   _bg-neutral-50/40 _rounded-xl">
-								<div class="text-base  leading-none pb-2 sm:pb-4 text-balance flex items-center">
-									<Icon name={feature.icon} class=" size-10 sm:size-12 mr-3 shrink-0 text-primary"/>
-									<div class=" leading-relaxed">
-										{feature.explain}
-									</div>
-								</div>
-								{/* <div class="text-xs md:text-sm font-normal ml-8 text-balance">
-									{feature.explain}
-								</div> */}
-							</li>
-						  )
-						)
-			}
-		</ul>
-		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between snap-center">			
+          </li>
+        ))
+      }
+    </ul>
+    <div class="snap-center min-h-[80vh]">
+      <ImageSwitcher images={coloring} class="md:w-full h-full md:h-auto md:aspect-video" />
+    </div>
+    <!-- <ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between snap-center">			
 			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
 				<div class="basis-1/2 order-1 md:order-2 relative">
-					<ImageSwitcher 
-						images={[
-							{ img: "floor_heater_Chrome.png", colorize: false, tabname: "Chrome" },
-							{ img: "floor_heater_Gold.png", colorize: false, tabname: "Gold" },
-							{ img: "floor_heater_RAL.png", colorize: true, tabname: "RAL" }
-						]} 
-					/>
+					
 				</div>
 				<div class="basis-1/2 order-2 md:order-1">
 					<h3 class="pb-8 min-w-96 text-3xl uppercase tracking-wider font-black text-balance pl-4 text-primary">Разнообразие цветов и отделок</h3>
@@ -203,95 +281,104 @@ const mainImageDescription = "Внутрипольный конвектор Heat
 				</div>
 
 			</li>
-		</ul>
-	</section>
+		</ul> -->
+  </section>
 
-    <!-- models -->
-	<section class="bg-secondary_/30 min-h-svh snap-center  relative" id="models">
-		
-		<div class="flex flex-col items-center lg:gap-8 xl:gap-16 py-16 md:px-8 xl:px-8 md:py-32 max-w-screen-2xl mx-auto text-neutral-600 z-10">
-			<h2 class="text-3xl font-semibold md:text-6xl mb-16">Модели внутрипольных конвекторов</h2>
-			<div class="grid grid-cols-1 gap-16 sm:gap-8 px-8 lg:grid-cols-2 xl:gap-16 sm:px-0">
-				{
-					[
-						{
-							shortName: "",
-							longName: "Comfort",
-							sub:null,
-							url:`${URL_category}Comfort/`,
-							characteristics: [
-								{ name: "Принудительная вентиляция", icon: false },
-							],
-							image:"floorComfort.webp",
-							
-						},
-						{
-							shortName: "",
-							longName: "Comfort Turbo",
-							sub:null,
-							url:`${URL_category}Comfort Turbo/`,
-							characteristics: [
-                                { name: "Принудительная вентиляция", icon: true },
-							],
-							image:"floorComfortTurbo.webp"
-						},
-					].map((element)=>(
-						<ModelCard name={element.longName} shortname={element.shortName} characteristics={element.characteristics} subname={element.sub} url={element.url} image={element.image} data-wide/>
-					))
-				}
-			</div>
+  <!-- models -->
+  <section class="bg-secondary_/30 min-h-svh snap-center relative" id="models">
+    <div
+      class="flex flex-col items-center lg:gap-8 xl:gap-16 py-16 md:px-8 xl:px-8 md:py-32 max-w-screen-2xl mx-auto text-neutral-600 z-10"
+    >
+      <h2 class="text-3xl font-semibold md:text-6xl mb-16">
+        Модели внутрипольных конвекторов
+      </h2>
+      <div
+        class="grid grid-cols-1 gap-16 sm:gap-8 px-8 lg:grid-cols-2 xl:gap-16 sm:px-0"
+      >
+        {
+          models.map((element) => (
+            <ModelCard
+              name={element.longName}
+              shortname={element.shortName}
+              characteristics={element.characteristics}
+              subname={element.sub}
+              url={element.url}
+              image={element.image}
+              data-wide
+            />
+          ))
+        }
+      </div>
+    </div>
+    <div class="absolute inset-96 top-0 left-0 blur-4xl -z-10">
+      <div
+        class="inset-0 -translate-x-4 translate-y-4 bg-primary absolute rounded-full"
+      >
+      </div>
+      <div
+        class="inset-0 translate-x-16 -translate-y-8 bg-neutral-50 absolute rounded-full"
+      >
+      </div>
+    </div>
+  </section>
 
-		</div>
-		<div class="absolute inset-96  top-0 left-0 blur-4xl -z-10">
-			<div class="inset-0 -translate-x-4 translate-y-4 bg-primary absolute rounded-full"></div>
-			<div class="inset-0 translate-x-16 -translate-y-8 bg-neutral-50 absolute rounded-full"></div>
-		</div>
-	</section>
+  <!-- decoding -->
+  <section class="snap-center min-h-svh flex flex-col container-center mx-auto">
+    <h2
+      class="text-3xl font-semibold md:text-6xl mb-16 mt-16 md:mt-32 text-center"
+    >
+      Расшифровка обозначения
+    </h2>
+    <div class="my-auto mx-auto relative">
+      <ul class="flex gap-1 sm:gap-4 md:gap-0 font-black 2xl:gap-8 py-24">
+        {
+          [
+            { value: "COMFORT", expand: "Модель" },
+            { value: "90", expand: "Высота" },
+            { value: "200", expand: "Глубина" },
+            { value: "1600", expand: "Длина" },
+            { value: "DG", expand: "Тип решетки" },
+            { value: "U", expand: "Тип рамки" },
+            { value: "NA", expand: "Цвет решетки" },
+          ].map((element) => (
+            <li class="relative hover:bg-neutral-50 p-1 md:p-4 rounded-xl group">
+              <span class="text-lg sm:text-xl md:text-3xl lg:text-5xl 2xl:text-6xl">
+                {element.value}
+              </span>
 
-        <!-- decoding -->
-        <section class="snap-center min-h-svh flex flex-col container-center mx-auto ">
-            <h2 class="text-3xl font-semibold md:text-6xl mb-16 mt-16 md:mt-32 text-center">Расшифровка обозначения</h2>
-            <div class="my-auto mx-auto relative">
-                <ul class="flex gap-1 sm:gap-4 md:gap-0 font-black 2xl:gap-8 py-24">
-                    {
-                        [
-                            {value:"COMFORT",expand:"Модель"},
-                            {value:"90",expand:"Высота"},
-                            {value:"200",expand:"Глубина"},
-                            {value:"1600",expand:"Длина"},
-                            {value:"DG",expand:"Тип решетки"},
-                            {value:"U",expand:"Тип рамки"},
-                            {value:"NA",expand:"Цвет решетки"},
-                        ].map((element)=>(
-                            <li class="relative hover:bg-neutral-50 p-1 md:p-4 rounded-xl group"> 
-                                <span class="text-lg sm:text-xl md:text-3xl lg:text-5xl 2xl:text-6xl">{element.value}</span>
-                                
-                                <span class="absolute block text-xs leading-none md:text-sm lg:text-base xl:text-xl font-medium left-1/2 -translate-x-1/2 transition-transform
+              <span
+                class="absolute block text-xs leading-none md:text-sm lg:text-base xl:text-xl font-medium left-1/2 -translate-x-1/2 transition-transform
                                 group-even:-bottom-24 
                                 group-odd:-top-24 
                                 group-even:before:bottom-10
                                 group-odd:before:top-10
-                                before:content-[''] before:border-l before:h-12 before:block before:absolute before:border-neutral-400 before:left-1/2">{element.expand}</span>
-                            </li>
-                        ))
-
-
-                    }
-                    
-                </ul>
-                <div class="absolute inset-0  top-0 left-0 blur-4xl -z-10">
-                    <div class="inset-0 -translate-x-4 translate-y-4 bg-primary absolute rounded-full"></div>
-                    <div class="inset-0 translate-x-16 -translate-y-8 bg-neutral-50 absolute rounded-full"></div>
-                </div>
-                <LogoSmall class="absolute  left-1/2 -translate-x-1/2 w-[800px] text-neutral-50/20 top-0 -z-10 "/>
-            </div>
-        </section>
-        <!-- calculator -->
-        <div class="container-center snap-center">
-            <Contact/>
+                                before:content-[''] before:border-l before:h-12 before:block before:absolute before:border-neutral-400 before:left-1/2"
+              >
+                {element.expand}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="absolute inset-0 top-0 left-0 blur-4xl -z-10">
+        <div
+          class="inset-0 -translate-x-4 translate-y-4 bg-primary absolute rounded-full"
+        >
         </div>
-        <Calculator class="snap-center"/>
-		<Footer class="mt-auto snap-center bg-neutral-300"/>
+        <div
+          class="inset-0 translate-x-16 -translate-y-8 bg-neutral-50 absolute rounded-full"
+        >
+        </div>
+      </div>
+      <LogoSmall
+        class="absolute left-1/2 -translate-x-1/2 w-[800px] text-neutral-50/20 top-0 -z-10"
+      />
+    </div>
+  </section>
+  <!-- calculator -->
+  <div class="container-center snap-center">
+    <Contact />
+  </div>
+  <Calculator class="snap-center" />
+  <Footer class="mt-auto snap-center bg-neutral-300" />
 </Layout>
-
-

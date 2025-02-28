@@ -1,257 +1,149 @@
 ---
-import { resolveImagePath } from '../utils/imageResolver';
-import { Image } from 'astro:assets';
+import { Icon } from "astro-icon/components";
+import ImageDynamic from "./ImageDynamic.astro";
 
-interface ImageConfig {
-    img: string;
-    colorize: boolean;
-    tabname: string;
+interface ImageOption {
+    title: string;
+    image: string;
+    options?: {
+        color: string;
+        name: string;
+    }[];
 }
 
 interface Props {
-    images: ImageConfig[];
+    images: ImageOption[];
     class?: string;
 }
 
 const { images, class: className } = Astro.props;
-
-const resolvedImages = await Promise.all(
-    images.map(async (image) => ({
-        ...image,
-        src: await resolveImagePath(image.img),
-        maskSrc: image.colorize ? await resolveImagePath(image.img.replace('.png', '_mask.png')) : null
-    }))
-);
 ---
 
-<div class:list={["relative min-h-64", className]}>
-    {resolvedImages.map((image, index) => (
-        <div class="absolute inset-0 transition-opacity duration-300" 
-             data-image-container
-             data-index={index}
-             class:list={[{"opacity-0": index !== 0}]}>
-            <Image 
-                src={image.src} 
-                alt={image.tabname}
-                class="w-full h-full object-contain hidden"
-                data-original-image={index}
-            />
-            <canvas 
-                class="w-full h-full object-contain" 
-                data-canvas={index}
-                data-colorize={image.colorize}
-                style="aspect-ratio: auto;"
-            />
-            {image.colorize && (
-                <Image 
-                    src={image.maskSrc} 
-                    alt={`${image.tabname} mask`}
-                    class="hidden"
-                    data-mask-image={index}
-                />
-            )}
-        </div>
-    ))}
-    
-    <div class="absolute bottom-4 left-4 flex gap-2">
+<div class:list={["relative overflow-hidden rounded-xl", className]}>
+    <h2 class="text-3xl font-bold mx-auto mb-16 absolute z-50 left-0 right-0 text-center mt-16 uppercase tracking-wider text-neutral-700">
+        Варианты аннодирования
+    </h2>
+    <div class="relative w-full h-[80vh] md:h-full">
         {images.map((image, index) => (
-            <button class="px-4 py-2 rounded-lg bg-neutral-50/80 backdrop-blur-sm text-sm font-medium transition-colors hover:bg-primary hover:text-white"
-                    data-tab-button
-                    data-index={index}>
-                {image.tabname}
+            <div 
+                class="absolute inset-0 transition-opacity duration-300" 
+                data-image={index}
+                data-active={index === 0}
+                style={{
+                    opacity: index === 0 ? '1' : '0',
+                }}
+            >
+                <ImageDynamic 
+                    imagePath={`/src/images/products/${image.image}`}
+                    altText={image.title}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+        ))}
+    </div>
+
+    <!-- Controls -->
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        {images.map((image, index) => (
+            <button 
+                class="px-3 py-1 bg-neutral-50/80 rounded-lg text-sm font-medium hover:bg-primary hover:text-neutral-50 transition-colors"
+                data-button={index}
+                data-active={index === 0}
+            >
+                {image.title}
             </button>
         ))}
-        {images.some(img => img.colorize) && (
-            <input type="color" 
-                   class="w-10 h-10 rounded-lg cursor-pointer" 
-                   data-color-picker 
-                   value="#808080"/>
-        )}
+    </div>
+
+    <!-- RAL Color Picker -->
+    <div 
+        class="absolute inset-0 bg-neutral-50/80 backdrop-blur-sm transition-transform translate-y-full"
+        data-ral-picker
+    >
+        <div class="h-full overflow-auto p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold">RAL Colors</h3>
+                <button data-close-ral class="p-2 hover:text-primary">
+                    <Icon name="X" class="w-6 h-6"/>
+                </button>
+            </div>
+            <div class="grid grid-cols-4 gap-2">
+                {images.find(img => img.title === "RAL")?.options?.map(color => (
+                    <button
+                        class="p-2 text-sm rounded hover:bg-neutral-100 text-left"
+                        data-ral={color.color}
+                    >
+                        <div class="w-full h-8 rounded mb-1" style={`background-color: ${color.color};`}></div>
+                        {color.name}
+                    </button>
+                ))}
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-    // Add this line at the top of the script
-    const canvasContexts = new Map<HTMLCanvasElement, CanvasContext>();
-
-    interface RGB {
-        r: number;
-        g: number;
-        b: number;
-    }
-
-    interface CanvasContext {
-        ctx: CanvasRenderingContext2D;
-        originalImage: HTMLImageElement;
-        maskData?: Uint8ClampedArray;
-    }
-
-    class ImageProcessor {
-        private static hexToRgb(hex: string): RGB | null {
-            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-            return result ? {
-                r: parseInt(result[1], 16),
-                g: parseInt(result[2], 16),
-                b: parseInt(result[3], 16)
-            } : null;
-        }
-
-        static async initCanvas(canvas: HTMLCanvasElement, originalImage: HTMLImageElement, maskImage: HTMLImageElement | null = null): Promise<CanvasContext> {
-            const ctx = canvas.getContext('2d');
-            if (!ctx) throw new Error('Could not get canvas context');
-            
-            // Create a new image to load the source
-            const img = new Image();
-            img.src = originalImage.src;
-            await new Promise((resolve, reject) => {
-                img.onload = resolve;
-                img.onerror = reject;
-            });
-            
-            // Calculate size maintaining aspect ratio
-            const containerWidth = canvas.clientWidth;
-            const containerHeight = canvas.clientHeight;
-            const imageAspectRatio = img.naturalWidth / img.naturalHeight;
-            const containerAspectRatio = containerWidth / containerHeight;
-
-            let width, height;
-            if (imageAspectRatio > containerAspectRatio) {
-                width = containerWidth;
-                height = containerWidth / imageAspectRatio;
-            } else {
-                height = containerHeight;
-                width = containerHeight * imageAspectRatio;
-            }
-
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
-            canvas.style.width = `${width}px`;
-            canvas.style.height = `${height}px`;
-            
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-            if (maskImage) {
-                const maskImg = new Image();
-                maskImg.src = maskImage.src;
-                await new Promise((resolve, reject) => {
-                    maskImg.onload = resolve;
-                    maskImg.onerror = reject;
-                });
-
-                const maskCanvas = document.createElement('canvas');
-                maskCanvas.width = canvas.width;
-                maskCanvas.height = canvas.height;
-                const maskCtx = maskCanvas.getContext('2d');
-                if (!maskCtx) throw new Error('Could not get mask canvas context');
-
-                maskCtx.drawImage(maskImg, 0, 0);
-                
-                return {
-                    ctx,
-                    originalImage: img,
-                    maskData: maskCtx.getImageData(0, 0, canvas.width, canvas.height).data
-                };
-            }
-
-            return { ctx, originalImage: img };
-        }
-
-        static applyColor(context: CanvasContext, color: string): void {
-            const { ctx, originalImage, maskData } = context;
-            if (!maskData) return;
-
-            const rgb = this.hexToRgb(color);
-            if (!rgb) return;
-
-            ctx.drawImage(originalImage, 0, 0);
-            const imageData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-            for (let i = 0; i < imageData.data.length; i += 4) {
-                const maskAlpha = maskData[i] / 255;
-                
-                if (maskAlpha > 0) {
-                    imageData.data[i] = Math.round(imageData.data[i] * (1 - maskAlpha) + rgb.r * maskAlpha);
-                    imageData.data[i + 1] = Math.round(imageData.data[i + 1] * (1 - maskAlpha) + rgb.g * maskAlpha);
-                    imageData.data[i + 2] = Math.round(imageData.data[i + 2] * (1 - maskAlpha) + rgb.b * maskAlpha);
-                }
-            }
-
-            ctx.putImageData(imageData, 0, 0);
-        }
-    }
-
-    document.addEventListener('astro:page-load', async () => {
-        // Remove this line since we moved it to the top
-        // const canvasContexts = new Map<HTMLCanvasElement, CanvasContext>();
-
-        const containers = document.querySelectorAll<HTMLDivElement>('[data-image-container]');
-        const buttons = document.querySelectorAll<HTMLButtonElement>('[data-tab-button]');
-        const colorPicker = document.querySelector<HTMLInputElement>('[data-color-picker]');
-        const canvases = document.querySelectorAll<HTMLCanvasElement>('[data-canvas]');
+    function setupImageSwitcher() {
+        const switchers = document.querySelectorAll('.relative.overflow-hidden');
         
-        console.log('Elements found:', {
-            containers: containers.length,
-            buttons: buttons.length,
-            hasColorPicker: !!colorPicker,
-            canvases: canvases.length
-        });
+        switchers.forEach(switcher => {
+            const imageContainer = switcher.querySelector('.relative.w-full');
+            const images = switcher.querySelectorAll('[data-image]');
+            const buttons = switcher.querySelectorAll('[data-button]');
+            const ralPicker = switcher.querySelector('[data-ral-picker]');
+            const closeRalBtn = switcher.querySelector('[data-close-ral]');
+            const ralButtons = switcher.querySelectorAll('[data-ral]');
 
-        // Initialize all canvases
-        await Promise.all(Array.from(canvases).map(async (canvas, index) => {
-            console.log(`Processing canvas ${index}`);
-            const originalImage = document.querySelector<HTMLImageElement>(`[data-original-image="${index}"]`);
-            const maskImage = document.querySelector<HTMLImageElement>(`[data-mask-image="${index}"]`);
-            
-            console.log(`Canvas ${index} elements:`, {
-                hasOriginal: !!originalImage,
-                hasMask: !!maskImage
-            });
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const index = button.getAttribute('data-button');
+                    const isRal = button.textContent?.trim() === 'RAL';
 
-            if (!originalImage) {
-                console.error(`Original image not found for index ${index}`);
-                return;
-            }
+                    if (isRal) {
+                        ralPicker?.classList.remove('translate-y-full');
+                    } else {
+                        // Reset all images and buttons
+                        images.forEach(img => {
+                            img.style.opacity = '0';
+                        });
+                        buttons.forEach(btn => {
+                            btn.dataset.active = 'false';
+                        });
 
-            const colorize = canvas.dataset.colorize === 'true';
-            const context = await ImageProcessor.initCanvas(canvas, originalImage, colorize ? maskImage : null);
-            canvasContexts.set(canvas, context);
-            console.log(`Canvas ${index} initialized`);
-        }));
-
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetIndex = button.getAttribute('data-index');
-                containers.forEach(container => {
-                    const containerIndex = container.getAttribute('data-index');
-                    container.classList.toggle('opacity-0', containerIndex !== targetIndex);
-                });
-
-                // Redraw canvas after switching
-                const canvas = document.querySelector<HTMLCanvasElement>(`[data-canvas="${targetIndex}"]`);
-                if (canvas) {
-                    const context = canvasContexts.get(canvas);
-                    if (context) {
-                        context.ctx.drawImage(context.originalImage, 0, 0, canvas.width, canvas.height);
-                    }
-                }
-            });
-        });
-
-        if (colorPicker) {
-            colorPicker.addEventListener('input', (e) => {
-                const color = (e.target as HTMLInputElement).value;
-                const visibleContainer = document.querySelector<HTMLDivElement>('[data-image-container]:not(.opacity-0)');
-                if (visibleContainer) {
-                    const index = visibleContainer.getAttribute('data-index');
-                    const canvas = document.querySelector<HTMLCanvasElement>(`[data-canvas="${index}"]`);
-                    if (canvas?.dataset.colorize === 'true') {
-                        const context = canvasContexts.get(canvas);
-                        if (context) {
-                            ImageProcessor.applyColor(context, color);
+                        // Activate selected image and button
+                        const targetImage = switcher.querySelector(`[data-image="${index}"]`);
+                        if (targetImage) {
+                            targetImage.style.opacity = '1';
                         }
+                        button.dataset.active = 'true';
                     }
-                }
+                });
             });
-        }
-    });
+
+            closeRalBtn?.addEventListener('click', () => {
+                ralPicker?.classList.add('translate-y-full');
+            });
+
+            ralButtons?.forEach(button => {
+                button.addEventListener('click', () => {
+                    const color = button.getAttribute('data-ral');
+                    if (color) {
+                        imageContainer.style.backgroundColor = color;
+                    }
+                });
+            });
+        });
+    }
+
+    // Setup on initial load
+    setupImageSwitcher();
+
+    // Setup on view transitions
+    document.addEventListener('astro:page-load', setupImageSwitcher);
 </script>
+
+<!-- <style>
+    [data-active="true"] {
+        @apply bg-primary text-neutral-50;
+    }
+</style> -->
