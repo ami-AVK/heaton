@@ -56,10 +56,10 @@ module.exports = {
 				"primary-l": "0 35px 35px var(--primary-20,#D43B18)",
 				"primary-m": "0 35px 35px var(--primary-80,#D43B18)",
 				"primary-d": "0 35px 35px var(--primary,#D43B18)",
-				"primary-hard": "-12px 24px 0px var(--primary,#D43B18)",
-				"primary-hard-xl": "-12px 24px 0px var(--primary,#D43B18)",
-				"primary-hard-lg": "-10px 20px 0px var(--primary,#D43B18)",
-				"primary-hard-sm": "-6px 12px 0px var(--primary,#D43B18)",
+				"primary-hard": "-12px 24px 70px var(--primary-30,#D43B18)",
+				"primary-hard-xl": "-12px 24px 70px var(--primary-30,#D43B18)",
+				"primary-hard-lg": "-10px 20px 70px var(--primary-30,#D43B18)",
+				"primary-hard-sm": "-6px 12px 70px var(--primary-30,#D43B18)",
 				
 			},
 			boxShadow: {

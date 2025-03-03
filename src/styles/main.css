@@ -7,7 +7,7 @@
 
 :root{
   /* --primary-rgb: 212, 59, 24; */
-  --primary-rgb: 128, 0, 10;
+  --primary-rgb: 235, 94, 0;
   --primary: rgba(var(--primary-rgb),1);
   --primary-30: rgba(var(--primary-rgb), 0.3);
   --primary-20: rgba(var(--primary-rgb), 0.2);
