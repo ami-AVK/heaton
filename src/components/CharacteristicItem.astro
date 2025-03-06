@@ -43,18 +43,21 @@ const cleanValue = value.replace(/[^\d.]/g, '');
     import {
     navigate,
   } from 'astro:transitions/client';
+
     document.addEventListener('astro:page-load', () => {
         const selects = document.querySelectorAll('select.options');
         selects.forEach(select => {
             select.addEventListener('change', async (e) => {
                 const target = e.target as HTMLSelectElement;
                 const selectedOption = target.selectedOptions[0];
-                const url = `../${selectedOption.getAttribute('data-url')}`;
-                console.log(url);
+                const url = `${selectedOption.getAttribute('data-url')}`;
+                // alert(url);
+
+
                 if (url) {
                     // await navigate(url);
                     await navigate(url);
-                    // window.location.href = url;
+
                 }
             });
         });

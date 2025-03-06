@@ -5,7 +5,11 @@ import type { Link } from "../types/common";
 import ModelsRow from "./ModelsRow.astro";
 import Socials from "./Socials.astro";
 
-const catalogLinks = await getCatalogLinks();
+let catalogLinks = await getCatalogLinks();
+const {links,class:className,...attr} = Astro.props;
+
+catalogLinks = links?links:catalogLinks;
+
 const mainLinks = [
                     {text:"Документация",href:`${import.meta.env.BASE_URL}/Документация`},
                     {text:"Контакты",href:`${import.meta.env.BASE_URL}/Контакты`},

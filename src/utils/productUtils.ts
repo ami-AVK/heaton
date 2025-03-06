@@ -73,7 +73,8 @@ export function getCategoryModels(category: string): string[] {
 export function getCategoryLinks(category: string): Link[] {
     const models = getCategoryModels(category);
     return models.map(model => ({
-        url: `/Каталог/${category}/${model}`,
+        url: `${import.meta.env.BASE_URL}/Каталог/${category}/${model}`,
+        // absolute_url: 
         text: model
     }));
 }
@@ -145,7 +146,7 @@ export function findProductsByDimension(
         // }
         
         // For height/length/depth variants, keep other dimensions the same
-        const sameOtherDimensions = ['Высота, мм', 'Длина, мм', 'Глубина, мм']
+        const sameOtherDimensions = ['Высота, мм', 'Длина, мм', 'Глубина, мм', 'Ширина, мм']
             .filter(field => field !== dimensionField)
             .every(field => product[field] === currentProduct[field]);
 

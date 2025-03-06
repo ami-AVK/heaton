@@ -57,9 +57,9 @@ const URL_main = `${import.meta.env.BASE_URL}/`
 const URL_category = `${URL_main}Каталог/${category}/`
 let URL_product = `${URL_category}${model}/${productName}`
 
-
 const height = product['Высота, мм'];
-const lenght = product['Длина, мм'];
+let lenght = product['Длина, мм'];
+const width = product['Ширина, мм'];
 const depth = product['Глубина, мм'];
 const power = product['Теплоотдача, Вт'];
 
@@ -69,17 +69,21 @@ weight = weight=="-"?false:weight;
 const type = product['Тип']?product['Тип']:false;
 // URL_product = type?`${URL_category}${model}/${type}/${productName}`:URL_product;
 
+// Название длины и ширины аналогичны, поэтому переключаем наименование в зависимости от того есть ли значение Длина
+const lenghtName = lenght? {name: "Длина:", propName:"Длина, мм"}:{name: "Ширина:", propName:"Ширина, мм"};
+lenght = lenght? lenght : width;
+
 // Опции выбора на главной
 const heightOptions = getUniqueFieldValues(category, 'Высота, мм', model);
-const lengthOptions = getUniqueFieldValues(category, 'Длина, мм', model);
+const lengthOptions = getUniqueFieldValues(category, lenghtName.propName, model);
 const depthOptions = getUniqueFieldValues(category, 'Глубина, мм', model);
-const powerOptions = getUniqueFieldValues(category, 'Теплоотдача, Вт', model);
+// const powerOptions = getUniqueFieldValues(category, 'Теплоотдача, Вт', model);
 
 // Update the characteristics array to include product variants
 const heightProducts = findProductsByDimension(category, product, 'Высота, мм', heightOptions, model);
-const lengthProducts = findProductsByDimension(category, product, 'Длина, мм', lengthOptions, model);
+const lengthProducts = findProductsByDimension(category, product, lenghtName.propName, lengthOptions, model);
 const depthProducts = findProductsByDimension(category, product, 'Глубина, мм', depthOptions, model);
-const powerProducts = findProductsByDimension(category, product, 'Теплоотдача, Вт', powerOptions, model);
+// const powerProducts = findProductsByDimension(category, product, 'Теплоотдача, Вт', powerOptions, model);
 
 const characteristics = [   
     {
@@ -88,9 +92,9 @@ const characteristics = [
         variants: heightProducts.map(p => ({ value: p['Высота, мм'], product: p }))
     },
     {
-        header: "Длина:",
+        header: lenghtName.name,
         value: `${lenght} мм`,
-        variants: lengthProducts.map(p => ({ value: p['Длина, мм'], product: p }))
+        variants: lengthProducts.map(p => ({ value: p[lenghtName.propName], product: p }))
     },
     {
         header: "Глубина:",
@@ -109,6 +113,12 @@ if(weight){
     const w= {header:"Вес:", value:`${weight} кг`, variants:null} as any as Characteristic;
     characteristics.push(w);
 }
+console.log(`Длина ${lenght}`)
+// console.log("lengthProducts");
+// console.log(lengthProducts);
+// if(lengthProducts.length==0){
+//     characteristics[1]={header:"Ширина:", value:`${width} мм`, variants:widthProducts.map(p => ({ value: p['Длина, мм'], product: p }))} as any as Characteristic;
+// }
 // type&&characteristics.unshift({header:"Тип:", value:`${type}`},)
 
 let extraCharacteristics = [{header:"Тип:", value:`${type} мм`}];
@@ -151,7 +161,7 @@ switch (category){
 }
 
 const similarHeight= findSimilarProducts(category,product,'Высота, мм') as Product[];
-const similarLenght = findSimilarProducts(category,product,'Длина, мм') as Product[];
+const similarLenght = findSimilarProducts(category,product,lenghtName.propName) as Product[];
 const similarDepth = findSimilarProducts(category,product,'Глубина, мм') as Product[];
 const similarPower = findSimilarProducts(category,product,'Теплоотдача, Вт') as Product[];
 let otherCategorys = getNavigationLinks().map((category)=>{
@@ -243,7 +253,7 @@ otherCategorys = otherCategorys.filter(elem => (
                 <ul class="flex gap-8 text-sm">
                     <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="power">Похожая мощность</button></li>
                     <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="height">Похожая высота</button></li>
-                    <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="lenght">Похожая длина</button></li>
+                    <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="lenght">Похожая {lenghtName.name=="Ширина:"?"ширина":"длина"}</button></li>
                 </ul>
             </div>
             <ul class="hidden group-data-[type='power']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 ">
