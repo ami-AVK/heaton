@@ -50,7 +50,7 @@ const cleanValue = value.replace(/[^\d.]/g, '');
             select.addEventListener('change', async (e) => {
                 const target = e.target as HTMLSelectElement;
                 const selectedOption = target.selectedOptions[0];
-                const url = `${selectedOption.getAttribute('data-url')}`;
+                const url = `./${selectedOption.getAttribute('data-url')}`;
                 // alert(url);
 
 
