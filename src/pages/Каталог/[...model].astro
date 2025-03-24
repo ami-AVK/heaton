@@ -89,6 +89,31 @@ let models_all = allModels.map((element:String) => (
     }
     )) as Link[];
 
+
+    models_all.map((model)=>{
+        let characteristics = [] as any;
+        switch (model.text){
+            case 'Comfort':
+                break;
+            case 'Comfort Turbo':
+                characteristics = ["С вентилятором"]
+                break;
+            case 'Compact':
+                characteristics = ["Боковое подключение"]
+                break;
+            case 'Ventil Compact':
+                characteristics = ["Нижнее подключение"]
+                break;
+            case 'Hygiene Ventil Compact':
+                characteristics = ["Нижнее подключение","Гигиенический"]
+                break;
+            case 'Hygiene Compact':
+                characteristics = ["Боковое подключение","Гигиенический"]
+                break;
+        }
+        model.characteristics = characteristics;
+        return model;
+    })
 let models = [] as Link[];
 
 let products = [] as any[];
@@ -99,6 +124,7 @@ if(model){
     products = sitemap_[category].products.filter((product)=>{
         return product['Модель'] === model
     })
+    
 }
 else{
     // const nouns = new RussianNouns.Engine();
@@ -131,8 +157,8 @@ switch (category){
         { value: 'Теплоотдача, Вт', sortable: true, filterable: false, unit: 'Вт' },
         { value: 'Объем, л', sortable: true, filterable: false, unit: 'л' },
         { value: 'Масса НЕТТО, кг', sortable: true, filterable: false, unit: 'кг' },
-        { value: 'Подключение', sortable: true, filterable: true },
-        { value: 'Исполнение', sortable: true, filterable: true },
+        // { value: 'Подключение', sortable: true, filterable: true },
+        // { value: 'Исполнение', sortable: true, filterable: true },
         ];
     break
  case 'Напольные конвекторы':
@@ -153,7 +179,7 @@ switch (category){
         { value: 'Глубина, мм', sortable: true, filterable: true, unit: 'мм' },
         { value: 'Ширина, мм', sortable: true, filterable: true, unit: 'мм' },
         { value: 'Теплоотдача, Вт', sortable: true, filterable: false, unit: 'Вт' },
-        { value: 'Вентилятор', sortable: true, filterable: true },
+        // { value: 'Вентилятор', sortable: true, filterable: true },
         ];
     break
 }
@@ -194,12 +220,26 @@ const title = model? model:category;
                     {
                         models_all.map((model_)=>(
                                 model_.current?
-                                <li class=" bg-primary text-neutral-50 px-2 py-1 my-1 hover:bg-primary hover:text-neutral-50 rounded-lg">
+                                <li class=" flex flex-col bg-primary text-neutral-50 px-2 py-1 my-1 hover:bg-primary hover:text-neutral-50 rounded-lg">
                                     <a href={model_.url} class="block">{model_.text}</a>
+                                    <ul class="flex flex-col text-xs tracking-wider opacity-80">
+                                        {
+                                            model_.characteristics.map((characteristic:string)=>(
+                                                <li class="">{characteristic}</li>
+                                            ))
+                                        }
+                                    </ul>
                                 </li>
                                 :
-                                <li class=" text-neutral-700 px-2 py-1 my-1 hover:bg-primary hover:text-neutral-50 rounded-lg">
+                                <li class="flex flex-col text-neutral-700 px-2 py-1 my-1 hover:bg-primary hover:text-neutral-50 rounded-lg">
                                     <a href={model_.url} class="block">{model_.text}</a>
+                                    <ul class="flex  flex-col text-xs tracking-wider opacity-80">
+                                        {
+                                            model_.characteristics.map((characteristic:string)=>(
+                                                <li class="">{characteristic}</li>
+                                            ))
+                                        }
+                                    </ul>
                                 </li>
                                 
                                                            
