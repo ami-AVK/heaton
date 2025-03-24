@@ -17,6 +17,7 @@ import Socials from '../components/Socials.astro';
 import LogoSmall from '../svg/logo_small.svg';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import ImageDynamic from '../components/ImageDynamic.astro';
 
 const URL_main = `${import.meta.env.BASE_URL}/`
 const URL_category = `${URL_main}Каталог/Напольные конвекторы/`
@@ -209,6 +210,38 @@ const features = [
 						  )
 						)
 			}
+		</ul>
+    <ul class="grid grid-cols-12 gap-8 py-8 tracking-wider leading-relaxed text-lg">
+			<li class="my-2 md:my-0 col-span-full md:col-span-6 p-8 bg-neutral-50/5 rounded-xl flex gap-8 items-center flex-col lg:flex-row">
+				<div class=" aspect-[3/2] w-full lg:w-[600px] overflow-clip rounded-3xl bg-neutral-300">
+					<ImageDynamic imagePath="step_setup.webp" altText='Технология усечённого канала' class="w-auto h-auto"/>
+				</div>
+				<div class="">
+					<div class="text-base md:text-lg font-black  text-primary uppercase  pb-4 text-balance">
+						<div class="">
+							Скрытый монтаж
+						</div>
+					</div>
+					<div class="text-base font-normal text-balance !leading-relaxed">
+						Конвектор полностью прикрывает подключение к сетям теплоснабжения
+					</div>
+				</div>
+			</li>
+			<li class="my-2 md:my-0 col-span-full md:col-span-6 p-8 bg-neutral-50/5 rounded-xl flex gap-8 items-center flex-col lg:flex-row">
+				<div class=" aspect-[3/2] w-full lg:w-[600px] overflow-clip rounded-3xl bg-neutral-300">
+					<ImageDynamic imagePath="step_cleaning.webp" altText='Верхняя решетка крыловидной формы' class="w-auto h-auto"/>
+				</div>
+				<div class="">
+					<div class="text-base md:text-lg font-black  text-primary uppercase  pb-4 text-balance">
+						<div class="">
+							Удобное обслуживание и уборка
+						</div>
+					</div>
+					<div class="text-base font-normal text-balance !leading-relaxed">
+						Съемная решетка позволяет с легкостью осуществить уборку
+					</div>
+				</div>
+			</li>
 		</ul>
 		<!-- <ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">			
 			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">

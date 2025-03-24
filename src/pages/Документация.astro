@@ -50,12 +50,16 @@ import { Icon } from "astro-icon/components";
       <ul class="flex flex-wrap gap-4 lg:gap-12 text-xl text-neutral-700">
         {
           [
-            {name:"Гигиенический сертификат",file:"sanitary.pdf",capture:""},
-            {name:"Сертификат соответсвия",file:"sertificate.pdf",capture:""},
+            {name:"Гигиенический сертификат",category:"Cтальные панельные радиаторы",file:"sanitary.pdf",capture:""},
+            {name:"Сертификат соответсвия",category:"Cтальные панельные радиаторы",file:"sertificate.pdf",capture:""},
+            {name:"Сертификат соответсвия",category:"Напольные конвекторы",file:"РОСС RU С-RU.АГ16.В.00527-23.pdf",capture:""},
             ].map((element)=>(
             <li class="text-sm shrink lg:text-lg rounded-2xl bg-neutral-50 hover:bg-primary-10">
               <a href={`${import.meta.env.BASE_URL}/pasports/${element.file}`} class="p-3 lg:p-6 flex items-center gap-4" download>
-                <span class="text-balance ">{element.name}</span>
+                <div class="flex flex-col">
+                  <span class="text-balance text-xs tracking-wider text-neutral-500">{element.category}</span>
+                  <span class="text-balance ">{element.name}</span>
+                </div>
                 <Icon name="File" class="size-4 lg:size-6 text-primary"/>
               </a>
               </li>
