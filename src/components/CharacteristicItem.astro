@@ -13,7 +13,9 @@ const { header, value, variants } = Astro.props as Characteristic;
 // console.log(`ВАРИАНТЫ: ${header}`); 
 // console.log(variants); 
 // Remove units from value for comparison
-const cleanValue = value.replace(/[^\d.]/g, '');
+const cleanValue = value?.replace(/[^\d.]/g, '') || '';
+// console.log("clean value" + cleanValue);
+// console.log(`Заголовок: ${header} Значение: ${value}`)
 ---
 
 <li class="px-2 py-1 sm:py-1 rounded-lg group flex flex-row gap-2 sm:gap-0 sm:flex-col items-center sm:items-start">
@@ -21,12 +23,12 @@ const cleanValue = value.replace(/[^\d.]/g, '');
     {variants ? (
         <div class="relative">
             <select  class="options sm:w-full sm:block font-black whitespace-nowrap leading-none sm:leading-tight text-ellipsis  cursor-pointer appearance-none peer text-lg sm:text-xl rounded-xl py-1 sm:-translate-x-4 bg-neutral-50/40 hover:bg-neutral-50 ">
-                <option selected data-url={variants.find(v => v.value.toString() === cleanValue)?.product['Наименование']}>
+                <option selected data-url={variants?.find(v => v?.value?.toString() === cleanValue)?.product?.['Наименование'] || ''}>
                     {value}
                 </option>
-                {variants.map((variant) => (
-                    variant.value.toString() !== cleanValue && 
-                    <option value={variant.value} data-url={variant.product['Наименование']}>
+                {variants?.map((variant) => (
+                    variant?.value?.toString() !== cleanValue && 
+                    <option value={variant.value} data-url={variant.product?.['Наименование'] || ''}>
                         {variant.value} {header.includes('Мощность') ? 'Вт' : 'мм'}
                     </option>
                 ))}

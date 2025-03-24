@@ -29,7 +29,7 @@ import ImageDynamic from '../components/ImageDynamic.astro';
             (
                 <li class="flex gap-2 py-1 items-center" class:list={[{"text-neutral-700/30":!element.icon}]}>
                     <Icon name={element.icon?"Check":"X"} class="size-4"/>
-                    <span>{element.name}</span>
+                    <span class="text-sm">{element.name}</span>
                 </li>
             )
             )

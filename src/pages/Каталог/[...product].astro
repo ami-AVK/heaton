@@ -49,6 +49,203 @@ export async function getStaticPaths() {
 }
 
 const {product,category,title,description,url,model} = Astro.props
+
+let characteristics = [] as Characteristic[];
+let extraCharacteristics = [] as any;
+let pasportFile = "";
+let documents = [] as any[];
+
+const height = product['Высота, мм'];
+let lenght = product['Длина, мм'];
+const width = product['Ширина, мм'];
+const depth = product['Глубина, мм'];
+const power = product['Теплоотдача, Вт'];
+const type = product['Тип']?product['Тип']:false;
+let weight = product['Масса НЕТТО, кг']?product['Масса НЕТТО, кг']:false;
+weight = weight=="-"?false:weight;
+
+const lenghtName = {name:"Ширина:", shortname:'Ширина, мм'} as any;
+
+
+let heightOptions, lengthOptions, widthOptions, depthOptions;
+let heightProducts, lengthProducts,widthProducts, depthProducts;
+
+let mainCharacteristicSet = {
+    main:[
+        {fullName:'Высота, мм',shortName:'Высота',className:'height'},
+        {fullName:'Длина, мм',shortName:'Длина',className:'lenght'},
+        {fullName:'Глубина, мм',shortName:'Глубина',className:'depth'}],
+    };
+
+switch (category){
+ case 'Стальные панельные радиаторы':
+    mainCharacteristicSet = {
+        main:[
+        {fullName:'Теплоотдача, Вт',shortName:'Теплоотдача',className:'power'},
+        {fullName:'Высота, мм',shortName:'Высота',className:'height'},
+        {fullName:'Длина, мм',shortName:'Длина',className:'lenght'},
+        {fullName:'Глубина, мм',shortName:'Глубина',className:'depth'}],
+    };
+    heightOptions = getUniqueFieldValues(category, 'Высота, мм', model);
+    lengthOptions = getUniqueFieldValues(category, 'Длина, мм', model);
+    depthOptions = getUniqueFieldValues(category, 'Глубина, мм', model);
+    
+    heightProducts = findProductsByDimension(category, product, 'Высота, мм', heightOptions, model);
+    lengthProducts = findProductsByDimension(category, product, 'Длина, мм', lengthOptions, model);
+    depthProducts = findProductsByDimension(category, product, 'Глубина, мм', depthOptions, model);
+
+    characteristics = [   
+        {
+            header: "Высота:",
+            value: `${height} мм`,
+            variants: heightProducts.map(p => ({ value: p['Высота, мм'], product: p }))
+        },
+        {
+            header: "Длина:",
+            value: `${lenght} мм`,
+            variants: lengthProducts.map(p => ({ value: p['Длина, мм'], product: p }))
+        },
+        {
+            header: "Глубина:",
+            value: `${depth} мм`,
+            variants: depthProducts.map(p => ({ value: p['Глубина, мм'], product: p }))
+        },
+        {
+            header: "Мощность:",
+            value: `${power} Вт`,
+            variants: null,
+        }
+    ] as Characteristic[];
+
+    extraCharacteristics = [
+            {header:"Тип:", value:`${type}`},
+            {header:"Подключение:", value:`${product['Подключение']}`},
+            {header:"Исполнение:", value:`${product['Исполнение']}`},
+        ];
+    documents = [
+        {type:"Технический паспорт", filepath:`${import.meta.env.BASE_URL}/pasports/pasport.pdf`},
+        {type:"Гигиенический сертификат", filepath:`${import.meta.env.BASE_URL}/pasports/sanitary.pdf`},
+        {type:"Сертификат соответсвия", filepath:`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`},
+    ]
+    break
+ case 'Напольные конвекторы':
+    mainCharacteristicSet = {
+            main:[
+            {fullName:'Теплоотдача, Вт',shortName:'Теплоотдача',className:'power'},
+                {fullName:'Высота, мм',shortName:'Высота',className:'height'},
+                {fullName:'Длина, мм',shortName:'Длина',className:'length'},
+                {fullName:'Ширина, мм',shortName:'Ширина',className:'width'}],
+    };
+ 
+    heightOptions = getUniqueFieldValues(category, 'Высота, мм', model);
+    lengthOptions = getUniqueFieldValues(category, 'Длина, мм', model);
+    widthOptions = getUniqueFieldValues(category, 'Ширина, мм', model);
+
+    heightProducts = findProductsByDimension(category, product, 'Высота, мм', heightOptions, model);
+    lengthProducts = findProductsByDimension(category, product, 'Длина, мм', lengthOptions, model);
+    widthProducts = findProductsByDimension(category, product, 'Ширина, мм', widthOptions, model);
+    
+    characteristics = [   
+        {
+            header: "Высота:",
+            value: `${height} мм`,
+            variants: heightProducts.map(p => ({ value: p['Высота, мм'], product: p }))
+        },
+        {
+            header: "Длина:",
+            value: `${lenght} мм`,
+            variants: lengthProducts.map(p => ({ value: p['Длина, мм'], product: p }))
+        },
+        {
+            header: "Ширина:",
+            value: `${depth} мм`,
+            variants: widthProducts.map(p => ({ value: p['Ширина, мм'], product: p }))
+        },
+        {
+            header: "Мощность:",
+            value: `${power} Вт`,
+            variants: null,
+        }
+    ] as Characteristic[];
+
+    extraCharacteristics = [
+            // {header:"Тип:", value:`${type}`},
+            // {header:"Подключение:", value:`${product['Подключение']}`},
+            // {header:"Исполнение:", value:`${product['Исполнение']}`},
+        ];
+    documents = [
+        {type:"Технический паспорт", filepath:`${import.meta.env.BASE_URL}/pasports/pasport_step.pdf`},
+        {type:"Сертификат соответсвия", filepath:`${import.meta.env.BASE_URL}/pasports/РОСС RU С-RU.АГ16.В.00527-23.pdf`},
+    ]
+
+    break
+ case 'Внутрипольные конвекторы':
+
+    mainCharacteristicSet = {
+                main:[
+                    {fullName:'Теплоотдача, Вт',shortName:'Теплоотдача',className:'power'},
+                    {fullName:'Высота, мм',shortName:'Высота',className:'height'},
+                    {fullName:'Ширина, мм',shortName:'Ширина',className:'width'},
+                    {fullName:'Глубина, мм',shortName:'Глубина',className:'depth'}],
+        };
+    heightOptions = getUniqueFieldValues(category, 'Высота, мм', model);
+    widthOptions = getUniqueFieldValues(category, 'Ширина, мм', model);
+    depthOptions = getUniqueFieldValues(category, 'Глубина, мм', model);
+
+    heightProducts = findProductsByDimension(category, product, 'Высота, мм', heightOptions, model);
+    widthProducts = findProductsByDimension(category, product, 'Ширина, мм', widthOptions, model);
+    depthProducts = findProductsByDimension(category, product, 'Глубина, мм', depthOptions, model);
+    
+
+    characteristics = [   
+        {
+            header: "Высота:",
+            value: `${height} мм`,
+            variants: heightProducts.map(p => ({ value: p['Высота, мм'], product: p }))
+        },
+        {
+            header: "Ширина:",
+            value: `${lenght} мм`,
+            variants: widthProducts.map(p => ({ value: p['Ширина, мм'], product: p }))
+        },
+        {
+            header: "Глубина:",
+            value: `${depth} мм`,
+            variants: depthProducts.map(p => ({ value: p['Глубина, мм'], product: p }))
+        },
+        {
+            header: "Мощность:",
+            value: `${power} Вт`,
+            variants: null,
+        }
+    ] as Characteristic[];
+    // console.log(characteristics[1].variants);
+
+  
+    switch (model){
+        case 'Comfort':
+            documents = [
+                {type:"Технический паспорт", filepath:`${import.meta.env.BASE_URL}/pasports/pasport_comfort.pdf`},
+            ]
+            extraCharacteristics = [];
+            break;
+        case 'Comfort Turbo':
+            extraCharacteristics = [
+                {header:"Вентилятор", value:`EC-двигатель`},
+            ];
+            documents = [
+                    {type:"Технический паспорт", filepath:`${import.meta.env.BASE_URL}/pasports/pasport_comfort_turbo.pdf`},
+                ]
+            break;
+    }
+    break
+}
+
+if(weight){
+    const w= {header:"Вес:", value:`${weight} кг`, variants:null} as any as Characteristic;
+    characteristics.push(w);
+}
+
 const imagePath = `/src/images/products/${product['Изображение']}`
 const imageAlt = `${category} Heaton ${product['Наименование']}`
 const productName = product['Наименование']
@@ -57,113 +254,18 @@ const URL_main = `${import.meta.env.BASE_URL}/`
 const URL_category = `${URL_main}Каталог/${category}/`
 let URL_product = `${URL_category}${model}/${productName}`
 
-const height = product['Высота, мм'];
-let lenght = product['Длина, мм'];
-const width = product['Ширина, мм'];
-const depth = product['Глубина, мм'];
-const power = product['Теплоотдача, Вт'];
 
-let weight = product['Масса НЕТТО, кг']?product['Масса НЕТТО, кг']:false;
-weight = weight=="-"?false:weight;
-
-const type = product['Тип']?product['Тип']:false;
-// URL_product = type?`${URL_category}${model}/${type}/${productName}`:URL_product;
-
-// Название длины и ширины аналогичны, поэтому переключаем наименование в зависимости от того есть ли значение Длина
-const lenghtName = lenght? {name: "Длина:", propName:"Длина, мм"}:{name: "Ширина:", propName:"Ширина, мм"};
-lenght = lenght? lenght : width;
-
-// Опции выбора на главной
-const heightOptions = getUniqueFieldValues(category, 'Высота, мм', model);
-const lengthOptions = getUniqueFieldValues(category, lenghtName.propName, model);
-const depthOptions = getUniqueFieldValues(category, 'Глубина, мм', model);
-// const powerOptions = getUniqueFieldValues(category, 'Теплоотдача, Вт', model);
-
-// Update the characteristics array to include product variants
-const heightProducts = findProductsByDimension(category, product, 'Высота, мм', heightOptions, model);
-const lengthProducts = findProductsByDimension(category, product, lenghtName.propName, lengthOptions, model);
-const depthProducts = findProductsByDimension(category, product, 'Глубина, мм', depthOptions, model);
-// const powerProducts = findProductsByDimension(category, product, 'Теплоотдача, Вт', powerOptions, model);
-
-const characteristics = [   
-    {
-        header: "Высота:",
-        value: `${height} мм`,
-        variants: heightProducts.map(p => ({ value: p['Высота, мм'], product: p }))
-    },
-    {
-        header: lenghtName.name,
-        value: `${lenght} мм`,
-        variants: lengthProducts.map(p => ({ value: p[lenghtName.propName], product: p }))
-    },
-    {
-        header: "Глубина:",
-        value: `${depth} мм`,
-        variants: depthProducts.map(p => ({ value: p['Глубина, мм'], product: p }))
-    },
-    {
-        header: "Мощность:",
-        value: `${power} Вт`,
-        // variants: powerProducts.map(p => ({ value: p['Теплоотдача, Вт'], product: p })),
-        variants: null,
+const analogs = mainCharacteristicSet.main.map((element) => {
+    const products = findSimilarProducts(category,product,element.fullName) as Product[];
+    return {
+        header: element.shortName,
+        value: product[element.fullName],
+        className: element.className,
+        products: products,
+        variants: products.map(p => ({ value: p[element.fullName], product: p }))
     }
-] as Characteristic[];
+});
 
-if(weight){
-    const w= {header:"Вес:", value:`${weight} кг`, variants:null} as any as Characteristic;
-    characteristics.push(w);
-}
-console.log(`Длина ${lenght}`)
-// console.log("lengthProducts");
-// console.log(lengthProducts);
-// if(lengthProducts.length==0){
-//     characteristics[1]={header:"Ширина:", value:`${width} мм`, variants:widthProducts.map(p => ({ value: p['Длина, мм'], product: p }))} as any as Characteristic;
-// }
-// type&&characteristics.unshift({header:"Тип:", value:`${type}`},)
-
-let extraCharacteristics = [{header:"Тип:", value:`${type} мм`}];
-
-let pasportFile=`${import.meta.env.BASE_URL}/pasports/pasport.pdf`;
-
-// 
-
-
-
-
-switch (category){
- case 'Стальные панельные радиаторы':
-    extraCharacteristics = [
-            {header:"Тип:", value:`${type}`},
-            {header:"Подключение:", value:`${product['Подключение']}`},
-            {header:"Исполнение:", value:`${product['Исполнение']}`},
-        ];
-    pasportFile=`${import.meta.env.BASE_URL}/pasports/pasport.pdf`;
-    break
- case 'Напольные конвекторы':
-    extraCharacteristics = [
-            // {header:"Тип:", value:`${type}`},
-            // {header:"Подключение:", value:`${product['Подключение']}`},
-            // {header:"Исполнение:", value:`${product['Исполнение']}`},
-        ];
-    pasportFile=`${import.meta.env.BASE_URL}/pasports/pasport_step.pdf`;
-    break
- case 'Внутрипольные конвекторы':
-    extraCharacteristics = [
-            {header:"Вентилятор:", value:`${product['Вентилятор']==="Есть"?"ЕС-двигатель":"Отсутствует"}`},
-        ];
-    switch (model){
-        case 'Comfort':
-            pasportFile=`${import.meta.env.BASE_URL}/pasports/pasport_comfort.pdf`;
-        case 'Comfort Turbo':
-            pasportFile=`${import.meta.env.BASE_URL}/pasports/pasport_comfort_turbo.pdf`;
-    }
-    break
-}
-
-const similarHeight= findSimilarProducts(category,product,'Высота, мм') as Product[];
-const similarLenght = findSimilarProducts(category,product,lenghtName.propName) as Product[];
-const similarDepth = findSimilarProducts(category,product,'Глубина, мм') as Product[];
-const similarPower = findSimilarProducts(category,product,'Теплоотдача, Вт') as Product[];
 let otherCategorys = getNavigationLinks().map((category)=>{
     category.url = `${import.meta.env.BASE_URL}${category.url}`
     return category
@@ -201,7 +303,7 @@ otherCategorys = otherCategorys.filter(elem => (
                     <div class="overflow-x-scroll ">
                         <ul class="text-base sm:text-2xl tracking-wider flex flex-nowrap sm:flex-row gap-2 md:gap-4 font-medium ">
                             {
-                                extraCharacteristics.map((element) =>(
+                                extraCharacteristics.map((element:any) =>(
                                     <li class="bg-primary text-neutral-50 px-2 md:px-3 py-1 rounded-lg overflow-clip">
                                         <span class="text-xs sm:text-sm block font-normal">{element.header}</span>
                                         <span class="block font-black whitespace-nowrap leading-none sm:leading-none text-ellipsis">{element.value}</span>
@@ -212,24 +314,15 @@ otherCategorys = otherCategorys.filter(elem => (
                     </div>
                     <div class=" overflow-x-auto my-6 md:my-6 text-sm">
                         <ul class="flex gap-2 max-w-full flex-wrap">
-                            <li class="text-sm shrink max-w-max lg:text-lg rounded-2xl bg-neutral-700/10 hover:bg-primary-10">
-                                <a href={pasportFile} class="p-1 px-3 flex items-center gap-4" download>
-                                  <span class="text-balance whitespace-nowrap">Технический паспорт</span>
-                                  <Icon name="File" class="size-4 lg:size-6 text-primary"/>
-                                </a>
-                            </li>
-                            <li class="text-sm shrink max-w-max lg:text-lg rounded-2xl bg-neutral-700/10 hover:bg-primary-10">
-                                <a href={`${import.meta.env.BASE_URL}/pasports/sanitary.pdf`} class="p-1 px-3 flex items-center gap-4" download>
-                                  <span class="text-balance  whitespace-nowrap">Гигиенический сертификат</span>
-                                  <Icon name="File" class="size-4 lg:size-6 text-primary"/>
-                                </a>
-                            </li>
-                            <li class="text-sm shrink max-w-max lg:text-lg rounded-2xl bg-neutral-700/10 hover:bg-primary-10">
-                                <a href={`${import.meta.env.BASE_URL}/pasports/sertificate.pdf`} class="p-1 px-3 flex items-center gap-4" download>
-                                  <span class="text-balance  whitespace-nowrap">Сертификат соответсвия</span>
-                                  <Icon name="File" class="size-4 lg:size-6 text-primary"/>
-                                </a>
-                            </li>
+                            {documents.map((document) => (
+                                <li class="text-sm shrink max-w-max lg:text-lg rounded-2xl bg-neutral-700/10 hover:bg-primary-10">
+                                    <a href={document.filepath} class="p-1 px-3 flex items-center gap-4" download>
+                                    <span class="text-balance whitespace-nowrap">{document.type}</span>
+                                    <Icon name="File" class="size-4 lg:size-6 text-primary"/>
+                                    </a>
+                                </li>
+
+                            ))}
                         </ul>
                     </div>
                 </div>
@@ -251,38 +344,27 @@ otherCategorys = otherCategorys.filter(elem => (
             <div class="flex flex-col md:flex-row justify-between mb-4 md:mb-16">
                 <h2 class="text-2xl sm:text-4xl font-black uppercase mb-2 sm:mb-8">Аналоги</h2>
                 <ul class="flex gap-8 text-sm">
-                    <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="power">Похожая мощность</button></li>
+                    {
+                    analogs.map((element) =>(
+                    <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value={element.className}>Похожая {element.header}</button></li>
+                        ))
+                    }
+                    <!-- <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="power">Похожая мощность</button></li>
                     <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="height">Похожая высота</button></li>
-                    <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="lenght">Похожая {lenghtName.name=="Ширина:"?"ширина":"длина"}</button></li>
+                    <li><button class="hover:bg-primary rounded-lg py-1 md:p-2 hover:text-neutral-50 bg-neutral-50 leading-tight" value="lenght">Похожая {lenghtName.name=="Ширина:"?"ширина":"длина"}</button></li> -->
                 </ul>
             </div>
-            <ul class="hidden group-data-[type='power']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 ">
-                {
-                    similarPower.map((card) => (
-                        <li>
-                            <ProductCard product={card} category={category} compare={product} />
-                        </li>
-                    ))
-                }
-            </ul>
-            <ul class="hidden group-data-[type='lenght']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 ">
-                {
-                    similarLenght.map((card) => (
-                        <li>
-                            <ProductCard product={card} category={category} compare={product} />
-                        </li>
-                    ))
-                }
-            </ul>
-            <ul class="hidden group-data-[type='height']:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 ">
-                {
-                    similarHeight.map((card) => (
-                        <li>
-                            <ProductCard product={card} category={category} compare={product} />
-                        </li>
-                    ))
-                }
-            </ul>
+            {analogs.map((group) => (
+                <ul class="hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6" class:list={[`group-data-[type='${group.className}']:grid`]}>
+                    {
+                        group.products.map((card) => (
+                            <li>
+                                <ProductCard product={card} category={category} compare={product} />
+                            </li>
+                        ))
+                    }
+                </ul>
+            ))}
         </div>
     </section>
     <section class="container-center snap-center  min-h-[40vh] my-32">

@@ -1,6 +1,11 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	safelist: [
+		"group-data-[type='power']:grid",
+		"group-data-[type='width']:grid",
+		"group-data-[type='depth']:grid",
+		"group-data-[type='length']:grid",
+		"group-data-[type='height']:grid",
 		"slide-from-top",
 		"a-delay-0",
 		"a-delay-1",

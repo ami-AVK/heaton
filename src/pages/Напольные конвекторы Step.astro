@@ -49,7 +49,7 @@ const features = [
     "value": "Натуральный алюминий, чёрный, золото, светлая бронза, темная бронза и любой цвет по RAL"
   },
   {
-    "name": "Доступная глубина",
+    "name": "Доступная глубина (высота)",
     "value": "80, 130, 180"
   },
   {
@@ -114,8 +114,8 @@ const features = [
     </Hero>
 
     <section class="snap-start container-center py-16 mx-auto ">
-		<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 py-16 tracking-wider leading-relaxed text-lg">
-			<li class="sm:col-span-2 sm:row-span-2 rounded-xl p-8 flex flex-col ">
+		<ul class="grid grid-cols-12 gap-8 lg:gap-16 py-16 tracking-wider leading-relaxed text-lg">
+			<li class="col-span-full lg:col-span-8 rounded-xl p-8 flex flex-col ">
 				<h2 class="font-black uppercase pb-4 text-4xl text-primary">Напольные конвекторы Heaton —</h2>
 				<p class="mt-auto">
 					это современное и стильное решение для обогрева помещений с панорамными окнами или нестандартной планировкой. Благодаря компактному дизайну и высокой эффективности, они идеально вписываются в интерьер, обеспечивая комфортный микроклимат без ущерба для эстетики
@@ -138,19 +138,21 @@ const features = [
 					</ul>
 				</div>
 			</li>
-			<li class="col-span-1 row-span-3 bg-primary rounded-xl p-8 flex flex-col text-neutral-50 drop-shadow-primary-m">
-				<h3 class="font-black uppercase pb-4 text-2xl text-neutral-50">Техническая поддержка</h3>
-				<p class="mt-auto">
-					Бренд предоставляет полную предпродажную и послепродажную поддержку, включая консультации, помощь в подборе оборудования и гарантийное обслуживание
+      <li class="col-span-full lg:col-span-4 bg-transparent md:bg-neutral-50/40 rounded-xl p-8 flex flex-col text-neutral-700 ">
+				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Назначение</h3>
+				<p class="mt-auto text-base md:text-xl md:leading-relaxed">
+					Конвекторы напольные Heaton Step предназначены для эксплуатации в
+жилых, общественных и административных помещениях. Используются в однотрубных или двухтрубных закрытых насосных системах отопления
+
 				</p>
 			</li>
-			<li class="col-span-1 bg-neutral-50/40 rounded-xl p-8 flex flex-col">
+			<li class="col-span-full lg:col-span-6 bg-neutral-50/40 rounded-xl p-8 flex flex-col">
 				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Широкий выбор размеров</h3>
 				<p class="mt-auto">
 					Конвекторы доступны в различных длинах (от 500 до 3000 мм с шагом 100 мм), что позволяет подобрать модель для помещений любого размера
 				</p>
 			</li>
-			<li class="col-span-1 bg-neutral-50/40 rounded-xl p-8">
+			<li class="col-span-full lg:col-span-6 bg-neutral-50/40 rounded-xl p-8">
 				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Высокая теплоотдача</h3>
 				<p class="mt-auto">
 					Медно-алюминиевый теплообменник обеспечивает эффективную передачу тепла, а конструкция конвектора позволяет быстро прогревать помещение
@@ -164,32 +166,32 @@ const features = [
 					{
 						"icon": "Like",
 						"header": "Высочайшее качество",
-						"explain": "Качество подтверждено в аккредитованной лаборатории."
+						"explain": "Полностью скрытое подключение"
 					},
 					{
-						"icon": "Delivery",
+						"icon": "Map Point",
 						"header": "Быстрые сроки поставки",
-						"explain": "Максимально быстрые сроки поставки в случае отсутствия товара на складах."
+						"explain": "Сделано в России"
 					},
 					{
-						"icon": "Widget 5",
+						"icon": "Danger Circle",
 						"header": "Широкий типоразмерный ряд",
-						"explain": "Широкий выбор напольных конвекторов"
+						"explain": "Рабочее давление: 10 бар"
 					},
 					{
 						"icon": "Shield Check",
 						"header": "Гарантия 10 лет",
-						"explain": "Гарантия на продукцию составляет 10 лет."
+						"explain": "Гарантия на продукцию: 10 лет"
 					},
 					{
 						"icon": "Document",
 						"header": "Сертифицированная продукция",
-						"explain": "Продукция сертифицирована и имеет гигиенический сертификат."
+						"explain": "ГОСТ 31311"
 					},
 					{
-						"icon": "Info Circle",
-						"header": "Удовлетворение потребностей клиента",
-						"explain": "Закрываем любую потребность клиента по теплоотдаче и габаритам прибора."
+						"icon": "Eye",
+						"header": "Сертифицированная продукция",
+						"explain": "Стильный дизайн"
 					}
 					]
 						.map((feature)=>(
@@ -208,7 +210,7 @@ const features = [
 						)
 			}
 		</ul>
-		<ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">			
+		<!-- <ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between">			
 			<li class="grow basis-full p-2 text-lg rounded-3xl relative flex items-center gap-16 bg-neutral-50">
 				<div class="basis-1/2 drop-shadow-primary-hard order-1 md:order-2 relative scale-105">
 					<Image alt={mainImageDescription} src={heater} slot="image"/>
@@ -219,9 +221,11 @@ const features = [
 				</div>
 
 			</li>
-		</ul>
+		</ul> -->
 	</section>
-        
+  <div class="container-center snap-center">
+    <Contact/>
+</div>
         <!-- decoding -->
         <section class="snap-center min-h-svh flex flex-col container-center mx-auto ">
             <h2 class="text-3xl font-semibold md:text-6xl mb-16 mt-16 md:mt-32 text-center">Расшифровка обозначения</h2>
@@ -231,7 +235,7 @@ const features = [
                         [
                             {value:"STEP",expand:"Модель"},
                             {value:"130",expand:"Высота"},
-                            {value:"130",expand:"Глубина"},
+                            {value:"130",expand:"Ширина"},
                             {value:"1500",expand:"Длина"},
                             {value:"1",expand:"Количество рядов труб"},
                             {value:"N",expand:"Наличие вент. вставки"},
@@ -263,9 +267,7 @@ const features = [
             </div>
         </section>
         <!-- calculator -->
-        <div class="container-center snap-center">
-            <Contact/>
-        </div>
-        <Calculator class="snap-center"/>
+
+        <!-- <Calculator class="snap-center"/> -->
 		<Footer class="mt-auto snap-center bg-neutral-300"/>
 </Layout>

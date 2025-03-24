@@ -55,6 +55,14 @@ const productUrl = `${URL_main}Каталог/${product.url}`;
                     </span>
                 </li>
             )}
+            {product['Ширина, мм'] && (
+                        <li class="border-b border-b-neutral-300 border-solid">
+                            <span class="text-xs">Ширина: </span>
+                            <span class={`font-bold ${getCompareClass('Ширина, мм')}`}>
+                                {product['Ширина, мм']} мм
+                            </span>
+                        </li>
+                    )}
             {product['Глубина, мм'] && (
                 <li class="border-b border-b-neutral-300 border-solid">
                     <span class="text-xs">Глубина: </span>
