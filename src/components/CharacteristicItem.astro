@@ -52,14 +52,19 @@ const cleanValue = value?.replace(/[^\d.]/g, '') || '';
             select.addEventListener('change', async (e) => {
                 const target = e.target as HTMLSelectElement;
                 const selectedOption = target.selectedOptions[0];
-                const url = `./${selectedOption.getAttribute('data-url')}`;
-                // alert(url);
-
-
-                if (url) {
-                    // await navigate(url);
-                    await navigate(url);
-
+                const productName = selectedOption.getAttribute('data-url');
+                
+                if (productName) {
+                    // Get current path segments
+                    const currentPath = window.location.pathname;
+                    const pathSegments = currentPath.split('/').filter(Boolean);
+                    
+                    // Replace the last segment with the new product name
+                    pathSegments[pathSegments.length - 1] = productName;
+                    
+                    // Construct the new URL
+                    const newUrl = '/' + pathSegments.join('/');
+                    await navigate(newUrl);
                 }
             });
         });
