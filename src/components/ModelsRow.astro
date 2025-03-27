@@ -8,13 +8,14 @@ interface Links {
     links: Link[]
 }
 const {links, class:className, ...attr} = Astro.props
-// console.log(links)
+const filteredLinks = links?.filter((link: Link) => link.text !== false)
+// console.log(filteredLinks);
 ---
 {   
-    links
+    filteredLinks
     ?
     <ul class="flex text-sm gap-2 py-2 flex-col group data-[small]:gap-1 data-[small]:py-1" class:list={className} {...attr}>
-        {links.map((link__:Link)=>(
+        {filteredLinks.map((link__:Link)=>(
         <li class=" list-disc">
         <a href={link__.url} class="px-2 py-2 group-data-[small]:py-1 whitespace-nowrap hover:underline rounded-lg group-data-[small]:rounded-none group-data-[small]:px-0 group-data-[simple]:hover:bg-none">{link__.text}</a>
         </li>

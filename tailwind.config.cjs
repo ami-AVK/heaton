@@ -100,7 +100,7 @@ module.exports = {
 	},
 	plugins: [
 		// require('tailwindcss-3d'),
-		require('@tailwindcss/forms'),
+		require('@tailwindcss/forms'),require('@tailwindcss/typography')
 		// ...
 	  ]
 };

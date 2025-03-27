@@ -1,32 +1,89 @@
 ---
 import Socials from './Socials.astro';
+const URL_policy = `${import.meta.env.BASE_URL}/policy`
 ---
 <section class="mx-auto flex inview-bottom w-full @container">
-    <div class="bg-primary p-8 sm:p-16 drop-shadow-primary-d rounded-2xl w-full my-32 inview-target ">
+    <div class="bg-primary p-8 sm:p-16 drop-shadow-primary-d rounded-2xl w-full my-32 inview-target relative">
         <div class="flex flex-col sm:flex-row justify-between mb-8 sm:mb-auto">
             <h2 class="text-2xl font-black sm:text-4xl mb-4 sm:mb-16 text-neutral-50 uppercase w-1/2 shrink">Получить комерческое предложение</h2>
             <Socials class="z-50 text-neutral-50 scale-75 sm:scale-100 origin-left"/>
         </div>
         <div class="">
-            <form action="#" method="post" class="flex flex-col gap-4 ">
-                <div class=" flex gap-6 items-center flex-col sm:flex-row">
-                    <input type="tel" required placeholder="Телефон" class="grow rounded-xl w-full sm:w-auto inset-0 border-t-0 border-l-0 border-r-0   border-b-neutral-50 bg-neutral-50/5 text-neutral-50 focus:ring-neutral-50 focus:border-b-neutral-50 focus:outline-none placeholder:text-neutral-50/50"/>
+            <form id="contactForm" class="flex flex-col gap-4 relative" action="https://kaclimeque.beget.app/webhook/84b418ce-14f1-408f-a9e3-01291e95924d" method="POST">
+                <div class="flex gap-6 items-center flex-col sm:flex-row">
+                    <input name="phone" type="tel" pattern="+?[0-9]{1,4}-?[0-9 ]{5,9}" required placeholder="Телефон" class="grow rounded-xl w-full sm:w-auto inset-0 border-t-0 border-l-0 border-r-0 border-b-neutral-50 bg-neutral-50/5 text-neutral-50 focus:ring-neutral-50 focus:border-b-neutral-50 focus:outline-none placeholder:text-neutral-50/50"/>
                     <div class="p-2 rounded-full bg-neutral-50/10 text-neutral-50">или</div>
-                    <input type="email" required placeholder="Почта" class="grow rounded-xl w-full sm:w-auto inset-0 border-t-0 border-l-0 border-r-0   border-b-neutral-50 bg-neutral-50/5 text-neutral-50 focus:ring-neutral-50 focus:border-b-neutral-50 focus:outline-none placeholder:text-neutral-50/50"/>
-                    <input type="submit" value="Отправить" class="p-2 px-4 rounded-xl inset-0 w-full sm:w-auto border-b-neutral-50 bg-neutral-50 text-neutral-700 focus:ring-neutral-700 focus:border-b-neutral-50 focus:outline-none" />
+                    <input name="mail" type="email" required placeholder="Почта" class="grow rounded-xl w-full sm:w-auto inset-0 border-t-0 border-l-0 border-r-0 border-b-neutral-50 bg-neutral-50/5 text-neutral-50 focus:ring-neutral-50 focus:border-b-neutral-50 focus:outline-none placeholder:text-neutral-50/50"/>
+                </div>
+                <div class="text-neutral-50 mt-4 flex-col flex md:flex-row gap-8">
+                    <button type="submit" class="p-2 px-4 rounded-xl border-b-neutral-50 bg-neutral-50 text-neutral-700 focus:ring-neutral-700 focus:border-b-neutral-50 focus:outline-none">Отправить</button>
+                    <p class=" whitespace-pre-line mt-4 md:mt-0">Нажимая кнопку "Отправить", &nbsp;
+                        вы соглашаетесь с <a href={URL_policy} class="text-neutral-50 underline">политикой конфиденциальности</a></p>
+                    
                 </div>
             </form>
+        </div>
+        <div id="spinner" class="opacity-0 transition-opacity duration-500 data-[active]:opacity-100 pointer-events-none bg-primary absolute inset-0  rounded-xl flex items-center justify-center z-50">
+            <div class="size-64 border-8 border-neutral-50/20 border-t-neutral-50 rounded-full animate-spin"></div>
+        </div>
+        <div id="success" class="bg-primary opacity-0 transition-opacity duration-500 data-[active]:opacity-100 pointer-events-none absolute inset-0 z-50 rounded-xl flex-col items-center justify-center text-neutral-50 text-center p-4">
+            <div class="relative top-1/2 -translate-y-1/2">
+                <h3 class="uppercase font-black mb-4 tracking-wider text-2xl">Отлично!</h3>
+                <p class="text-lg tracking-wider">В ближайшее время с вами свяжется специалист</p>
+            </div>
         </div>
     </div>
 </section>
 <script>
-    import { animate,scroll,stagger, inView } from "motion";
+    import { animate, scroll, stagger, inView } from "motion";
+    
     document.addEventListener('astro:page-load', () => {
+        // Animation code...
         inView(".inview-bottom", ({ target }) => {
             const wrapper = target.querySelector(".inview-target") as HTMLBaseElement;
-			animate(
-			wrapper,{ opacity: [0,1], scale:[.9,1],y:[300,0] }, {ease:"easeOut", duration:.4}
-			)
-		});
-    })
+            animate(
+                wrapper,
+                { opacity: [0,1], scale:[.9,1], y:[300,0] },
+                { ease:"easeOut", duration:.4 }
+            )
+        });
+
+        // Form handling
+        const form = document.getElementById('contactForm') as HTMLFormElement;
+        const spinner = document.getElementById('spinner');
+        const success = document.getElementById('success');
+
+        form?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            spinner?.setAttribute('data-active', '');
+            
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch('https://kaclimeque.beget.app/webhook/84b418ce-14f1-408f-a9e3-01291e95924d', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                if (response.ok) {
+                    success?.setAttribute('data-active', '');
+                    form.reset();
+                }
+                await new Promise(resolve => setTimeout(resolve, 500));
+                if (response.ok) {
+                    spinner?.removeAttribute('data-active');
+                }
+                await new Promise(resolve => setTimeout(resolve, 5000));
+                if (response.ok) {
+                    success?.removeAttribute('data-active');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                spinner?.removeAttribute('data-active');
+            }
+        });
+    });
 </script>

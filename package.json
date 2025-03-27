@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/p5": "^1.7.6",
     "@types/papaparse": "^5.3.15",
     "@types/russian-nouns-js": "^1.2.5",
