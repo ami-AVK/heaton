@@ -1,0 +1,117 @@
+---
+// /Users/santech/Documents/My/WebProjects/Heaton/heaton_/heaton/src/components/HeatOutputTable.astro
+import type { Product } from '../types/common';
+import { getUniqueValues } from '../utils/productUtils';
+
+interface Props {
+  products: Product[];
+}
+
+const { products } = Astro.props;
+
+// 1. Extract unique dimensions and types, sort them numerically/alphabetically
+const heights = [...new Set(products.map(p => p['Высота, мм']))].sort((a, b) => a - b);
+const lengths = [...new Set(products.map(p => p['Длина, мм']))].sort((a, b) => a - b);
+const types = [...new Set(products.map(p => p['Тип']))].sort((a, b) => String(a).localeCompare(String(b))); // Sort types
+
+// 2. Create a lookup map with a composite key including type
+const productMap = new Map<string, Product>();
+products.forEach(p => {
+  const key = `${p['Длина, мм']}-${p['Высота, мм']}-${p['Тип']}`; // Include type in the key
+  productMap.set(key, p);
+});
+
+const URL_main = `${import.meta.env.BASE_URL}/`;
+const URL_main_catalog = `${URL_main}Каталог/`;
+// const types = getUniqueValues(products, 'Тип'); // Moved up and sorted
+---
+
+<div class="overflow-x-auto relative sm:rounded-lg">
+    <h3 class="text-xl font-bold mb-4 ml-2">Теплоотдача радиаторов (Вт) при <span class="bg-primary text-neutral-50 px-1">ΔT=<span id="deltaT" class="font-black">70</span>°C</span></h3>
+  <table class="w-full text-sm text-left text-neutral-500 border-collapse">
+    <thead class="text-xs text-neutral-500 uppercase bg-neutral-50">
+      {/* First Header Row: Heights */}
+      <tr>
+        <th scope="col" rowspan="2" class="py-2 px-3 sticky left-0 bg-neutral-100 z-20 border border-neutral-300 align-bottom">
+          <div class="flex flex-col items-start">
+              <span>Высота</span>
+              <span class="font-normal lowercase text-neutral-400 -mt-1">мм</span>
+              <hr class="w-full my-1 border-neutral-300"/>
+            <span>Длина</span>
+            <span class="font-normal lowercase text-neutral-400 -mt-1">мм</span>
+          </div>
+        </th>
+        {heights.map(height => (
+          <th scope="colgroup" colspan={types.length} class="py-1 px-2 text-center border border-neutral-300 bg-neutral-100 font-medium text-xs text-neutral-700 ">
+            {height}
+          </th>
+        ))}
+      </tr>
+      {/* Second Header Row: Types under each Height */}
+      <tr>
+        {heights.map(height => (
+          types.map(type => (
+            <th scope="col" class="py-1 px-2 text-center font-medium text-xs text-neutral-700  border border-neutral-300 bg-neutral-50 ">
+              {type}
+            </th>
+          ))
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {lengths.map(length => (
+        <tr class="border-b border-neutral-200 hover:bg-neutral-50">
+          {/* Sticky Length Header Cell */}
+          <th scope="row" class="py-1 px-3 font-medium text-xs text-neutral-700 whitespace-nowrap bg-neutral-100 sticky left-0 z-10 border border-neutral-300">
+            {length}
+          </th>
+          {/* Data Cells */}
+          {heights.map(height => (
+            types.map(type => {
+              const key = `${length}-${height}-${type}`; // Use composite key
+              const product = productMap.get(key);
+              return (
+                <td class=" text-center border border-neutral-300">
+                  {product ? (
+                    <a 
+                      href={`${URL_main_catalog}${product.url || ''}`} 
+                      class="hover:underline cursor-pointer inset-0 py-1 px-3" 
+                      title={`Перейти к ${product['Наименование'] || 'продукту'}`}
+                      data-power = {product['Теплоотдача, Вт']}
+                    >
+                      {product['Теплоотдача, Вт'] || '-'}
+                    </a>
+                  ) : (
+                    <span class="text-neutral-400">-</span> // Indicate missing data
+                  )}
+                </td>
+              );
+            })
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  /* Ensure sticky headers work correctly with overflow */
+  th.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+  }
+  /* Improve sticky header appearance */
+  thead th {
+    z-index: 15; /* Ensure type headers are above row headers */
+  }
+  thead th.sticky {
+     z-index: 20; /* Ensure corner header is above all */
+  }
+  tbody th.sticky {
+     z-index: 10; /* Row headers below column headers */
+  }
+  table {
+    border-collapse: separate; /* Needed for borders with sticky */
+    border-spacing: 0;
+  }
+</style>

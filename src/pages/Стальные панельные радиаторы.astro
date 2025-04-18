@@ -30,6 +30,7 @@ interface Button{
 const URL_main = `${import.meta.env.BASE_URL}/`
 const URL_category = `${URL_main}Каталог/Стальные панельные радиаторы/`
 const URL_model = `${URL_category}Compact/`
+const URL_calculator = `${import.meta.env.BASE_URL}/Калькулятор теплоотдачи/Стальные панельные радиаторы/Compact`;
 
 
 const mainImageDescription = "Стальной панельный радиатор Heaton в разрезе"
@@ -51,7 +52,7 @@ const mainImageDescription = "Стальной панельный радиато
                 <a class="px-4 grow py-1 md:text-xl rounded-lg text-neutral-50 bg-primary pt-8" href={URL_model}>Каталог</a>
                 <div class="flex text-sm md:text-base font-medium flex-col md:flex-row gap-2  md:gap-4 md:items-end text-neutral-700">
                     <a href="#Models" class="px-4 py-1  rounded-lg  bg-neutral-50">Модели</a>
-                    <a href="#Calculator" class="px-4 py-1 rounded-lg  bg-neutral-50">Калькулятор</a>
+                    <a href=`${URL_calculator}` class="px-4 py-1 rounded-lg  bg-neutral-50">Калькулятор</a>
                 </div>
             </div>
         </Fragment>

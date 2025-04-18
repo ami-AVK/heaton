@@ -1,4 +1,6 @@
 ---
+import { boolean } from "astro/zod";
+
 interface Link {
     url: string;
     text: string;
@@ -8,7 +10,7 @@ interface Links {
     links: Link[]
 }
 const {links, class:className, ...attr} = Astro.props
-const filteredLinks = links?.filter((link: Link) => link.text !== false)
+const filteredLinks = links?.filter((link: Link) => link.text as string|boolean !== false)
 // console.log(filteredLinks);
 ---
 {   

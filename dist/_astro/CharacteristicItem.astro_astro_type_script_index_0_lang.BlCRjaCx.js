@@ -1,0 +1,1 @@
+import{n as s}from"./router.DnZMHVsn.js";document.addEventListener("astro:page-load",()=>{document.querySelectorAll("select.options").forEach(n=>{n.addEventListener("change",async o=>{const e=o.target.selectedOptions[0].getAttribute("data-url");if(e){const t=window.location.pathname.split("/").filter(Boolean);t[t.length-1]=e;const a="/"+t.join("/");await s(a)}})})});

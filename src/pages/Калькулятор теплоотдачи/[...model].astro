@@ -1,0 +1,399 @@
+---
+import sitemapJSON from '../../data/site.json'
+import DynamicImage from '../../components/ImageDynamic.astro'
+import Layout from '../../layouts/main.astro'
+import BreadCrumbs from '../../components/BreadCrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import Table from '../../components/Table_.astro';
+import ProductData from '../../components/ProductData.astro';
+import type { Link, Product, Category, Sitemap } from '../../types/common';
+// import RussianNouns from 'russian-nouns-js';
+import { getFilteredRadiatorProducts, getUniqueFieldValues, getUniqueValues } from '../../utils/productUtils';
+import EnhancedTable from '../../components/EnhancedTable/EnhancedTable.astro';
+import TableFilters from '../../components/EnhancedTable/TableFilters.astro';
+import LogoSmall from '../../svg/logo_small.svg';
+import HeatOutputTable from '../../components/HeatOutputTable.astro'; // <-- Import the new component
+
+export async function getStaticPaths() {
+    let paths=[] as any[]
+    const sitemap = sitemapJSON as any as Sitemap;
+    var uniqueCategories = Object.keys(sitemap);
+
+    for (const key in sitemap as any) {
+        if(key!="Стальные панельные радиаторы"){
+            continue;
+        }
+        const category = sitemap[key] as Category
+        if (sitemap.hasOwnProperty(key)) {
+            const products = category.products as Product[]
+
+            
+            // выделяем список моделей
+            let models = [...new Set(products.map(product => product['Модель']))];
+
+
+            // const URL_main = `${import.meta.env.BASE_URL}/`
+            const URL_category = `${key}/`
+
+            let path_ = {
+                            params:{
+                                model: `${URL_category}`
+                            },
+                            props:{
+                                category: key,
+                                otherCategories: uniqueCategories.filter(cat => cat !== key) as String[],
+                                allModels: models as String[],
+                            }};
+                // console.log(path_)
+                paths.push(structuredClone(path_));
+            // создаем страницы для моделей
+            models.forEach(model => {
+                let types_all = getUniqueFieldValues("Стальные панельные радиаторы", 'Тип',model) as Number[];
+                let path_model = {
+                            params:{
+                                model: `${URL_category}${model}`
+                            },
+                            props:{
+                                model: model,
+                                // type: types_all[0],
+                                category: key,
+                                otherCategories: uniqueCategories.filter(cat => cat !== key) as String[],
+                                // otherTypes: types_all.filter(othertype => othertype!== types_all[0]) as Number[],
+                                allModels: models as String[],
+                            }};
+                
+                // types_all.forEach(type => {
+                //     let path_type = {
+                //         params:{
+                //             model: `${URL_category}${model}/${type}`
+                //         },
+                //         props:{
+                //             model: model,
+                //             type: type,
+                //             category: key,
+                //             otherCategories: uniqueCategories.filter(cat => cat!== key) as String[],
+                //             otherTypes: types_all.filter(othertype => othertype!== type) as Number[],
+                //             allModels: models as String[],
+                //         }};
+                //     paths.push(structuredClone(path_type));
+                // });
+                paths.push(structuredClone(path_model));
+            });
+            
+        }
+    }
+    return paths
+}
+const {category, otherCategories, allModels, } = Astro.props;
+let {model}  = Astro.props;
+const URL_main = `${import.meta.env.BASE_URL}/`;
+const URL_main_catalog = `${import.meta.env.BASE_URL}/Калькулятор теплоотдачи/`;
+const URL_category = `${URL_main}Калькулятор теплоотдачи/${category}/`;
+// const URL_model = `${URL_category}${model}`;
+const URL_filterSetiing = ``;
+const sitemap_ = sitemapJSON as any as Sitemap;
+
+const categories = otherCategories.map((element:String) => (
+    {
+        url:`${URL_main}Калькулятор теплоотдачи/${element}/`,
+        text:element
+    }
+)) as Link[];
+
+model = model?model:allModels[0];
+
+let models_all = allModels.map((element:String) => (
+    {
+        url:`${URL_category}${element}/`,
+        text:element,
+        current: model==element
+    }
+    )) as Link[];
+// // let types_all = getUniqueFieldValues("Стальные панельные радиаторы", 'Тип',model);
+// let types_all = getUniqueFieldValues("Стальные панельные радиаторы", 'Тип',model).map((type_)=>(
+//     {
+//         url:`${URL_category}${model}/${type_}/`,
+//         text:type_,
+//         current: type==type_
+//     }
+//     )) as Link[];
+// let current_products = getFilteredRadiatorProducts(model,type) as Product[];
+
+
+    models_all.map((model)=>{
+        let characteristics = [] as any;
+        switch (model.text){
+            case 'Comfort':
+                break;
+            case 'Comfort Turbo':
+                characteristics = ["С вентилятором"]
+                break;
+            case 'Compact':
+                characteristics = ["Боковое подключение"]
+                break;
+            case 'Ventil Compact':
+                characteristics = ["Нижнее подключение"]
+                break;
+            case 'Hygiene Ventil Compact':
+                characteristics = ["Нижнее подключение","Гигиенический"]
+                break;
+            case 'Hygiene Compact':
+                characteristics = ["Боковое подключение","Гигиенический"]
+                break;
+        }
+        model.characteristics = characteristics;
+        return model;
+    })
+let models = [] as Link[];
+
+let products = [] as any[];
+
+if(model){
+    
+    models = models_all.filter(mdl => mdl.text !== model);
+    products = sitemap_[category].products.filter((product)=>{
+        return product['Модель'] === model
+    })
+    
+}
+else{
+    products = sitemap_[category].products
+}
+// Заголовки для парсинга таблицы, на разные категории разные заголовки бывают
+let TABLE_HEADERS =  ['Номенклатурный номер','Наименование'];
+// "Масса НЕТТО, кг": "3,1",
+let tableColumns = [
+    { value: 'Номенклатурный номер', sortable: false, filterable: false },
+    { value: 'Наименование', sortable: false, filterable: false },
+    { value: 'Высота, мм', sortable: true, filterable: true, unit: 'мм' },
+    { value: 'Длина, мм', sortable: true, filterable: true, unit: 'мм' },
+    { value: 'Теплоотдача, Вт', sortable: true, filterable: false, unit: 'Вт' }
+    ];
+switch (category){
+ case 'Стальные панельные радиаторы':
+    tableColumns = [
+        // { value: 'Номенклатурный номер', sortable: false, filterable: false },
+        { value: 'Наименование', sortable: false, filterable: false },
+        { value: 'Тип', sortable: true, filterable: true},
+        { value: 'Высота, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Длина, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Глубина, мм', sortable: true, filterable: true, unit: 'мм' },
+        { value: 'Теплоотдача, Вт', sortable: true, filterable: false, unit: 'Вт' },
+        { value: 'Объем, л', sortable: true, filterable: false, unit: 'л' },
+        { value: 'Масса НЕТТО, кг', sortable: true, filterable: false, unit: 'кг' },
+        // { value: 'Подключение', sortable: true, filterable: true },
+        // { value: 'Исполнение', sortable: true, filterable: true },
+        ];
+    break
+}
+
+const breadCrumbs = [{url:URL_main, text:"Главная"},{url:URL_category, text:category, links:categories}];
+if(model){
+    breadCrumbs.push({url:`${URL_category}${model}`, text:model, links:models});
+}
+const title = model? model:category;
+
+// Get unique values for filters
+    const heights = getUniqueValues(products, 'Высота, мм');
+    const lengths = getUniqueValues(products, 'Длина, мм');
+    const powers = getUniqueValues(products, 'Теплоотдача, Вт');
+
+
+---
+<Layout title={title} description="Качественные панельные радиаторы от российского бренда" class="min-h-screen ">
+    <section class="container-center">
+        <NavBar slot="navbar" class="py-8"/>
+        <!-- <BreadCrumbs slot="breadcrumbs" class='z-50' list={breadCrumbs}/>  -->
+    </section>
+    <div class="relative container-center">
+        <h1 class="text-2xl lg:text-4xl xl:text-5xl mb-[2svh] md:mt-[10svh] font-black uppercase z-20">Калькулятор теплоотдачи<br><span class="font-normal">Стальных панельных радиаторов</span></h1>
+        <LogoSmall class="absolute -z-10 right-4 md:right-10 w-48 md:w-64 lg:w-96 text-neutral-100 -top-16 lg:-top-32"/>
+    </div>
+    <div class="container-center md:px-8 mx-auto  flex gap-16 flex-1 overflow-x-auto lg:overflow-visible">
+        <div class="flex-1 ">
+            <div class="py-2 relative">
+                <h3 class="font-extrabold pl-2">Модель:</h3>
+                <ul class="flex md:pl-2 gap-1 md:gap-4 md:-translate-x-2 flex-wrap">
+                    {
+                        models_all.map((model_)=>(
+                                model_.current?
+                                <li>
+                                        <a href={model_.url} class=" flex flex-col bg-primary text-neutral-50 px-2 py-1 my-1 hover:bg-primary hover:text-neutral-50 rounded-lg">
+                                            <span class="block ">{model_.text}</span>
+                                            <ul class="flex flex-col text-xs tracking-wider opacity-80">
+                                                {
+                                                    model_.characteristics.map((characteristic:string)=>(
+                                                        <li class="">{characteristic}</li>
+                                                    ))
+                                                }
+                                            </ul>
+                                        </a>
+                                </li>
+                                :
+                                <li>
+                                                                    <a href={model_.url} class="flex flex-col text-neutral-700 px-2 py-1 my-1 hover:bg-primary hover:text-neutral-50 rounded-lg">
+                                    <span class="block">{model_.text}</span>
+                                    <ul class="flex  flex-col text-xs tracking-wider opacity-80">
+                                        {
+                                            model_.characteristics.map((characteristic:string)=>(
+                                                <li class="">{characteristic}</li>
+                                            ))
+                                        }
+                                    </ul>
+                                </a>
+                                </li>
+                                
+                                                           
+                            ))
+                    }
+                </ul>
+            </div>
+  
+        </div>
+    </div>
+    <div class="container-center md:px-8 mx-auto mb-4 md:pb-6 flex flex-col gap-8 flex-1">
+        {/* Input fields for calculation */}
+        <div class="w-full p-4 border rounded-lg bg-neutral-100">
+            <h3 class="text-lg font-semibold mb-3">Параметры расчета:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label for="supplyTemp" class="block text-sm font-medium text-gray-700 mb-1">Температура подачи (°C):</label>
+                    <input type="number" id="supplyTemp" value="75" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                    <label for="returnTemp" class="block text-sm font-medium text-gray-700 mb-1">Температура обратки (°C):</label>
+                    <input type="number" id="returnTemp" value="65" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                    <label for="ambientTemp" class="block text-sm font-medium text-gray-700 mb-1">Температура помещения (°C):</label>
+                    <input type="number" id="ambientTemp" value="20" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
+                </div>
+            </div>
+             <p class="text-xs text-gray-500 mt-2">Стандартный режим ΔT=70°C (105/75/20). Базовые значения в таблице указаны для ΔT=70°C.</p>
+        </div>
+
+        {/* Heat Output Table */}
+        <div class="w-full" id="heatTableContainer"> {/* Added ID for easier selection */}
+            
+            <HeatOutputTable products={products} /> {/* <-- Use the component here */}
+        </div>
+    </div>
+    <Footer class="mt-auto"/>
+</Layout>
+
+<script>
+
+    let supplyTempInput:HTMLInputElement;
+    let returnTempInput:HTMLInputElement;
+    let ambientTempInput:HTMLInputElement;
+    let deltaT:HTMLSpanElement;
+    let tableContainer:any;
+
+    let standardDeltaT:number;
+    let exponentN:number;
+    calculator_init();      
+
+  function calculator_init() {
+    supplyTempInput = document.getElementById('supplyTemp') as HTMLInputElement;
+    returnTempInput = document.getElementById('returnTemp') as HTMLInputElement;
+    ambientTempInput = document.getElementById('ambientTemp') as HTMLInputElement;
+    deltaT = document.getElementById('deltaT') as HTMLSpanElement;
+    tableContainer = document.getElementById('heatTableContainer');
+
+    // --- Constants ---
+    standardDeltaT = 70; // The Delta T for which the base values (data-power) are given
+    exponentN = 1.3;     // The exponent for the calculation
+    // --- Event Listeners ---
+    supplyTempInput.addEventListener('input', calculateAndUpdateTable);
+    returnTempInput.addEventListener('input', calculateAndUpdateTable);
+    ambientTempInput.addEventListener('input', calculateAndUpdateTable);
+  }
+
+
+
+  // --- Load saved values from localStorage ---
+  function loadSettings() {
+    supplyTempInput.value = localStorage.getItem('calculatorSupplyTemp') || '105';
+    returnTempInput.value = localStorage.getItem('calculatorReturnTemp') || '75';
+    ambientTempInput.value = localStorage.getItem('calculatorAmbientTemp') || '20';
+    deltaT.textContent = localStorage.getItem('calculatorDeltaT') || '70';
+  }
+
+  // --- Save values to localStorage ---
+  function saveSettings() {
+    localStorage.setItem('calculatorSupplyTemp', supplyTempInput.value);
+    localStorage.setItem('calculatorReturnTemp', returnTempInput.value);
+    localStorage.setItem('calculatorAmbientTemp', ambientTempInput.value);
+    localStorage.setItem('calculatorDeltaT', deltaT.textContent || '');
+  }
+
+  // --- Calculation Logic ---
+  function calculateAndUpdateTable() {
+    if (!tableContainer) return;
+
+    const supplyTemp = parseFloat(supplyTempInput.value);
+    const returnTemp = parseFloat(returnTempInput.value);
+    const ambientTemp = parseFloat(ambientTempInput.value);
+
+    // Validate inputs
+    if (isNaN(supplyTemp) || isNaN(returnTemp) || isNaN(ambientTemp)) {
+        console.warn("Invalid temperature input.");
+        return; // Or handle invalid input appropriately
+    }
+     if (supplyTemp <= returnTemp || returnTemp <= ambientTemp) {
+        console.warn("Temperature values are illogical (e.g., supply <= return).");
+        // Optionally disable calculation or show a warning to the user
+        // For now, we'll proceed but the results might be nonsensical
+    }
+
+
+    // Calculate current Delta T using Arithmetic Mean Temperature Difference (AMTD)
+    const meanWaterTemp = (supplyTemp + returnTemp) / 2;
+    const currentDeltaT = meanWaterTemp - ambientTemp;
+
+    if (currentDeltaT <= 0) {
+        console.warn("Calculated Delta T is zero or negative. Heat output will be zero or invalid.");
+        // Handle this case - maybe set all outputs to 0 or show an error
+    }
+    deltaT.textContent = Math.round(currentDeltaT).toString();
+    const tableLinks = tableContainer.querySelectorAll('a[data-power]') as HTMLAnchorElement[];
+
+    tableLinks.forEach(link => {
+      const anchor = link as HTMLAnchorElement;
+      const basePowerStr = anchor.dataset.power;
+
+      if (basePowerStr) {
+        const basePower = parseFloat(basePowerStr);
+        if (!isNaN(basePower) && basePower > 0 && currentDeltaT > 0) {
+          // Calculate new power: Q = Q_norm * (ΔT / ΔT_norm)^n
+          const newPower = basePower * Math.pow(currentDeltaT / standardDeltaT, exponentN);
+          anchor.textContent = Math.round(newPower).toString(); // Update text content
+        } else if (basePowerStr === '-') {
+             anchor.textContent = '-'; // Keep dash if base power is dash
+        }
+         else {
+          // Handle cases where calculation isn't possible (e.g., deltaT <= 0)
+          anchor.textContent = '0'; // Or show '-' or an error indicator
+        }
+      }
+    });
+
+    // Save the current input values after calculation
+    saveSettings();
+  }
+
+  // --- Initial Load ---
+  document.addEventListener('astro:page-load', () => {
+        calculator_init();
+      loadSettings();
+      calculateAndUpdateTable();
+
+  });
+//   document.addEventListener('DOMContentLoaded', () => {
+//       loadSettings(); // Load saved settings first
+//       calculateAndUpdateTable(); // Run calculation on page load with loaded/default values
+//   });
+
+</script>

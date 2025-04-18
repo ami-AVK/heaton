@@ -61,6 +61,17 @@ export function getModelProducts_(category: string, model: string): Product[] {
     return filtered;
 }
 
+// New function to filter radiator products by model and type
+export function getFilteredRadiatorProducts(model: string, type: string | number): Product[] {
+    const category = "Стальные панельные радиаторы";
+    const products = getCategoryProducts(category);
+    
+    return products.filter(product => 
+        product['Модель'] === model && 
+        product['Тип'] === type
+    );
+}
+
 export function getAllCategories(): string[] {
     return Object.keys(sitemap);
 }
