@@ -280,7 +280,7 @@ otherCategorys = otherCategorys.filter(elem => (
 // console.log(otherCategorys);
 
 ---
-<Layout title={title.replace("{Наименование}",productName)} description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
+<Layout title={title.replace("{Наименование}",productName)} description=`${category} ${productName}` class="snap-y snap-mandatory">
     <div class="snap-center">
         <Hero class="min-h-svh">
             <NavBar slot="navbar" class="mx-auto container-center py-8"/>

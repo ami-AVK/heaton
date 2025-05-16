@@ -197,7 +197,7 @@ const title = model? model:category;
 
 
 ---
-<Layout title={title} description="Качественные панельные радиаторы от российского бренда" class="min-h-screen ">
+<Layout title={title} description=`Каталог продукции раздела ${category} модель ${model}` class="min-h-screen ">
     <section class="container-center">
         <NavBar slot="navbar" class="py-8"/>
         <BreadCrumbs slot="breadcrumbs" class='z-50' list={breadCrumbs}/> 
