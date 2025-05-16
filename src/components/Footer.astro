@@ -67,7 +67,7 @@ let links = [
 ] as Link[];
 ---
 
-<footer class="bg-neutral-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-primary" class:list={className}>
+<footer class="bg-neutral-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-primary px-8" class:list={className}>
   <div class=" container-center  min-h-[20svh] mx-auto p-4 md:py-8 text-neutral-500 flex flex-col px-8 md:px-0">
     <div class="pt-8 md:pt-16 sm:flex sm:items-start sm:justify-between">
       
@@ -125,6 +125,11 @@ let links = [
     <hr class=" sm:mx-auto border-neutral-300" />
     <span class="block py-8 text-sm sm:text-center">
       {copyrightText} <a href={copyrightLink.href} class="hover:underline">{copyrightLink.text}</a>
+    </span>
+  </div>
+  <div class="mt-auto text-neutral-50/60 px-8 md:px-0 mx-auto">
+    <span class="block py-8 text-xs sm:text-center">
+      Информация о товарах, услугах и ценах, предоставленная на сайте, носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями ст. 437 ГК РФ
     </span>
   </div>
 </footer>
