@@ -110,7 +110,7 @@ const models = [
     longName: "Comfort",
     sub: null,
     url: `${URL_category}Comfort/`,
-    characteristics: [{ name: "Принудительная вентиляция", icon: false }],
+    characteristics: [{ name: "Естественная вентиляция", icon: true }],
     image: "floorComfort.webp",
   },
   {
@@ -265,7 +265,24 @@ const models = [
         ))
       }
     </ul>
-    <div class="snap-center min-h-[80vh]">
+    <ul class="grid grid-cols-12 gap-8 py-8 tracking-wider leading-relaxed text-lg">
+			<li class="my-2 md:my-0 col-span-full md:col-span-6_ relative p-8 bg-neutral-50/5 rounded-xl flex gap-8 items-center flex-col lg:flex-row">
+				<div class=" aspect-[3/2] w-full lg:w-[600px] h-full overflow-clip rounded-3xl bg-neutral-300">
+					<ImageDynamic imagePath="heater-feature_250kg.webp" altText='Верхняя решетка крыловидной формы' class="w-auto h-auto"/>
+				</div>
+				<div class="">
+					<div class="text-base md:text-lg font-black  text-primary uppercase  pb-4 text-balance">
+						<div class="">
+							Решетка выдерживает до 250 кг
+						</div>
+					</div>
+					<div class="text-base font-normal text-balance !leading-relaxed">
+						Прочная конструкция верхней решётки позволяет выдерживать значительные нагрузки — до 250 кг, что обеспечивает надёжность и безопасность эксплуатации даже в местах с высокой проходимостью
+					</div>
+				</div>
+			</li>
+		</ul>
+    <div class="snap-center min-h-[80vh] mt-16">
       <ImageSwitcher images={coloring} class="md:w-full h-full md:h-auto md:aspect-video" />
     </div>
     <!-- <ul class="flex flex-wrap gap-8 lg:gap-16  flex-grow justify-between snap-center">			
