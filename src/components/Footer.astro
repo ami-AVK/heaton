@@ -2,7 +2,7 @@
 import Logo from '../svg/logo_big.svg';
 import LogoSmall from '../svg/logo_small.svg';
 import { Icon } from 'astro-icon/components';
-import { getCatalogLinks, getNavigationLinks } from '../utils/productUtils';
+import { getCatalogLinks, getCategoryLinks, getNavigationLinks } from '../utils/productUtils';
 import ModelsRow from './ModelsRow.astro';
 import type { Link } from '../types/common';
 import Socials from './Socials.astro';
@@ -36,6 +36,35 @@ const docLinks = [
   {text:"Пользовательское соглашение",href:URL_agreement},
   {text:"Рекомендательные технологии",href:URL_recomends},
 ]
+let links = [
+  {
+    url:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы`,
+    text:"Стальные панельные радиаторы",
+    links:getCategoryLinks("Стальные панельные радиаторы")
+  },
+  {
+    url:``,
+    text:"Конвекторы",
+    links:[
+      {
+        url:`${import.meta.env.BASE_URL}/Напольные конвекторы Step`,
+        text:"Напольные конвекторы Step",
+        // links:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы`
+      },
+      {
+        url:`${import.meta.env.BASE_URL}/Внутрипольные конвекторы Comfort`,
+        text:"Внутрипольные конвекторы Comfort",
+        // links:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы`
+      },
+      {
+        url:`${import.meta.env.BASE_URL}/Внутрипольные конвекторы Comfort Turbo`,
+        text:"Внутрипольные конвекторы Comfort Turbo",
+        // links:`${import.meta.env.BASE_URL}/Стальные панельные радиаторы`
+      },
+    ]
+  }
+
+] as Link[];
 ---
 
 <footer class="bg-neutral-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-primary" class:list={className}>
@@ -61,15 +90,15 @@ const docLinks = [
         
         <div class="text-neutral-50/80 my-1">
           <h5 class="text-sm md:text-base font-black uppercase text-neutral-50/60">Каталог продукции:</h5>
-          <ul >
+          <ul class="">
             {
-              catalogLinks.map((element:Link)=>(
-                  <li class="pl-0 my-1 md:my-2 text-neutral-50/60">
-                    <a href={element.url} class="flex-row  pointer-events-auto cursor-pointer">
-                      {/* <Icon name="At sign" class="size-6"/> */}
-                      <span class="whitespace-nowrap block text-xs md:text-base ">{element.text}</span>
+              links.map((element:Link)=>(
+                  <li class="py-2">
+                    <a href={element.url} class="p-2 flex gap-2 flex-row hover:bg-neutral-100 pointer-events-auto cursor-pointer rounded-lg">
+                      <Icon name="At sign" class="size-6"/>
+                      <span class="whitespace-nowrap block">{element.text}</span>
                     </a>
-                    <ModelsRow links={element.links} class="pl-3" data-small data-simple/>
+                    <ModelsRow links={element.links} class="pl-8"/>
                   </li>
                 ))
             }

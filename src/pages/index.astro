@@ -1,203 +1,271 @@
 ---
-
-import Layout from '../layouts/main.astro'
+import Layout from "../layouts/main.astro";
 // import BackgroundImage from 'astr'
-import Hero from '../components/Hero.astro';
-import NavBar from '../components/NavBar.astro';
-import BreadCrumbs from '../components/BreadCrumbs.astro';
-import LogoSmall from '../svg/logo_small.svg';
-import { Image } from "astro:assets"
-import heater from "../img/main_heaters_.webp"
-import banner_1 from "../img/banner_1.png"
-import step from "../img/step.webp"
-import HF_Comfort from "../img/HF_Comfort.webp"
-import factoid_images_models from "../img/models.webp"
-import factoid_images_toppanel from "../img/top_panel.webp"
-import Factoid from '../components/Factoid.astro';
-import { Icon } from 'astro-icon/components';
-import Button from '../components/Button.astro';
-import ModelCard from '../components/_ModelCard.astro';
-import Calculator from '../components/Calculator.astro';
-import Socials from '../components/Socials.astro';
-import Footer from '../components/Footer.astro';
-import Contact from '../components/Contact.astro';
-import Logo from '../svg/logo_big.svg';
-import Feature from '../components/Feature.astro';
-import FullScreenBanner from '../components/FullScreenBanner.astro';
-import objectsData from '../data/objects.json';
-import ColumnList from '../components/ColumnList.astro';
-import ImageDynamic from '../components/ImageDynamic.astro';
+import Hero from "../components/Hero.astro";
+import NavBar from "../components/NavBar.astro";
+import BreadCrumbs from "../components/BreadCrumbs.astro";
+import LogoSmall from "../svg/logo_small.svg";
+import { Image } from "astro:assets";
+import heater from "../img/main_heaters_.webp";
+import banner_1 from "../img/banner_1.png";
+import step from "../img/step.webp";
+import HF_Comfort from "../img/HF_Comfort.webp";
+import factoid_images_models from "../img/models.webp";
+import factoid_images_toppanel from "../img/top_panel.webp";
+import Factoid from "../components/Factoid.astro";
+import { Icon } from "astro-icon/components";
+import Button from "../components/Button.astro";
+import ModelCard from "../components/_ModelCard.astro";
+import Calculator from "../components/Calculator.astro";
+import Socials from "../components/Socials.astro";
+import Footer from "../components/Footer.astro";
+import Contact from "../components/Contact.astro";
+import Logo from "../svg/logo_big.svg";
+import Feature from "../components/Feature.astro";
+import FullScreenBanner from "../components/FullScreenBanner.astro";
+import objectsData from "../data/objects.json";
+import ColumnList from "../components/ColumnList.astro";
+import ImageDynamic from "../components/ImageDynamic.astro";
 
-interface Button{
-    text: string,
-    icon: string,
-    url:string
+interface Button {
+  text: string;
+  icon: string;
+  url: string;
 }
 
-const URL_main = `${import.meta.env.BASE_URL}/`
-const URL_category = `${URL_main}Каталог/Стальные панельные радиаторы/`
-const URL_model = `${URL_category}Compact/`
+const URL_main = `${import.meta.env.BASE_URL}/`;
+const URL_category = `${URL_main}Каталог/Стальные панельные радиаторы/`;
+const URL_model = `${URL_category}Compact/`;
 
-
-const mainImageDescription = "Стальной панельный радиатор Heaton в разрезе"
+const mainImageDescription = "Стальной панельный радиатор Heaton в разрезе";
 ---
-<Layout title="Стальные панельные радиаторы Heaton" description="Качественные панельные радиаторы от российского бренда" class="snap-y snap-mandatory">
-    <section class="min-h-svh snap-center">
 
-        <NavBar slot="navbar" class="mx-auto container-center py-8 absolute top-0 w-full right-0 left-0"/>
-
-		<div class="w-full relative">
-			<div class="swiper default-carousel swiper-container">
-			<div class="swiper-wrapper flex">
-			 <div class="swiper-slide">
-				<FullScreenBanner image="banner_1.webp"/>
-			 </div>
-			 <div class="swiper-slide">
-				<FullScreenBanner image="banner_2.webp"/>
-			 </div>
-			</div>
-			<div class="absolute w-full top-1/2 ">
-				<button id="slider-button-left" class="swiper-button-prev group p-2 flex justify-center items-center size-12 bg-neutral-50/20 shadow-lg transition-colors rounded-xl  hover:bg-primary left-8 absolute" data-carousel-prev>
-				<svg class="h-5 w-5 text-neutral-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-					<path d="M10.0002 11.9999L6 7.99971L10.0025 3.99719" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-				</svg>
-				</button>
-				<button id="slider-button-right" class="swiper-button-next group p-2 flex justify-center items-center size-12 bg-neutral-50/20 shadow-lg transition-colors rounded-xl hover:bg-primary right-8 absolute" data-carousel-next>
-				<svg class="h-5 w-5 text-neutral-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-					<path d="M5.99984 4.00012L10 8.00029L5.99748 12.0028" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-				</svg>
-				</button>
-			</div>
-				<div class="swiper-pagination absolute z-50"></div>
-			</div>
-			</div>
-
-
-
-        <div class="mx-auto flex flex-col items-center">
-            <!-- <Socials class="mb-6 md:mb-12 text-primary"/> -->
-            <!-- <Image alt={mainImageDescription} src={heater} slot="image" class="w-1/2"/> -->
+<Layout
+  title="Стальные панельные радиаторы Heaton"
+  description="Качественные панельные радиаторы от российского бренда"
+  class="snap-y snap-mandatory"
+>
+  <section class="min-h-svh snap-center">
+    <NavBar
+      slot="navbar"
+      class="mx-auto container-center py-8 absolute top-0 w-full right-0 left-0"
+    />
+    <div class="w-full relative">
+      <FullScreenBanner image="banner_1.webp" />
+    </div>
+    <!-- <div class="w-full relative">
+      <div class="swiper default-carousel swiper-container">
+        <div class="swiper-wrapper flex">
+          <div class="swiper-slide">
+            <FullScreenBanner image="banner_1.webp" />
+          </div>
+          <div class="swiper-slide">
+            <FullScreenBanner image="banner_2.webp" />
+          </div>
         </div>
-    </section>
-	<section class="snap-start container-center py-16 mx-auto ">
-		<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 py-16 tracking-wider leading-relaxed text-lg">
-			<li class="sm:col-span-2 sm:row-span-2 rounded-xl p-8 flex flex-col ">
-				<div class="w-3/4 sm:w-1/2 lg:w-1/3 mb-16 text-primary">
-					<Logo/>
-				</div>
-				<p class="mt-auto text-lg md:text-xl tracking-wider leading-loose my-4 sm:my-8">
-					Бренд Heaton — это современный бренд, предлагающий широкий ассортимент отопительного оборудования, включая стальные панельные радиаторы, внутрипольные и напольные конвекторы 
-					<!-- <br>Продукция Heaton производится на нескольких заводах, включая известный турецкий завод ELBA с более чем 50-летним опытом, что гарантирует высочайшее качество и надежность. 
+        <div class="absolute w-full top-1/2">
+          <button
+            id="slider-button-left"
+            class="swiper-button-prev group p-2 flex justify-center items-center size-12 bg-neutral-50/20 shadow-lg transition-colors rounded-xl hover:bg-primary left-8 absolute"
+            data-carousel-prev
+          >
+            <svg
+              class="h-5 w-5 text-neutral-600 group-hover:text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M10.0002 11.9999L6 7.99971L10.0025 3.99719"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </button>
+          <button
+            id="slider-button-right"
+            class="swiper-button-next group p-2 flex justify-center items-center size-12 bg-neutral-50/20 shadow-lg transition-colors rounded-xl hover:bg-primary right-8 absolute"
+            data-carousel-next
+          >
+            <svg
+              class="h-5 w-5 text-neutral-600 group-hover:text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M5.99984 4.00012L10 8.00029L5.99748 12.0028"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="swiper-pagination absolute z-50"></div>
+      </div>
+    </div> -->
+
+    <div class="mx-auto flex flex-col items-center">
+      <!-- <Socials class="mb-6 md:mb-12 text-primary"/> -->
+      <!-- <Image alt={mainImageDescription} src={heater} slot="image" class="w-1/2"/> -->
+    </div>
+  </section>
+  <section class="snap-start container-center py-16 mx-auto">
+    <ul
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 py-16 tracking-wider leading-relaxed text-lg"
+    >
+      <li class="sm:col-span-2 sm:row-span-2 rounded-xl p-8 flex flex-col">
+        <div class="w-3/4 sm:w-1/2 lg:w-1/3 mb-16 text-primary">
+          <Logo />
+        </div>
+        <p
+          class="mt-auto text-lg md:text-xl tracking-wider leading-loose my-4 sm:my-8"
+        >
+          Бренд Heaton — это современный бренд, предлагающий широкий ассортимент
+          отопительного оборудования, включая стальные панельные радиаторы,
+          внутрипольные и напольные конвекторы
+          <!-- <br>Продукция Heaton производится на нескольких заводах, включая известный турецкий завод ELBA с более чем 50-летним опытом, что гарантирует высочайшее качество и надежность. 
 					<br>Бренд сочетает в себе инновационные технологии, доступные цены и строгое соответствие международным стандартам, таким как ГОСТ 31311. -->
-				</p>
-			</li>
-			<li class="col-span-1 row-span-3 bg-primary rounded-xl p-8 flex flex-col text-neutral-50 drop-shadow-primary-m">
-				<h3 class="font-black uppercase pb-4 text-2xl text-neutral-50">Техническая поддержка</h3>
-				<p class="mt-auto text-lg md:text-xl">
-					Бренд предоставляет полную предпродажную и послепродажную поддержку, включая консультации, помощь в подборе оборудования и гарантийное обслуживание
-				</p>
-			</li>
-			<li class="col-span-1 bg-neutral-50/40 rounded-xl p-8 flex flex-col">
-				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Гарантия</h3>
-				<p class="mt-auto text-lg md:text-xl">
-					Heaton предлагает гарантию до 10 лет на свою продукцию, что подтверждает долговечность и надежность оборудования
-				</p>
-			</li>
-			<li class="col-span-1 bg-neutral-50/40 rounded-xl p-8">
-				<h3 class="font-black uppercase pb-4 text-2xl text-primary">Выбор</h3>
-				<p class="mt-auto text-lg md:text-xl">
-					Heaton предлагает широкий типоразмерный ряд радиаторов и конвекторов, что позволяет подобрать оборудование для помещений любого типа и площади
-				</p>
-				
-			</li>
-		</ul>
-		<!-- <h2 class="text-3xl font-semibold md:text-4xl uppercase mx-auto mb-2 md:mb-8">Наша продукция:</h2> -->
-		<ul class="flex flex-col gap-8 lg:gap-16 my-16">
-			{
-				[
-					{
-						"header": "Стальные панельные радиаторы",
-						"image": "Стальные панельные радиаторы.webp",
-						"text": "Обеспечьте свой дом равномерным и комфортным теплом с нашими стальными панельными радиаторами Heaton. Современный дизайн и высокая эффективность делают их идеальным выбором для любого интерьера. Наслаждайтесь уютом и экономией на отоплении!",
-						"url": `${import.meta.env.BASE_URL}/Стальные панельные радиаторы`
-					},
-					{
-						"header": "Напольные конвекторы",
-						"image": "Напольные конвекторы.webp",
-						"text": "Напольные конвекторы Heaton — это сочетание стиля и функциональности. Быстрое нагревание и мощная циркуляция воздуха обеспечат вам тепло даже в самых холодных условиях. Идеально подходят для офисов и жилых помещений.",
-						"reverse":true,
-						"url": `${import.meta.env.BASE_URL}/Напольные конвекторы`
-					},
-					{
-						"header": "Внутрипольные конвекторы",
-						"image": "Внутрипольные конвекторы.webp",
-						"text": "Внутрипольные конвекторы Heaton — это незаметное и эффективное решение для отопления. Они сохраняют пространство и обеспечивают равномерное распределение тепла по всей комнате. Поддерживайте комфортный микроклимат без лишних элементов в интерьере.",
-						"url": `${import.meta.env.BASE_URL}/Внутрипольные конвекторы`
-					}
-				].map((element) => (
-					<li class="p-2 md:text-lg rounded-3xl relative flex flex-col md:flex-row items-center gap-4 md:gap-16 bg-neutral-50/50 group hover:bg-primary-10">
-						<div class=" drop-shadow-primary-hard-sm md:drop-shadow-primary-hard-lg lg:drop-shadow-primary-hard drop order-1 relative scale-105" class:list={[{"md:order-2":element.reverse}]}>
-							<ImageDynamic imagePath={element.image} altText='element.header' />
-						</div>
-						<div class="order-2 p-4 md:p-8" class:list={[{"md:order-1":element.reverse}]}>
-							<h3 class="text-xl mb-6 md:mb-12 md:text-3xl uppercase tracking-wider font-black text-balance md:pl-4">{element.header}</h3>
-							<p class="text-balance mb-6 md:mb-14 tracking-widest leading-normal md:leading-relaxed md:pl-4 ">{element.text}</p>
-							<a class="px-4 my-2 py-2 text-lg md:text-xl rounded-lg text-neutral-50 bg-primary block text-center md:text-left md:inline-block" href={element.url}>Перейти в раздел</a>
-						</div>
-					</li>
-				))
-			}		
-		</ul>
-	</section>
-	<section class="snap-center container-center mx-auto">
-		<Contact/>
-	</section>
+        </p>
+      </li>
+      <li
+        class="col-span-1 row-span-3 bg-primary rounded-xl p-8 flex flex-col text-neutral-50 drop-shadow-primary-m"
+      >
+        <h3 class="font-black uppercase pb-4 text-2xl text-neutral-50">
+          Техническая поддержка
+        </h3>
+        <p class="mt-auto text-lg md:text-xl">
+          Бренд предоставляет полную предпродажную и послепродажную поддержку,
+          включая консультации, помощь в подборе оборудования и гарантийное
+          обслуживание
+        </p>
+      </li>
+      <li class="col-span-1 bg-neutral-50/40 rounded-xl p-8 flex flex-col">
+        <h3 class="font-black uppercase pb-4 text-2xl text-primary">
+          Гарантия
+        </h3>
+        <p class="mt-auto text-lg md:text-xl">
+          Heaton предлагает гарантию до 10 лет на свою продукцию, что
+          подтверждает долговечность и надежность оборудования
+        </p>
+      </li>
+      <li class="col-span-1 bg-neutral-50/40 rounded-xl p-8">
+        <h3 class="font-black uppercase pb-4 text-2xl text-primary">Выбор</h3>
+        <p class="mt-auto text-lg md:text-xl">
+          Heaton предлагает широкий типоразмерный ряд радиаторов и конвекторов,
+          что позволяет подобрать оборудование для помещений любого типа и
+          площади
+        </p>
+      </li>
+    </ul>
+    <!-- <h2 class="text-3xl font-semibold md:text-4xl uppercase mx-auto mb-2 md:mb-8">Наша продукция:</h2> -->
+    <ul class="flex flex-col gap-8 lg:gap-16 my-16">
+      {
+        [
+          {
+            header: "Стальные панельные радиаторы",
+            image: "Стальные панельные радиаторы.webp",
+            text: "Обеспечьте свой дом равномерным и комфортным теплом с нашими стальными панельными радиаторами Heaton. Современный дизайн и высокая эффективность делают их идеальным выбором для любого интерьера. Наслаждайтесь уютом и экономией на отоплении!",
+            url: `${import.meta.env.BASE_URL}/Стальные панельные радиаторы`,
+          },
+          {
+            header: "Напольные конвекторы",
+            image: "Напольные конвекторы.webp",
+            text: "Напольные конвекторы Heaton — это сочетание стиля и функциональности. Быстрое нагревание и мощная циркуляция воздуха обеспечат вам тепло даже в самых холодных условиях. Идеально подходят для офисов и жилых помещений.",
+            reverse: true,
+            url: `${import.meta.env.BASE_URL}/Напольные конвекторы Step`,
+          },
+          {
+            header: "Внутрипольные конвекторы",
+            image: "Внутрипольные конвекторы.webp",
+            text: "Внутрипольные конвекторы Heaton — это незаметное и эффективное решение для отопления. Они сохраняют пространство и обеспечивают равномерное распределение тепла по всей комнате. Поддерживайте комфортный микроклимат без лишних элементов в интерьере.",
+            url: `${import.meta.env.BASE_URL}/Внутрипольные конвекторы Comfort`,
+          },
+        ].map((element) => (
+          <li class="p-2 md:text-lg rounded-3xl relative flex flex-col md:flex-row items-center gap-4 md:gap-16 bg-neutral-50/50 group hover:bg-primary-10">
+            <div
+              class=" drop-shadow-primary-hard-sm md:drop-shadow-primary-hard-lg lg:drop-shadow-primary-hard drop order-1 relative scale-105"
+              class:list={[{ "md:order-2": element.reverse }]}
+            >
+              <ImageDynamic
+                imagePath={element.image}
+                altText="element.header"
+              />
+            </div>
+            <div
+              class="order-2 p-4 md:p-8"
+              class:list={[{ "md:order-1": element.reverse }]}
+            >
+              <h3 class="text-xl mb-6 md:mb-12 md:text-3xl uppercase tracking-wider font-black text-balance md:pl-4">
+                {element.header}
+              </h3>
+              <p class="text-balance mb-6 md:mb-14 tracking-widest leading-normal md:leading-relaxed md:pl-4 ">
+                {element.text}
+              </p>
+              <a
+                class="px-4 my-2 py-2 text-lg md:text-xl rounded-lg text-neutral-50 bg-primary block text-center md:text-left md:inline-block"
+                href={element.url}
+              >
+                Перейти в раздел
+              </a>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section class="snap-center container-center mx-auto">
+    <Contact />
+  </section>
 
-	<section class="snap-center container-center mx-auto min-h-screen py-16 flex flex-col">
-		<!-- <h2 class="text-3xl font-semibold md:text-4xl uppercase mx-auto mb-2 md:mb-8">Объекты комплектации</h2> -->
-		<ColumnList data={objectsData} class="mt-16" />
-	</section>
+  <section
+    class="snap-center container-center mx-auto min-h-screen py-16 flex flex-col"
+  >
+    <!-- <h2 class="text-3xl font-semibold md:text-4xl uppercase mx-auto mb-2 md:mb-8">Объекты комплектации</h2> -->
+    <ColumnList data={objectsData} class="mt-16" />
+  </section>
 
-	
-	
+  <!-- <Contact/> -->
+  <!-- calculator -->
 
-	
-
-	<!-- <Contact/> -->
-	<!-- calculator -->
-	 
-	<Footer class="mt-auto snap-center bg-neutral-300"/>
+  <Footer class="mt-auto snap-center bg-neutral-300" />
 </Layout>
 
 <script>
-	import Swiper from 'swiper/bundle'
-	
-	let swiper = initSwiper();
-	function initSwiper(){
-		var swiper = new Swiper(".default-carousel", {
-			loop: true,
-			pagination: {
-			el: ".swiper-pagination",
-			clickable: true,
-			},
-			navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev",
-		},
-		});
-		return swiper
-	}
-	
-	document.addEventListener('astro:before-swap', () => {
-		swiper.destroy();
-		// console.log("before")
-	});
+  import Swiper from "swiper/bundle";
 
-	document.addEventListener('astro:page-load', () => {
-		// console.log(swiper)
-		swiper = initSwiper();
-		// swiper.enable;
-		// if(!swiper)
-	});
-	// console.log(swiper)
+  let swiper = initSwiper();
+  function initSwiper() {
+    var swiper = new Swiper(".default-carousel", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+    return swiper;
+  }
+
+  document.addEventListener("astro:before-swap", () => {
+    swiper.destroy();
+    // console.log("before")
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    // console.log(swiper)
+    swiper = initSwiper();
+    // swiper.enable;
+    // if(!swiper)
+  });
+  // console.log(swiper)
 </script>

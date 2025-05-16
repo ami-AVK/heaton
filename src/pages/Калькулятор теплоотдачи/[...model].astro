@@ -15,6 +15,7 @@ import EnhancedTable from '../../components/EnhancedTable/EnhancedTable.astro';
 import TableFilters from '../../components/EnhancedTable/TableFilters.astro';
 import LogoSmall from '../../svg/logo_small.svg';
 import HeatOutputTable from '../../components/HeatOutputTable.astro'; // <-- Import the new component
+import HeatOutputTable2 from '../../components/HeatOutputTable2.astro'; // <-- Import the new component
 
 export async function getStaticPaths() {
     let paths=[] as any[]
@@ -22,7 +23,7 @@ export async function getStaticPaths() {
     var uniqueCategories = Object.keys(sitemap);
 
     for (const key in sitemap as any) {
-        if(key!="Стальные панельные радиаторы"){
+        if(key!="Стальные панельные радиаторы" && key!="Напольные конвекторы"){
             continue;
         }
         const category = sitemap[key] as Category
@@ -137,10 +138,10 @@ let models_all = allModels.map((element:String) => (
                 characteristics = ["Нижнее подключение"]
                 break;
             case 'Hygiene Ventil Compact':
-                characteristics = ["Нижнее подключение","Гигиенический"]
+                characteristics = ["Нижнее подключение","Гигиеническое исполнение"]
                 break;
             case 'Hygiene Compact':
-                characteristics = ["Боковое подключение","Гигиенический"]
+                characteristics = ["Боковое подключение","Гигиеническое исполнение"]
                 break;
         }
         model.characteristics = characteristics;
@@ -199,16 +200,21 @@ const title = model? model:category;
     const heights = getUniqueValues(products, 'Высота, мм');
     const lengths = getUniqueValues(products, 'Длина, мм');
     const powers = getUniqueValues(products, 'Теплоотдача, Вт');
-
-
+    // 
+// Функция для выбора подписи
+function getCapture(category:string) {
+  if (category == "Стальные панельные радиаторы") return "Стандартный режим ΔT=70°C (105/75/20). Базовые значения в таблице указаны для ΔT=70°C";
+  if (category == "Напольные конвекторы") return "Стандартный режим ΔT=70°C (95/85/20). Базовые значения в таблице указаны для ΔT=70°C";
+  return "";
+} 
 ---
-<Layout title={title} description="Качественные панельные радиаторы от российского бренда" class="min-h-screen ">
+<Layout title={title} description=`Калькулятор теплоотдачи для ${category}` class="min-h-screen ">
     <section class="container-center">
         <NavBar slot="navbar" class="py-8"/>
         <!-- <BreadCrumbs slot="breadcrumbs" class='z-50' list={breadCrumbs}/>  -->
     </section>
     <div class="relative container-center">
-        <h1 class="text-2xl lg:text-4xl xl:text-5xl mb-[2svh] md:mt-[10svh] font-black uppercase z-20">Калькулятор теплоотдачи<br><span class="font-normal">Стальных панельных радиаторов</span></h1>
+        <h1 class="text-2xl lg:text-4xl xl:text-5xl mb-[2svh] md:mt-[10svh] font-black uppercase z-20">Калькулятор теплоотдачи<br><span class="font-normal">{category}</span></h1>
         <LogoSmall class="absolute -z-10 right-4 md:right-10 w-48 md:w-64 lg:w-96 text-neutral-100 -top-16 lg:-top-32"/>
     </div>
     <div class="container-center md:px-8 mx-auto  flex gap-16 flex-1 overflow-x-auto lg:overflow-visible">
@@ -256,7 +262,15 @@ const title = model? model:category;
     <div class="container-center md:px-8 mx-auto mb-4 md:pb-6 flex flex-col gap-8 flex-1">
         {/* Input fields for calculation */}
         <div class="w-full p-4 border rounded-lg bg-neutral-100">
-            <h3 class="text-lg font-semibold mb-3">Параметры расчета:</h3>
+            <div class="flex gap-4">
+                <h3 class="text-lg font-semibold mb-3">Параметры расчета:</h3>
+                <div class="flex gap-4">
+                    <!-- <button type="button" id="resetCalcBtn" class="px-4 py-2 bg-neutral-300 rounded hover:bg-primary hover:text-white transition">Сбросить</button> -->
+                    <button type="button" class="preset-btn px-1.5 block h-min py-0.5 bg-neutral-200 rounded hover:bg-primary hover:text-white transition" data-preset="105,75,20">105/75/20</button>
+                    <button type="button" class="preset-btn px-1.5 block h-min py-0.5 bg-neutral-200 rounded hover:bg-primary hover:text-white transition" data-preset="95,85,20">95/85/20</button>
+                </div>
+            </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                     <label for="supplyTemp" class="block text-sm font-medium text-gray-700 mb-1">Температура подачи (°C):</label>
@@ -271,13 +285,16 @@ const title = model? model:category;
                     <input type="number" id="ambientTemp" value="20" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
                 </div>
             </div>
-             <p class="text-xs text-gray-500 mt-2">Стандартный режим ΔT=70°C (105/75/20). Базовые значения в таблице указаны для ΔT=70°C.</p>
+             <p class="text-xs text-gray-500 mt-2">{getCapture(category)}</p>
         </div>
 
         {/* Heat Output Table */}
-        <div class="w-full" id="heatTableContainer"> {/* Added ID for easier selection */}
-            
-            <HeatOutputTable products={products} /> {/* <-- Use the component here */}
+        <div class="w-full mb-32" id="heatTableContainer" data-exponent=1.3> {/* Added ID for easier selection */}
+            {
+            category=="Напольные конвекторы"?
+            <HeatOutputTable2 products={products} />:
+            <HeatOutputTable products={products} />
+            }
         </div>
     </div>
     <Footer class="mt-auto"/>
@@ -290,12 +307,30 @@ const title = model? model:category;
     let ambientTempInput:HTMLInputElement;
     let deltaT:HTMLSpanElement;
     let tableContainer:any;
+    let resetButton:HTMLButtonElement;
+    let presetsButtons:NodeListOf<HTMLButtonElement>;
 
     let standardDeltaT:number;
     let exponentN:number;
+    let exponent:object;
     calculator_init();      
 
   function calculator_init() {
+ 
+    // resetButton = document.getElementById('resetCalcBtn') as HTMLButtonElement;
+    // resetButton.onclick = function() {
+    //     applyPreset(105,75,20);
+    // };
+    
+    presetsButtons = document.querySelectorAll('.preset-btn');
+    presetsButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            if(this.dataset.preset){
+                const [supply, ret, ambient] = this.dataset.preset.split(',').map(Number);
+                applyPreset(supply, ret, ambient);
+            }
+        });
+    });
     supplyTempInput = document.getElementById('supplyTemp') as HTMLInputElement;
     returnTempInput = document.getElementById('returnTemp') as HTMLInputElement;
     ambientTempInput = document.getElementById('ambientTemp') as HTMLInputElement;
@@ -310,6 +345,13 @@ const title = model? model:category;
     returnTempInput.addEventListener('input', calculateAndUpdateTable);
     ambientTempInput.addEventListener('input', calculateAndUpdateTable);
   }
+
+  function applyPreset(supply:number, ret:number, ambient:number) {
+        supplyTempInput.value = supply.toString();
+        returnTempInput.value = ret.toString();
+        ambientTempInput.value = ambient.toString();
+        calculateAndUpdateTable();
+    }
 
 
 
@@ -363,12 +405,20 @@ const title = model? model:category;
     tableLinks.forEach(link => {
       const anchor = link as HTMLAnchorElement;
       const basePowerStr = anchor.dataset.power;
+      let baseExponent:number;
+      if(anchor.dataset.exponent){
+        baseExponent = parseFloat(anchor.dataset.exponent);
+      }
+      else{
+        baseExponent = exponentN;
+      }
 
       if (basePowerStr) {
         const basePower = parseFloat(basePowerStr);
+        const exponent = baseExponent;
         if (!isNaN(basePower) && basePower > 0 && currentDeltaT > 0) {
           // Calculate new power: Q = Q_norm * (ΔT / ΔT_norm)^n
-          const newPower = basePower * Math.pow(currentDeltaT / standardDeltaT, exponentN);
+          const newPower = basePower * Math.pow(currentDeltaT / standardDeltaT, exponent);
           anchor.textContent = Math.round(newPower).toString(); // Update text content
         } else if (basePowerStr === '-') {
              anchor.textContent = '-'; // Keep dash if base power is dash
@@ -386,7 +436,7 @@ const title = model? model:category;
 
   // --- Initial Load ---
   document.addEventListener('astro:page-load', () => {
-        calculator_init();
+    calculator_init();
       loadSettings();
       calculateAndUpdateTable();
 

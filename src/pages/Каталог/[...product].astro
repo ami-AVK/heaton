@@ -205,7 +205,7 @@ switch (category){
         },
         {
             header: "Ширина:",
-            value: `${lenght} мм`,
+            value: `${width} мм`,
             variants: widthProducts.map(p => ({ value: p['Ширина, мм'], product: p }))
         },
         {
@@ -217,10 +217,10 @@ switch (category){
             header: "Мощность:",
             value: `${power} Вт`,
             variants: null,
+            interactive: true
         }
     ] as Characteristic[];
     // console.log(characteristics[1].variants);
-
   
     switch (model){
         case 'Comfort':
@@ -246,7 +246,11 @@ if(weight){
     characteristics.push(w);
 }
 
-const imagePath = `/src/images/products/${product['Изображение']}`
+let imagePath = `/src/images/products/${product['Изображение']}`
+console.log(imagePath);
+if(category == 'Стальные панельные радиаторы'){
+    imagePath = `/src/images/products/${type}.webp`
+}
 const imageAlt = `${category} Heaton ${product['Наименование']}`
 const productName = product['Наименование']
 
@@ -383,13 +387,13 @@ otherCategorys = otherCategorys.filter(elem => (
 						"image": "Напольные конвекторы.webp",
 						"text": "Напольные конвекторы Heaton — это сочетание стиля и функциональности. Быстрое нагревание и мощная циркуляция воздуха обеспечат вам тепло даже в самых холодных условиях. Идеально подходят для офисов и жилых помещений.",
 						"reverse":true,
-						"url": `${import.meta.env.BASE_URL}/Напольные конвекторы`
+						"url": `${import.meta.env.BASE_URL}/Напольные конвекторы Step`
 					},
 					{
 						"header": "Внутрипольные конвекторы",
 						"image": "Внутрипольные конвекторы.webp",
 						"text": "Внутрипольные конвекторы Heaton — это незаметное и эффективное решение для отопления. Они сохраняют пространство и обеспечивают равномерное распределение тепла по всей комнате. Поддерживайте комфортный микроклимат без лишних элементов в интерьере.",
-						"url": `${import.meta.env.BASE_URL}/Внутрипольные конвекторы`
+						"url": `${import.meta.env.BASE_URL}/Внутрипольные конвекторы Comfort`
 					}
 				].filter((e)=>e.header!=category).map((element) => (
 					<li class="p-2 md:text-lg rounded-3xl relative flex flex-col md:flex-row items-center gap-4 md:gap-16 bg-neutral-50 group hover:bg-primary-10">

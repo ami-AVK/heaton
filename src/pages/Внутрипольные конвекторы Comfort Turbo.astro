@@ -32,22 +32,22 @@ const chars = [
     value:
       "Натуральный алюминий, чёрный, золото, светлая бронза, темная бронза и любой цвет по RAL",
   },
-  { name: "Доступная глубина", value: "75, 80, 90, 110, 150, 190" },
-  { name: "Доступная ширина", value: "200, 250, 300, 400" },
-  { name: "Доступная длина", value: "800—3000 (шаг 100 мм)" },
+  { name: "Производимая глубина", value: "75, 80, 90, 110, 150, 190" },
+  { name: "Производимая ширина", value: "200, 250, 300, 400" },
+  { name: "Производимая длина", value: "800—3000 (шаг 100 мм)" },
   { name: "Гарантия", value: "10 лет" },
 ];
 const features = [
   {
     icon: "Like",
     header: "Высочайшее качество",
-    explain: "Качество подтверждено в аккредитованной лаборатории.",
+    explain: "Качество подтверждено в аккредитованной лаборатории",
   },
   {
     icon: "Delivery",
     header: "Быстрые сроки поставки",
     explain:
-      "Максимально быстрые сроки поставки в случае отсутствия товара на складах.",
+      "Максимально быстрые сроки поставки в случае отсутствия товара на складах",
   },
   {
     icon: "Widget 5",
@@ -57,18 +57,18 @@ const features = [
   {
     icon: "Shield Check",
     header: "Гарантия 10 лет",
-    explain: "Гарантия на продукцию составляет 10 лет.",
+    explain: "Гарантия на продукцию составляет 10 лет",
   },
   {
-    icon: "Document",
-    header: "Сертифицированная продукция",
-    explain: "Продукция сертифицирована и имеет гигиенический сертификат.",
+    icon: "Map Point",
+    header: "Быстрые сроки поставки",
+    explain: "Сделано в России"
   },
   {
     icon: "Info Circle",
     header: "Удовлетворение потребностей клиента",
     explain:
-      "Закрываем любую потребность клиента по теплоотдаче и габаритам прибора.",
+      "Закрываем любую потребность клиента по теплоотдаче и габаритам прибора",
   },
 ];
 const coloring = [
@@ -156,14 +156,9 @@ const models = [
           class="px-4 grow py-1 md:text-xl rounded-lg text-neutral-50 bg-primary pt-8"
           href={URL_model}>Каталог</a
         >
-        <div
-          class="flex text-sm md:text-base font-medium flex-col md:flex-row gap-2 md:gap-4 md:items-end text-neutral-700"
-        >
-          <a href="#Models" class="px-4 py-1 rounded-lg bg-neutral-50">Модели</a
-          >
-          <a href="#Calculator" class="px-4 py-1 rounded-lg bg-neutral-50"
-            >Калькулятор</a
-          >
+        <div class="flex text-sm md:text-base font-medium flex-col md:flex-row gap-2  md:gap-4 md:items-end text-neutral-700">
+          <a href="#models" class="px-4 py-1  rounded-lg  bg-neutral-50">Модели</a>
+          <!-- <a href=`${URL_calculator}` class="px-4 py-1 rounded-lg  bg-neutral-50">Калькулятор</a> -->
         </div>
       </div>
     </Fragment>
@@ -221,16 +216,13 @@ const models = [
         </div>
       </li>
       <li
-        class="col-span-1 row-span-3 bg-primary rounded-xl p-8 flex flex-col text-neutral-50 drop-shadow-primary-m"
+        class="col-span-1 row-span-3 bg-neutral-50/40 rounded-xl p-8 flex flex-col "
       >
-        <h3 class="font-black uppercase pb-4 text-2xl text-neutral-50">
-          Техническая поддержка
-        </h3>
-        <p class="mt-auto">
-          Бренд предоставляет полную предпродажную и послепродажную поддержку,
-          включая консультации, помощь в подборе оборудования и гарантийное
-          обслуживание
-        </p>
+      <h3 class="font-black uppercase pb-4 text-2xl text-primary">Назначение</h3>
+      <p class="mt-auto text-base md:text-xl md:leading-relaxed">
+        Внутрипольные конвекторы Heaton Comfort TURBO с принудительной конвекцией предназначены для создания тепловой завесы перед большими стеклянными поверхностями зданий любого назначения, в качестве основного источника тепла или в сочетании с другими отопительными приборами или тёплым полом. Используются в однотрубных или двухтрубных закрытых насосных системах отопления.
+        <br>Конвектор комплектуется тангенциальными вентиляторами с энергосберегающими ЕС-двигателями постоянного тока 24 В и блоком питания и управления с возможностью плавного изменения скорости вращения вентиляторов
+      </p>
       </li>
       <li class="col-span-1 bg-neutral-50/40 rounded-xl p-8 flex flex-col">
         <h3 class="font-black uppercase pb-4 text-2xl text-primary">

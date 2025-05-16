@@ -22,6 +22,7 @@ import ImageDynamic from '../components/ImageDynamic.astro';
 const URL_main = `${import.meta.env.BASE_URL}/`
 const URL_category = `${URL_main}Каталог/Напольные конвекторы/`
 const URL_model = `${URL_category}Step/`
+const URL_calculator = `${import.meta.env.BASE_URL}/Калькулятор теплоотдачи/Напольные конвекторы/Step`;
 
 const mainImageDescription = "Стальной панельный радиатор Heaton в разрезе"
 const features = [
@@ -50,15 +51,15 @@ const features = [
     "value": "Натуральный алюминий, чёрный, золото, светлая бронза, темная бронза и любой цвет по RAL"
   },
   {
-    "name": "Доступная глубина (высота)",
+    "name": "Производимая высота",
     "value": "80, 130, 180"
   },
   {
-    "name": "Доступная ширина",
+    "name": "Производимая ширина",
     "value": "130, 180"
   },
   {
-    "name": "Доступная длина",
+    "name": "Производимая длина",
     "value": "500—3000 (шаг 100 мм)"
   },
   {
@@ -98,7 +99,7 @@ const features = [
                 <a class="px-4 grow py-1 md:text-xl rounded-lg text-neutral-50 bg-primary pt-8" href={URL_model}>Каталог</a>
                 <div class="flex text-sm md:text-base font-medium flex-col md:flex-row gap-2  md:gap-4 md:items-end text-neutral-700">
                     <!-- <a href="#Models" class="px-4 py-1  rounded-lg  bg-neutral-50">Модели</a> -->
-                    <a href="#Calculator" class="px-4 py-1 rounded-lg  bg-neutral-50">Калькулятор</a>
+                    <a href=`${URL_calculator}` class="px-4 py-1 rounded-lg  bg-neutral-50">Калькулятор</a>
                 </div>
             </div>
         </Fragment>

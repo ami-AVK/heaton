@@ -7,6 +7,7 @@ export interface Link {
 export interface Characteristic {
     header: string;
     value: string;
+    interactive?: boolean;
     variants?: Array<{
         value: string | number;
         product: Product;

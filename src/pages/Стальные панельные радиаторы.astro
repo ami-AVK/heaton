@@ -51,7 +51,7 @@ const mainImageDescription = "Стальной панельный радиато
             <div class="mt-4 md:mt-12 flex items-stretch gap-4 tracking-wider uppercase">
                 <a class="px-4 grow py-1 md:text-xl rounded-lg text-neutral-50 bg-primary pt-8" href={URL_model}>Каталог</a>
                 <div class="flex text-sm md:text-base font-medium flex-col md:flex-row gap-2  md:gap-4 md:items-end text-neutral-700">
-                    <a href="#Models" class="px-4 py-1  rounded-lg  bg-neutral-50">Модели</a>
+                    <a href="#models" class="px-4 py-1  rounded-lg  bg-neutral-50">Модели</a>
                     <a href=`${URL_calculator}` class="px-4 py-1 rounded-lg  bg-neutral-50">Калькулятор</a>
                 </div>
             </div>
@@ -96,15 +96,15 @@ const mainImageDescription = "Стальной панельный радиато
 							  "value": "RAL 9016 (белый)"
 							},
 							{
-							  "name": "Выпускаемые типы",
+							  "name": "Производимые типы",
 							  "value": "10, 11, 20, 21, 22, 30, 33"
 							},
 							{
-							  "name": "Выпускаемые высоты",
+							  "name": "Производимые высоты",
 							  "value": "300, 400, 500, 600, 900"
 							},
 							{
-							  "name": "Выпускаемые длины",
+							  "name": "Производимые длины",
 							  "value": "400-3000 мм (с шагом 100 мм)"
 							}
 						  ].map((characterisic)=>(
@@ -196,7 +196,7 @@ const mainImageDescription = "Стальной панельный радиато
 		</ul>
 		<ul class="grid grid-cols-12 gap-8 py-8 tracking-wider leading-relaxed text-lg">
 			<li class="my-2 md:my-0 col-span-full md:col-span-6 p-8 bg-neutral-50/5 rounded-xl flex gap-8 items-center flex-col lg:flex-row">
-				<div class=" aspect-[3/2] w-full lg:w-[600px] overflow-clip rounded-3xl bg-neutral-300">
+				<div class=" aspect-[3/2] w-full lg:w-[600px] h-full overflow-clip rounded-3xl bg-neutral-300">
 					<ImageDynamic imagePath="heater-feature_channel.webp" altText='Технология усечённого канала' class="w-auto h-auto"/>
 				</div>
 				<div class="">
@@ -211,7 +211,7 @@ const mainImageDescription = "Стальной панельный радиато
 				</div>
 			</li>
 			<li class="my-2 md:my-0 col-span-full md:col-span-6 p-8 bg-neutral-50/5 rounded-xl flex gap-8 items-center flex-col lg:flex-row">
-				<div class=" aspect-[3/2] w-full lg:w-[600px] overflow-clip rounded-3xl bg-neutral-300">
+				<div class=" aspect-[3/2] w-full lg:w-[600px] h-full overflow-clip rounded-3xl bg-neutral-300">
 					<ImageDynamic imagePath="heater-feature_toppanel.webp" altText='Верхняя решетка крыловидной формы' class="w-auto h-auto"/>
 				</div>
 				<div class="">
@@ -221,7 +221,22 @@ const mainImageDescription = "Стальной панельный радиато
 						</div>
 					</div>
 					<div class="text-base font-normal text-balance !leading-relaxed">
-						Форма верхней решетки имеет форму крыла, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу
+						Форма верхней решетки имеет форму капли, при такой форме ускоряется поток теплого воздуха через прибор, улучшая теплоотдачу
+					</div>
+				</div>
+			</li>
+			<li class="my-2 md:my-0 col-span-full md:col-span-6 relative md:translate-x-1/2 p-8 bg-neutral-50/5 rounded-xl flex gap-8 items-center flex-col lg:flex-row">
+				<div class=" aspect-[3/2] w-full lg:w-[600px] h-full overflow-clip rounded-3xl bg-neutral-300">
+					<ImageDynamic imagePath="heater-feature_250kg.webp" altText='Верхняя решетка крыловидной формы' class="w-auto h-auto"/>
+				</div>
+				<div class="">
+					<div class="text-base md:text-lg font-black  text-primary uppercase  pb-4 text-balance">
+						<div class="">
+							Решетка выдерживает до 250 кг
+						</div>
+					</div>
+					<div class="text-base font-normal text-balance !leading-relaxed">
+						Прочная конструкция верхней решётки позволяет выдерживать значительные нагрузки — до 250 кг, что обеспечивает надёжность и безопасность эксплуатации даже в местах с высокой проходимостью
 					</div>
 				</div>
 			</li>
@@ -252,13 +267,13 @@ const mainImageDescription = "Стальной панельный радиато
 		
 		<div class="flex flex-col items-center lg:gap-8 xl:gap-16 py-16 md:px-8 xl:px-8 md:py-32 max-w-screen-2xl mx-auto text-neutral-600 z-10">
 			<h2 class="text-3xl font-semibold md:text-6xl mb-16">Модели радиаторов</h2>
-			<div class="grid grid-cols-1 gap-16 sm:gap-8 px-8 sm:grid-cols-2 xl:gap-16 lg:grid-cols-4 sm:px-0">
+			<div class="grid grid-cols-1 gap-16 sm:gap-8 px-8 sm:grid-cols-2 lg:gap-16 xl:grid-cols-4 sm:px-0">
 				{
 					[
 						{
 							shortName: "C",
 							longName: "Compact",
-							sub:null,
+							sub:"Боковое подключение",
 							url:`${URL_category}Compact/`,
 							characteristics: [
 								{ name: "Панель", icon: true },
@@ -274,7 +289,7 @@ const mainImageDescription = "Стальной панельный радиато
 						{
 							shortName: "VC",
 							longName: "Ventil Compact",
-							sub:null,
+							sub:"Нижнее подключение",
 							url:`${URL_category}Ventil Compact/`,
 							characteristics: [
 								{ name: "Панель", icon: true },
@@ -289,7 +304,7 @@ const mainImageDescription = "Стальной панельный радиато
 						{
 							shortName: "HC",
 							longName: "Hygiene Compact",
-							sub:"Hygiene",
+							sub:"Боковое подключение\n(гигиеническое исполнение)",
 							url:`${URL_category}Hygiene Compact/`,
 							characteristics: [
 								{ name: "Панель", icon: true },
@@ -304,7 +319,7 @@ const mainImageDescription = "Стальной панельный радиато
 						{
 							shortName: "HVC",
 							longName: "Hygiene Ventil Compact",
-							sub:"Hygiene",
+							sub:"Боковое подключение\n(гигиеническое исполнение)",
 							url:`${URL_category}Hygiene Ventil Compact/`,
 							characteristics: [
 								{ name: "Панель", icon: true },
@@ -317,7 +332,7 @@ const mainImageDescription = "Стальной панельный радиато
 							image:"HVC.webp"
 						}
 					].map((element)=>(
-						<ModelCard name={element.longName} shortname={element.shortName} characteristics={element.characteristics} subname={element.sub} url={element.url} types={element.types} image={element.image}/>
+						<ModelCard name={element.longName} shortname={element.shortName} characteristics={element.characteristics} subname={element.sub} url={element.url} types={element.types} image={element.image} class=" max-w-96"/>
 					))
 				}
 			</div>
@@ -336,7 +351,7 @@ const mainImageDescription = "Стальной панельный радиато
 			<ul class="flex gap-1 sm:gap-4 md:gap-0 font-black 2xl:gap-8 py-24">
 				{
 					[
-						{value:"C",expand:"Исполнение",orientation:"data-bottom"},
+						{value:"C",expand:"Модель",orientation:"data-bottom"},
 						{value:"22",expand:"Тип",orientation:"data-top"},
 						{value:"500",expand:"Высота",orientation:"data-bottom"},
 						{value:"1000",expand:"Длина",orientation:"data-top"}
@@ -367,6 +382,6 @@ const mainImageDescription = "Стальной панельный радиато
 
 	<!-- <Contact/> -->
 	<!-- calculator -->
-	<Calculator class="snap-center"/>
+	<!-- <Calculator class="snap-center"/> -->
 	<Footer class="mt-auto snap-center bg-neutral-300"/>
 </Layout>

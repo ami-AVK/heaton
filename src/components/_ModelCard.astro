@@ -1,12 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components';
-const {name, subname, shortname, characteristics, url,types, image, ...attr} = Astro.props;
+const {name, subname, shortname, characteristics, url,types, image,class:className, ...attr} = Astro.props;
 import heater from "../img/heater_main.webp"
 import Button from "./Button.astro";
 import ImageDynamic from '../components/ImageDynamic.astro';
 ---
-<div class="flex flex-col data-[wide]:gap-6 data-[wide]:flex-col  data-[wide]:sm:flex-row data-[wide]:items-center w-full p-8 transition-all border drop-shadow-none bg-neutral-50 border-neutral-50/50 rounded-3xl group/modelcard hover:bg-white hover:scale-105 will-change-auto hover:drop-shadow-primary-hard group/modelCard z-10" {...attr}>
+<div class="flex flex-col data-[wide]:gap-6 data-[wide]:flex-col  data-[wide]:sm:flex-row data-[wide]:items-center w-full p-8 transition-all border drop-shadow-none bg-neutral-50 border-neutral-50/50 rounded-3xl group/modelcard hover:bg-white hover:scale-105 will-change-auto hover:drop-shadow-primary-hard group/modelCard z-10" class:list={className} {...attr}>
     <div class="relative transition-transform will-change-transform group-hover/modelcard:scale-105 perspective-1000 group-data-[wide]/modelcard:sm:w-1/2">
         <div class="transition-all group-hover/modelcard:rotate-y-12 will-change-auto saturate-0  group-hover/modelcard:saturate-100">
             <ImageDynamic imagePath={image} altText={name} class="w-auto h-auto"/>
@@ -15,12 +15,12 @@ import ImageDynamic from '../components/ImageDynamic.astro';
         <span class="absolute bottom-0 text-5xl font-black leading-none transition-transform -right-4 translate-z-12 group-hover/modelcard:rotate-y-12 will-change-transform">{shortname}</span>
     </div>
     <div class="">
-        <h3 class="flex flex-col justify-end pt-4 text-xl min-h-20">
+        <h3 class="flex flex-col justify-start pt-4 text-xl min-h-20">
+            <span class="font-black">{name}</span>
             {
                subname?
-               <span>{subname}</span>:""
+               <span class="text-base whitespace-pre-line">{subname}</span>:""
             }
-            <span class="font-black">{name}</span>
         </h3>
         <ul class="py-2 pb-6 text-md">
         {

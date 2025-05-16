@@ -11,6 +11,7 @@ const { products } = Astro.props;
 
 // 1. Extract unique dimensions and types, sort them numerically/alphabetically
 const heights = [...new Set(products.map(p => p['Высота, мм']))].sort((a, b) => a - b);
+const width = [...new Set(products.map(p => p['Ширина, мм']))].sort((a, b) => a - b);
 const lengths = [...new Set(products.map(p => p['Длина, мм']))].sort((a, b) => a - b);
 const types = [...new Set(products.map(p => p['Тип']))].sort((a, b) => String(a).localeCompare(String(b))); // Sort types
 
@@ -27,7 +28,7 @@ const URL_main_catalog = `${URL_main}Каталог/`;
 ---
 
 <div class="overflow-x-auto relative sm:rounded-lg">
-    <h3 class="text-xl font-bold mb-4 ml-2">Теплоотдача радиаторов (Вт) при <span class="bg-primary text-neutral-50 px-1">ΔT=<span id="deltaT" class="font-black">70</span>°C</span></h3>
+    <h3 class="text-xl font-bold mb-4 ml-2">Теплоотдача (Вт) при <span class="bg-primary text-neutral-50 px-1">ΔT=<span id="deltaT" class="font-black">70</span>°C</span></h3>
   <table class="w-full text-sm text-left text-neutral-500 border-collapse">
     <thead class="text-xs text-neutral-500 uppercase bg-neutral-50">
       {/* First Header Row: Heights */}
